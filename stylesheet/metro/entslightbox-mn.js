@@ -11,7 +11,7 @@ $(document).ready(function () {
 	/* append the event lightbox div with dummy data */
 	$('body').append('<div style="display:none;" id="fadeout-ents"></div><div id="msl-lightbox-ents" style="display:none;"><div id="msl-lightbox-ents-title">ILOVEMONDAYS<br /> <span id="msl-lightbox-ents-subtitle">UV Rave</span></div><div id="msl-lightbox-ents-toc"><strong>Terms and Conditions</strong></div><div id="msl-lightbox-ents-content"><div id="msl-lightbox-ents-content-title"><span id="msl-lightbox-ents-content-t-date">Mon 9th Jul </span><span id="msl-lightbox-ents-content-t-time">9pm</span><br /><span id="msl-lightbox-ents-content-t-venue">Oceana</span></div><span id="msl-lightbox-ents-content-text">lorem ipsum</span></div><div id="msl-lightbox-ents-footer">&nbsp;</div><div id="msl-lightbox-ents-image"><img src="http://swansea.ukmsl.net/asset/Event/6042/422619_300423750022251_74026777_n.jpeg" /></div><div id="msl-lightbox-ents-more">&nbsp;</div></div>');
 	/* add click event handler for the box office links	 */
-	$('.msl-boxoffice-item-info a').click(function () {
+	$('.msl-boxoffice-item-info a, .ents-lightbox').click(function () {
 		var a = $(this).attr('href');
 		/* call lightbox function with event url as parameter */
 		showEntsLightbox(a);
