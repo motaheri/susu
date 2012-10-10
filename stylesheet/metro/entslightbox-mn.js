@@ -29,6 +29,7 @@ function hideEntsLightbox() {
 };
 
 function showEntsLightbox(a) {
+	console.log('showEntsLightbox(a = "' + a + '")');
 	/* safety check, ignore if no link */
 	if (a == null) return;
 	if (a == '#' || a == '') return;
