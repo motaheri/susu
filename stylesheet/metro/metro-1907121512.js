@@ -117,6 +117,12 @@ MetroScroller.initButtons = function(){
 		$('.msl-metro-page .article canvas').show();
 	});
 	
+	$('.article.event').unbind('click');
+	$('.article.event').click(function () {
+		var a = $(this).find('a').attr('href');
+		showEntsLightbox(a);
+		return false;
+	});
 };
 
 

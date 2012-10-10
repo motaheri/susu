@@ -173,11 +173,11 @@ mslMetro.dyLoadData = function (url) {
             	$('#msl-metro-more-left').fadeIn(2500);
             	$('#msl-metro-more-right').fadeIn(2500);
             }
-	    $('.article.event').unbind('click');
-	    $('.article.event').click(function () {
-        	var a = $(this).find('a').attr('href');
-        	showEntsLightbox(a);
-        	return false;
+	    	$('.article.event').unbind('click');
+	    	$('.article.event').click(function () {
+        		var a = $(this).find('a').attr('href');
+        		showEntsLightbox(a);
+        		return false;
             });
         });
     });
