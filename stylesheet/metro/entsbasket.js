@@ -7,16 +7,19 @@ function qs(key) {
 $(document).ready(function(){
 	var qty = parseInt(qs('addBasketQty'));
 	var type = qs('addBasketType');
-	if($('.msl_info').length>0){
+	if ($('.msl_info').length > 0) {
 		window.location = "/shop/reviewbasket/";
-	} else {
-	if(type.length>0 && $('.error').length==0){
-		console.log(type);
-		if(qty>0){
-			$('#' + type).val(qty);
-			type = type.replace('ddQty', 'btnAddTicket');
-			$('#' + type).trigger('click');
+	} 
+	else {
+		// this was throwing type == null error, so added a check
+		if (type == null) return;
+		if (type.length > 0 && $('.error').length == 0){
+			console.log(type);
+			if (qty > 0) {
+				$('#' + type).val(qty);
+				type = type.replace('ddQty', 'btnAddTicket');
+				$('#' + type).trigger('click');
+			}
 		}
-	}
 	}
 });
