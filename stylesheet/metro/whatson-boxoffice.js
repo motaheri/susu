@@ -2,7 +2,7 @@
  * Pulls the next future event for SU weekly brands
  * from dedicated MSL widget pages.
  * 
- * Last Updated: 16/10/2012 by Michael Nicholas
+ * Last Updated: 18/10/2012 by Michael Nicholas
  */
 
 // MONDAY - I LOVE MONDAYS
@@ -27,6 +27,7 @@ var boxOffice_brand_sink = "http://www.swansea-union.co.uk/api/brands/sink/";
  */
 $(document).ready(function() {
 	boxOffice_setEventLink(boxOffice_brand_ilm, '#msl-boxoffice-regevent-ilm');
+	boxOffice_setEventLink(boxOffice_brand_flux, '#msl-boxoffice-regevent-flux');
 	boxOffice_setEventLink(boxOffice_brand_playon, '#msl-boxoffice-regevent-playon');
 	boxOffice_setEventLink(boxOffice_brand_sinsavers, '#msl-boxoffice-regevent-sinsavers');
 	boxOffice_setEventLink(boxOffice_brand_tooters, '#msl-boxoffice-regevent-tooters');

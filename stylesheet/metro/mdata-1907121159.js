@@ -1,11 +1,11 @@
 function strpos(haystack, needle, offset) {
-    var i = (haystack + '').indexOf(needle, (offset || 0));
-    return i === -1 ? false : i;
+	var i = (haystack + '').indexOf(needle, (offset || 0));
+	return i === -1 ? false : i;
 }
 
 function ucfirst(str) {
-    var firstLetter = str.substr(0, 1);
-    return firstLetter.toUpperCase() + str.substr(1);
+	var firstLetter = str.substr(0, 1);
+	return firstLetter.toUpperCase() + str.substr(1);
 }
 
 var mslMetro = {};
@@ -64,123 +64,123 @@ mslMetro.loadEvents = function(data, articles){
 
 mslMetro.loadAjax = function (url, r) {
 
-    $.ajax({
-        url: url,
-        success: function (data) {
-            var items = data.split('id="skin_blank"');
-            items = items[1].split('<script type="text/javascript">');
-            items = items[0].split('_divItem"');
-            var articles = [];
-            $.each(items, function (index, value) {
-                if (strpos(value, 'msl_news_org', 0) > 0) {
-                    //is a news item, now split out
-                    var article = {};
-                    var d = value.split('msl_news_org">');
-                    d = d[1].split('</div>');
-                    article['category'] = $.trim(d[0]).replace(">", "");
+	$.ajax({
+		url: url,
+		success: function (data) {
+			var items = data.split('id="skin_blank"');
+			items = items[1].split('<script type="text/javascript">');
+			items = items[0].split('_divItem"');
+			var articles = [];
+			$.each(items, function (index, value) {
+				if (strpos(value, 'msl_news_org', 0) > 0) {
+					//is a news item, now split out
+					var article = {};
+					var d = value.split('msl_news_org">');
+					d = d[1].split('</div>');
+					article['category'] = $.trim(d[0]).replace(">", "");
 
-                    var d = value.split('href="');
-                    d = d[1].split('"');
-                    article['link'] = $.trim(d[0]);
+					var d = value.split('href="');
+					d = d[1].split('"');
+					article['link'] = $.trim(d[0]);
 
-                    d = d[1].split('</a>');
-                    article['title'] = $.trim(d[0]).replace(">", "");
+					d = d[1].split('</a>');
+					article['title'] = $.trim(d[0]).replace(">", "");
 
-                    var d = value.split('src="');
-                    d = d[1].split('"');
-                    article['img'] = $.trim(d[0]);
+					var d = value.split('src="');
+					d = d[1].split('"');
+					article['img'] = $.trim(d[0]);
 
-                    var d = value.split('<p class="leader">');
-                    d = d[1].split('"');
-                    article['text'] = $.trim(d[0]) + "...";
+					var d = value.split('<p class="leader">');
+					d = d[1].split('"');
+					article['text'] = $.trim(d[0]) + "...";
 
-                    var d = value.split('class="');
-                    d = d[1].split('"');
-                    article['css'] = $.trim(d[0]);
-                    
-                    var d = d[0].split('msltagleader-');
-                    if(d.length>1){
-                    	d = d[1].split(' ');
-                    	article['category'] = $.trim(d[0]);
-                    	article['category'] = ucfirst(article['category']);
-                    } else {
-                    	article['category'] = "SUSU";
-                    }
-                    
-                    articles.push(article);
-                }
-            });
+					var d = value.split('class="');
+					d = d[1].split('"');
+					article['css'] = $.trim(d[0]);
+					
+					var d = d[0].split('msltagleader-');
+					if(d.length>1){
+						d = d[1].split(' ');
+						article['category'] = $.trim(d[0]);
+						article['category'] = ucfirst(article['category']);
+					} else {
+						article['category'] = "SUSU";
+					}
+					
+					articles.push(article);
+				}
+			});
 
-	    articles = mslMetro.loadEvents(data, articles);
+			articles = mslMetro.loadEvents(data, articles);
 
-            var pages = 1;
-            if (articles.length >= 24) {
-                pages = 3;
-            }
-            var pi = 1;
-            var currentPage = [];
-            var allPages = [];
-            $.each(articles, function (index, value) {
-                if (index < 24) {
-                    currentPage.push(value);
-                    if (pi == 8) {
-                        allPages.push(currentPage);
-                        currentPage = [];
-                        pi = 0;
-                    }
-                }
-                pi++;
-            });
+			var pages = 1;
+			if (articles.length >= 24) {
+				pages = 3;
+			}
+			var pi = 1;
+			var currentPage = [];
+			var allPages = [];
+			$.each(articles, function (index, value) {
+				if (index < 24) {
+					currentPage.push(value);
+					if (pi == 8) {
+						allPages.push(currentPage);
+						currentPage = [];
+						pi = 0;
+					}
+				}
+				pi++;
+			});
 
-            if (currentPage.length > 0) {
-                if(allPages.length == 0){
-                	allPages.push(currentPage);
-                }
-            }
+			if (currentPage.length > 0) {
+				if(allPages.length == 0){
+					allPages.push(currentPage);
+				}
+			}
 
-	    if(allPages.length==2){
-		allPages = [allPages[0]];
-	    }
+		if(allPages.length==2){
+			allPages = [allPages[0]];
+		}
 
-	    if(allPages.length==3){
-		allPages = [allPages[1], allPages[0], allPages[2]];
-	    }
+		if(allPages.length==3){
+		allPages = [allPages[2], allPages[0], allPages[1]];
+		}
 			//console.log(allPages);
-            MetroScroller.loadData(allPages);
-            r(allPages);
-        }
-    });
+			MetroScroller.loadData(allPages);
+			r(allPages);
+		}
+	});
 
 };
 
 mslMetro.dyLoadData = function (url) {
-    $('#msl-metro-more-left').hide();
-    $('#msl-metro-more-right').hide();
+	$('#msl-metro-more-left').hide();
+	$('#msl-metro-more-right').hide();
 
-    $('#msl-metro-loading').fadeIn(800, function () {
-        mslMetro.loadAjax(url, function (i) {
+	$('#msl-metro-loading').fadeIn(800, function () {
+		mslMetro.loadAjax(url, function (i) {
 
-            var cLeft = 940;
-            var left = parseInt($('.msl-metro-page-selected').css('left').replace('px', '')) * -1 + $('#msl-metro-fade-left').width();
-            $('#msl-metro-container').css('left', left + 'px');
-            $('.msl-metro-page').each(function () {
-                $(this).css('left', cLeft + 'px');
-                cLeft = cLeft + 940;
-            });
+			var cLeft = 940;
+			var left = parseInt($('.msl-metro-page-selected').css('left').replace('px', '')) * -1 + $('#msl-metro-fade-left').width();
+			$('#msl-metro-container').css('left', left + 'px');
+			$('.msl-metro-page').each(function () {
+				$(this).css('left', cLeft + 'px');
+				cLeft = cLeft + 940;
+			});
 
-            $('#msl-metro-loading').fadeOut(2500);
-            if(i.length>1){
-            	$('#msl-metro-more-left').fadeIn(2500);
-            	$('#msl-metro-more-right').fadeIn(2500);
-            }
-	    	$('.article.event').unbind('click');
-	    	$('.article.event').click(function () {
-        		var a = $(this).find('a').attr('href');
-        		showEntsLightbox(a);
-        		return false;
-            });
-        });
-    });
+			$('#msl-metro-loading').fadeOut(2500);
+			if(i.length>1){
+				$('#msl-metro-more-left').fadeIn(2500);
+				$('#msl-metro-more-right').fadeIn(2500);
+			}
+			$('.article.event').unbind('click');
+			$('.article.event').click(function () {
+				var a = $(this).find('a').attr('href');
+				showEntsLightbox(a);
+				return false;
+			});
+		});
+	});
 };
 
 $(document).ready(function(){
@@ -194,9 +194,9 @@ $(document).ready(function(){
 });
 
 /*$(document).ready(function () {
-    MetroScroller.initSideButtons();
-    MetroScroller.initButtons();
-    MetroScroller.deSaturate();
-    MetroScroller.resize();
-    mslMetro.dyLoadData('/api/news-union/');
+	MetroScroller.initSideButtons();
+	MetroScroller.initButtons();
+	MetroScroller.deSaturate();
+	MetroScroller.resize();
+	mslMetro.dyLoadData('/api/news-union/');
 });*/
