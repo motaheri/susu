@@ -102,6 +102,7 @@ MetroScroller.initSideButtons = function(){
 
 MetroScroller.initButtons = function(){
 
+/*
 	$('.msl-metro-page .article img').unbind('hover');
 	
 	$('.msl-metro-page .article').hover(function(){
@@ -115,6 +116,12 @@ MetroScroller.initButtons = function(){
 		$('.msl-metro-page .article img.gray').hide();
 		$('.msl-metro-page .article img.color').show();
 		$('.msl-metro-page .article canvas').show();
+	});
+*/
+	$('.msl-metro-page .article').hover(function(){
+		$(this).find('img').first().css('opacity', 1);
+	}, function(){
+		$(this).find('img').first().css('opacity', 0.75);
 	});
 	
 	$('.article.event').unbind('click');
@@ -354,7 +361,7 @@ MetroScroller.loadExampleData = function(){
 
 MetroScroller.deSaturate = function(){
 	
-	//show any hidden images	
+	//show any hidden images
 	$('.article img').show();
 	$('.article').each(function(){
 		if($(this).find('img').size() == 2){
@@ -363,31 +370,19 @@ MetroScroller.deSaturate = function(){
 	});	
 
 	$('.msl-metro-page .article img').each(function(){
-		
-		var h = $(this).height();
-		if(h==0){
-			h = 102;
-			var parentc = $(this).parent().parent();
-			if($(parentc).hasClass('article-2')){
-				h = 102;
-			}
-			if($(parentc).hasClass('article-1')){
-				h = 255;
-			}
-			if($(parentc).hasClass('article-3')){
-				h = 97;
-			}
-		}
+		$(this).css('opacity', 0.75);
 		var w = $(this).width();
-		
-		$(this).clone().insertAfter(this).hide().addClass('gray');
-		$(this).addClass('color');
-		//duplicate and hide the image
-		Pixastic.process(this, "desaturate", { rectx: { width : w, height : h }});
-		//remove any duplicate image tags
-		if($(this).parent().find('img').size() == 2){
-			//$(this).parent().find('img')[1].remove();
-		}	
+		var h = $(this).height();
+		if (h < 50) {
+			var parentc = $(this).parent().parent();
+			if ($(parentc).hasClass('article-1'))
+				h = 215;
+			if ($(parentc).hasClass('article-2'))
+				h = 102;
+			if ($(parentc).hasClass('article-3'))
+				h = 97;
+		}
+		//Pixastic.process(this, "desaturate", { rectx: { width : w, height : h } });
 	});
 };
 
