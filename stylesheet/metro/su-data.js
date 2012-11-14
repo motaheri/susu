@@ -19,6 +19,7 @@
 
 var SU_Data = {};
 
+// Event Object
 SU_Data.eventObj = function() {
 	this.Title = '';		// Event name
 	this.Description = '';	// Brief event description
@@ -33,6 +34,7 @@ SU_Data.eventObj = function() {
 	this.AddToBasket = function(type, quantity) { SU_Data.eventAddToBasket(this, type, quantity) };
 }
 
+// Ticket Object - child of eventObj
 SU_Data.eventTicketObj = function() {
 	this.Name = '';
 	this.Price = '';
@@ -41,6 +43,7 @@ SU_Data.eventTicketObj = function() {
 	this.QuantityID = '';
 }
 
+// News Object
 SU_Data.newsObj = function() {
 	this.Title = '';
 	this.Description = '';
@@ -52,16 +55,31 @@ SU_Data.newsObj = function() {
 	this.Tags = [];
 }
 
+// Blog Post Object
+SU_Data.blogPostObj = function() {
+	this.Title = '';
+	this.Description = '';
+	this.Author = '';
+	this.AuthorLink = '';
+	this.Story = '';
+	this.Date = '';
+	this.Image = '';
+}
+
+// Boolean variables to quickly identify if we have data
 SU_Data.hasEvents = false;
 SU_Data.hasNews = false
+SU_Data.hasBlogPosts = false;
 
+// Actual data arrays
 SU_Data.eventData = {};
 SU_Data.newsData = {};
+SU_Data.blogPostData = {};
 
-// data transmission object for use with window.postMessage
+// Data transmission object for use with window.postMessage
 SU_Data.messageObj = function() {
-	this.Message = null;
-	this.Data = null;
+	this.Message = null; // Message Type string
+	this.Data = null; // Data object (any type)
 	this.Type = 'SU_Data postMessage';
 };
 
@@ -96,9 +114,17 @@ SU_Data.findEventData = function() {
 			if (dateValue != null) {
 				dateValue = $.trim(dateValue.replace(/[\r\n]/g, ''));
 				var dateMatch = dateValue.match(/(\w+ \w+) ([\w:]+ - [\w:]+)/);
-				if (dateMatch.length == 3) {
-					event.Date = dateMatch[1];
-					event.Time = dateMatch[2];
+				if (dateMatch == null) {
+					dateMatch = dateValue.match(/(\w+ \w+)/);
+					if (dateMatch.length == 2) {
+						event.Date = dateMatch[1];
+					}
+				}
+				else {
+					if (dateMatch.length == 3) {
+						event.Date = dateMatch[1];
+						event.Time = dateMatch[2];
+					}
 				}
 			}
 			event.Link = $(this).find('.msl_event_name').first().attr('href');
@@ -139,9 +165,9 @@ SU_Data.getFullEvent = function(event) {
 					var ticket = new SU_Data.eventTicketObj();
 					ticket.PurchaseID = $(this).find('input').attr('id');
 					ticket.QuantityID = $(this).find('select').attr('id');
-					var temp1 = $(this).clone().children().remove().end().text();
-					var temp2 = temp1.match(/£([\d\.]+) \(([\w\s]+)\)/);
-					if (temp2.length != 3) return;
+					var temp1 = new String($(this).clone().children().remove().end().text().trim());
+					var temp2 = temp1.match(/([\d\.]+) \(([\w\s]+)\)/i);
+					if (temp2 == null || temp2.length != 3) return;
 					ticket.Name = temp2[2];
 					ticket.Price = temp2[1];
 					ticket.Quantities = $(this).find('option').map(function(index, value) { return parseInt($(value).text()) });
@@ -287,12 +313,54 @@ SU_Data.stringLeft = function(str, n) {
 	    return String(str).substring(0, n);
 }
 
+/**
+ * Code for the Events page to handle the Add To Basket actions.
+ * Called on every page, but only does anything on the events page.
+ */
+SU_Data.f_EventPage_AddToBasket = function() {
+	// Only run this code if the current page has tickets for sale.
+	// I belive this is only /ents/event/<id>/ pages
+	if ($('.event_tickets .event_ticket input.button').length > 0) {
+		// If we have a parent window, send a basket request message
+		if (parent != window) {
+			var listener = function(e) {
+				if (e.source == window) return;
+				if (e.data == null || e.data.Type != 'SU_Data postMessage') return;
+				var msg = e.data;
+				if (msg.Message == 'EventBasketData') {
+					var pId = msg.Data.PurchaseID;
+					var qId = msg.Data.QuantityID;
+					var quantity = msg.Data.Quantity;
+					$('#' + qId).val(quantity);
+					$('#' + pId).trigger('click');
+					e.source.postMessage('EventBasketCallback', e.origin);
+				}
+			}
+			if (window.addEventListener){
+				addEventListener("message", listener, false);
+			} else {
+				attachEvent("onmessage", listener);
+			}
+			var msg = new SU_Data.messageObj();
+			msg.Message = 'EventBasketRequest';
+			msg.Data = $('#msl-basket').html();
+			parent.postMessage(msg, "http://www.swansea-union.co.uk/");
+		}
+	}
+}
+
+/**
+ * Document Ready Handler
+ */
 $(document).ready(function() {
 	SU_Data.findEventData();
 	SU_Data.findNewsData();
+	// Basket & Add To Basket Code
 	if (window.addEventListener){
 		addEventListener("message", SU_Data.eventAddToBasket_Callback, false);
 	} else {
 		attachEvent("onmessage", SU_Data.eventAddToBasket_Callback);
 	}
+	SU_Data.f_EventPage_AddToBasket();
 });
+
