@@ -4,19 +4,22 @@ function qs(key) {
     return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 }
 
+// data transmission object for use with window.postMessage - matches the one in SU_Data
 var messageObj = function() {
 	this.Message = null;
 	this.Data = null;
 	this.Type = 'SU_Data postMessage';
 };
 
+/**
+ * Handler for postMessages sent while this page is a child iframe.
+ * Used for silently calling add-to-basket functionality from other pages.
+ * Snippet is linked to the SU_Data class and needs to be moved to a more suitable permenant location.
+ * -- Mike Nicholas
+ */
 var basketListener = function(e) {
-	if (e.source == window) {
-		return;
-	}
-	if (e.data == null || e.data.Type != 'SU_Data postMessage') {
-		return;
-	}
+	if (e.source == window) return;
+	if (e.data == null || e.data.Type != 'SU_Data postMessage') return;
 	var msg = e.data;
 	if (msg.Message == 'EventBasketData') {
 		var pId = msg.Data.PurchaseID;
@@ -29,6 +32,7 @@ var basketListener = function(e) {
 }
 
 $(document).ready(function(){
+	/* BEGIN - Mike's basket code */
 	if (parent != window) {
 		if (window.addEventListener){
 			addEventListener("message", basketListener, false);
@@ -40,6 +44,9 @@ $(document).ready(function(){
 		msg.Data = $('#msl-basket').html();
 		parent.postMessage(msg, "http://www.swansea-union.co.uk/");
 	}
+	/* END - Mike's basket code */
+	
+	/* BEGIN - Toby's basket code */
 	var qty = parseInt(qs('addBasketQty'));
 	var type = qs('addBasketType');
 	if ($('.msl_info').length > 0) {
@@ -57,4 +64,5 @@ $(document).ready(function(){
 			}
 		}
 	}
+	/* END - Toby's basket code */
 });
