@@ -56,7 +56,7 @@ SU_Data.newsObj = function() {
 }
 
 // Blog Post Object
-SU_Data.blogPostObj = function() {
+SU_Data.blogObj = function() {
 	this.Title = '';
 	this.Description = '';
 	this.Author = '';
@@ -64,17 +64,19 @@ SU_Data.blogPostObj = function() {
 	this.Story = '';
 	this.Date = '';
 	this.Image = '';
+	this.Link = '';
+	this.GetPost = function() { return SU_Data.getFullBlogPost(this); }
 }
 
 // Boolean variables to quickly identify if we have data
 SU_Data.hasEvents = false;
 SU_Data.hasNews = false
-SU_Data.hasBlogPosts = false;
+SU_Data.hasBlogs = false;
 
 // Actual data arrays
 SU_Data.eventData = {};
 SU_Data.newsData = {};
-SU_Data.blogPostData = {};
+SU_Data.blogData = {};
 
 // Data transmission object for use with window.postMessage
 SU_Data.messageObj = function() {
@@ -297,9 +299,72 @@ SU_Data.findNewsData = function() {
 	});
 }
 
+/**
+ * Parses any Recent Blog Post widgets on the page and populates the blogData array with the data.
+ */
+SU_Data.findBlogData = function() {
+	$('ul.msl-recentblogposts').each(function() {
+		// get the div ID of the parent, used to reference this data list, set in widget config
+		var widgetId = null;
+		if ($(this).parent().attr('id') != null) {
+			widgetId = $(this).parent().attr('id');
+		}
+		else {
+			console.log('Blog widget is missing a div ID.');
+			return;
+		}
+		// create an array for the blog articles
+		var blogPosts = [];
+		// parse each news item
+		$(this).find('li.msl-recentblogpost').each(function(index) {
+			// mark that we have some blogs
+			SU_Data.hasBlogs = true;
+			// create and populate a new blogObj object
+			var article = new SU_Data.blogObj();
+			article.Title = $(this).find('.msl-recentblogposttitle').text();
+			article.Description = $(this).find('span.msl-recentblogpost').text();
+			article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
+			article.Author = $(this).find('.msl-recentblogpostblogname').text()
+			article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href');
+			article.Story = '';
+			article.Date = $(this).find('.msl-recentblogpostdate').text();
+			article.Image = $(this).find('.msl-recentblogpostimage').first().attr('src');
+			article.Link = $(this).find('.msl-recentblogposttitle').attr('href');
+			// push it into the blogpost array
+			blogPosts.push(article);
+		});
+		// add all the blog posts to the blogData store, referenced using the widgetId
+		SU_Data.blogData[widgetId] = blogPosts;
+	});
+}
 
 /**
- * Tales the first N characters from the given string.
+ * Ajax calls the blog post page and retrieves the full text.
+ * @param {blogObj} blogPost The blog post object.
+ */
+SU_Data.getFullBlogPost = function(blogPost) {
+	// Make sure this is a blogObj object
+	if (blogPost.Story == null || blogPost.Link == null) return null;
+	// Make sure we have a blog link, and haven't got a story
+	if (blogPost.Link != '' && blogPost.Story == '') {
+		// Make ajax call to the blog post page to get the data
+		$.ajax({
+			url: blogPost.Link,
+			async: false,
+			success: function(data) {
+				// make sure we got some content
+				if (data == null) return;
+				// get the blog post
+				blogPost.Story = $('.msl_blog_post_body', data).html();
+			    blogPost.Story = $.trim(blogPost.Story.replace(/[\r\n\t]/g, ''));
+			}
+		});
+	}
+	return blogPost;
+}
+
+/**
+ * Takes the first N characters from the given string.
  * If there are less than N characters it returns the whole string.
  * @param {String} str The string.
  * @param {number} n The number of characters.
@@ -355,6 +420,7 @@ SU_Data.f_EventPage_AddToBasket = function() {
 $(document).ready(function() {
 	SU_Data.findEventData();
 	SU_Data.findNewsData();
+	SU_Data.findBlogData();
 	// Basket & Add To Basket Code
 	if (window.addEventListener){
 		addEventListener("message", SU_Data.eventAddToBasket_Callback, false);
