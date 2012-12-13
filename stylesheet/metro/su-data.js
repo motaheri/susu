@@ -86,6 +86,10 @@ SU_Data.messageObj = function() {
 	this.Type = 'SU_Data postMessage';
 };
 
+SU_Data.GetEvents = function(daysAhead) {
+	daysAhead = typeof daysAhead !== 'undefined' ? daysAhead : 30;
+};
+
 /**
  * Parses any EventList widgets on the page and populates the eventData array with the data.
  */
