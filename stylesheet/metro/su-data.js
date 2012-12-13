@@ -31,7 +31,8 @@ SU_Data.eventObj = function() {
 	this.FullText = '';		// Full text description (not loaded by default)
 	this.Tickets = [];		// Array of ticket objects (not loaded by default
 	this.GetEvent = function() { return SU_Data.getFullEvent(this) };
-	this.AddToBasket = function(type, quantity) { SU_Data.eventAddToBasket(this, type, quantity) };
+	this.AddToBasket2 = function(type, quantity) { SU_Data.eventAddToBasket2(this, type, quantity) };
+	this.AddToBasket = function(ticketIndex, quantity) { SU_Data.eventAddToBasket(this, ticketIndex, quantity) };
 }
 
 // Ticket Object - child of eventObj
@@ -241,10 +242,30 @@ SU_Data.eventAddToBasket_Callback = function(e) {
  * Function is embedded in the eventObj object.
  * Triggers an add-to-basket action using a hidden iframe.
  * @param {eventObj} event The event.
+ * @param {number} ticketIndex The index of the ticket in the event.Tickets array.
+ * @param {number} quantity How many tickets to add.
+ */
+SU_Data.eventAddToBasket = function(event, ticketIndex, quantity) {
+	$('#eventAddToBasketFrame').remove();
+	if (event == null || ticketIndex == null || typeof(ticketIndex) != 'number') return;
+	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
+	event.GetEvent();
+	if (ticketIndex >= event.Tickets.length) return;
+	var ticket = event.Tickets[ticketIndex];
+	if (ticket == null) return;
+	eventAddToBasket_Data = { PurchaseID: ticket.PurchaseID, QuantityID: ticket.QuantityID, Quantity: quantity };
+	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '"></iframe>').hide();
+	$('body').append(frame);
+}
+
+/**
+ * Function is embedded in the eventObj object.
+ * Triggers an add-to-basket action using a hidden iframe.
+ * @param {eventObj} event The event.
  * @param {ticketObj} ticket The ticket object (from within event.Tickets array).
  * @param {number} quantity How many tickets to add.
  */
-SU_Data.eventAddToBasket = function(event, ticket, quantity) {
+SU_Data.eventAddToBasket2 = function(event, ticket, quantity) {
 	$('#eventAddToBasketFrame').remove();
 	if (event == null || ticket == null) return;
 	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
