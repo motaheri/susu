@@ -24,14 +24,12 @@ SU_Data.eventObj = function() {
 	this.Title = '';		// Event name
 	this.Description = '';	// Brief event description
 	this.Location = '';		// Venue
-	this.Date = '';			// Date
-	this.Time = '';			// Time
+	this.Date = null;		// Date
 	this.Image = '';		// Logo
 	this.Link = '';			// Event link
 	this.FullText = '';		// Full text description (not loaded by default)
 	this.Tickets = [];		// Array of ticket objects (not loaded by default
 	this.GetEvent = function() { return SU_Data.getFullEvent(this) };
-	this.AddToBasket2 = function(type, quantity) { SU_Data.eventAddToBasket2(this, type, quantity) };
 	this.AddToBasket = function(ticketIndex, quantity) { SU_Data.eventAddToBasket(this, ticketIndex, quantity) };
 }
 
@@ -86,8 +84,13 @@ SU_Data.messageObj = function() {
 	this.Type = 'SU_Data postMessage';
 };
 
+/**
+ * 
+ */
 SU_Data.GetEvents = function(daysAhead) {
+	// default to 30 days ahead
 	daysAhead = typeof daysAhead !== 'undefined' ? daysAhead : 30;
+	// TODO: Return array of events within next 'daysAhead' days
 };
 
 /**
@@ -119,19 +122,34 @@ SU_Data.findEventData = function() {
 			event.Location = $.trim(event.Location.replace(/[\r\n\t]/g, ''));
 			var dateValue = $(this).find('.msl_event_time').text();
 			if (dateValue != null) {
-				dateValue = $.trim(dateValue.replace(/[\r\n]/g, ''));
-				var dateMatch = dateValue.match(/(\w+ \w+) ([\w:]+ - [\w:]+)/);
-				if (dateMatch == null) {
-					dateMatch = dateValue.match(/(\w+ \w+)/);
-					if (dateMatch.length == 2) {
-						event.Date = dateMatch[1];
+				dateValue = $.trim(dateValue.replace(/[\r\n]/g, '').replace(/midnight/g, '0am').replace(/noon/g, '12pm'));
+				// Parse date as an object if we can
+				var year = new Date().getFullYear();
+				var dateMatch = dateValue.match(/^([0-9]{1,2}).* ([a-z]+)/i);
+				if (dateMatch != null && dateMatch.length >= 3) {
+					event.Date = new Date(Date.parse(dateMatch[1] + ' ' + dateMatch[2] + ' ' + year));
+					if (new Date(event.Date).getMonth() < new Date().getMonth()) {
+						event.Date.setFullYear(year+1);
+					}
+					var timeValue = dateValue.match(/[0-9\:]+[a|p]m/);
+					if (timeValue != null && timeValue.length >= 1) {
+						var timeSplit = timeValue[0].match(/([0-9]+):?([0-9]+)?([a|p]m)/);
+						if (timeSplit != null && timeSplit.length >= 3) {
+							if (timeSplit[1] == '12' && timeSplit[3] == 'am') {
+								timeSplit[1] = 0;
+							}
+							else if (timeSplit[1] != '12' && timeSplit[3] == 'pm') {
+								timeSplit[1] = 12 + parseInt(timeSplit[1]);
+							}
+							if (timeSplit[2] == null) {
+								timeSplit[2] = 0;
+							}
+							event.Date.setHours(timeSplit[1], timeSplit[2], 0, 0);
+						}
 					}
 				}
 				else {
-					if (dateMatch.length == 3) {
-						event.Date = dateMatch[1];
-						event.Time = dateMatch[2];
-					}
+					event.Date = null;
 				}
 			}
 			event.Link = $(this).find('.msl_event_name').first().attr('href');
@@ -257,23 +275,6 @@ SU_Data.eventAddToBasket = function(event, ticketIndex, quantity) {
 	if (ticketIndex >= event.Tickets.length) return;
 	var ticket = event.Tickets[ticketIndex];
 	if (ticket == null) return;
-	eventAddToBasket_Data = { PurchaseID: ticket.PurchaseID, QuantityID: ticket.QuantityID, Quantity: quantity };
-	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '"></iframe>').hide();
-	$('body').append(frame);
-}
-
-/**
- * Function is embedded in the eventObj object.
- * Triggers an add-to-basket action using a hidden iframe.
- * @param {eventObj} event The event.
- * @param {ticketObj} ticket The ticket object (from within event.Tickets array).
- * @param {number} quantity How many tickets to add.
- */
-SU_Data.eventAddToBasket2 = function(event, ticket, quantity) {
-	$('#eventAddToBasketFrame').remove();
-	if (event == null || ticket == null) return;
-	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
-	event.GetEvent();
 	eventAddToBasket_Data = { PurchaseID: ticket.PurchaseID, QuantityID: ticket.QuantityID, Quantity: quantity };
 	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '"></iframe>').hide();
 	$('body').append(frame);
