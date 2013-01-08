@@ -179,11 +179,24 @@
            body{
                margin:100px;
            } 
+           
+           /* 
+           
+           NEWS
+           
+           */
+           
+           
            .news{
                xborder:1px #c00 solid;
                display:inline-block;
-               margin-left:-5px;
+               margin-left:-5px; /* fix off margin */
                font-family:sans-serif;
+               padding:50px;
+           }
+           .news p{
+               
+               margin-top:10px;
            }
             #metro .news {
                 display:inline-block;
@@ -191,16 +204,23 @@
                 *display:inline;
                 position:relative;
             }
-            #metro .news a {
+            #metro .news h1{
+                
+                font-size: 22px;
+                line-height:22px;
+            }
+            
+            #metro .news h1 a {
                 display: inline-block;
                 text-decoration:none;
                 padding:4px 10px;
-                border-radius:2px;
+                border-radius:0px;
                 transform: skew(-10deg);
                 -o-transform: skew(-10deg);
                 -moz-transform: skew(-10deg);
                 -webkit-transform: skew(-10deg);
                 color:#757575;
+               
             }
             #metro .news a span {
                /* display: inline-block;
@@ -211,16 +231,16 @@
                */
             }
 
-            #metro .news a:hover {
+            #metro .news h1 a:hover {
                 background:#f3f1eb;
             }
 
-            #metro .news a.current {
+            #metro .news h1 a.current {
                 color:#fff;
                 background:#c00;
             }
 
-            #metro .news a.current:hover {
+            #metro .news h1 a.current:hover {
                 background:#D00;
             }
 
@@ -236,7 +256,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
-                <h1><a>Test Title Long First Line Short Second Line</a></h1>
+                <h1><a>Test Title Long First Line</a></h1>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
