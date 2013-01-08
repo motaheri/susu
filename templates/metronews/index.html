@@ -177,7 +177,7 @@
            */
 
            body{
-               margin:100px;
+               margin:50px;
            } 
            
            /* 
@@ -185,32 +185,36 @@
            NEWS
            
            */
-           
+           a{
+               cursor: pointer;
+               cursor: hand;
+           }
            
            .news{
-               xborder:1px #c00 solid;
+               
                display:inline-block;
                margin-left:-5px; /* fix off margin */
                font-family:sans-serif;
-               padding:50px;
+               padding:10px 5px;
            }
            .news p{
-               
                margin-top:10px;
+               margin-left:10px;
            }
             #metro .news {
                 display:inline-block;
                 zoom:1;
                 *display:inline;
                 position:relative;
+                margin:10px;
             }
             #metro .news h1{
-                
-                font-size: 22px;
-                line-height:22px;
+                text-transform: uppercase;
+                font-size: 18px;
+                line-height:18px;
             }
             
-            #metro .news h1 a {
+            #metro .news a h1{
                 display: inline-block;
                 text-decoration:none;
                 padding:4px 10px;
@@ -220,6 +224,7 @@
                 -moz-transform: skew(-10deg);
                 -webkit-transform: skew(-10deg);
                 color:#757575;
+                margin-top:3px !important;
                
             }
             #metro .news a span {
@@ -231,19 +236,33 @@
                */
             }
 
-            #metro .news h1 a:hover {
+            #metro .news a:hover h1{
                 background:#f3f1eb;
+                
             }
 
-            #metro .news h1 a.current {
+            #metro .news a.current h1{
                 color:#fff;
                 background:#c00;
             }
 
-            #metro .news h1 a.current:hover {
+            #metro .news a.current:hover h1{
                 background:#D00;
             }
 
+            .news.hover{
+                
+                background:#bf1616;
+            }
+            #metro .news.hover a h1{
+                color:#fff;
+            }
+            #metro .news.hover a:hover h1{
+                background:none;
+            }
+            #metro .news.hover p{
+                color:#fff;
+            }
   
         </style>
         <link rel="stylesheet/less" type="text/css" href="metronews.less" />
@@ -252,23 +271,23 @@
     <body>
         <div id="metro">
             <div class="news medium">
-                <h1><a class="current">Test Title Long First Line Short Second Line</a></h1>
+                <a class="current"><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+            </div>
+            <div class="news medium hover">
+                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
-                <h1><a>Test Title Long First Line</a></h1>
+                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
-                <h1><a>Test Title Long First Line Short Second Line</a></h1>
+                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
-                <h1><a>Test Title Long First Line Short Second Line</a></h1>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
-            <div class="news medium">
-                <h1><a>Test Title Long First Line Short Second Line</a></h1>
+                <a><h1>Test Title Long First Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
         </div>
