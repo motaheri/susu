@@ -50,6 +50,7 @@
                         background-image: url(img/demo-news-voting.jpg);
                         overflow: hidden;
                         margin-bottom: 0.5em;
+                        cursor: pointer;
                     }
                     .no-touch article.news:hover { /* hover only on non-touch devices */
                         background-color: #BF1616;
@@ -119,7 +120,9 @@
                      * -------------------------- */
                     
                     article.news-full {
+                        display: none;
                         width: 100%;
+                        height: 100%;
                         background: #ffffff;
                         overflow: hidden;
                     }
@@ -131,6 +134,7 @@
                         padding: 1em;
                         color: #000000;
                         overflow: hidden;
+                        height: 100%
                     }
                     article.news-full .title {
                         display: inline-block;
@@ -174,10 +178,28 @@
                             display: none !important;
                         }
                     }
+                    .close {
+                        float: right;
+                        font-size: 20px;
+                        font-weight: bold;
+                        line-height: 20px;
+                        color: #000000;
+                        text-shadow: 0 1px 0 #ffffff;
+                        opacity: 0.2;
+                        filter: alpha(opacity=20);
+                    }                  
+                    .close:hover {
+                        color: #000000;
+                        text-decoration: none;
+                        cursor: pointer;
+                        opacity: 0.4;
+                        filter: alpha(opacity=40);
+                    }
                 </style>
                 <h1>News</h1>
                 <article class="news-full">
                     <div class="news-inner">
+                        <div class="close">X</div>
                         <div class="title">My Very Very Super Extra Long News Story with Extra News</div>
                         <div class="story">
                             <img class="newsimg no-mobile" src="img/demo-news-voting.jpg" />
@@ -260,8 +282,7 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
         
-        <script type="text/javascript">
-            <!--
+        <script>
             /* NEWS JS - FOR DEMO ONLY. NOT TO STAY HERE. */
             $(window).resize(function() {
                 var ratio = 297 / 210;
@@ -274,8 +295,27 @@
                     });
                 }
             });
-            $(document).ready(function() { $(window).resize(); });
-            -->
+            
+            $(document).ready(function() {
+                $(window).resize();
+                $('article.news').click(function() {
+                    News_ShowStory(this);
+                });
+                $('article.news-full .close').click(function() {
+                    News_HideStory();
+                });
+            });
+                
+            function News_ShowStory(story) {
+                $('article.news-full').css('min-height', $('#news').height() - $('#news h1').first().height() - $('#news h1').first().outerHeight() - 16 + 'px');
+                $('article.news').hide();
+                $('article.news-full').show();
+            };
+            function News_HideStory() {
+                $('article.news-full').hide();
+                $('article.news').show();
+                $(window).resize();
+            };
         </script>
     </body>
 </html>
