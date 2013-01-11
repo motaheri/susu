@@ -270,6 +270,16 @@
                 background: url('image.png');
                 -webkit-filter: hue-rotate(173deg);
             }
+              #wrappingText {
+                display: inline;
+              }
+              #highlighter {
+                background-color:yellow;
+                position:absolute;
+                width:100%;
+                z-index: -1;
+                display:none;
+              }
   
         </style>
         <link rel="stylesheet/less" type="text/css" href="metronews.less" />
@@ -290,7 +300,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
-                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
+                <div id="highlighter"></div>
+                <a><div id="breakthis">Break This long long line Test Title Long First Line Short Second Line</div></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium">
@@ -298,5 +309,41 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
         </div>
+        <div id="debug"></div>
+        
+        <script type="text/javascript">
+            var lines = document.getElementById("breakthis").getClientRects();
+            var highlighter = document.getElementById("highlighter");
+            window.onresize = function () {
+                lines = document.getElementById("breakthis").getClientRects();
+            }
+            function debugTxt(txt)
+            {
+               var dbgDiv = document.getElementById("debug");
+               if ("innerText" in dbgDiv)
+                 dbgDiv.innerText = txt;
+               else
+                 dbgDiv.textContent = txt;
+            }
+            debugTxt("lines: "+lines.length);
+            document.onmousemove = function (e)
+            {
+                var event = e || window.event;
+                var x = event.clientX, y = event.clientY;
+                debugTxt("lines: "+lines.length + ", x: "+x+", y:"+y);
+                for (var i=0, max = lines.length; i < max; i++)
+                {
+                    if (y > lines[i].top && y < lines[i].bottom)
+                    {
+                        highlighter.style.height = lines[i].bottom - lines[i].top;
+                        highlighter.style.top = lines[i].top;
+                        break;
+                    } 
+                }
+            }
+
+            
+        </script> 
+        
     </body>
 </html>
