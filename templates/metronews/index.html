@@ -199,6 +199,7 @@
                padding:10px 5px;
                cursor: pointer;
                cursor: hand;
+               width:290px !important;
            }
            .news p{
                margin-top:10px;
@@ -220,21 +221,19 @@
             
             #metro .news a h1{
                 display: inline-block;
-                text-decoration:none;
- 
-               
+                text-decoration:none;   
             }
             .parallelogram{
                 display: inline-block;
-                 
+                background-color: #c00;
                 padding:4px 10px;
                 border-radius:0px;
                 transform: skew(-10deg);
                 -o-transform: skew(-10deg);
                 -moz-transform: skew(-10deg);
                 -webkit-transform: skew(-10deg);
-                color:#757575;
-                margin-top:3px !important; background:#f3f1eb;
+                color:#fff;
+                margin-top:3px !important;  
                 width:270px;
                
             }
@@ -246,21 +245,6 @@
                 -webkit-transform: skew(10deg);
                */
             }
-
-            #metro .news a:hover h1{
-                background:#f3f1eb;
-                
-            }
-
-            #metro .news a.current h1{
-                color:#fff;
-                background:#c00;
-            }
-
-            #metro .news a.current:hover h1{
-                background:#D00;
-            }
-
             .news.hover{
                 
                 background:#bf1616;
@@ -276,19 +260,8 @@
             }
             .news.default {
                 background: url('image.png');
-                -webkit-filter: hue-rotate(173deg);
+                /*-webkit-filter: hue-rotate(173deg);*/
             }
-              #wrappingText {
-                display: inline;
-              }
-              #highlighter {
-                background-color:yellow;
-                position:absolute;
-                width:100%;
-                z-index: -1;
-                display:none;
-              }
-  
         </style>
         <link rel="stylesheet/less" type="text/css" href="metronews.less" />
         <script src="less-1.3.3.min.js" type="text/javascript"></script>
@@ -296,22 +269,22 @@
     <body>
         <div id="metro">
             <div class="news default medium">
-                <a class="current"><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
+                <a class="current"><h1>Test Title Long First Line Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
             <div class="news medium hover">
-                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
+                <a><h1>Test Title Long First Line Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
-            <div class="news medium">
-                <a><h1>Test Title Long First Line</h1><h1>Short Second Line</h1></a>
+            <div class="news default medium">
+                <a><h1>Test Title Long First Line Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
-            <div class="news medium">
+            <div class="news default medium">
                 <a><h1>Break This long long line Test Title Long First Line Short Second Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
-            <div class="news medium">
+            <div class="news default medium">
                 <a><h1>Test Title Long First Line</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             </div>
