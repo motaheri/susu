@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/mike.css">
+    </head>
+    <body>
+        <header class="wrapper clearfix">
+            <h1>Title</h1>
+        </header>
+        <div id="cover" class="clearfix">
+            Test
+        </div>
+        <div id="main" class="wrapper clearfix">
+            <h1>News</h1>
+            <section id="news">
+                <article class="news big">
+                    <div class="news-inner">Big</div>
+                </article>
+                <article class="news container">
+                    <article class="news medium">
+                        <div class="news-inner">
+                            Med 1A
+                        </div>
+                    </article>
+                    <article class="news medium">
+                        <div class="news-inner">
+                            Med 1B
+                        </div>
+                    </article>
+                </article>
+                <article class="news container">
+                    <article class="news medium">
+                        <div class="news-inner">
+                            Med 2A
+                        </div>
+                    </article>
+                    <article class="news medium">
+                        <div class="news-inner">
+                            Med 2B
+                        </div>
+                    </article>
+                </article>
+                <article class="news container">
+                    <article class="news small">
+                        <div class="news-inner">
+                            Small 1
+                        </div>
+                    </article>
+                    <article class="news small">
+                        <div class="news-inner">
+                            Small 2
+                        </div>
+                    </article>
+                    <article class="news small">
+                        <div class="news-inner">
+                            Small 3
+                        </div>
+                    </article>
+                    <article class="news small">
+                        <div class="news-inner">
+                            Small 4
+                        </div>
+                    </article>
+                </article>
+            </section>
+        </div>
+        <footer class="wrapper clearfix">
+            <h1>Footer</h1>
+        </footer>
+        
+        <script src="js/vendor/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.lightbox_me.js"></script>
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+        <style>
+            <!--
+            /* --------------------------
+             * Summary News Articles
+             * -------------------------- */
+            
+            article.news {
+                float: left;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+            }
+            
+            @media only screen and (min-width: 641px) {
+                article.news.container {
+                    width: 50%;
+                }
+                article.news.big {
+                    width: 50%;
+                }
+                article.news.medium {
+                    width: 100%;
+                }
+                article.news.small {
+                    width: 50%;
+                }
+            }
+            
+            article.news .news-inner {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                background-image: url(img/demo-news-voting.jpg);
+            }
+            
+            article.news .news-inner:hover {
+                background-color: #152558;
+                background-image: none;
+            }
+            
+            article.news.big .news-inner {
+                width: 96%;
+                height: 96%;
+                margin: 2%;
+            }
+            article.news.medium .news-inner {
+                width: 96%;
+                height: 96%;
+                margin: 2% 2% 2% 2%;
+            }
+            article.news.small .news-inner {
+                width: 92%;
+                height: 94%;
+                margin: 4%;
+            }
+            -->
+        </style>
+        <script>
+            <!--
+            $(window).resize(function() {
+                var ratio = 297 / 210;
+                if ($(window).width() > 640) {
+                    var bigH = Math.floor($('article.news.big').first().width() / ratio);
+                    $('article.news.big').each(function() {
+                        $(this).height(bigH);
+                    });
+                    $('article.news.container').each(function() {
+                        $(this).height(bigH);
+                    });
+                    var mediumH = Math.floor(($('article.news.medium').first().width() / ratio / 2) * 0.99);
+                    $('article.news.medium').each(function() {
+                        $(this).height(mediumH);
+                    });
+                    var smallH = Math.floor(($('article.news.small').first().width() / ratio));
+                    $('article.news.small').each(function() {
+                        $(this).height(smallH);
+                    });
+                }
+                else {
+                    $('article.news.container').removeStyle('height');
+                    var h = Math.floor($('article.news').first().width() / ratio);
+                    $('article.news:not(.container)').each(function() {
+                        $(this).height(h);
+                    });
+                }
+            });
+            
+            $(document).ready(function() {
+                $(window).resize();
+            });
+            
+            (function($) {
+                $.fn.removeStyle = function(style) {
+                    var search = new RegExp(style + '[^;]+;?', 'g');
+                    return this.each(function() {
+                        if ($(this).attr('style') == null) return;
+                        $(this).attr('style', function(i, style) {
+                            return style.replace(search, '');
+                        });
+                    });
+                };
+            }(jQuery));
+            -->
+        </script>
+    </body>
+</html>
