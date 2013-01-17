@@ -153,7 +153,7 @@
                     $('article.news.medium').each(function() {
                         $(this).height(mediumH);
                     });
-                    var smallH = Math.floor(($('article.news.small').first().width() / ratio));
+                    var smallH = Math.floor(($('article.news.small').first().width() / ratio) * 0.99);
                     $('article.news.small').each(function() {
                         $(this).height(smallH);
                     });
