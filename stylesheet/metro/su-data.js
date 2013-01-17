@@ -22,7 +22,7 @@ var SU_Data = {};
 // Event Object
 SU_Data.eventObj = function() {
 	this.Title = '';		// Event name
-	this.Description = '';	// Brief event description
+	this.Description = '';		// Brief event description
 	this.Location = '';		// Venue
 	this.Date = null;		// Date
 	this.Image = '';		// Logo
@@ -308,7 +308,7 @@ SU_Data.findNewsData = function() {
 			article.Description = $(this).find('.leader').text();
 			article.Story = $(this).find('.msl_newsbodytext').html();
 			article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
-			article.Date = $(this).find('.msl_pubdate').text();
+			article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 			article.Link = $(this).find('.news_image a').first().attr('href');
 			if ($(this).find('img').length == 1) {
 				article.Image = $(this).find('img').first().attr('src');
