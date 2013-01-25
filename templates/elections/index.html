@@ -57,43 +57,82 @@
 
             
             
-           /* 
-           
-           Elections CSS
-           
-           */
-           body{
-               margin:50px;
-           } 
-           
- 
-           a{
-               cursor: pointer;
-               cursor: hand;
-           }
-           html{ 
-           
-           }
-           .electionpost{
-            background-image:url('white-80.png');
-            width: 200px;
-            min-height: 300px;
-            display: inline-block;
-            margin-right: 50px;
-            margin-bottom: 100px;
-           }
-           .electionpost p{
-               margin: 10px 15px;
-           }
-           .electionpost h1{
-               text-transform: uppercase;
-               font-size: 24px;
-               padding:20px 15px 5px;
-           }
-           .president{
+            /* 
+                
+             Elections CSS
+                 
+            */
+            body{
+                margin:50px;
+            } 
+                
+                
+            a{
+                cursor: pointer;
+                cursor: hand;
+            }
+            html{ 
+                
+            }
+            #metro{
+                margin-left:0; /***/
+                top:0; /***/
+                font-size:11px;
+                position:relative;
+                width:940px;
+            }
+            .electionpost{
+                background-image:url('white-80.png');
+                width: 350px;
+                min-height: 200px;
+                display: inline-block;
+                margin-right: 50px;
+                position:relative;
+                margin-bottom: 100px;
+            }
+            .electionpost:hover{
+                background:#fff;
+            }
+            .electionpost:hover .leftcorner{
+                background:#fff;
+            }
+            .electionpost p{
+                margin: 10px 15px;
+            }
+            .electionpost h1{
+                text-transform: uppercase;
+                font-size: 24px;
+                padding:20px 15px 5px;
+            }
+            .president{
                 margin:0 auto 100px;
-              
-           }
+                    
+                    
+            }
+            .leftcorner, .rightcorner, .middlecorner{
+                width:43px;
+                height:17px;
+                vertical-align:0;
+                white-space:nowrap;
+                display:inline;
+                left:150px;
+                bottom:-17px;
+                font-size:9px;
+                margin:0px;
+                position:absolute;
+            }
+            .leftcorner{
+                background-image:url('left-80.png');                
+            }
+            .rightcorner{
+                background-image:url('right-80.png');
+            }
+            .middlecorner{
+                width:24px;
+                height:17px; 
+                background-image:url('middle-80.png');
+            }
+
         </style>
         
     </head>
@@ -102,31 +141,34 @@
             <div class="electionpost president">
                 <a class="current"><h1>President</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div><br/>
+                <span class="middlecorner"></span>
+            </div>
+            <br/>
+            <div class="electionpost">
+                <a class="current"><h1>Societies &amp; Services Officer</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+            <span class="leftcorner"></span></div>
             <div class="electionpost">
                 <a class="current"><h1>Sports Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
+             <span class="middlecorner"></span></div></div>
             <div class="electionpost">
-                <a class="current"><h1>Sports Officer</h1></a>
+                <a class="current"><h1>Education Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
+            <span class="rightcorner"></span></div></div>
+            <br/>
             <div class="electionpost">
-                <a class="current"><h1>Sports Officer</h1></a>
+                <a class="current"><h1>Welfare Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
+            <span class="leftcorner"></span></div></div>
             <div class="electionpost">
-                <a class="current"><h1>Sports Officer</h1></a>
+                <a class="current"><h1>International Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
+            <span class="middlecorner"></span></div></div>
             <div class="electionpost">
-                <a class="current"><h1>Sports Officer</h1></a>
+                <a class="current"><h1>Women's Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
-            <div class="electionpost">
-                <a class="current"><h1>Sports Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            </div>
+            <span class="rightcorner"></span></div></div>
         </div>
         <div id="debug"></div>
 
