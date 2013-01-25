@@ -82,7 +82,6 @@
                 width:940px;
             }
             .electionpost{
-                background-image:url('white-80.png');
                 width: 300px;
                 min-height: 200px;
                 display: inline-block;
@@ -90,12 +89,9 @@
                 position:relative;
                 margin-bottom: 50px;
                 vertical-align: top;
-            }
-            .electionpost:hover{
-                background:#fff;
-            }
-            .electionpost:hover .leftcorner{
-                background:#fff;
+                color:#fff;
+                cursor: pointer;
+                cursor: hand;
             }
             .electionpost p{
                 margin: 10px 15px;
@@ -105,19 +101,14 @@
                 font-size: 24px;
                 padding:20px 15px 5px;
             }
-            .president{
-                margin:0 auto 50px;
-                margin-left: 312px;    
-                    
-            }
             .leftcorner, .rightcorner, .middlecorner{
-                width:43px;
-                height:17px;
+                width:65px;
+                height:52px;
                 vertical-align:0;
                 white-space:nowrap;
                 display:inline;
-                left:150px;
-                bottom:-17px;
+                left:115px;
+                bottom:-52px;
                 font-size:9px;
                 margin:0px;
                 position:absolute;
@@ -129,11 +120,102 @@
                 background-image:url('right-80.png');
             }
             .middlecorner{
-                width:24px;
-                height:17px; 
                 background-image:url('middle-80.png');
             }
-
+            .president{
+                margin:0 auto 50px;
+                margin-left: 312px;    
+                background-image:url('blue-square-80.png');
+            }
+            .president:hover{  
+                background:#3887C0;
+            }
+            .president .middlecorner{
+                background-image:url('blue-80.png');
+            }
+            .president:hover .middlecorner{
+                background-image:url('blue-100.png');
+            }
+            
+            .ss{  
+                background-image:url('purple-square-80.png');
+            }
+            .ss:hover{  
+                background:#BC5CA2;
+            }
+            .ss .leftcorner{
+                background-image:url('purple-80.png');
+            }
+            .ss:hover .leftcorner{
+                background-image:url('purple-100.png');
+            }
+            
+            .so{  
+                background-image:url('turquoise-square-80.png');
+            }
+            .so:hover{  
+                background:#05CDA5;
+            }
+            .so .middlecorner{
+                background-image:url('turquoise-80.png');
+            }
+            .so:hover .middlecorner{
+                background-image:url('turquoise-100.png');
+            }
+            
+            .eo{  
+                background-image:url('skyblue-square-80.png');
+            }
+            .eo:hover{  
+                background:#94C7DF;
+            }
+            .eo .rightcorner{
+                background-image:url('skyblue-80.png');
+            }
+            .eo:hover .rightcorner{
+                background-image:url('skyblue-100.png');
+            }
+            
+            
+            
+            .welo{  
+                background-image:url('green-square-80.png');
+            }
+            .welo:hover{  
+                background:#C4D836;
+            }
+            .welo .leftcorner{
+                background-image:url('green-80.png');
+            }
+            .welo:hover .leftcorner{
+                background-image:url('green-100.png');
+            }
+            
+            .io{  
+                background-image:url('red-square-80.png');
+            }
+            .io:hover{  
+                background:#E75661;
+            }
+            .io .middlecorner{
+                background-image:url('red-80.png');
+            }
+            .io:hover .middlecorner{
+                background-image:url('red-100.png');
+            }
+            
+            .womo{  
+                background-image:url('gold-square-80.png');
+            }
+            .womo:hover{  
+                background:#FBCF37;
+            }
+            .womo .rightcorner{
+                background-image:url('gold-80.png');
+            }
+            .womo:hover .rightcorner{
+                background-image:url('gold-100.png');
+            }
         </style>
         
     </head>
@@ -145,28 +227,28 @@
                 <span class="middlecorner"></span>
             </div>
             <br/>
-            <div class="electionpost">
+            <div class="electionpost ss">
                 <a class="current"><h1>Societies &amp; Services Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             <span class="leftcorner"></span></div>
-            <div class="electionpost">
+            <div class="electionpost so">
                 <a class="current"><h1>Sports Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
              <span class="middlecorner"></span></div>
-            <div class="electionpost">
+            <div class="electionpost eo">
                 <a class="current"><h1>Education Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             <span class="rightcorner"></span></div>
             <br/>
-            <div class="electionpost">
+            <div class="electionpost welo">
                 <a class="current"><h1>Welfare Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             <span class="leftcorner"></span></div>
-            <div class="electionpost">
+            <div class="electionpost io">
                 <a class="current"><h1>International Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             <span class="middlecorner"></span></div>
-            <div class="electionpost">
+            <div class="electionpost womo">
                 <a class="current"><h1>Women's Officer</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
             <span class="rightcorner"></span></div>
