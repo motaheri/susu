@@ -5,6 +5,7 @@
         <title>FTO Elections!</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
         <script src="jquery.backstretch.min.js"></script>  
+        <script src="waypoints.min.js"></script>  
         <style type="text/css">
             body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
             table{border-collapse:collapse;border-spacing:0}
@@ -83,7 +84,7 @@
             }
             .electionpost{
                 width: 280px;
-                min-height: 200px;
+                min-height: 150px;
                 display: inline-block;
                 margin-right: 30px;
                 position:relative;
@@ -95,11 +96,14 @@
             }
             .electionpost p{
                 margin: 10px 15px;
+                font-size:14px;
+                line-height: 20px;
+                padding-bottom:15px;
             }
             .electionpost h1{
                 text-transform: uppercase;
                 font-size: 24px;
-                padding:20px 15px 5px;
+                padding:20px 15px 0px;
                 line-height:28px;
             }
             .leftcorner, .rightcorner, .middlecorner{
@@ -108,7 +112,7 @@
                 vertical-align:0;
                 white-space:nowrap;
                 display:inline;
-                left:115px;
+                left:105px;
                 bottom:-52px;
                 font-size:9px;
                 margin:0px;
@@ -123,18 +127,18 @@
             .middlecorner{
                 background-image:url('middle-80.png');
             }
-            .president{
+            .pres{
                 margin:0 auto 70px;
                 margin-left: 312px;    
                 background-image:url('blue-square-80.png');
             }
-            .president:hover{  
+            .pres:hover{  
                 background:#3887C0;
             }
-            .president .middlecorner{
+            .pres .middlecorner{
                 background-image:url('blue-80.png');
             }
-            .president:hover .middlecorner{
+            .pres:hover .middlecorner{
                 background-image:url('blue-100.png');
             }
             
@@ -221,58 +225,60 @@
             .electionpost.big{
                 width: 980px !important;
             }
-            .electionpost.big.president{
+            .electionpost.big.pres{
                 width: 980px !important;
                 margin-left: 0px;
             }
             #break{
                 margin-top:100px;
-                font-size:44px;
-                width: 980px;
+                font-size:42px;
+                width: 960px;
                 color:#fff;
                 margin-bottom: 50px;
                 line-height:40px;
+                text-shadow: 0px 1px 1px #4d4d4d;
+                color: #222;
+                background-image:url('white-80.png');
+                padding: 15px 10px 50px 10px;
             }
         </style>
         
     </head>
     <body>
         <div id="metro" style="width:940px">
-            <div class="electionpost president">
+            <div class="electionpost pres">
                 <a class="current"><h1>President</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The President is the key contact for the University, National Union of Students and the local community.</p>
                 <span class="middlecorner"></span>
             </div>
             <br/>
             <div class="electionpost ss">
                 <a class="current"><h1>Societies &amp; Services Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The Societies and Services Officer is focused on ensuring that societies gain fair representation and support from the Union. Alongside this they are focused upon ensuring that students get value for money from their Union. Whilst all full-time officers are responsible for the Unions finances, this officer is the key liaison with the Finance Office.</p>
             <span class="leftcorner"></span></div>
             <div class="electionpost so">
                 <a class="current"><h1>Sports Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The Sports Officer is focused on overseeing the running of sports clubs on campus and ensuring that sports team members gain fair representation and support from the Union and University.</p>
              <span class="middlecorner"></span></div>
             <div class="electionpost eo">
                 <a class="current"><h1>Education Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The Education Officer is focused upon ensuring that our students are getting the most out of their education - both locally at the University and nationally.</p>
             <span class="rightcorner"></span></div>
             <br/>
             <div class="electionpost welo">
                 <a class="current"><h1>Welfare Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
             <span class="leftcorner"></span></div>
             <div class="electionpost io">
                 <a class="current"><h1>International Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
             <span class="middlecorner"></span></div>
             <div class="electionpost womo">
                 <a class="current"><h1>Women's Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            <span class="rightcorner"></span></div>
-            
-            
+                <p>The Women's Officer is focused upon ensuring that women students are well supported and represented both on campus and nationally. In fulfilling this role women students will be informed of the issues that may affect them and the support and advice available to them.</p>
+            <span class="rightcorner"></span></div>      
             <div id="break"><h1>Description Of Officer Roles &amp; Responsibilities</h1></div>
-            <div class="electionpost big president">
+            <div class="electionpost big pres">
                 <a class="current"><h1>President</h1></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
                 <span class="middlecorner"></span>
@@ -292,11 +298,11 @@
             <br/>
             <div class="electionpost big welo">
                 <a class="current"><h1>Welfare Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
             <span class="leftcorner"></span></div>
             <div class="electionpost big io">
                 <a class="current"><h1>International Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
             <span class="middlecorner"></span></div>
             <div class="electionpost big womo">
                 <a class="current"><h1>Women's Officer</h1></a>
@@ -306,9 +312,26 @@
         <div id="debug"></div>
 
         <script type="text/javascript">     
-         $(function(){
-            $.backstretch("sobg.jpg");
-         });
+            $(document).ready(function() {
+                  /* $('body').css('background-color','none');
+                   $('html').css('background-color','none');
+                   $('#msl-container-inner').css('background','none');
+                   $('.msl-dy-content').css('background','none');
+                   $('#msl-light-gray').hide();
+                   $('#msl-masthead-gray').hide();
+                   $('#msl-masthead').css('background-color','#eee');*/
+
+                   $('.eo.big').waypoint(function() {
+                           $.backstretch("eobg.jpg");
+                   });
+                   $('.so.big').waypoint(function() {
+                           $.backstretch("sobg.jpg");
+                   });
+                   $('.ss.big').waypoint(function() {
+                           //$('body').css('background', 'transparent');
+                           //$('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/fto-bg-sports.jpg")');
+                   });
+           });
         </script> 
         
         
