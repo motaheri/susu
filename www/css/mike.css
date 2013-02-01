@@ -3,18 +3,26 @@
  * -------------------------------------------------------------------- */
 
 @media only screen and (min-width: 640px) {
+    
 }
 
 @media only screen and (min-width: 768px) {
     .wrapper {
-        width: 90%;
-        margin: 0 5%;
+        width: 720px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 980px) {
+    .wrapper {
+        width: 960px;
+        margin: 0 auto;
     }
 }
 
 @media only screen and (min-width: 1140px) {
     .wrapper {
-        width: 1134px; /* 1026px; 1140px - 10% for margins */
+        width: 1130px; /* 1026px; 1140px - 10% for margins */
         margin: 0 auto;
     }
 }
@@ -33,7 +41,7 @@ body > div#cover {
     height: 315px;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(/img/cover.jpg);
+    background-image: url(../img/cover.jpg);
     background-size: cover;
     opacity: 0.2;
 }
@@ -44,6 +52,7 @@ body > div#cover {
 }
 
 body > div#main {
+    background: red;
 }
 
 body > footer {
