@@ -1,28 +1,30 @@
 /* --------------------------------------------------------------------
- * Main Page Responsive Width
+ * Master Page Width Definitions
  * -------------------------------------------------------------------- */
 
-@media only screen and (min-width: 640px) {
-    
+@media only screen and (max-width: 683px) {
+    .no-mobile {
+        display: none !important;
+    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 684px) {
     .wrapper {
-        width: 720px;
+        width: 684px;
         margin: 0 auto;
     }
 }
 
-@media only screen and (min-width: 980px) {
+@media only screen and (min-width: 912px) {
     .wrapper {
-        width: 960px;
+        width: 912px;
         margin: 0 auto;
     }
 }
 
 @media only screen and (min-width: 1140px) {
     .wrapper {
-        width: 1130px; /* 1026px; 1140px - 10% for margins */
+        width: 1140px;
         margin: 0 auto;
     }
 }
@@ -45,14 +47,13 @@ body > div#cover {
     background-size: cover;
     opacity: 0.2;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 683px) {
     body > div#cover {
         display: none;
     }
 }
 
 body > div#main {
-    background: red;
 }
 
 body > footer {
