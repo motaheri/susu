@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Metro news template</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+ 
+        
+        
+        
+
+        
+        <style type="text/css">
+            body {
+                height: 100%;
+            }
+            .news {
+            
+            }
+            #metro {
+                background: rgba(0, 0, 255, 0.1);
+                max-width: 1140px;
+            }
+
+            @media all and (max-width: 950px) and (min-width: 900px) {
+              #metro {
+                width: 912px;
+              }
+            }
+            @media all and (max-width: 950px) and (min-width: 900px) {
+              #metro {
+                width: 912px;
+              }
+            }
+            
+            #metro .news {
+                display: inline-block;
+                zoom: 1;
+                *display: inline;
+                position: relative;
+                vertical-align: top;
+                outline: 1px solid black;
+            }
+            .big{
+               width: 684px !important;
+               height: 322px !important; /*402px*/
+            }
+            .medium{
+               width: 456px;
+               height: 161px; /*201px*/
+            }
+            .small {
+                width: 228px;
+                height: 161px;
+            }
+
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+        </style>
+        
+    </head>
+    <body>
+        <div id="metro">
+            <div class="news default big">
+                Test 1
+            </div>
+            <div class="news default medium">
+                Test 2
+            </div>
+            <div class="news default small">
+                Test 3
+            </div>
+            <div class="news default small">
+                Test 4
+            </div>
+            <div class="news default medium">
+                Test 5
+            </div>
+            <div class="news default medium">
+                Test 6
+            </div>
+            <div class="news default medium">
+                Test 7
+            </div>
+            <div class="news default small">
+                Test 8
+            </div>
+            <div class="news default small">
+                Test 9
+            </div>
+            <div class="news default small">
+                Test 10
+            </div>
+            <div class="news default small">
+                Test 11
+            </div>
+        </div>
+        <script src="jquery.isotope.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(function(){
+                $('#metro').isotope({
+                    itemSelector : '.news',
+                    layoutMode: 'masonry',                 
+                    masonry: {
+                      columnWidth: 228
+                    },
+                    animationOptions: {
+                      duration: 750,
+                      easing: 'linear',
+                      queue: false
+                      }
+                });
+            });
+        </script> 
+        
+        
+    </body>
+</html>

@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>FTO Elections!</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+        <script src="jquery.backstretch.min.js"></script>  
+        <script src="waypoints.min.js"></script>  
+        <style type="text/css">
+            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+            table{border-collapse:collapse;border-spacing:0}
+            fieldset,img{border:0}
+            address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+            ol,ul{list-style:none}
+            caption,th{text-align:left}
+            h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+            q:before,q:after{content:''}
+            abbr,acronym{border:0}
+            body{font:9pt/1.5em sans-serif}
+            pre,code,tt{font:1em/1.5em 'Andale Mono','Lucida Console',monospace}
+            h1,h2,h3,h4,h5,h6,b,strong{font-weight:bold}
+            em,i,dfn{font-style:italic}
+            dfn{font-weight:bold}
+            p,code,pre,kbd{margin:0 0 1.5em 0}
+            blockquote{margin:0 1.5em 1.5em 1.5em}
+            cite{font-style:italic}
+            li ul,li ol{margin:0 1.5em}
+            ul,ol{margin:0 1.5em 1.5em 1.5em}
+            ul{list-style-type:disc}
+            ol{list-style-type:decimal}
+            ol ol{list-style:upper-alpha}
+            ol ol ol{list-style:lower-roman}
+            ol ol ol ol{list-style:lower-alpha}
+            dl{margin:0 0 1.5em 0}
+            dl dt{font-weight:bold}
+            dd{margin-left:1.5em}
+            table{margin-bottom:1.4em;width:100%}
+            th{font-weight:bold}
+            th,td,caption{padding:4px 10px 4px 5px}
+            tfoot{font-style:italic}
+            sup,sub{line-height:0}
+            abbr,acronym{border-bottom:1px dotted}
+            address{margin:0 0 1.5em;font-style:italic}
+            del{text-decoration:line-through}
+            pre{margin:1.5em 0;white-space:pre}
+            img.centered,.aligncenter,div.aligncenter{display:block;margin-left:auto;margin-right:auto}
+            img.alignright{display:inline}
+            img.alignleft{display:inline}
+            .alignright{float:right;margin-left:10px}
+            .alignleft{float:left;margin-right:10px}
+            img{max-width:100%}
+            * html .clearfix{height:1%}
+            *+html .clearfix{display:inline-block}
+            .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+            * html .group{height:1%}
+            *+html .group{display:inline-block}
+            .group:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+            
+            
+            /* 
+                
+             Elections CSS
+                 
+            */
+            body{
+                margin:50px;
+            } 
+                
+                
+            a{
+                cursor: pointer;
+                cursor: hand;
+            }
+            html{ 
+                
+            }
+            #metro{
+                margin-left:0; /***/
+                top:0; /***/
+                font-size:11px;
+                position:relative;
+                width:940px;
+            }
+            .electionpost{
+                width: 280px;
+                min-height: 150px;
+                display: inline-block;
+                margin-right: 30px;
+                position:relative;
+                margin-bottom: 70px;
+                vertical-align: top;
+                color:#fff;
+                cursor: pointer;
+                cursor: hand;
+            }
+            .electionpost p{
+                margin: 10px 15px;
+                font-size:14px;
+                line-height: 20px;
+                padding-bottom:15px;
+            }
+            .electionpost h1{
+                text-transform: uppercase;
+                font-size: 24px;
+                padding:20px 15px 0px;
+                line-height:28px;
+            }
+            .leftcorner, .rightcorner, .middlecorner{
+                width:65px;
+                height:52px;
+                vertical-align:0;
+                white-space:nowrap;
+                display:inline;
+                left:105px;
+                bottom:-52px;
+                font-size:9px;
+                margin:0px;
+                position:absolute;
+            }
+            .leftcorner{
+                background-image:url('left-80.png');                
+            }
+            .rightcorner{
+                background-image:url('right-80.png');
+            }
+            .middlecorner{
+                background-image:url('middle-80.png');
+            }
+            .pres{
+                margin:0 auto 70px;
+                margin-left: 312px;    
+                background-image:url('blue-square-80.png');
+            }
+            .pres:hover{  
+                background:#3887C0;
+            }
+            .pres .middlecorner{
+                background-image:url('blue-80.png');
+            }
+            .pres:hover .middlecorner{
+                background-image:url('blue-100.png');
+            }
+            
+            .ss{  
+                background-image:url('purple-square-80.png');
+            }
+            .ss:hover{  
+                background:#BC5CA2;
+            }
+            .ss .leftcorner{
+                background-image:url('purple-80.png');
+            }
+            .ss:hover .leftcorner{
+                background-image:url('purple-100.png');
+            }
+            
+            .so{  
+                background-image:url('turquoise-square-80.png');
+            }
+            .so:hover{  
+                background:#05CDA5;
+            }
+            .so .middlecorner{
+                background-image:url('turquoise-80.png');
+            }
+            .so:hover .middlecorner{
+                background-image:url('turquoise-100.png');
+            }
+            
+            .eo{  
+                background-image:url('skyblue-square-80.png');
+            }
+            .eo:hover{  
+                background:#94C7DF;
+            }
+            .eo .rightcorner{
+                background-image:url('skyblue-80.png');
+            }
+            .eo:hover .rightcorner{
+                background-image:url('skyblue-100.png');
+            }
+            
+            
+            
+            .welo{  
+                background-image:url('green-square-80.png');
+            }
+            .welo:hover{  
+                background:#C4D836;
+            }
+            .welo .leftcorner{
+                background-image:url('green-80.png');
+            }
+            .welo:hover .leftcorner{
+                background-image:url('green-100.png');
+            }
+            
+            .io{  
+                background-image:url('red-square-80.png');
+            }
+            .io:hover{  
+                background:#E75661;
+            }
+            .io .middlecorner{
+                background-image:url('red-80.png');
+            }
+            .io:hover .middlecorner{
+                background-image:url('red-100.png');
+            }
+            
+            .womo{  
+                background-image:url('gold-square-80.png');
+            }
+            .womo:hover{  
+                background:#FBCF37;
+            }
+            .womo .rightcorner{
+                background-image:url('gold-80.png');
+            }
+            .womo:hover .rightcorner{
+                background-image:url('gold-100.png');
+            }
+            
+            .electionpost.big{
+                width: 980px !important;
+            }
+            .electionpost.big.pres{
+                width: 980px !important;
+                margin-left: 0px;
+            }
+            #break{
+                margin-top:100px;
+                font-size:42px;
+                width: 960px;
+                color:#fff;
+                margin-bottom: 50px;
+                line-height:40px;
+                text-shadow: 0px 1px 1px #4d4d4d;
+                color: #222;
+                background-image:url('white-80.png');
+                padding: 15px 10px 50px 10px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div id="metro" style="width:940px">
+            <div class="electionpost pres">
+                <a class="current"><h1>President</h1></a>
+                <p>The President is the key contact for the University, National Union of Students and the local community.</p>
+                <span class="middlecorner"></span>
+            </div>
+            <br/>
+            <div class="electionpost ss">
+                <a class="current"><h1>Societies &amp; Services Officer</h1></a>
+                <p>The Societies and Services Officer is focused on ensuring that societies gain fair representation and support from the Union. Alongside this they are focused upon ensuring that students get value for money from their Union. Whilst all full-time officers are responsible for the Unions finances, this officer is the key liaison with the Finance Office.</p>
+            <span class="leftcorner"></span></div>
+            <div class="electionpost so">
+                <a class="current"><h1>Sports Officer</h1></a>
+                <p>The Sports Officer is focused on overseeing the running of sports clubs on campus and ensuring that sports team members gain fair representation and support from the Union and University.</p>
+             <span class="middlecorner"></span></div>
+            <div class="electionpost eo">
+                <a class="current"><h1>Education Officer</h1></a>
+                <p>The Education Officer is focused upon ensuring that our students are getting the most out of their education - both locally at the University and nationally.</p>
+            <span class="rightcorner"></span></div>
+            <br/>
+            <div class="electionpost welo">
+                <a class="current"><h1>Welfare Officer</h1></a>
+                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
+            <span class="leftcorner"></span></div>
+            <div class="electionpost io">
+                <a class="current"><h1>International Officer</h1></a>
+                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
+            <span class="middlecorner"></span></div>
+            <div class="electionpost womo">
+                <a class="current"><h1>Women's Officer</h1></a>
+                <p>The Women's Officer is focused upon ensuring that women students are well supported and represented both on campus and nationally. In fulfilling this role women students will be informed of the issues that may affect them and the support and advice available to them.</p>
+            <span class="rightcorner"></span></div>      
+            <div id="break"><h1>Description Of Officer Roles &amp; Responsibilities</h1></div>
+            <div class="electionpost big pres">
+                <a class="current"><h1>President</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+                <span class="middlecorner"></span>
+            </div>
+            <div class="electionpost big ss">
+                <a class="current"><h1>Societies &amp; Services Officer</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+            <span class="leftcorner"></span></div>
+            <div class="electionpost big so">
+                <a class="current"><h1>Sports Officer</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+             <span class="middlecorner"></span></div>
+            <div class="electionpost big eo">
+                <a class="current"><h1>Education Officer</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+            <span class="rightcorner"></span></div>
+            <br/>
+            <div class="electionpost big welo">
+                <a class="current"><h1>Welfare Officer</h1></a>
+                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
+            <span class="leftcorner"></span></div>
+            <div class="electionpost big io">
+                <a class="current"><h1>International Officer</h1></a>
+                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
+            <span class="middlecorner"></span></div>
+            <div class="electionpost big womo">
+                <a class="current"><h1>Women's Officer</h1></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
+            <span class="rightcorner"></span></div>
+        </div>
+        <div id="debug"></div>
+
+        <script type="text/javascript">     
+            $(document).ready(function() {
+                  /* $('body').css('background-color','none');
+                   $('html').css('background-color','none');
+                   $('#msl-container-inner').css('background','none');
+                   $('.msl-dy-content').css('background','none');
+                   $('#msl-light-gray').hide();
+                   $('#msl-masthead-gray').hide();
+                   $('#msl-masthead').css('background-color','#eee');*/
+
+                   $('.eo.big').waypoint(function() {
+                           $.backstretch("eobg.jpg");
+                   });
+                   $('.so.big').waypoint(function() {
+                           $.backstretch("sobg.jpg");
+                   });
+                   $('.ss.big').waypoint(function() {
+                           //$('body').css('background', 'transparent');
+                           //$('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/fto-bg-sports.jpg")');
+                   });
+           });
+        </script> 
+        
+        
+    </body>
+</html>
