@@ -8,6 +8,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <![endif]-->
+        
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/su-layout.css" />
         <link rel="stylesheet" href="css/su-news.css" />
@@ -81,11 +85,6 @@
                     layoutMode: 'masonry',
                     masonry: {
                         columnWidth: 228
-                    },
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear',
-                        queue: false
                     }
                 });
             });
