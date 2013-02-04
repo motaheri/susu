@@ -1,0 +1,83 @@
+/*
+ * A4 Portrait Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderPortrait {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 684px;
+	height: 322px;
+}
+.sliderPortrait .slider {
+	width: 100%;
+	height: 100%;
+}
+.sliderPortrait .slider .slide {
+	float: left;
+	width: 228px;
+	height: 322px;
+}
+.sliderPortrait .slider .slide .slide-inner {
+	width: 218px;
+	height: 312px;
+	margin: 5px;
+}
+/*
+ * Small Landscape Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderSmall {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 684px;
+	height: 161px;
+}
+.sliderSmall .slider {
+	width: 100%;
+	height: 100%;
+}
+.sliderSmall .slider .slide {
+	float: left;
+	width: 228px;
+	height: 161px;
+}
+
+.sliderSmall .slider .slide .slide-inner {
+	width: 218px;
+	height: 151px;
+	margin: 5px;
+}
+
+/*
+ * Dynamic Size Media Queries
+ */
+@media only screen and (max-width: 683px) {
+}
+@media only screen and (min-width: 684px) {
+}
+@media only screen and (min-width: 912px) {
+	.sliderPortrait, .sliderSmall {
+		width: 912px;
+	}
+}
+@media only screen and (min-width: 1140px) {
+	.sliderPortrait, .sliderSmall {
+		width: 1140px;
+	}	
+}
+
+/*
+ * EVENTS CUSTOMISATION BELOW HERE
+ */
+
+.slider .slide .slide-inner {
+	background-color: red;
+}
+.sliderPortrait .slider .slide .slide-inner {
+}
+.sliderSmall .slider .slide .slide-inner {
+}
