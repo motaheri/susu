@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="css/su-layout.css" />
         <link rel="stylesheet" href="css/su-news.css" />
         <link rel="stylesheet" href="css/su-events.css" />
+        <link rel="stylesheet" href="css/su-lightbox.css" />
     </head>
     <body>
         <header class="wrapper clearfix">
@@ -65,6 +66,11 @@
                 <div class="news default small">
                     <div class="news-inner">
                         Test
+                    </div>
+                </div>
+                <div class="news default small extra">
+                    <div class="news-inner">
+                        Extra
                     </div>
                 </div>
             </div>
@@ -180,8 +186,27 @@
                     layoutMode: 'masonry',
                     masonry: {
                         columnWidth: 228
-                    }
+                    },
+                    filter: '.news:not(.extra)'
                 });
+                isoNewsFilter();
+            });
+            var isoNewsFilterCheck = false;
+            function isoNewsFilter() {
+                var w = $(window).width();
+                if (w >= 912 && w < 1140) {
+                    if (isoNewsFilterCheck) return;
+                    $('#isonews').isotope({ filter: '.news' });
+                    isoNewsFilterCheck = true;
+                }
+                else {
+                    if (!isoNewsFilterCheck) return;
+                    $('#isonews').isotope({ filter: '.news:not(.extra)' });
+                    isoNewsFilterCheck = false;
+                }
+            };
+            $(window).resize(function() {
+                isoNewsFilter();
             });
             $(document).ready(function() {
                 $('.sliderPortrait').iosSlider({
