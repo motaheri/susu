@@ -6,17 +6,24 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        
-        <!--[if lt IE 9]>
-        <script src="http://cdn.jsdelivr.net/html5shiv/3.6.1/html5shiv.min.js"></script>
-        <![endif]-->
+        <!--<meta name="viewport" content="width=device-width">-->
+        <meta name="viewport" id="view" content="width=device-width minimum-scale=1, maximum-scale=1" />
         
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/su-layout.css" />
         <link rel="stylesheet" href="css/su-news.css" />
         <link rel="stylesheet" href="css/su-events.css" />
-        <link rel="stylesheet" href="css/su-lightbox.css" />
+
+        <link href="http://fonts.googleapis.com/css?family=Mako" rel='stylesheet' type='text/css'>
+        <link href="css/jackbox.min.css" rel="stylesheet" type="text/css" />
+
+        <!--[if lt IE 9]>
+            <link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+            <script src="http://cdn.jsdelivr.net/html5shiv/3.6.1/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <!--[if gt IE 8]><link href="css/jackbox-ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
+        
     </head>
     <body>
         <header class="wrapper clearfix">
@@ -28,10 +35,13 @@
         <div id="main" class="wrapper clearfix">
             <h1>News</h1>
             <div id="isonews">
+                
                 <div class="news default big">
+                <a class="jackbox" data-group="html" data-title="HTML Content" href="#learn-more">
                     <div class="news-inner">
                         Test
                     </div>
+                </a>
                 </div>
                 <div class="news default medium">
                     <div class="news-inner">
@@ -69,9 +79,11 @@
                     </div>
                 </div>
                 <div class="news default small extra">
+                    
                     <div class="news-inner">
                         Extra
                     </div>
+
                 </div>
             </div>
             <h1>Events</h1>
@@ -167,18 +179,33 @@
                 </div>
             </div>
         </div>
+        <div class="jackbox-html" id="learn-more">
+            <p>Test Lightbox Content</p>         
+        <div>
         <footer class="wrapper clearfix">
             <h1>Footer</h1>
         </footer>
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script src="http://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"></script>
-        <script src="http://cdn.jsdelivr.net/isotope/1.5.24/jquery.isotope.js"></script>
-        <script src="js/jquery.lightbox_me.js"></script>
-        <script src="js/jquery.iosslider.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/isotope/1.5.24/jquery.isotope.js"></script>
+        <script type="text/javascript" src="js/jquery.lightbox_me.js"></script>
+        <script type="text/javascript" src="js/jquery.iosslider.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script>
+        <script type="text/javascript" src="js/jackbox-packed.min.js"></script>
+ 
+        <script type="text/javascript">
+
+            jQuery(document).ready(function() {
+
+                jQuery(".jackbox[data-group]").jackBox("init");
+
+            });
+
+        </script>
         
         <script type="text/javascript">
+            
             <!--
             $(function(){
                 $('#isonews').isotope({
