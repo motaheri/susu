@@ -45,7 +45,6 @@ body > div#cover {
     background-position: center center;
     background-image: url(../img/cover.jpg);
     background-size: cover;
-    opacity: 0.2;
 }
 @media only screen and (max-width: 683px) {
     body > div#cover {
