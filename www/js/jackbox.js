@@ -81,7 +81,7 @@
 			/* ******************************************** */
 			/* delete this line below for no social buttons */
 			/* ******************************************** */
-			'<div class="jackbox-social"></div>' + 
+			/*'<div class="jackbox-social"></div>' + */
 			
 			// fullscreen and close buttons
 			'<div class="jackbox-top-icons">' + 

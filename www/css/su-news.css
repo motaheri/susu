@@ -57,3 +57,17 @@
 }
 #isonews .news.small .news-inner {
 }
+
+.jackbox-holder {
+	padding: 0 !important;
+	border-radius: 0px !important;
+}
+.jackbox-top {
+	display: none !important;
+}
+.jackbox-bottom {
+	display: none !important;
+}
+.news-content {
+	min-height: 200px;
+}

@@ -19,11 +19,11 @@
 
         <!--[if lt IE 9]>
             <script src="http://cdn.jsdelivr.net/html5shiv/3.6.1/html5shiv.min.js"></script>
-            <link href="css/jackbox-ie9.css" rel="stylesheet" type="text/css" />
+            <link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
         <![endif]-->
 
         <!--[if gt IE 8]>
-            <link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+            <link href="css/jackbox-ie9.css" rel="stylesheet" type="text/css" />
         <![endif]-->
         
     </head>
@@ -60,15 +60,20 @@
         </div>
         <div id="main" class="wrapper clearfix">
             <h1>News</h1>
-            
             <div id="isonews">
-                
-                <div class="news default big" style="width:684px">
-                <a class="jackbox" data-group="html" data-thumbnail="jackbox/img/thumbs/num1.jpg" data-title="HTML Content" data-width="640" href="#learn-more" style="width:684px">
-                    <div class="news-inner" id="learn-more">
-                        Test
+                <div class="news default big">
+                    <div class="news-inner">
+                        <a class="jackbox" data-group="isonews" data-height="480" href="#news-0">
+                            <div class="news-preview">
+                                News Article
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <div class="jackbox-html" id="news-0">
+                        <div class="news-content">
+                            This is the news story content.
+                        </div>
+                    </div>
                 </div>
                 <div class="news default medium">
                     <div class="news-inner">
@@ -106,11 +111,9 @@
                     </div>
                 </div>
                 <div class="news default small extra">
-                    
                     <div class="news-inner">
                         Extra
                     </div>
-
                 </div>
             </div>
             <h1>Events</h1>
@@ -224,11 +227,29 @@
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script> <!-- Coverflow -->
         <script type="text/javascript" src="js/raphael.min.js"></script> <!-- Coverflow -->
         <script type="text/javascript" src="js/icarousel.js"></script> <!-- Coverflow -->
-        <script type="text/javascript" src="js/jackbox-packed.min.js"></script> <!-- Ligttbox -->
+        <script type="text/javascript" src="js/jackbox-jacked.js"></script> <!-- Lightbox -->
+        <script type="text/javascript" src="js/jackbox-swipe.js"></script> <!-- Lightbox -->
+        <script type="text/javascript" src="js/jackbox.js"></script> <!-- Lightbox -->
+        <script type="text/javascript" src="js/jackbox-stackblur.js"></script> <!-- Lightbox -->
  
         <script type="text/javascript">
             jQuery(document).ready(function() {
-                jQuery(".jackbox[data-group]").jackBox("init");
+                jQuery(".jackbox[data-group]").jackBox("init", {
+                    deepLinking: false,              // choose to use the deep-linking feature ("true" will enhance social sharing!) true/false
+                    showInfoByDefault: false,       // show item info automatically when content loads, true/false
+                    preloadGraphics: true,          // preload the jackbox graphics for a faster jackbox
+                    fullscreenScalesContent: true,  // choose to always scale content up in fullscreen mode, true/false
+                    defaultShareImage: "1.jpg",      // default social image
+                    
+                    autoPlayVideo: false,           // video autoplay default, this can also be set per video in the data-attributes, true/false
+                    flashVideoFirst: false,         // choose which technology has first priority for video, HTML5 or Flash, true/false
+                    defaultVideoWidth: 960,         // the default video width, can also be set per video in the data-attributes
+                    defaultVideoHeight: 540,        // the default video width, can also be set per video in the data-attributes
+                    
+                    useThumbs: false,                // choose to use thumbnails, true/false
+                    showPageScrollbar: true,         // if you don't like the "page jump" when the scrollbar disappears, set this to "true"
+                    useKeyboardControls: true        // The left and right keyboard arrows will cycle through the items.  up/down will toggle thumbs
+                });
             });
         </script>
         

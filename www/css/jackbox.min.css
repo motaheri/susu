@@ -90,13 +90,13 @@
 
 .jackbox-container {
 
-	background: #000;
-	background: -moz-radial-gradient(center, ellipse cover, rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);
+	background: #fff;
+	/*background: -moz-radial-gradient(center, ellipse cover, rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(68, 68, 68, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
 	background: -webkit-radial-gradient(center, ellipse cover,  rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);
 	background: -o-radial-gradient(center, ellipse cover, rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);
 	background: -ms-radial-gradient(center, ellipse cover, rgba(68, 68, 68, 1) 0%,rgba(0, 0, 0, 1) 100%);
-	background: radial-gradient(ellipse at center, rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);
+	background: radial-gradient(ellipse at center, rgba(68, 68, 68, 1) 0%, rgba(0, 0, 0, 1) 100%);*/
 	
 }
 
