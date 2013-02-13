@@ -58,6 +58,30 @@
 #isonews .news.small .news-inner {
 }
 
+
+/* News Bubbles */
+#isonews .news-inner:before {
+        content:"";
+        position:absolute !important;
+        bottom:10px;
+        right:25px !important;
+        border-width:0px 0 25px 25px !important;
+        border-style:solid;
+        border-color:transparent red;
+        background:none;
+} 
+#isonews .news {
+    height:185px !important;    
+    background:#eee !important; /* Visualization Helper */
+}
+#isonews .big.news {
+    height: 370px !important;
+} 
+#isonews .big.news .news-inner {
+    height: 337px !important;
+} 
+/* End of News Bubbles CSS */
+
 .jackbox-holder {
 	padding: 0 !important;
 	border-radius: 0px !important;
