@@ -86,11 +86,11 @@
 	padding: 0 !important;
 	border-radius: 0px !important;
 }
-.jackbox-top {
+.jackbox-top, .jackbox-bottom {
 	display: none !important;
 }
-.jackbox-bottom {
-	display: none !important;
+.jackbox-html div {
+	padding: 0;
 }
 .news-content {
 	min-height: 200px;
