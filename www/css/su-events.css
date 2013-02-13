@@ -8,7 +8,7 @@
 	left: 0;
 	overflow: hidden;
 	width: 684px;
-	height: 322px;
+	height: 382px; /* 322 + 60 */
 }
 .sliderPortrait .slider {
 	width: 100%;
@@ -17,11 +17,11 @@
 .sliderPortrait .slider .slide {
 	float: left;
 	width: 228px;
-	height: 322px;
+	height: 382px; /* 322 + 60 */
 }
 .sliderPortrait .slider .slide .slide-inner {
 	width: 218px;
-	height: 312px;
+	height: 372px; /* 312 + 60 */
 	margin: 5px;
 }
 /*
@@ -75,9 +75,25 @@
  */
 
 .slider .slide .slide-inner {
-	background-color: #87CEEB;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .sliderPortrait .slider .slide .slide-inner {
 }
 .sliderSmall .slider .slide .slide-inner {
+}
+
+.slider .slide .slide-inner img {
+	width: 228px;
+}
+
+.slider .slide .slide-inner .event-title {
+	margin: 2px 5px 0px 5px;
+}
+.slider .slide .slide-inner .event-date {
+	margin: 0px 5px 0px 5px;
+	font-style: italic;
+}
+.slider .slide .slide-inner .event-location {
+	margin: 0px 5px 0px 5px;
 }

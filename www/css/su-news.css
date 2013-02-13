@@ -1,3 +1,30 @@
+.jackbox-modal {
+	background: rgba(0, 0, 0, 0.9);
+}
+.jackbox-container {
+	background: transparent;
+}
+
+.jackbox-html {
+	overflow-y: visible;
+}
+
+.jackbox-holder {
+	background: transparent;
+	padding: 0 !important;
+	border-radius: 0px !important;
+}
+
+.jackbox-top, .jackbox-bottom {
+	display: none !important;
+}
+
+.jackbox-html div {
+	padding: 0;
+	background: transparent;
+	border: 0;
+}
+
 /*
  * CSS STRUCTURE - DO NOT CHANGE
  */
@@ -61,17 +88,17 @@
 
 /* News Bubbles */
 #isonews .news-inner:before {
-        content:"";
-        position:absolute !important;
-        bottom:10px;
-        right:25px !important;
-        border-width:0px 0 25px 25px !important;
-        border-style:solid;
-        border-color:transparent #87CEEB;
-        background:none;
+        content: "";
+        position: absolute !important;
+        bottom: 10px;
+        right: 25px !important;
+        border-width: 0px 0 25px 25px !important;
+        border-style: solid;
+        border-color: transparent #87CEEB;
+        background: none;
 } 
 #isonews .news {
-    height:185px !important;    
+    height: 185px !important;
     background:#eee !important; /* Visualization Helper */
 }
 #isonews .big.news {
@@ -79,19 +106,63 @@
 } 
 #isonews .big.news .news-inner {
     height: 337px !important;
-} 
+}
+.news-author{
+	position: absolute; 
+	right: 60px;
+	bottom:15px;
+	height:12px;
+	font-size:12px;
+	color:#888;
+}
+
+.news-content-author {
+	text-align: right;
+	font-size: 12px;
+	color: #fff;
+	margin: 10px 60px 0px 0px;
+}
+
 /* End of News Bubbles CSS */
 
-.jackbox-holder {
-	padding: 0 !important;
-	border-radius: 0px !important;
+div.news-content {
+	height: 250px;
+	background: transparent;
+	position: relative;
 }
-.jackbox-top, .jackbox-bottom {
-	display: none !important;
+
+div.news-content-inner {
+	background-color: white !important;
+	height: 195px;
+	padding: 10px;
+	overflow-y: scroll;
 }
-.jackbox-html div {
-	padding: 0;
+
+div.news-content-inner:after {
+	content: "";
+	position: absolute !important;
+	bottom: 10px;
+	right: 25px !important;
+	border-width: 0px 0 25px 25px !important;
+	border-style: solid;
+	border-color: transparent white;
+	background: none;
 }
-.news-content {
-	min-height: 200px;
+
+@media only screen and (min-height: 410px) {
+	div.news-content {
+		height: 400px;
+	}
+	div.news-content-inner {
+		height: 345px;
+	}
+}
+
+@media only screen and (min-height: 570px) {
+	div.news-content {
+	   height: 555px;
+	}
+	div.news-content-inner {
+		height: 500px;
+	}
 }
