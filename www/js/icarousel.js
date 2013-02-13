@@ -916,6 +916,7 @@
 			}
 
 			//Touch navigation
+                        /*** CUSTOMIZED ***/
 			if (ic.options.touchNav) { // && (ic.support.touch())
 				ic.el.bind({
 					swipeleft: function() {
@@ -1119,8 +1120,11 @@
 		setup: function () {
 			var thisObject = this,
 				$this = $(thisObject);
-
-			$this.bind(touchStartEvent, function (event) {
+                        
+                        /*** CUSTOMIZED ***/
+                        $this.bind('dragstart', function(event) { event.preventDefault(); });
+			
+                        $this.bind(touchStartEvent, function (event) {
 				var data = event.originalEvent.touches ? event.originalEvent.touches[0] : event,
 					start = {
 						time: (new Date()).getTime(),
@@ -1149,6 +1153,7 @@
 				}
 
 				$this.bind(touchMoveEvent, moveHandler).one(touchStopEvent, function (event) {
+                                    
 					$this.unbind(touchMoveEvent, moveHandler);
 
 					if (start && stop) {
