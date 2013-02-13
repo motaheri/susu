@@ -1,6 +1,7 @@
 .jackbox-modal {
 	background: rgba(0, 0, 0, 0.9);
 }
+
 .jackbox-container {
 	background: transparent;
 }
@@ -99,7 +100,6 @@
 } 
 #isonews .news {
     height: 185px !important;
-    background:#eee !important; /* Visualization Helper */
 }
 #isonews .big.news {
     height: 370px !important;
@@ -107,13 +107,13 @@
 #isonews .big.news .news-inner {
     height: 337px !important;
 }
-.news-author{
+#isonews .news-author{
 	position: absolute; 
 	right: 60px;
-	bottom:15px;
-	height:12px;
-	font-size:12px;
-	color:#888;
+	bottom: 15px;
+	height: 12px;
+	font-size: 12px;
+	color: #888;
 }
 
 .news-content-author {

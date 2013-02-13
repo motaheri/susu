@@ -81,6 +81,7 @@
 .sliderPortrait .slider .slide .slide-inner {
 }
 .sliderSmall .slider .slide .slide-inner {
+	background-color: #87CEEB;
 }
 
 .slider .slide .slide-inner img {

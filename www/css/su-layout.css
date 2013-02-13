@@ -51,6 +51,10 @@
  * Layout Main Sections
  * -------------------------------------------------------------------- */
 
+body {
+    text-rendering: optimizeLegibility;
+}
+
 body > header {
     height: 90px;
     background: rgba(135, 206, 235, 0.1);
