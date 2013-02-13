@@ -63,3 +63,12 @@ body > footer {
 body > section#news {
     text-align: center;
 }
+
+
+html,body{
+    font-family: 'Bitter', serif;
+}
+h1,h2,h3,h4{
+    font-family: 'Doppio One', sans-serif;
+    text-transform: uppercase;
+}
