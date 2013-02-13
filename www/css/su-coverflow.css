@@ -58,8 +58,8 @@
 
 #icarousel .slide {
 	display: block;
-	border: 1px #333 solid;
-	border: 1px rgba(0,0,0,0.5) solid;
+	/*border: 1px #333 solid;
+	border: 1px rgba(0,0,0,0.5) solid;*/
 	width: 480px;
 	height: 338px;
 }
