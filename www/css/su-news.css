@@ -49,7 +49,7 @@
  */
 
 #isonews .news .news-inner {
-	background-color: red;
+	background-color: #87CEEB;
 }
 #isonews .news.big .news-inner {
 }
@@ -67,7 +67,7 @@
         right:25px !important;
         border-width:0px 0 25px 25px !important;
         border-style:solid;
-        border-color:transparent red;
+        border-color:transparent #87CEEB;
         background:none;
 } 
 #isonews .news {
