@@ -1,5 +1,5 @@
 .jackbox-modal {
-	background: rgba(0, 0, 0, 0.9);
+	background: rgba(125, 125, 125, 0.9);
 }
 
 .jackbox-container {
@@ -135,7 +135,7 @@ div.news-content-inner {
 	background-color: white !important;
 	height: 195px;
 	padding: 10px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 div.news-content-inner:after {
