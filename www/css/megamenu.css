@@ -171,7 +171,8 @@ body {
 	position:relative; /* For IE7 */
 	margin:0;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:14px;
+	/*** ALTERED ***/
+        /* font-size:14px; */
 	line-height:1;
 }
 	.megamenu > li {
@@ -185,7 +186,8 @@ body {
 		transition: background 0.5s ease;
 	}
 		.megamenu > li > a {
-			font-size:12px;
+                        /*** ALTERED ***/
+			/* font-size:12px; */
 			text-transform:uppercase;
 			outline:0;
 			text-decoration:none;

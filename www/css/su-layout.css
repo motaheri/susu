@@ -128,24 +128,31 @@ h1,h2,h3,h4{
 }
 
 #sulogo{
-    height: 39px;
-    width:69px;
+    height: 50px;
     margin: 0px;
+    margin-top:-5px;
     padding: 5px;
+    padding-top:0px;
     position: relative;
     opacity: 1.0;
-
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 100px;
 }
 .su-menu{
     height: 50px !important;
     background: #fff !important;
     border-color: #ccc !important;
     border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
     border-radius: 0px !important;
-    font-size:28px !important;
+    font-size:14px !important;
     font-family: 'NovecentowideUltraLightBold' !important;
-    line-height: 26px !important;
     width: 100% !important;
+}
+.su-menu a{
+    height: 16px;
 }
 .su-menu img{
     display:inline-block;
@@ -153,6 +160,4 @@ h1,h2,h3,h4{
     padding:none !important;
     margin:none !important;
 }
-.no-padding{ 
-    padding:0px !important;
-}
+ 
