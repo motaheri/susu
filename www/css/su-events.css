@@ -89,6 +89,10 @@
 }
 
 .slider .slide .slide-inner .event-title {
+        font-family: 'museo_sans_500regular';
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
 	margin: 2px 5px 0px 5px;
 }
 .slider .slide .slide-inner .event-date {
