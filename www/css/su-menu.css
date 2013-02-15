@@ -5,7 +5,7 @@ body > header{
     width:100%;
     background:#fff;
     z-index:1000;
-    height:43px;
+    height:70px;
     border-bottom: 1px #eee solid;
 }
 #menu{
@@ -13,6 +13,7 @@ body > header{
     text-transform: uppercase;
     font-family: 'NovecentowideUltraLightBold', arial;
     height:20px;
+    margin-top: 12px;
 }
 .menu-block, .menu-block ul{
     display: inline-block;
