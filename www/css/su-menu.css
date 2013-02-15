@@ -5,14 +5,13 @@ body > header{
     width:100%;
     background:#fff;
     z-index:1000;
-    height:65px;
+    height:43px;
     border-bottom: 1px #eee solid;
 }
 #menu{
     font-size:14px !important;
     text-transform: uppercase;
     font-family: 'NovecentowideUltraLightBold', arial;
-    margin-top:10px;
     height:20px;
 }
 .menu-block, .menu-block ul{
@@ -20,17 +19,15 @@ body > header{
 
 }
 #menu-right{
- 
-vertical-align:top;
-margin-top:10px;
+    vertical-align:top;
+    margin-top:12px;
 }
 
 #menu-logo{
     width:200px;
     padding: 3px 0px 0px 5px;
     border-left: 10px #000 solid;
-    display: block;
-    float:left;
+    margin-left:5px;
 }
 
 #menu-logo span{
@@ -47,16 +44,13 @@ margin-top:10px;
     border-bottom: 2px solid #111;
 }
 #menu-logo a:hover{
- text-decoration: none;   
- color:#fff;
-
+    text-decoration: none;   
+    color:#fff;
 }
 #menu-logo:hover{
-     background:#000 !important;
-    
+     background:#000 !important;  
 }
 #menu ul li{
-
     margin-right:50px;
 }
 #menu ul.menu-right{
