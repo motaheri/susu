@@ -21,7 +21,7 @@
 }
 .sliderPortrait .slider .slide .slide-inner {
 	width: 218px;
-	height: 362px; /* 312 + 50 */
+	height: 360px; /* 312 + 48 */
 	margin: 5px;
 }
 /*
@@ -94,9 +94,10 @@
 }
 
 .slider .slide .slide-inner .event-title {
-	margin: 0px -5px 0px -5px;
+	margin: 2px -5px 0px -5px;
 	padding: 5px 10px 0px 10px;
 	height: 20px;
+	font-size: 14px;
 }
 
 .slider .slide .slide-inner .event-date {
@@ -107,12 +108,12 @@
 }
 
 .slider .slide:first-child .slide-inner .event-title {
-	margin: 5px -5px 0px 0px !important;
+	margin: 2px -5px 0px 0px !important;
 	padding: 5px 10px 0px 5px;
 }
 
 .slider .slide:last-child .slide-inner .event-title {
-	margin: 5px 0px 0px -5px !important;
+	margin: 2px 0px 0px -5px !important;
 	padding: 5px 5px 0px 10px;
 }
 

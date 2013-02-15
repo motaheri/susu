@@ -195,18 +195,15 @@ h1,h2,h3,h4 {
 .color-varsity {
     background: #036735;
 }
-.bb-blue {
-    border-top: 7px solid #3887C0;
-}
-.bb-purple {
-    border-top: 7px solid #BC5CA2;
-}
 .bb-green {
-    border-top: 7px solid #C4D836;
+    border-bottom: 6px solid #67ae01;
 }
-.bb-ltblue {
-    border-top: 7px solid #94C7DF;
+.bb-yellow {
+    border-bottom: 6px solid #FBCF37;
 }
-.bb-varsity {
-    border-top: 7px solid #036735;
+.bb-pink {
+    border-bottom: 6px solid #BC5CA2;
+}
+.bb-blue {
+    border-bottom: 6px solid #3887C0;
 }
