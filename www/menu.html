@@ -45,28 +45,88 @@ Space for magic colors and sizes
     
     </head>
     <body>
-        <header class="clearfix header">
-            <!--<h1>Title</h1>-->
-            <div id="menu" class="wrapper">
-                <div id="menu-container">
-                    <div id="menu-left">
-                        <ul class="menu-left">
-                            <li id="menu-logo"><a href=""><span>Swansea University</span> <span>Students' Union</span></a></li>
-                        </ul>
-                    </div>
-                    <div id="menu-right">
-                        <ul class="menu-offleft" id="menu-pages">
-                            <li><a href="">Your Union</a></li>
-                        </ul>
-                        <ul class="menu-right">
-                            <li id="menu-account"><a href="">Your Account</a></li>
-                            <li id="menu-basket"><a href="">Your Union</a></li>
-                            <li id="menu-search"><a href="">Swansea University Students' Swansea</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <style>
+            body > header {
+                border-bottom: 1px solid #bbb;
+                height: 70px;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                background: white;
+                margin-top: -1px;
+            }
+            .su-nav {
+                height: 70px;
+                overflow: none;
+                margin-top: -20px;
+            }
+            .su-nav ul {
+                margin: 0;
+                padding: 0;
+                float: right;
+                list-style: none;
+                font-family: "museo_sans_500regular";
+                font-size: 12px;
+            }
+            .su-nav ul li {
+                display: inline-block;
+                width: 90px;
+                height: 65px;
+                vertical-align: middle;
+            }
+            .su-nav ul li:nth-of-type(1) {
+                border-top: 5px solid #036735;
+            }
+            .su-nav ul li:nth-of-type(1):hover {
+                background: #036735;
+            }
+            .su-nav ul li:nth-of-type(2) {
+                border-top: 5px solid #FBCF37;
+            }
+            .su-nav ul li:nth-of-type(2):hover {
+                background: #FBCF37;
+            }
+            .su-nav ul li:nth-of-type(3) {
+                border-top: 5px solid #BC5CA2;
+            }
+            .su-nav ul li:nth-of-type(3):hover {
+                background: #BC5CA2;
+            }
+            .su-nav ul li:nth-of-type(4) {
+                border-top: 5px solid #87CEEB;
+            }
+            .su-nav ul li:nth-of-type(4):hover {
+                background: #87CEEB;
+            }
+            .su-nav ul li a {
+                text-align: center;
+                vertical-align: middle;
+                display: block;
+                padding: 20px 0px 0px 0px;
+                text-decoration: none;
+                color: black;
+            }
+            .su-nav h1 {
+                padding-top: 16px;
+            }
+            .spacer {
+                height: 90px;
+            }
+        </style>
+        <header class="clearfix">
+            <div class="wrapper su-nav">
+                <ul>
+                    <li><a href="#">Menu Item</a></li>
+                    <li><a href="#">Menu Item</a></li>
+                    <li><a href="#">Menu Item</a></li>
+                    <li><a href="#">Menu Item</a></li>
+                </ul>
+                <h1 class="title">Swansea University Students' Union</h1>
             </div>
         </header>
+        <div class="spacer"></div>
         <!--
         <div id="cover" class="clearfix">
             Test
@@ -198,7 +258,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-blue">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -209,7 +272,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-blue">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -220,7 +286,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-purple">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -231,7 +300,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-varsity">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -242,7 +314,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-varsity">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -253,7 +328,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-varsity">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>
@@ -264,7 +342,10 @@ Space for magic colors and sizes
                                 <div class="event-title">
                                     Awesome Event
                                 </div>
-                                <div class="event-date">
+                                <div class="event-location">
+                                    Divas
+                                </div>
+                                <div class="event-date color-varsity">
                                     Monday, 1st Feb 2013
                                 </div>
                             </div>

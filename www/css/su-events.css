@@ -8,7 +8,7 @@
 	left: 0;
 	overflow: hidden;
 	width: 684px;
-	height: 382px; /* 322 + 60 */
+	height: 372px; /* 322 + 50 */
 }
 .sliderPortrait .slider {
 	width: 100%;
@@ -17,11 +17,11 @@
 .sliderPortrait .slider .slide {
 	float: left;
 	width: 228px;
-	height: 382px; /* 322 + 60 */
+	height: 372px; /* 322 + 50 */
 }
 .sliderPortrait .slider .slide .slide-inner {
 	width: 218px;
-	height: 372px; /* 312 + 60 */
+	height: 362px; /* 312 + 50 */
 	margin: 5px;
 }
 /*
@@ -77,9 +77,13 @@
 .slider .slide .slide-inner {
 	background-repeat: no-repeat;
 	background-size: cover;
+	font-family: 'museo_sans_500regular';
+	font-size: 13px;
 }
+
 .sliderPortrait .slider .slide .slide-inner {
 }
+
 .sliderSmall .slider .slide .slide-inner {
 	background-color: #87CEEB;
 }
@@ -90,22 +94,28 @@
 }
 
 .slider .slide .slide-inner .event-title {
-	margin: 2px 5px 0px 5px;
+	margin: 0px -5px 0px -5px;
+	padding: 5px 10px 0px 10px;
 	height: 20px;
 }
+
 .slider .slide .slide-inner .event-date {
-	margin: 0px -5px 0px -5px;
-	padding: 0px 5px 0px 5px;
+	margin: 0px 5px 0px 5px;
 	font-style: italic;
 	overflow: visible !important;
 	height: 20px;
 }
-.slider .slide:first-child .slide-inner .event-date {
-	margin: 0px -5px 0px 0px !important;
+
+.slider .slide:first-child .slide-inner .event-title {
+	margin: 5px -5px 0px 0px !important;
+	padding: 5px 10px 0px 5px;
 }
-.slider .slide:last-child .slide-inner .event-date {
-	margin: 0px 0px 0px -5px !important;
+
+.slider .slide:last-child .slide-inner .event-title {
+	margin: 5px 0px 0px -5px !important;
+	padding: 5px 5px 0px 10px;
 }
+
 .slider .slide .slide-inner .event-location {
 	margin: 0px 5px 0px 5px;
 	height: 20px;

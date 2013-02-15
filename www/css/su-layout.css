@@ -123,12 +123,12 @@ html,body{
     font-family: 'Bitter', serif;
 }
 
-h1,h2,h3,h4{
+h1,h2,h3,h4 {
     font-family: 'museo_sans_500regular';
     text-transform: uppercase;
 }
 
-#sulogo{
+#sulogo {
     height: 50px;
     margin: 0px;
     margin-top:-5px;
@@ -194,5 +194,19 @@ h1,h2,h3,h4{
 }
 .color-varsity {
     background: #036735;
->>>>>>> fabd7c86f5735fd89651fc16292e7380cce23cdc
+}
+.bb-blue {
+    border-top: 7px solid #3887C0;
+}
+.bb-purple {
+    border-top: 7px solid #BC5CA2;
+}
+.bb-green {
+    border-top: 7px solid #C4D836;
+}
+.bb-ltblue {
+    border-top: 7px solid #94C7DF;
+}
+.bb-varsity {
+    border-top: 7px solid #036735;
 }
