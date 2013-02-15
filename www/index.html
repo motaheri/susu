@@ -31,7 +31,8 @@ Space for magic colors and sizes
         <link rel="stylesheet" href="css/su-news.css" />
         <link rel="stylesheet" href="css/su-events.css" />
         <link rel="stylesheet" href="css/su-coverflow.css" />
-        <link rel="stylesheet" href="css/megamenu.css"><!-- Mega Menu Stylesheet -->
+        <link rel="stylesheet" href="css/su-menu.css" />
+        <!--<link rel="stylesheet" href="css/megamenu.css">--><!-- Mega Menu Stylesheet -->
         
         
         <link href="http://fonts.googleapis.com/css?family=Mako" rel='stylesheet' type='text/css'>
@@ -44,142 +45,27 @@ Space for magic colors and sizes
     
     </head>
     <body>
-        <header class="clearfix">
+        <header class="clearfix header">
             <!--<h1>Title</h1>-->
-            <div class="megamenu_container megamenu_fixed megamenu_dark_bar megamenu_light su-menu"><!-- Begin Menu Container -->
-                <ul class="megamenu"><!-- Begin Mega Menu -->
-                    <!--<img id="sulogo" src="img/su-logo-home-small.png" alt="Swansea University Students' Union" title="Swansea University Students' Union" />-->
-                    <li class="megamenu_button"><a href="#_">Swansea University Students' Union</a></li>
-                    <li id="sulogo"><a href="#">Swansea University <br/>Students' Union</a></li><!-- Begin Item -->
-                    <li><a href="#_" class="megamenu_drop">Home</a><!-- Begin Item -->
-                        <div class="dropdown_fullwidth"><!-- Begin Item Container -->
-                            <div class="col_12">
-                                <h1>Big Top Menu</h1>
-                                <hr>
-                            </div>
-                            <div class="col_4">
-                                <h3>Sub-menu Header</h3>
-                                <p>Description test.</p>             
-                            </div>
-                            <div class="col_4">
-                                <h3>Column Two</h3>
-                                <p>This is an example of a full width drop down.</p>
-
-                            </div>
-                            <div class="col_4">
-                                <h3>List Examples</h3>
-                            </div>
-                            <div class="col_2 responsive_halfs">
-                                <ul class="list_unstyled">
-                                    <li><a href="#_">Mega Menu</a></li>
-                                    <li><a href="#_">CSS3 Effects</a></li>
-                                </ul> 
-                            </div>
-                            <div class="col_2 responsive_halfs">
-                                <ul class="list_unstyled">
-                                    <li><a href="#_">Typography</a></li>
-                                    <li><a href="#_">Columns</a></li>
-                                </ul>   
-                            </div>
-                        </div><!-- End Item Container -->
-                    </li><!-- End Item -->
-                    <li><a href="#_" class="megamenu_drop">Lists</a><!-- Begin Item -->
-                        <div class="dropdown_8columns dropdown_container"><!-- Begin Item Container -->
-                            <div class="col_12">
-                                <h2>Additional Lists</h2>
-                            </div>
-                            <div class="col_3 responsive_halfs">
-                                <ol class="num">
-                                    <li><a href="#_">ThemeForest</a></li>
-                                    <li><a href="#_">GraphicRiver</a></li>
-                                </ol>   
-                            </div>
-                            <div class="col_3 responsive_halfs">
-                                <ol class="num2">
-                                    <li><a href="#_">NetTuts</a></li>
-                                    <li><a href="#_">VectorTuts</a></li>
-                                </ol>   
-                            </div>
-                            <div class="col_3 responsive_halfs">
-                                <ul class="list">
-                                    <li><a href="#_">FreelanceSwitch</a></li>
-                                    <li><a href="#_">Creattica</a></li>
-                                </ul>   
-                            </div>
-                            <div class="col_3 responsive_halfs">
-                                <ul class="list2">
-                                    <li><a href="#_">Design</a></li>
-                                    <li><a href="#_">Logo</a></li>
-                                </ul>     
-                            </div>                        
-                            <div class="col_12">
-                                <h2>Paragraphs with Borders</h2>              
-                                <p class="blue">Nulla quis metus a dolor feugiat porta. Phasellus sapien magna, gravida congue fermentum vel, gravida sit amet sapien. Quisque elit est, ullamcorper ac hendrerit eget, porta id enim.</p>  
-                            </div>      
-                        </div><!-- End Item container -->
-                    </li><!-- End Item -->
-
-                    <li><a href="#_" class="megamenu_drop">Fly-Out</a><!-- Begin Item -->
-                        <div class="dropdown_2columns dropdown_container"><!-- Begin Item Container -->
-                            <ul class="dropdown_flyout">      
-                                <li><a href="#_">Level 1</a></li>
-                                <li class="dropdown_parent"><a href="#_">Level 1</a>
-                                    <ul class="dropdown_flyout_level">
-                                        <li><a href="#_">Level 2</a></li>
-                                        <li class="dropdown_parent"><a href="#_">Level 2</a>
-                                            <ul class="dropdown_flyout_level dropdown_flyout_level_left">
-                                                <li><a href="#_">Level 3</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>                       
-                        </div><!-- End Item Container -->
-                    </li><!-- End Item -->
-
-
-                    <li class="megamenu_right"><a href="#_" class="megamenu_drop">Login</a><!-- Begin Right Item -->
-
-
-                        <div class="dropdown_2columns dropdown_right dropdown_container droplast_right dropdown_4columns"><!-- Begin Right Item Container -->
-
-                            <div class="col_12">
-
-                                                        <div class="contact_form">
-
-                                    <form action="send">
-
-                                        <label for="name">User Name<span class="required"> *</span></label><br />
-                                        <input name="name" type="text" class="form_element" id="name" value="" autocomplete="off" /> 
-
-                                        <label for="email">Password<span class="required"> *</span></label><br />
-                                        <input name="email" type="text" class="form_element" id="email" value="" autocomplete="off" />
-
-                                        <div class="form_buttons">
-                                            <input type="submit" class="button" id="submit" value="Login" />
-                                            <input type="reset" class="button" id="reset" value="Forgotten Password" />
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- End Right Item Container -->
-
-
-                    </li><!-- End Right Item -->
-
-
-                </ul><!-- End Mega Menu -->
-
-
-            </div><!-- End Menu Container -->
-
-
-            
-
+            <div id="menu" class="wrapper">
+                <div id="menu-container">
+                    <div id="menu-left">
+                        <ul class="menu-left">
+                            <li id="menu-logo"><a href=""><span>Swansea University</span> <span>Students' Union</span></a></li>
+                        </ul>
+                    </div>
+                    <div id="menu-right">
+                        <ul class="menu-offleft" id="menu-pages">
+                            <li><a href="">Your Union</a></li>
+                        </ul>
+                        <ul class="menu-right">
+                            <li id="menu-account"><a href="">Your Account</a></li>
+                            <li id="menu-basket"><a href="">Your Union</a></li>
+                            <li id="menu-search"><a href="">Swansea University Students' Swansea</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </header>
         <!--
         <div id="cover" class="clearfix">
