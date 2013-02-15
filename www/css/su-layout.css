@@ -100,6 +100,7 @@ body > div#cover {
     background-image: url(../img/cover.jpg);
     background-size: cover;
 }
+
 @media only screen and (max-width: 683px) {
     body > div#cover {
         display: none;
@@ -118,10 +119,10 @@ body > section#news {
     text-align: center;
 }
 
-
 html,body{
     font-family: 'Bitter', serif;
 }
+
 h1,h2,h3,h4{
     font-family: 'museo_sans_500regular';
     text-transform: uppercase;
@@ -140,6 +141,7 @@ h1,h2,h3,h4{
     margin-right: 100px;
     font-size:12px !important;
 }
+
 .su-menu{
     height: 50px !important;
     background: #fff !important;
@@ -155,13 +157,42 @@ h1,h2,h3,h4{
     font-family: 'NovecentowideUltraLightBold' !important;
     border-bottom:1px #000 solid;
 }
+
 .su-menu a{
     height: 16px;
     color: #000;
 }
+
 .su-menu img{
     display:inline-block;
     border:none !important;
     padding:none !important;
     margin:none !important;
+}
+
+/*
+ * GENERIC COLORS
+ */
+
+.color-blue {
+    background: #3887C0;
+}
+.color-purple {
+    background: #BC5CA2;
+}
+.color-green {
+    background: #C4D836;
+}
+.color-ltblue {
+    background: #94C7DF;
+}
+.color-red {
+    background: #E75661;
+}
+.color-yellow {
+    background: #FBCF37;
+}
+.color-varsity {
+    background: #036735;
+>>>>>>> fabd7c86f5735fd89651fc16292e7380cce23cdc
 }

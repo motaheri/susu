@@ -86,15 +86,27 @@
 
 .slider .slide .slide-inner img {
 	width: 228px;
+	height: 308px;
 }
 
 .slider .slide .slide-inner .event-title {
 	margin: 2px 5px 0px 5px;
+	height: 20px;
 }
 .slider .slide .slide-inner .event-date {
-	margin: 0px 5px 0px 5px;
+	margin: 0px -5px 0px -5px;
+	padding: 0px 5px 0px 5px;
 	font-style: italic;
+	overflow: visible !important;
+	height: 20px;
+}
+.slider .slide:first-child .slide-inner .event-date {
+	margin: 0px -5px 0px 0px !important;
+}
+.slider .slide:last-child .slide-inner .event-date {
+	margin: 0px 0px 0px -5px !important;
 }
 .slider .slide .slide-inner .event-location {
 	margin: 0px 5px 0px 5px;
+	height: 20px;
 }
