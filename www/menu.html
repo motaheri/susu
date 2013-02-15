@@ -68,7 +68,7 @@ Space for magic colors and sizes
                 float: right;
                 list-style: none;
                 font-family: "museo_sans_500regular";
-                font-size: 12px;
+                font-size: 13px;
             }
             .su-nav ul li {
                 display: inline-block;
@@ -104,7 +104,7 @@ Space for magic colors and sizes
                 text-align: center;
                 vertical-align: middle;
                 display: block;
-                padding: 20px 0px 0px 0px;
+                padding: 24px 0px 0px 0px;
                 text-decoration: none;
                 color: black;
             }
@@ -114,16 +114,29 @@ Space for magic colors and sizes
             .spacer {
                 height: 90px;
             }
+            .su-nav-menu {
+                display: none;
+                margin-top: -1px;
+                background: white;
+                height: 250px;
+                border-top: 5px solid #67ae01;
+                border-left: 1px solid #bbb;
+                border-right: 1px solid #bbb;
+                border-bottom: 1px solid #bbb;
+            }
         </style>
         <header class="clearfix">
             <div class="wrapper su-nav">
                 <ul>
-                    <li><a href="#">Menu Item</a></li>
-                    <li><a href="#">Menu Item</a></li>
-                    <li><a href="#">Menu Item</a></li>
-                    <li><a href="#">Menu Item</a></li>
+                    <li><a href="#">Your Union</a></li>
+                    <li><a href="#">Societies</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Events</a></li>
                 </ul>
                 <h1 class="title">Swansea University Students' Union</h1>
+            </div>
+            <div class="wrapper su-nav-menu">
+                Test
             </div>
         </header>
         <div class="spacer"></div>
@@ -504,6 +517,14 @@ Space for magic colors and sizes
                 });
             });
             -->
+        </script>
+        
+        <script>
+            $('header ul li, .su-nav-menu').hover(function() {
+                $('.su-nav-menu').slideDown();
+            },function() {
+                $('.su-nav-menu').hide();
+            });
         </script>
         
         <script>
