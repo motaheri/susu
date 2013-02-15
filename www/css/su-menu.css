@@ -1,54 +1,89 @@
-
-#menu{
-   font-size:14px !important;
-   text-transform: uppercase;
-   font-family: 'NovecentowideUltraLightBold';
-   border: 1px solid #000;
-   border-top:none;
-   border-right:none;
-   border-left:none;
-   position:absolute;
-   width:100%;
-height:80px;
+body > header{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    background:#fff;
+    z-index:1000;
+    height:65px;
+    border-bottom: 1px #eee solid;
 }
-#menu-left,#menu-right{
-float:left;
+#menu{
+    font-size:14px !important;
+    text-transform: uppercase;
+    font-family: 'NovecentowideUltraLightBold', arial;
+    margin-top:10px;
+    height:20px;
+}
+.menu-block, .menu-block ul{
+    display: inline-block;
+
+}
+#menu-right{
+ 
+vertical-align:top;
+margin-top:10px;
 }
 
 #menu-logo{
-   
+    width:200px;
+    padding: 3px 0px 0px 5px;
+    border-left: 10px #000 solid;
+    display: block;
+    float:left;
 }
+
 #menu-logo span{
-display:block;
-height:20px;
+    display:block;
+    height:20px;
+    width: 300px;
 }
 #menu ul{
-display:inline-block;
-padding:0px;
-margin:0px;
+    display:inline-block;
+    padding:0px;
+    margin:0px;
 }
-#menu ul.menu-right{
-display:block;
+#menu a:hover{
+    border-bottom: 2px solid #111;
 }
-#menu ul.menu-right{
+#menu-logo a:hover{
+ text-decoration: none;   
+ color:#fff;
 
+}
+#menu-logo:hover{
+     background:#000 !important;
+    
+}
+#menu ul li{
+
+    margin-right:50px;
+}
+#menu ul.menu-right{
+    display:block;
 }
 #menu ul.menu-right li{
-margin-right:20px;
+    margin-right:20px;
+    width:100px;
 }
-
-
+#menu-pages{
+    font-size: 14px;
+    margin-top:-15px !important;
+}
 #menu li{
-list-style:none;
-display:inline-block;
+    list-style:none;
+    display:inline-block;
 }
-
 #menu li a{
-color:#000;
-text-decoration:none;
+    color:#000;
+    text-decoration:none;
 }
 .menu-right{
-postion:relative;
-left:0px;
-
+    postion:relative;
+    left:0px;
+}
+#menu-spacer{
+    height:80px;
+    display: block;
+    width:100%;
 }
