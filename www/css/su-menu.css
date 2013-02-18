@@ -20,7 +20,6 @@ body > header{
 }
 .menu-block, .menu-block ul{
     display: inline-block;
-
 }
 #menu-right{
     vertical-align:top;
@@ -39,10 +38,6 @@ body > header{
     padding:0px;
     margin:0px;
 }
-#menu a:hover{
-    xborder-bottom: 2px solid #111;
-}
-
 #menu ul li{
     margin-right:50px;
 }
@@ -62,26 +57,18 @@ body > header{
     border-bottom: 0px !important;
     background:#fff;
     padding: 10px 20px 22px 20px !important;
-    z-index:2000 !important;
+    z-index:19999 !important;
 }
 #menu li{
     list-style:none;
     display:inline-block;
     padding: 14px 24px 24px 24px;
-    xborder: 2px solid #fff;
     padding: 12px 22px 22px 22px;
     border-bottom: 0px;
     cursor: pointer;
 	cursor: hand;
+        z-index:19999 !important;
 }
-/*
-#menu li:hover{
-    padding: 10px 20px 22px 20px;
-    border: 2px solid #000;
-    border-bottom: 0px;
-    background:#fff;
-}
-*/
 li#menu-logo{
     text-decoration: none;   
     color:#fff;
@@ -129,4 +116,7 @@ li#menu-logo:hover{
 }
 #coverflow{
     margin-left: 40px;    
+}
+#exposeMask{   
+    z-index:800 !important;
 }
