@@ -3,7 +3,7 @@ body > header{
     top:0px;
     left:0px;
     width:100%;
-    background:#fff;
+    background: rgba(256, 256, 256, 0.95); 
     z-index:1000;
     height:70px;
     border-bottom: 1px #eee solid;
@@ -15,6 +15,9 @@ body > header{
     height:20px;
     margin-top: 12px;
 }
+#menu-container{
+    white-space:nowrap;
+}
 .menu-block, .menu-block ul{
     display: inline-block;
 
@@ -23,14 +26,9 @@ body > header{
     vertical-align:top;
     margin-top:12px;
 }
-
-#menu-logo{
-    width:200px;
-    padding: 3px 0px 0px 5px;
-    border-left: 10px #000 solid;
-    margin-left:5px;
+#menu-logo a{
+    color:#fff !important;
 }
-
 #menu-logo span{
     display:block;
     height:20px;
@@ -42,15 +40,9 @@ body > header{
     margin:0px;
 }
 #menu a:hover{
-    border-bottom: 2px solid #111;
+    xborder-bottom: 2px solid #111;
 }
-#menu-logo a:hover{
-    text-decoration: none;   
-    color:#fff;
-}
-#menu-logo:hover{
-     background:#000 !important;  
-}
+
 #menu ul li{
     margin-right:50px;
 }
@@ -65,13 +57,47 @@ body > header{
     font-size: 14px;
     margin-top:-15px !important;
 }
+.menu-link-hover{
+    border: 2px solid #000;
+    border-bottom: 0px !important;
+    background:#fff;
+    padding: 10px 20px 22px 20px !important;
+    z-index:2000 !important;
+}
 #menu li{
     list-style:none;
     display:inline-block;
+    padding: 14px 24px 24px 24px;
+    xborder: 2px solid #fff;
+    padding: 12px 22px 22px 22px;
+    border-bottom: 0px;
+    cursor: pointer;
+	cursor: hand;
+}
+/*
+#menu li:hover{
+    padding: 10px 20px 22px 20px;
+    border: 2px solid #000;
+    border-bottom: 0px;
+    background:#fff;
+}
+*/
+li#menu-logo{
+    text-decoration: none;   
+    color:#fff;
+    border:none;
+    padding: 3px 0px 0px 15px !important;
+}
+li#menu-logo:hover{
+    border:none;
+    
 }
 #menu li a{
     color:#000;
-    text-decoration:none;
+    text-decoration:none;   
+}
+#menu li:hover a{
+    border-bottom: 2px #000 solid;
 }
 .menu-right{
     postion:relative;
@@ -81,4 +107,26 @@ body > header{
     height:80px;
     display: block;
     width:100%;
+}
+.menu-content{
+    z-index:500;
+    border: 2px solid #000;
+    border-bottom: 10px solid #000;
+    width: 100%;
+    height:300px;
+    background-color: #fff;
+    margin-top:-2px;
+    padding: 10px 15px;
+    display:none;
+}
+#menu-logo{
+    width:250px;
+    padding: 3px 0px 0px 10px !important;
+    border-left: 15px #000 solid;
+    margin-left:5px;
+    background:#152558 !important;
+    color:#fff !important;
+}
+#coverflow{
+    margin-left: 40px;    
 }
