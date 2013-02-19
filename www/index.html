@@ -471,7 +471,7 @@ Space for magic colors and sizes
         <script type="text/javascript">
             /** MENU JAVASCRIPT **/
             $(document).ready(function(){
-                $('#menu li').on('click',function(e){
+                $('#menu li:not(#menu-logo)').on('click',function(e){
                         e.preventDefault();
                         $('#menu li').removeClass('menu-link-hover'); 
                         var menuLink = $(this).text().toLowerCase();

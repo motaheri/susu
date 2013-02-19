@@ -57,12 +57,23 @@
     .no-mobile {
         display: none !important;
     }
+    #menu ul li{
+        margin-right:2px;
+        width: 100% !important; 
+        background:#fff !important;
+    }
+    .menu-block, .menu-block ul,#menu li{
+        display: block !important;
+    } 
 }
 
 @media only screen and (min-width: 684px) {
     .wrapper {
         width: 684px;
         margin: 0 auto;
+    }
+    #menu ul li{
+        margin-right:5px;
     }
 }
 
@@ -71,12 +82,18 @@
         width: 912px;
         margin: 0 auto;
     }
+        #menu ul li{
+        margin-right:20px;
+    }
 }
 
 @media only screen and (min-width: 1140px) {
     .wrapper {
         width: 1140px;
         margin: 0 auto;
+    }
+        #menu ul li{
+        margin-right:50px;
     }
 }
 

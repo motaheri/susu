@@ -8,6 +8,9 @@ body > header{
     height:70px;
     border-bottom: 1px #eee solid;
 }
+body > header:hover{
+    background: rgba(256, 256, 256, 1.0); 
+}
 #menu{
     font-size:14px !important;
     text-transform: uppercase;
@@ -39,7 +42,7 @@ body > header{
     margin:0px;
 }
 #menu ul li{
-    margin-right:50px;
+    xmargin-right:50px;
 }
 #menu ul.menu-right{
     display:block;
@@ -66,8 +69,8 @@ body > header{
     padding: 12px 22px 22px 22px;
     border-bottom: 0px;
     cursor: pointer;
-	cursor: hand;
-        z-index:19999 !important;
+    cursor: hand;
+    z-index:19999 !important;
 }
 li#menu-logo{
     text-decoration: none;   
@@ -103,8 +106,10 @@ li#menu-logo:hover{
     height:300px;
     background-color: #fff;
     margin-top:-2px;
-    padding: 10px 15px;
     display:none;
+}
+.menu-content h2{
+    margin-left:20px;
 }
 #menu-logo{
     width:250px;
@@ -113,9 +118,6 @@ li#menu-logo:hover{
     margin-left:5px;
     background:#152558 !important;
     color:#fff !important;
-}
-#coverflow{
-    margin-left: 40px;    
 }
 #exposeMask{   
     z-index:800 !important;
