@@ -8,13 +8,16 @@ Space for magic colors and sizes
 -->
 <html>
     <head>
-        <title></title>
+        <title>Swansea Student Events</title>
         
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
-        <meta name="viewport" id="view" content="width=device-width minimum-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=620">
         
+		<script src="http://cdn.jsdelivr.net/html5shiv/3.6.1/html5shiv.min.js"></script>
+		jquery.inc-6.js
+		
         <!--[if lt IE 9]>
             <script src="http://cdn.jsdelivr.net/html5shiv/3.6.1/html5shiv.min.js"></script>
         <![endif]-->
@@ -49,12 +52,12 @@ Space for magic colors and sizes
             <!--<h1>Title</h1>-->
             <div id="menu" class="wrapper">
                 <div id="menu-container">
-                    <div id="menu-left" class="menu-block">
+                    <div id="menu-left" class="menu-block no-mobile">
                         <ul>
                             <li id="menu-logo"><a href=""><span>Swansea University</span> <span>Students' Union</span></a></li>
                         </ul>
                     </div>
-                    <div id="menu-right"  class="menu-block">
+                    <div id="menu-right"  class="menu-block no-mobile">
                         <ul class="menu-offleft" id="menu-pages">
                             <li><a href="">Union</a></li>
                             <li><a href="">Societies</a></li>
@@ -81,6 +84,10 @@ Space for magic colors and sizes
                             <h2>Your Events</h2>
                         </div>  
                     </div>
+                    
+                    <div id="mobile-nav"></div>
+                    
+                    
                 </div>
 
             </div>
@@ -116,7 +123,7 @@ Space for magic colors and sizes
             </div>
         </div>
         <div id="main" class="wrapper clearfix">
-            <h1>News</h1>
+            <h2>News</h2>
             <div id="isonews">
                 <div class="news default big">
                     <div class="news-inner">
@@ -205,9 +212,9 @@ Space for magic colors and sizes
                     </div>
                 </div>
             </div>
-            <h1>Events</h1>
-            <div>
-                <h3>Featured Events</h3>
+            <!--<h1>Events</h1>-->
+            <div id="events">
+                <h2>Events</h2>
                 <!-- slider container -->
                 <div class="sliderPortrait">
                     <!-- slider -->
@@ -294,8 +301,8 @@ Space for magic colors and sizes
                 </div>
             </div>
             
-            <div>
-                <h3>My Events</h3>
+            <div id="my-events">
+                <h2>My Events</h2>
                 <!-- slider container -->
                 <div class="sliderSmall">
                     <!-- slider -->
@@ -496,6 +503,28 @@ Space for magic colors and sizes
                 $('#menu li, #menu-content-container').click(function(event){
                     event.stopPropagation();
                 });
+                
+                
+                // Create the dropdown base
+                $("<select />").appendTo("#mobile-nav");
+
+                // Create default option  
+                $("<option />", {
+                   "selected": "selected",
+                   "value"   : "",
+                   "text"    : "Click to Browse.."
+                }).appendTo("#mobile-nav select");
+
+                // Populate dropdown with menu items
+                $("#menu-pages li a").each(function() {
+                 var el = $(this);
+                 $("<option />", {
+                     "value"   : el.attr("href"),
+                     "text"    : el.text()
+                 }).appendTo("#mobile-nav select");
+                });
+               
+               
             });
             </script>
     </body>

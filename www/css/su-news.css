@@ -148,7 +148,6 @@ div.news-content-inner:after {
 	border-color: transparent white;
 	background: none;
 }
-
 @media only screen and (min-height: 410px) {
 	div.news-content {
 		height: 400px;

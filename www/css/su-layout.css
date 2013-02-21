@@ -54,6 +54,9 @@
  * -------------------------------------------------------------------- */
 
 @media only screen and (max-width: 683px) {
+    .menu-block, .menu-block ul,#menu li{
+        display: block !important;
+    } 
     .no-mobile {
         display: none !important;
     }
@@ -62,9 +65,16 @@
         width: 100% !important; 
         background:#fff !important;
     }
-    .menu-block, .menu-block ul,#menu li{
-        display: block !important;
-    } 
+    #mobile-nav{
+        display:block !important;
+        font-size: 54px !important;
+    }
+    #mobile-nav select{
+        top: 0px;
+        margin-top: 0px;
+        position: absolute;
+        width:100%;
+    }
 }
 
 @media only screen and (min-width: 684px) {
@@ -187,6 +197,23 @@ h1,h2,h3,h4 {
     margin:none !important;
 }
 
+#mobile-nav{
+    display:none;
+}
+
+h1,h2,h3{
+    margin: 0px;
+    margin-left: 5px;
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+h2,h3{
+    margin-top: 10px;
+}
+
+#events,#my-events{
+    padding-top:20px;
+}
 /*
  * GENERIC COLORS
  */
@@ -224,3 +251,4 @@ h1,h2,h3,h4 {
 .bb-blue {
     border-bottom: 6px solid #3887C0;
 }
+	 
