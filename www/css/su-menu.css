@@ -21,7 +21,7 @@ body > header:hover{
 #menu-container{
     white-space:nowrap;
 }
-.menu-block, .menu-block ul{
+#menu-left, .menu-block, .menu-block ul{
     display: inline-block;
 }
 #menu-right{
