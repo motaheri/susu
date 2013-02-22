@@ -5,6 +5,11 @@ inc v6
 A super-tiny client-side include JavaScript jQuery plugin
 
 <http://johannburkard.de/blog/programming/javascript/inc-a-super-tiny-client-side-include-javascript-jquery-plugin.html>
+<p class="inc:footer.html">This text will be replaced
+    with footer.html</p>
+
+<p class="small inc:footer.html inactive">This text will
+    be replaced with footer.html as well</p>
 
 MIT license.
 
@@ -23,7 +28,7 @@ jQuery.fn.inc = function(url, transform, post, t, f, transfer) {
    post && post();
   };
 
-  if ($.browser.msie) {
+  if (navigator.appName == 'Microsoft Internet Explorer') {
 
    $('<iframe>').hide().bind('readystatechange', function() {
     if (/m/.test(this.readyState)) {
