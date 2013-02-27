@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -82,256 +81,637 @@
                 position:relative;
                 width:940px;
             }
-            .electionpost{
-                width: 280px;
-                min-height: 150px;
-                display: inline-block;
-                margin-right: 30px;
-                position:relative;
-                margin-bottom: 70px;
-                vertical-align: top;
-                color:#fff;
-                cursor: pointer;
-                cursor: hand;
-            }
-            .electionpost p{
-                margin: 10px 15px;
-                font-size:14px;
-                line-height: 20px;
-                padding-bottom:15px;
-            }
-            .electionpost h1{
-                text-transform: uppercase;
-                font-size: 24px;
-                padding:20px 15px 0px;
-                line-height:28px;
-            }
-            .leftcorner, .rightcorner, .middlecorner{
-                width:65px;
-                height:52px;
-                vertical-align:0;
-                white-space:nowrap;
-                display:inline;
-                left:105px;
-                bottom:-52px;
-                font-size:9px;
-                margin:0px;
-                position:absolute;
-            }
-            .leftcorner{
-                background-image:url('left-80.png');                
-            }
-            .rightcorner{
-                background-image:url('right-80.png');
-            }
-            .middlecorner{
-                background-image:url('middle-80.png');
-            }
-            .pres{
-                margin:0 auto 70px;
-                margin-left: 312px;    
-                background-image:url('blue-square-80.png');
-            }
-            .pres:hover{  
-                background:#3887C0;
-            }
-            .pres .middlecorner{
-                background-image:url('blue-80.png');
-            }
-            .pres:hover .middlecorner{
-                background-image:url('blue-100.png');
-            }
-            
-            .ss{  
-                background-image:url('purple-square-80.png');
-            }
-            .ss:hover{  
-                background:#BC5CA2;
-            }
-            .ss .leftcorner{
-                background-image:url('purple-80.png');
-            }
-            .ss:hover .leftcorner{
-                background-image:url('purple-100.png');
-            }
-            
-            .so{  
-                background-image:url('turquoise-square-80.png');
-            }
-            .so:hover{  
-                background:#05CDA5;
-            }
-            .so .middlecorner{
-                background-image:url('turquoise-80.png');
-            }
-            .so:hover .middlecorner{
-                background-image:url('turquoise-100.png');
-            }
-            
-            .eo{  
-                background-image:url('skyblue-square-80.png');
-            }
-            .eo:hover{  
-                background:#94C7DF;
-            }
-            .eo .rightcorner{
-                background-image:url('skyblue-80.png');
-            }
-            .eo:hover .rightcorner{
-                background-image:url('skyblue-100.png');
-            }
-            
-            
-            
-            .welo{  
-                background-image:url('green-square-80.png');
-            }
-            .welo:hover{  
-                background:#C4D836;
-            }
-            .welo .leftcorner{
-                background-image:url('green-80.png');
-            }
-            .welo:hover .leftcorner{
-                background-image:url('green-100.png');
-            }
-            
-            .io{  
-                background-image:url('red-square-80.png');
-            }
-            .io:hover{  
-                background:#E75661;
-            }
-            .io .middlecorner{
-                background-image:url('red-80.png');
-            }
-            .io:hover .middlecorner{
-                background-image:url('red-100.png');
-            }
-            
-            .womo{  
-                background-image:url('gold-square-80.png');
-            }
-            .womo:hover{  
-                background:#FBCF37;
-            }
-            .womo .rightcorner{
-                background-image:url('gold-80.png');
-            }
-            .womo:hover .rightcorner{
-                background-image:url('gold-100.png');
-            }
-            
-            .electionpost.big{
-                width: 980px !important;
-            }
-            .electionpost.big.pres{
-                width: 980px !important;
-                margin-left: 0px;
-            }
-            #break{
-                margin-top:100px;
-                font-size:42px;
-                width: 960px;
-                color:#fff;
-                margin-bottom: 50px;
-                line-height:40px;
-                text-shadow: 0px 1px 1px #4d4d4d;
-                color: #222;
-                background-image:url('white-80.png');
-                padding: 15px 10px 50px 10px;
-            }
+.bigasstitle{
+font-size:64px;
+font-family: 'Six Caps', sans-serif;
+text-transform:uppercase;
+padding-bottom:50px;
+margin-left:10px;
+color:#fff;
+}
+.bigasstitle a{
+color:#fff !important;
+text-decoration:none;
+text-shadow: 0 0 0.2em #fff;
+}
+.bigasstitle a:hover{
+text-shadow: 0 0 0;
+}
+#ftoinfo {
+	border-radius: 10px;
+	padding: 20px 9px 10px 9px;
+	background-color: rgba(255,255,255,0.75);
+}
+.electionpost{
+	width: 271px;
+	min-height: 150px;
+	display: inline-block;
+	margin-right: 30px;
+	position: relative;
+	margin-bottom: 70px;
+	vertical-align: top;
+	color: #fff;
+	cursor: pointer;
+	cursor: hand;
+}
+.electionpost.small {
+	height: 320px;
+}
+.electionpost.br {
+	margin-right: 0px !important;
+}
+.electionpost p{
+	margin: 10px 15px;
+	font-size:14px;
+	line-height: 20px;
+	padding-bottom:15px;
+}
+.electionpost.big p{
+margin: 10px 35px;
+}
+.electionpost h1{
+	text-transform: uppercase;
+	font-size: 24px;
+	padding: 20px 15px 0px;
+	line-height: 28px;
+}
+.leftcorner, .rightcorner, .middlecorner{
+	width:65px;
+	height:52px;
+	vertical-align:0;
+	white-space:nowrap;
+	display:inline;
+	left:105px;
+	bottom:-52px;
+	font-size:9px;
+	margin:0px;
+	position:absolute;
+	background-repeat: no-repeat;
+}
+.leftcorner{
+	background-image:url('/stylesheet/metro/left-80.png');                
+}
+.rightcorner{
+	background-image:url('/stylesheet/metro/right-80.png');
+}
+.middlecorner{
+	background-image:url('/stylesheet/metro/middle-80.png');
+}
+.pres{
+	margin:50px auto 70px;
+	margin-left: 305px;    
+	background-image:url('/stylesheet/metro/blue-square-80.png');
+}
+.pres:hover{  
+	background:#3887C0;
+}
+.pres .middlecorner{
+	background-image:url('/stylesheet/metro/blue-80.png');
+}
+.pres:hover .middlecorner{
+	background-image:url('/stylesheet/metro/blue-100.png');
+}
+
+.ss{  
+	background-image:url('/stylesheet/metro/purple-square-80.png');
+}
+.ss:hover{  
+	background:#BC5CA2;
+}
+.ss .leftcorner{
+background-image:url('/stylesheet/metro/purple-80.png');
+}
+.ss:hover .leftcorner{
+background-image:url('/stylesheet/metro/purple-100.png');
+}
+
+.so{  
+background-image:url('/stylesheet/metro/turquoise-square-80.png');
+}
+.so:hover{  
+background:#05CDA5;
+}
+.so .middlecorner{
+background-image:url('/stylesheet/metro/turquoise-80.png');
+}
+.so:hover .middlecorner{
+background-image:url('/stylesheet/metro/turquoise-100.png');
+}
+
+.eo{  
+background-image:url('/stylesheet/metro/skyblue-square-80.png');
+}
+.eo:hover{  
+background:#94C7DF;
+}
+.eo .rightcorner{
+background-image:url('/stylesheet/metro/skyblue-80.png');
+}
+.eo:hover .rightcorner{
+background-image:url('/stylesheet/metro/skyblue-100.png');
+}
+
+
+
+.welo{  
+background-image:url('/stylesheet/metro/green-square-80.png');
+}
+.welo:hover{  
+background:#C4D836;
+}
+.welo .leftcorner{
+background-image:url('/stylesheet/metro/green-80.png');
+}
+.welo:hover .leftcorner{
+background-image:url('/stylesheet/metro/green-100.png');
+}
+
+.io{  
+background-image:url('/stylesheet/metro/red-square-80.png');
+}
+.io:hover{  
+background:#E75661;
+}
+.io .middlecorner{
+background-image:url('/stylesheet/metro/red-80.png');
+}
+.io:hover .middlecorner{
+background-image:url('/stylesheet/metro/red-100.png');
+}
+
+.womo{  
+background-image:url('/stylesheet/metro/gold-square-80.png');
+}
+.womo:hover{  
+background:#FBCF37;
+}
+.womo .rightcorner{
+background-image:url('/stylesheet/metro/gold-80.png');
+}
+.womo:hover .rightcorner{
+background-image:url('/stylesheet/metro/gold-100.png');
+}
+
+.electionpost.big{
+width: 882px !important;
+border-radius: 10px;
+}
+.electionpost.big.pres{
+width: 882px !important;
+margin-left: 0px;
+}
+#break{
+font-size:42px;
+width: 862px;
+color:#fff;
+margin-bottom: 0px;
+line-height:40px;
+text-shadow: 0px 1px 1px #666;
+color: #222;
+/*background-image:url('/stylesheet/metro/white-80.png');*/
+padding: 125px 10px 0px 10px;
+}
+.poststitle{
+font-size:42px;
+width: 862px;
+color:#fff;
+line-height:40px;
+text-shadow: 0px 1px 1px #666;
+color: #222;
+padding: 20px 10px 10px 10px;
+}
+.poststitle h1, #break h1{
+color:#152558 !important;
+}
+.btt {
+	float: right;
+}
+.electionpost ol {
+	padding: 10px 35px;
+	font-size: 14px;
+	line-height: 20px;
+}
+html, body{
+	background: none;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.gotobutton,.maingotobutton{
+width: 140px;
+height: 50px;
+background: #fff;
+color: #000;
+line-height: 50px;
+padding: 0px 10px;
+font-weight: bold;
+position: absolute;
+right: 20px;
+bottom: 20px;
+}
+.maingotobutton{
+position:relative;
+float:right;
+margin-top:-50px;
+width: 305px;
+}
+.btt{
+display:none;
+}
+.electionpost ol{
+padding-bottom:50px;
+}
+h1{
+color: #fff !important;
+}
+h2{
+border: none !important;
+margin-left: 25px !important;
+color: #fff !important;
+}
+#ftoinfo > p {
+	font-size: 14px;
+	line-height: 20px;
+	margin: 0px 40px 45px 20px;
+}
+#ftoinfo > h1 {
+	margin-left: 10px;
+	color: #152558 !important;
+	margin-bottom: 10px;
+}
         </style>
         
     </head>
     <body>
-        <div id="metro" style="width:940px">
-            <div class="electionpost pres">
-                <a class="current"><h1>President</h1></a>
-                <p>The President is the key contact for the University, National Union of Students and the local community.</p>
-                <span class="middlecorner"></span>
-            </div>
-            <br/>
-            <div class="electionpost ss">
-                <a class="current"><h1>Societies &amp; Services Officer</h1></a>
-                <p>The Societies and Services Officer is focused on ensuring that societies gain fair representation and support from the Union. Alongside this they are focused upon ensuring that students get value for money from their Union. Whilst all full-time officers are responsible for the Unions finances, this officer is the key liaison with the Finance Office.</p>
-            <span class="leftcorner"></span></div>
-            <div class="electionpost so">
-                <a class="current"><h1>Sports Officer</h1></a>
-                <p>The Sports Officer is focused on overseeing the running of sports clubs on campus and ensuring that sports team members gain fair representation and support from the Union and University.</p>
-             <span class="middlecorner"></span></div>
-            <div class="electionpost eo">
-                <a class="current"><h1>Education Officer</h1></a>
-                <p>The Education Officer is focused upon ensuring that our students are getting the most out of their education - both locally at the University and nationally.</p>
-            <span class="rightcorner"></span></div>
-            <br/>
-            <div class="electionpost welo">
-                <a class="current"><h1>Welfare Officer</h1></a>
-                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
-            <span class="leftcorner"></span></div>
-            <div class="electionpost io">
-                <a class="current"><h1>International Officer</h1></a>
-                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
-            <span class="middlecorner"></span></div>
-            <div class="electionpost womo">
-                <a class="current"><h1>Women's Officer</h1></a>
-                <p>The Women's Officer is focused upon ensuring that women students are well supported and represented both on campus and nationally. In fulfilling this role women students will be informed of the issues that may affect them and the support and advice available to them.</p>
-            <span class="rightcorner"></span></div>      
-            <div id="break"><h1>Description Of Officer Roles &amp; Responsibilities</h1></div>
-            <div class="electionpost big pres">
-                <a class="current"><h1>President</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-                <span class="middlecorner"></span>
-            </div>
-            <div class="electionpost big ss">
-                <a class="current"><h1>Societies &amp; Services Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            <span class="leftcorner"></span></div>
-            <div class="electionpost big so">
-                <a class="current"><h1>Sports Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-             <span class="middlecorner"></span></div>
-            <div class="electionpost big eo">
-                <a class="current"><h1>Education Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            <span class="rightcorner"></span></div>
-            <br/>
-            <div class="electionpost big welo">
-                <a class="current"><h1>Welfare Officer</h1></a>
-                <p>The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
-            <span class="leftcorner"></span></div>
-            <div class="electionpost big io">
-                <a class="current"><h1>International Officer</h1></a>
-                <p>The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
-            <span class="middlecorner"></span></div>
-            <div class="electionpost big womo">
-                <a class="current"><h1>Women's Officer</h1></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut...</p>
-            <span class="rightcorner"></span></div>
-        </div>
-        <div id="debug"></div>
+	<div class="bigasstitle">
+	<a href="http://www.swansea-union.co.uk/elections/">Vote Now! Officer Elections 2013</a></div>
+<div id="ftoinfo">
+	<h1>
+		Meet your candidates</h1>
+	<div class="poststitle">
+		<h1>
+			Full-Time Officer Positions</h1>
+	</div>
+	<div class="maingotobutton">
+		<a href="http://www.swansea-union.co.uk/elections/">Run as a Full-Time Students&#39; Union Officer Now!</a></div>
+	<div class="electionpost small pres br">
+		<h1>
+			<a class="current">President</a></h1>
+		<p>
+			The President is the key contact for the University, National Union of Students and the local community.</p>
+	</div>
+	<br />
+	<div class="electionpost small ss">
+		<h1>
+			<a class="current">Societies &amp; Services Officer</a></h1>
+		<p>
+			The Societies and Services Officer is focused on ensuring that societies gain fair representation and support from the Union. Alongside this they are focused upon ensuring that students get value for money from their Union. Whilst all full-time officers are responsible for the Unions finances, this officer is the key liaison with the Finance Office.</p>
+	</div>
+	<div class="electionpost small so">
+		<h1>
+			<a class="current">Sports Officer</a></h1>
+		<p>
+			The Sports Officer is focused on overseeing the running of sports clubs on campus and ensuring that sports team members gain fair representation and support from the Union and University.</p>
+	</div>
+	<div class="electionpost small eo br">
+		<h1>
+			<a class="current">Education Officer</a></h1>
+		<p>
+			The Education Officer is focused upon ensuring that our students are getting the most out of their education - both locally at the University and nationally.</p>
+	</div>
+	<br />
+	<div class="electionpost small welo">
+		<h1>
+			<a class="current">Welfare Officer</a></h1>
+		<p>
+			The Welfare Officer provides support and representation for all Swansea University students during their time here. In fulfilling this role, the Welfare Officer campaigns, lobbies and runs awareness raising initiatives to increase the wellbeing of students and improve their experience whilst at University, both on and off campus.</p>
+	</div>
+	<div class="electionpost small io">
+		<h1>
+			<a class="current">International Officer</a></h1>
+		<p>
+			The International Officer works to ensure the integration of home and international students at the University. They will ensure international students are represented in University forums, meetings and committees and that any changes proposed by the University have a positive effect on the international student experience.</p>
+	</div>
+	<div class="electionpost small womo br">
+		<h1>
+			<a class="current">Women&#39;s Officer</a></h1>
+		<p>
+			The Women&#39;s Officer is focused upon ensuring that women students are well supported and represented both on campus and nationally. In fulfilling this role women students will be informed of the issues that may affect them and the support and advice available to them.</p>
+	</div>
+	<div id="break">
+		<h1>
+			Description Of Officer Roles &amp; Responsibilities</h1>
+	</div>
+	<div class="electionpost big pres">
+		<h1>
+			<a class="current">President</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				Lead a team of Full-time Officers and co-ordinate the campaigning/political activities of the Part Time Officers.</li>
+			<li>
+				Secure effective student representation throughout the University, local community and nationally.</li>
+			<li>
+				Responsible for chairing the Trustee Board.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.</li>
+			<li>
+				Leading, encouraging and supporting colleagues in their roles and campaigns.</li>
+			<li>
+				Ensure that the constitution is both utilised effectively and developed regularly.</li>
+			<li>
+				Encourage students in Union elections and ensure that elections are well publicised to both prospective candidates and voters.</li>
+			<li>
+				Assist Part Time Officers in their roles and remits.</li>
+			<li>
+				Chair the Union Part Time Officer Committee and Student Forums.</li>
+			<li>
+				Work closely with the Student Representation &amp; Campaigns Co-ordinator.</li>
+			<li>
+				Represent the views of the students regardless of personal or political opinions.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<div class="electionpost big ss">
+		<h1>
+			<a class="current">Societies &amp; Services Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				This officer works closely with the Union&rsquo;s Finance Manager and chairs the Finance and Resources Committee, working alongside the Finance department to ensure sound financial practice by both officers and staff.</li>
+			<li>
+				Ensure all financial decisions of the Union are passed through the Union&rsquo;s Democratic Structures and present final audited accounts at the Union&rsquo;s AGM.&nbsp;</li>
+			<li>
+				This officer is the lead officer for supporting, advising and overseeing the Union&rsquo;s societies.&nbsp;</li>
+			<li>
+				To assist societies in increasing the educational and recreational activities available to Swansea students; working with the University to ensure recognition of the contribution students make through activities and the importance of societies as part of the student experience.&nbsp;</li>
+			<li>
+				Work closely with all societies support and training department, to ensure adequate training for society executive committee members.</li>
+			<li>
+				Monitor the expenditure of societies and ensure a fair allocation of grants.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.</li>
+			<li>
+				Work closely with the Student Development &amp; Societies Co-ordinator.</li>
+			<li>
+				Promote student feedback and input into the Union&rsquo;s services</li>
+			<li>
+				Represent the views of the students regardless of personal or political opinion.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<div class="electionpost big so">
+		<h1>
+			<a class="current">Sports Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				This officer is the lead officer for supporting, advising and overseeing the Sport Swansea clubs.&nbsp;</li>
+			<li>
+				To assist sports members in increasing the educational and recreational activities available to Swansea students; working with the University to ensure recognition of the contribution students make through activities and the importance of sport as part of the student experience.&nbsp;</li>
+			<li>
+				Assist with organising sports tournaments and conferences throughout the year, including the annual Swansea versus Cardiff Varsity event.</li>
+			<li>
+				Work closely alongside the Welfare Officer to implement healthy living campaigns.</li>
+			<li>
+				Act as the main point of communication between BUCS and sports clubs.</li>
+			<li>
+				Contribute to the sporting strategy of the University.&nbsp;</li>
+			<li>
+				Tender and maintain sports contracts with external companies.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.</li>
+			<li>
+				Represent the views of the students regardless of personal or political opinion.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<div class="electionpost big eo">
+		<h1>
+			<a class="current">Education Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				Work on campaigns to fight for fair and affordable fees for all Swansea students.</li>
+			<li>
+				Work to fight for a fair funding system throughout the United Kingdom alongside NUS.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.</li>
+			<li>
+				Work alongside the Advice and Support Centre to support students in cases of academic appeal.</li>
+			<li>
+				Work closely with the International Officer on campaigns ensuring fair and affordable fees for international students.</li>
+			<li>
+				Organises and chairs the Subject Representatives Assembly.</li>
+			<li>
+				Be the Unions representative with academic departments across campus.</li>
+			<li>
+				Work in partnership with the Employability Academy, Careers Service and similar agencies to assist graduate employment.</li>
+			<li>
+				Encourage student focus for all academic facilities such as LIS.</li>
+			<li>
+				Work closely with the Student Representation &amp; Campaigns Co-ordinator.</li>
+			<li>
+				Represent the views of the students regardless of personal or political beliefs.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<br />
+	<div class="electionpost big welo">
+		<h1>
+			<a class="current">Welfare Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				Co-ordinate campaigns and raise awareness of issues relating to welfare, housing and safety issues, finance and student health.</li>
+			<li>
+				Work closely with the Advice and Support Centre and ensure students are aware of the service.</li>
+			<li>
+				Focus on community relations working closely alongside the PR and Marketing Coordinator to help promote the Union externally.</li>
+			<li>
+				Work closely with the Liberations Officers and support their campaigns.</li>
+			<li>
+				Work with the University to ensure adequate welfare provision and support is provided for students.</li>
+			<li>
+				Assist the Environment and Ethics Officer in the development of the University and Union towards ethical and environmentally sound working practices.</li>
+			<li>
+				&nbsp;Work closely with the Student Representation &amp; Campaigns Co-ordinator.</li>
+			<li>
+				Represent the views of the students regardless of personal or political opinion.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<div class="electionpost big io">
+		<h1>
+			<a class="current">International Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such. Must be enrolled as an international student.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				Responsible for ensuring representation of international students both locally and nationally and on all University committees that have an impact on the international student experience.</li>
+			<li>
+				Work closely with the University&rsquo;s International Office and International Students Advisory Service to ensure fair representation for International Students.</li>
+			<li>
+				Encourage awareness of culture and diversity across campus and promote events that are diverse in nature and accessible to all students &ndash; particularly non-alcoholic events.</li>
+			<li>
+				Work closely with the Societies and Services Officer in supporting international societies.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.</li>
+			<li>
+				Work alongside fellow officers, the University and other supportive external bodies (where appropriate) to facilitate an &lsquo;Internationalisation&rsquo; agenda that accommodates all Swansea University students. &nbsp;In doing so the International Officer should actively promote work placements/internships and study opportunities abroad amongst all Swansea University students. &nbsp;Protect the access to, quality and diverse choice of foreign language provision available at the University. &nbsp;</li>
+			<li>
+				Maintain contact with and offer support where applicable to Swansea students studying abroad on International programs such as Erasmus.</li>
+			<li>
+				Work both locally and nationally alongside NUS utilising the resources of the International Students Campaign.&nbsp;</li>
+			<li>
+				Continue to work with ELTS and ICWS to ensure awareness of the facilities and service that the Students&rsquo; Union offers.</li>
+			<li>
+				Represent the Students&rsquo; Union at welcome events for newly arrived international students.</li>
+			<li>
+				Work closely with the Student Representation &amp; Campaigns Co-ordinator.</li>
+			<li>
+				&nbsp;Represent the views of the students regardless of personal or political opinions.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<div class="electionpost big womo">
+		<h1>
+			<a class="current">Women&#39;s Officer</a></h1>
+		<h2>
+			Requirements</h2>
+		<p>
+			Must be an enrolled student at Swansea University or ICWS and confirmed by the institution as such. Must self &ndash; define as a Woman.</p>
+		<h2>
+			Key Roles</h2>
+		<ol>
+			<li>
+				Responsible for running and co-ordinating campaigns relating to women&rsquo;s liberation including; Equal pay, Employment Opportunities, Anti-Domestic Violence, Personal Safety, Womens&rsquo; Health, Pro- Choice, Pregnancy and Harassment etc.</li>
+			<li>
+				Work towards combating discrimination to women within the University and wider society.</li>
+			<li>
+				Work closely with the Advice and Support Centre and ensure its awareness amongst students.</li>
+			<li>
+				Use evidence such as the NUS Hidden Marks report to inform campaigns.</li>
+			<li>
+				Promote the Union and ensure good personal representation in both actions and policies.&nbsp;</li>
+			<li>
+				Act as mentor and lead officer contact for the Liberations Officers and ensure support for their campaigns.</li>
+			<li>
+				Work closely with the Student Representation &amp; Campaigns Co-ordinator.</li>
+			<li>
+				Represent the views of the students regardless of personal or political opinion.</li>
+		</ol>
+		<div class="gotobutton">
+			<a href="http://www.swansea-union.co.uk/elections/">Run for this Role now!</a></div>
+		<p class="btt">
+			Back to top</p>
+	</div>
+	<p class="spacer">
+		&nbsp;</p>
+</div>
+<p>
+	&nbsp;</p>
+
 
         <script type="text/javascript">     
-            $(document).ready(function() {
-                  /* $('body').css('background-color','none');
-                   $('html').css('background-color','none');
-                   $('#msl-container-inner').css('background','none');
-                   $('.msl-dy-content').css('background','none');
-                   $('#msl-light-gray').hide();
-                   $('#msl-masthead-gray').hide();
-                   $('#msl-masthead').css('background-color','#eee');*/
+$(document).ready(function() {
+/*
+	   $('body').css('background-color','none');
+	   $('html').css('background-color','none');
+	   $('#msl-container-inner').css('background','none');
+	   $('.msl-dy-content').css('background','none');
+	   $('#msl-light-gray').hide();
+	   $('#msl-masthead-gray').hide();
+	   
+	   $('#msl-masthead').css('background-color','#eee');
+	   */
+           $('body').css('background', 'transparent');
+           $('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/bg.png")');
+	   /*$('.eo.big').waypoint(function() {
+		           $('body').css('background', 'transparent');
+		           $('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/eobg.jpg")');
+	   });
+	   $('.so.big').waypoint(function() {
+		           $('body').css('background', 'transparent');
+		           $('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/sobg.jpg")');
+	   });
+ 	   $('.womo.big').waypoint(function() {
+		           $('body').css('background', 'transparent');
+		           $('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/womo.jpg")');
+	   });*/
+	   $('.electionpost.small.pres').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.pres'), 800, { offset: -50 } );
+	   });
+	   $('.electionpost.small.ss').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.ss'), 800, { offset: -50 }  );
+	   });
+	   $('.electionpost.small.so').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.so'), 800, { offset: -50 }  );
+	   });
+	   $('.electionpost.small.eo').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.eo'), 800, { offset: -50 }  );
+	   });
+	   $('.electionpost.small.welo').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.welo'), 800, { offset: -50 }  );
+	   });
+	   $('.electionpost.small.io').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.io'), 800, { offset: -50 }  );
+	   });
+	   $('.electionpost.small.womo').click(function() {
+   	   	           $.scrollTo( $('.electionpost.big.womo'), 800, { offset: -50 }  );
+	   });
+	   $('.big').click(function() {
+   	   	           $.scrollTo( $('.small.pres'), 800 );
+	   });
+});
 
-                   $('.eo.big').waypoint(function() {
-                           $.backstretch("eobg.jpg");
-                   });
-                   $('.so.big').waypoint(function() {
-                           $.backstretch("sobg.jpg");
-                   });
-                   $('.ss.big').waypoint(function() {
-                           //$('body').css('background', 'transparent');
-                           //$('html').css('background-image', 'url("http://www.swansea-union.co.uk/stylesheet/metro/fto-bg-sports.jpg")');
-                   });
-           });
         </script> 
         
         
