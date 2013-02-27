@@ -1,4 +1,7 @@
 
+            /*
+             * JACKBOX
+             */
             jQuery(document).ready(function() {
                 jQuery(".jackbox[data-group]").jackBox("init", {
                     deepLinking: false,              // choose to use the deep-linking feature ("true" will enhance social sharing!) true/false
@@ -12,11 +15,9 @@
                     useKeyboardControls: true        // The left and right keyboard arrows will cycle through the items.  up/down will toggle thumbs
                 });
             });
-
-
-
-
-            <!--
+            
+            
+            
             /*
              * NEWS ISOTOPE
              */
@@ -50,6 +51,45 @@
             });
             
             /*
+             * URL #! NAVIGATION
+             */
+            function resetHashUrl() {
+                $.address.value('/ ');
+            }
+            $.address.strict(true);
+            $.address.crawlable(true);
+            $.address.change(function(event) {
+                console.log("Change: " + event.value);
+                if (/^\/ents\/event\//i.test(event.value) ||
+                    /^\/events\//.test(event.value)) {
+                    console.log('CONTENT TRIGGER: Event');
+                    /* Find Event Object
+                    if (!SU_Data.hasEvents) return;
+                    for (var eventList in SU_Data.eventData) {
+                        for (var obj in SU_Data.eventData[name]) {
+                            obj.Link
+                        }
+                    }
+                    */
+                }
+                else if (/^\/blogs\/blog\//i.test(event.value) ||
+                         /^\/union\/officer\//i.test(event.value) ||
+                         /^\/union\/fto\//i.test(event.value)) {
+                    console.log('CONTENT TRIGGER: Blog');
+                }
+                else if (/^\/news\/article\//i.test(event.value)) {
+                    console.log('CONTENT TRIGGER: News');
+                }
+            });
+            $('a[rel="deep"]').unbind('click');
+            $('a[rel="deep"]').click(function(e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $.address.value(url == '/' ? '/ ' : url);
+            }); 
+            
+            
+            /*
              * EVENTS COVERFLOW
              */
             $(document).ready(function(){
@@ -76,6 +116,8 @@
                 });
             });
             
+            
+            
             /*
              * EVENTS SLIDER
              */
@@ -93,14 +135,12 @@
                     infiniteSlider: false
                 });
             });
-            -->
-
-
-
-
-
-
-            /** MENU JAVASCRIPT **/
+            
+            
+            
+            /*
+             * MENU JAVASCRIPT
+             */
             $(document).ready(function(){
                 $('#menu li:not(#menu-logo)').on('click',function(e){
                         e.preventDefault();
@@ -128,7 +168,6 @@
                     event.stopPropagation();
                 });
                 
-                
                 // Create the dropdown base
                 $("<select />").appendTo("#mobile-nav");
 
@@ -147,6 +186,4 @@
                      "text"    : el.text()
                  }).appendTo("#mobile-nav select");
                 });
-               
-               
             });

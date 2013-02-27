@@ -80,6 +80,10 @@
 	font-family: 'museo_sans_500regular';
 	font-size: 13px;
 }
+.slider .slide .slide-inner a {
+	color: black;
+	text-decoration: none;
+}
 
 .sliderPortrait .slider .slide .slide-inner {
 }
