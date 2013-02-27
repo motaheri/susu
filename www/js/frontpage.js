@@ -63,6 +63,11 @@
                 if (/^\/ents\/event\//i.test(event.value) ||
                     /^\/events\//.test(event.value)) {
                     console.log('CONTENT TRIGGER: Event');
+                    $('#events-lightbox').lightbox_me({
+                        centered: true,
+                        overlayCSS: { background: 'white', opacity: 0.75 },
+                        onClose: function() { resetHashUrl(); }
+                    });
                     /* Find Event Object
                     if (!SU_Data.hasEvents) return;
                     for (var eventList in SU_Data.eventData) {
@@ -85,7 +90,9 @@
             $('a[rel="deep"]').click(function(e) {
                 e.preventDefault();
                 var url = $(this).attr('href');
-                $.address.value(url == '/' ? '/ ' : url);
+                if ($.address.value() != url) {
+                    $.address.value(url == '/' ? '/ ' : url);
+                }
             }); 
             
             

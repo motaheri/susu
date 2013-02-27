@@ -125,3 +125,10 @@
 	margin: 0px 5px 0px 5px;
 	height: 20px;
 }
+
+#events-lightbox {
+	display: none;
+	width: 90%;
+	height: 200px;
+	background-color: red;
+}
