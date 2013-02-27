@@ -132,5 +132,6 @@
 	min-width: 300px;
 	height: 75%;
 	min-height: 300px;
-	background-color: red;
+	background-color: #87CEEB;
+	overflow-y: scroll;
 }

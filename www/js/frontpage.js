@@ -65,8 +65,9 @@
                     console.log('CONTENT TRIGGER: Event');
                     $('#events-lightbox').lightbox_me({
                         centered: true,
-                        overlayCSS: { background: 'white', opacity: 0.75 },
-                        onClose: function() { resetHashUrl(); }
+                        overlayCSS: { background: 'white', opacity: 0.9 },
+                        onLoad: function() { $("body").css("overflow", "hidden"); },
+                        onClose: function() { $("body").css("overflow", "auto"); resetHashUrl(); }
                     });
                     /* Find Event Object
                     if (!SU_Data.hasEvents) return;
