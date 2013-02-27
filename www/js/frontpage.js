@@ -56,27 +56,45 @@
             function resetHashUrl() {
                 $.address.value('/ ');
             }
+            function contentHandler_Event(eventObj) {
+                suLightBox('#events-lightbox');
+            }
+            function contentHandler_Blog(blogObj) {
+                
+            }
+            function contentHandler_News(newsObj) {
+                
+            }
+            function suLightBox(selector) {
+                $(selector).lightbox_me({
+                    centered: true,
+                    overlayCSS: { background: 'white', opacity: 0.9 },
+                    onLoad: function() { $("body").css("overflow", "hidden"); },
+                    onClose: function() { $("body").css("overflow", "auto"); resetHashUrl(); }
+                });
+            }
             $.address.strict(true);
             $.address.crawlable(true);
             $.address.change(function(event) {
+                if (event.value == "/") return;
                 console.log("Change: " + event.value);
                 if (/^\/ents\/event\//i.test(event.value) ||
                     /^\/events\//.test(event.value)) {
                     console.log('CONTENT TRIGGER: Event');
-                    $('#events-lightbox').lightbox_me({
-                        centered: true,
-                        overlayCSS: { background: 'white', opacity: 0.9 },
-                        onLoad: function() { $("body").css("overflow", "hidden"); },
-                        onClose: function() { $("body").css("overflow", "auto"); resetHashUrl(); }
-                    });
-                    /* Find Event Object
-                    if (!SU_Data.hasEvents) return;
-                    for (var eventList in SU_Data.eventData) {
-                        for (var obj in SU_Data.eventData[name]) {
-                            obj.Link
+                    // Find the event in the SU_Data object, if it exists.
+                    if (typeof SU_Data != "undefined") {
+                        if (SU_Data.hasEvents) {
+                            for (var eventList in SU_Data.eventData) {
+                                for (var obj in SU_Data.eventData[name]) {
+                                    contentHandler_Event(obj);
+                                    return;
+                                }
+                            }
                         }
                     }
-                    */
+                    // If not, redirect to the standalone Event page
+                    //window.location = event.value;
+                    suLightBox('#events-lightbox');
                 }
                 else if (/^\/blogs\/blog\//i.test(event.value) ||
                          /^\/union\/officer\//i.test(event.value) ||
