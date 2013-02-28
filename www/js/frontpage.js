@@ -50,6 +50,8 @@
                 isoNewsFilter();
             });
             
+            
+            
             /*
              * URL #! NAVIGATION
              */
@@ -57,7 +59,7 @@
                 $.address.value('/ ');
             }
             function contentHandler_Event(eventObj) {
-                suLightBox('#events-lightbox');
+                suLightBox('#events-lightbox', eventObj);
             }
             function contentHandler_Blog(blogObj) {
                 
@@ -65,12 +67,42 @@
             function contentHandler_News(newsObj) {
                 
             }
-            function suLightBox(selector) {
+            function suLightBox(selector, data) {
                 $(selector).lightbox_me({
                     centered: true,
-                    overlayCSS: { background: 'white', opacity: 0.9 },
-                    onLoad: function() { $("body").css("overflow", "hidden"); },
-                    onClose: function() { $("body").css("overflow", "auto"); resetHashUrl(); }
+                    overlayCSS: { background: 'black', opacity: 0.9 },
+                    onLoad: function() {
+                        $("body").css("overflow", "hidden");
+                        $('.sulb-inner.event .buy button').unbind('click');
+                        $('.sulb-inner.event .buy button').click(function () {
+                            $('.sulb-inner.event .buy-info').slideDown();
+                        });
+                        $('.sulb-inner.event .gallery').html('');
+                        $.ajax({
+                            url: 'https://graph.facebook.com/sinsavers?fields=albums.limit(1).fields(photos.limit(15))',
+                            dataType: 'jsonp',
+                            success: function(data) {
+                                var fb_images = data.albums.data[0].photos.data;
+                                console.log(fb_images);
+                                if (fb_images.length > 0) {
+                                    $.each(fb_images, function(i, o) {
+                                        console.log("Image:" + o);
+                                        var img_obj = o.images[o.images.length - 3];
+                                        var img = $('<img>', {
+                                            class: 'img-rounded',
+                                            src: img_obj.source
+                                        });
+                                        $('.sulb-inner.event .gallery').append(img);
+                                    });
+                                }
+                            }
+                        });
+                    },
+                    onClose: function() {
+                        $("body").css("overflow", "auto");
+                        resetHashUrl();
+                        $('.sulb-inner.event .buy-info').hide();
+                    }
                 });
             }
             $.address.strict(true);
