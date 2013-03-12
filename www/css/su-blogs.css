@@ -30,6 +30,7 @@
 	font-family: 'MuseoSans500';
 	font-size: 14px;
 	padding-bottom: 10px;
+	height: 40px;
 }
 
 .su-blog-post-inner div.intro {
@@ -40,9 +41,8 @@
 .su-blog-post-inner img.author {
 	width: 100px;
 	height: 100px;
-	padding: 0px 0px 5px 5px;
-	text-align: right;
 	float: right;
+	margin: 0px 0px 5px 5px;
 }
 
 .su-social {

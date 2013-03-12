@@ -18,10 +18,10 @@ var SU_Widget = {
 			var inner = $(document.createElement('div')).addClass('su-blog-post-inner');
 			var title = $(document.createElement('div')).addClass('title').text(o.Title);
 			var intro = $(document.createElement('div')).addClass('intro').text(o.Description);
-			var image = $(document.createElement('img')).addClass('author').attr('src', 'http://placehold.it/200x200');
+			var image = $(document.createElement('img')).addClass('author').addClass('img-polaroid').attr('src', 'http://placehold.it/200x200');
 			$(inner).append(title);
-			$(inner).append(intro);
 			$(inner).append(image);
+			$(inner).append(intro);
 			$(post).append(inner);
 			$(targetSelector).append(post);
 		});
