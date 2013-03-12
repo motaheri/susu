@@ -57,6 +57,21 @@
 	vertical-align: top;
 }
 
+@media only screen and (max-width: 683px) {
+	.su-blog-container, .su-blog {
+		width: 100%;
+	}
+	.su-social-container, .su-social {
+		width: 100%;
+	}
+	.su-blog-post {
+		width: 50%;
+	}
+	.su-blog-post-inner {
+		width: 90%;
+	}
+}
+
 @media only screen and (min-width: 684px) {
 	.su-blog-container, .su-blog {
 		width: 684px;
