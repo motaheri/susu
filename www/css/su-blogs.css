@@ -1,0 +1,91 @@
+.su-blog-container {
+	width: 100%;
+}
+
+.su-social-container {
+	width: 100%;
+}
+
+.su-blog {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+
+.su-blog-post {
+	display: inline-block;
+	width: 228px;
+	height: 200px;
+	vertical-align: top;
+}
+
+.su-blog-post-inner {
+	width: 218px;
+	height: 190px;
+	margin: 5px;
+	overflow: hidden;
+}
+
+.su-blog-post-inner div.title {
+	font-family: 'MuseoSans500';
+	font-size: 14px;
+	padding-bottom: 10px;
+	height: 40px;
+}
+
+.su-blog-post-inner div.intro {
+	font-family: 'MuseoSans300';
+	font-size: 12px;
+}
+
+.su-blog-post-inner img.author {
+	width: 100px;
+	height: 100px;
+	float: right;
+	margin: 0px 0px 5px 5px;
+}
+
+.su-social {
+	display: inline-block;
+	width: 100%;
+	height: 322px;
+	vertical-align: top;
+}
+
+.ib {
+	display: inline-block;
+	vertical-align: top;
+}
+
+@media only screen and (min-width: 684px) {
+	.su-blog-container, .su-blog {
+		width: 684px;
+	}
+	.su-social-container, .su-social {
+		width: 684px;
+	}
+}
+
+@media only screen and (min-width: 912px) {
+	.su-blog-container, .su-blog {
+		width: 456px;
+	}
+	.su-social-container, .su-social {
+		width: 456px;
+	}
+	.su-social {
+		height: 600px;
+	}
+}
+
+@media only screen and (min-width: 1140px) {
+	.su-blog-container, .su-blog {
+		width: 684px;
+	}
+	.su-social-container, .su-social {
+		width: 456px;
+	}
+	.su-social {
+		height: 400px;
+	}
+}

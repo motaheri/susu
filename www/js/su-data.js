@@ -266,7 +266,7 @@ var SU_Data = {
 				// add all the blog posts to the blogData store, referenced using the widgetId
 				SU_Data.blogData[widgetId] = blogPosts;
 				// remove widget data from the page
-				$(this).remove();
+				$(this).parent().remove();
 			});
 		},
 		/**

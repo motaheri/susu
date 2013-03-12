@@ -195,6 +195,12 @@
                 });
             });
             
+            /*
+             * BLOGS
+             */
+            $(document).ready(function() {
+                SU_Widget.BlogWidget('officerblogs','#officer-blogs',6);
+            });
             
             
             /*
