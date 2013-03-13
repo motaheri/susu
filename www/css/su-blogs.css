@@ -2,10 +2,6 @@
 	width: 100%;
 }
 
-.su-social-container {
-	width: 100%;
-}
-
 .su-blog {
 	display: inline-block;
 	width: 100%;
@@ -45,11 +41,19 @@
 	margin: 0px 0px 5px 5px;
 }
 
+.su-social-container {
+	width: 100%;
+}
+
 .su-social {
 	display: inline-block;
 	width: 100%;
-	height: 322px;
+	height: 400px;
 	vertical-align: top;
+}
+
+#twitter-widget-0 {
+	width: 100%;
 }
 
 .ib {
