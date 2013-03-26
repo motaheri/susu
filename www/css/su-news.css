@@ -97,6 +97,7 @@
         border-style: solid;
         border-color: transparent #87CEEB;
         background: none;
+		color: #87CEEB;
 } 
 #isonews .news {
     height: 185px !important;

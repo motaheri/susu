@@ -1,38 +1,3 @@
-
-            
-            /*
-             * EVENTS COVERFLOW
-             */
-            $(document).ready(function(){
-                $('#icarousel').iCarousel({
-                    easing: 'ease-in-out',
-                    slides: 5,
-                    make3D: true,
-                    perspective: 25,
-                    animationSpeed: 700,
-                    pauseTime: 5000,
-                    startSlide: 0,
-                    directionNav: true,
-                    autoPlay: true,
-                    keyboardNav: true,
-                    touchNav: true,
-                    mouseWheel: false,
-                    pauseOnHover: true,
-                    direction: 'rtl',
-                    timer: 'none',
-                    onBeforeChange: function(){}, // Triggers before a slide change
-                    onAfterChange: function(){}, // Triggers after a slide change
-                    onLastSlide: function(){}, // Triggers when last slide is shown
-                    onAfterLoad: function(){} // Triggers when carousel has loaded
-                });
-            });
-            
-            
-            
-  
-
-			
-			
 jQuery(document).ready(function($){
 	$('#social-stream').dcSocialStream({
 		feeds: {
