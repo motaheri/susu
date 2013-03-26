@@ -1,22 +1,3 @@
-
-            /*
-             * JACKBOX
-             */
-            jQuery(document).ready(function() {
-                jQuery(".jackbox[data-group]").jackBox("init", {
-                    deepLinking: false,              // choose to use the deep-linking feature ("true" will enhance social sharing!) true/false
-                    showInfoByDefault: false,       // show item info automatically when content loads, true/false
-                    preloadGraphics: true,          // preload the jackbox graphics for a faster jackbox
-                    fullscreenScalesContent: true,  // choose to always scale content up in fullscreen mode, true/false
-                    defaultShareImage: "1.jpg",      // default social image
-                    
-                    useThumbs: false,                // choose to use thumbnails, true/false
-                    showPageScrollbar: true,         // if you don't like the "page jump" when the scrollbar disappears, set this to "true"
-                    useKeyboardControls: true        // The left and right keyboard arrows will cycle through the items.  up/down will toggle thumbs
-                });
-            });
-            
-            
             
             /*
              * NEWS ISOTOPE
@@ -50,10 +31,6 @@
                 isoNewsFilter();
             });
             
-            
-  
-            
-            
             /*
              * EVENTS COVERFLOW
              */
@@ -81,8 +58,6 @@
                 });
             });
             
-            
-            
             /*
              * EVENTS SLIDER
              */
@@ -107,9 +82,3 @@
             $(document).ready(function() {
                 SU_Widget.BlogWidget('officerblogs','#officer-blogs',6);
             });
-            
-            
-			
-			
-		
-
