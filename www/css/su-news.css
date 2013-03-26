@@ -1,31 +1,3 @@
-.jackbox-modal {
-	background: rgba(125, 125, 125, 0.9);
-}
-
-.jackbox-container {
-	background: transparent;
-}
-
-.jackbox-html {
-	overflow-y: visible;
-}
-
-.jackbox-holder {
-	background: transparent;
-	padding: 0 !important;
-	border-radius: 0px !important;
-}
-
-.jackbox-top, .jackbox-bottom {
-	display: none !important;
-}
-
-.jackbox-html div {
-	padding: 0;
-	background: transparent;
-	border: 0;
-}
-
 /*
  * CSS STRUCTURE - DO NOT CHANGE
  */
@@ -76,8 +48,14 @@
  * NEWS ARTICLE CUSTOMISATION BELOW HERE
  */
 
+#isonews .news > a {
+	text-decoration: none;
+}
+
 #isonews .news .news-inner {
 	background-color: #87CEEB;
+	color: #000000;
+	padding: 0px 10px 0px 10px;
 }
 #isonews .news.big .news-inner {
 }
@@ -113,56 +91,18 @@
 	right: 60px;
 	bottom: 15px;
 	height: 12px;
-	font-size: 12px;
+	font-size: 10px;
 	color: #888;
 }
 
-.news-content-author {
-	text-align: right;
-	font-size: 12px;
-	color: #fff;
-	margin: 10px 60px 0px 0px;
+#isonews .news-inner div.title {
+	font-family: 'Arial';
+	font-size: 16px;
+}
+
+#isonews .news-inner div.description {
+	font-family: 'Arial';
+	font-size: 10px;
 }
 
 /* End of News Bubbles CSS */
-
-div.news-content {
-	height: 250px;
-	background: transparent;
-	position: relative;
-}
-
-div.news-content-inner {
-	background-color: white !important;
-	height: 195px;
-	padding: 10px;
-	overflow-y: auto;
-}
-
-div.news-content-inner:after {
-	content: "";
-	position: absolute !important;
-	bottom: 10px;
-	right: 25px !important;
-	border-width: 0px 0 25px 25px !important;
-	border-style: solid;
-	border-color: transparent white;
-	background: none;
-}
-@media only screen and (min-height: 410px) {
-	div.news-content {
-		height: 400px;
-	}
-	div.news-content-inner {
-		height: 345px;
-	}
-}
-
-@media only screen and (min-height: 570px) {
-	div.news-content {
-	   height: 555px;
-	}
-	div.news-content-inner {
-		height: 500px;
-	}
-}

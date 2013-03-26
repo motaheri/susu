@@ -25,5 +25,49 @@ var SU_Widget = {
 			$(post).append(inner);
 			$(targetSelector).append(post);
 		});
+	},
+	NewsWidget: function(mslWidgetId, targetSelector, number) {
+		if (typeof SU_Data == "undefined") {
+			console.error("SU_Widget: SU_Data not defined.");
+			return;
+		}
+		if (typeof SU_Data.newsData[mslWidgetId] == "undefined") {
+			console.error("SU_Widget: SU_Data doesn't contain a news widget called '" + mslWidgetId + "'");
+			return;
+		}
+		if ($(targetSelector).length != 1) {
+			console.error("SU_Widget: News target object invalid '" + targetSelector + "'");
+			return;
+		}
+		jQuery.each(SU_Data.newsData[mslWidgetId], function(i, o) {
+			if (i >= number) return;
+			var news = $(document.createElement('div')).addClass('news').addClass('default');
+			var link = $(document.createElement('a')).attr('href', o.Link.replace('../','/')).attr('rel', 'deep');
+			var inner = $(document.createElement('div')).addClass('news-inner');
+			var title = $(document.createElement('div')).addClass('title');
+			var desc = $(document.createElement('div')).addClass('description');
+			var author = $(document.createElement('div')).addClass('news-author');
+			switch (i) {
+				case 0:
+					$(news).addClass('big');
+					break;
+				case 1:
+					$(news).addClass('medium');
+					break;
+				case 9:
+					$(news).addClass('small').addClass('extra');
+					break;
+				default:
+					$(news).addClass('small');
+					break;
+			}
+			author.text(o.Organisation);
+			title.text(o.Title);
+			desc.text(o.Description);
+			$(inner).append(title).append(desc);
+			$(link).append(inner).append(author);
+			$(news).append(link);
+			$(targetSelector).append(news);
+		});
 	}
 };

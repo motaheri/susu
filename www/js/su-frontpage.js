@@ -1,5 +1,19 @@
             
             /*
+             * NEWS
+             */
+            $(document).ready(function() {
+                SU_Widget.NewsWidget('newsmain', '#isonews', 10);
+            });
+            
+            /*
+             * BLOGS
+             */
+            $(document).ready(function() {
+                SU_Widget.BlogWidget('officerblogs','#officer-blogs',6);
+            });
+            
+            /*
              * NEWS ISOTOPE
              */
             $(function(){
@@ -74,11 +88,4 @@
                     desktopClickDrag: true,
                     infiniteSlider: false
                 });
-            });
-            
-            /*
-             * BLOGS
-             */
-            $(document).ready(function() {
-                SU_Widget.BlogWidget('officerblogs','#officer-blogs',6);
             });
