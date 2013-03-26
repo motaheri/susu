@@ -36,8 +36,8 @@
 						out: 'intro,thumb,text,share',
 						retweets: false,
 						replies: false,
-						images: '', // large w: 786 h: 346, thumb w: 150 h: 150, medium w: 600 h: 264, small w: 340 h 150
-						url: 'twitter.php',
+						images: 'small', // large w: 786 h: 346, thumb w: 150 h: 150, medium w: 600 h: 264, small w: 340 h 150
+						url: 'http://studentswansea.co.uk/twitter/twitter.php',
 						icon: 'twitter.png'
 					},
 					google: {
@@ -51,7 +51,7 @@
 						icon: 'google.png'
 					},
 					youtube: {
-						id: '',
+						id: 'StudentSwanseaEvents',
 						intro: 'Uploaded,Favorite,New Video',
 						search: 'Search',
 						out: 'intro,thumb,title,text,user,share',
@@ -357,6 +357,7 @@
 				var rts = o.retweets == false ? '+exclude:retweets' : '' ;
 				url = url1 + 'url=search&q='+encodeURIComponent(cq[1])+'&count='+n;
 			}
+			
 			break;
 
 			case 'google': 

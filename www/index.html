@@ -21,13 +21,19 @@ Space for magic colors and sizes
         <div id="main" class="wrapper clearfix"> 
           {include="news"} 
           {include="events"}
-          {include="blogs"}
-        </div>
+
+		  <div id="media">
+			{include="events"}
+		  </div>
+        
+		</div>
 
         {include="footer"}
-        {include="scripts"}
-
-        {include="widgetdata"}
+        {include="scripts-common"}
+        {include="scripts-coverflow"}
+		{include="scripts-frontpage"}
+		{include="scripts-lightbox"}
+        <!--{include="widgetdata"}-->
 
     </body>
 </html>

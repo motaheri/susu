@@ -1,63 +1,12 @@
-<link rel="stylesheet" type="text/css" href="media/inc/layout.css" media="all" />
 <link rel="stylesheet" type="text/css" href="media/css/dcsns_wall.css" media="all" />
 <link rel="stylesheet" type="text/css" href="media/css/custom.css" media="all" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="media/inc/js/jquery.plugins.js"></script>
-<script type="text/javascript" src="media/inc/js/jquery.site.js"></script>
-<script type="text/javascript" src="media/js/jquery.social.stream.wall.1.3.js"></script>
-<script type="text/javascript" src="media/js/jquery.social.stream.1.5.1.min.js"></script>
 
-<script type="text/javascript">
-jQuery(document).ready(function($){
-	$('#social-stream').dcSocialStream({
-		feeds: {
-			twitter: {
-				id: '/9927875,#designchemical,designchemical'
-			},
-			rss: {
-				id: 'http://feeds.feedburner.com/DesignChemical,http://feeds.feedburner.com/designmodo'
-			},
-			stumbleupon: {
-				id: 'remix4'
-			},
-			facebook: {
-				id: '18315300553,153740337972319',
-				out: 'intro,thumb,text,user,share'
-			},
-			youtube: {
-				id: 'SwanseaUniVideo',
-				thumb: '0'
-			},
-			pinterest: {
-				id: 'jaffrey,designchemical/design-ideas'
-			},
-			flickr: {
-				id: 'SwanseaUniVideo'
-			}
-		},
-		rotate: {
-			delay: 0
-		},
-		twitterId: 'designchemical',
-		control: false,
-		filter: true,
-		wall: true,
-		cache: false,
-		max: 'limit',
-		limit: 10,
-		iconPath: 'images/dcsns-dark/',
-		imagePath: 'images/dcsns-dark/'
-	});
-				 
-});
-</script>
 <style>
-#wall {padding: 10px 0 0; min-height: 2000px;}
+	#wall {padding: 10px 0 0; min-height: auto;}
 </style>
- 
- 
-<!-- Begin Second Wrapper -->
+</head>
 
+<!-- Begin Second Wrapper -->
 <div id="wrapper">
 	<div id="container"> 
 		<div id="wall">
@@ -65,4 +14,5 @@ jQuery(document).ready(function($){
 			<div class="clear" style="margin-bottom: 20px;"></div>
 		</div>
 	</div>
-</div> 
+</div>
+<!-- End Wrapper -->

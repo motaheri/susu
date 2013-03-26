@@ -16,5 +16,13 @@ body{
 	display:block;
 }
 .stream li {
-	border: 1px solid #ccc;
+	border: 1px solid #333;
+	width: 218px !important; 
+	margin: 0px !important;
+	margin-right:5px !important;
+	margin-bottom:5px !important;
+	box-shadow: none !important;
+}
+#wall{
+	min-height:auto !important;
 }
