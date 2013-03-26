@@ -56,6 +56,7 @@
 	background-color: #87CEEB;
 	color: #000000;
 	padding: 0px 10px 0px 10px;
+	overflow: hidden;
 }
 #isonews .news.big .news-inner {
 }
@@ -66,16 +67,17 @@
 
 
 /* News Bubbles */
-#isonews .news-inner:before {
+#isonews .news:before {
         content: "";
         position: absolute !important;
-        bottom: 10px;
+        bottom: 4px;
         right: 25px !important;
         border-width: 0px 0 25px 25px !important;
         border-style: solid;
         border-color: transparent #87CEEB;
         background: none;
 		color: #87CEEB;
+		z-index: -100;
 } 
 #isonews .news {
     height: 185px !important;
@@ -86,23 +88,30 @@
 #isonews .big.news .news-inner {
     height: 337px !important;
 }
-#isonews .news-author{
+#isonews .news-author {
 	position: absolute; 
 	right: 60px;
-	bottom: 15px;
+	bottom: 10px;
 	height: 12px;
 	font-size: 10px;
 	color: #888;
 }
 
 #isonews .news-inner div.title {
-	font-family: 'Arial';
-	font-size: 16px;
+	padding: 10px 0px 10px 0px;
+	font-family: 'MuseoSans500';
+	text-transform: uppercase;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	transform: skew(-7deg);
+	-o-transform: skew(-7deg);
+	-moz-transform: skew(-7deg);
+	-webkit-transform: skew(-7deg);
 }
 
 #isonews .news-inner div.description {
-	font-family: 'Arial';
-	font-size: 10px;
+	font-family: 'Helvetica';
+	font-size: 11px;
 }
 
 /* End of News Bubbles CSS */
