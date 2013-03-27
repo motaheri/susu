@@ -26,3 +26,9 @@ body{
 #wall{
 	min-height:auto !important;
 }
+.dcsns-toolbar .filter li a {
+	background: #152558;
+	font-family:arial;
+	font-size:14px;
+	text-decoration:none;
+}
