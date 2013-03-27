@@ -168,3 +168,40 @@
                  }).appendTo("#mobile-nav select");
                 });
             });
+			
+			/*
+			 * HEADLINE WRAP TEXT
+			 */
+			jQuery.fn.wrapLines = function( openTag, closeTag )
+            {
+                var dummy = this.clone().css({
+                    top: -9999,
+                    left: -9999,
+                    position: 'absolute',
+                    width: this.width()
+                }).appendTo(this.parent())
+                , text = dummy.text().match(/\S+\s+/g);
+                var words = text.length
+                , lastTopOffset = 0
+                , lines = []
+                , lineText = '';
+                for ( var i = 0; i < words; ++i )
+                {
+                    dummy.html(
+                    text.slice(0,i).join('') +
+                        text[i].replace(/(\S)/, '$1<span/>') +
+                        text.slice(i+1).join('')
+					);
+					var topOffset = jQuery( 'span', dummy ).offset().top;
+					if ( topOffset !== lastTopOffset && i != 0 )
+					{
+						lines.push( lineText );
+						lineText = text[i];
+					} else {
+						lineText += text[i];
+					}
+					lastTopOffset = topOffset;
+                }
+                lines.push( lineText );
+                this.html( openTag + lines.join( closeTag + openTag ) + closeTag );
+            };
