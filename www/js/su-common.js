@@ -174,34 +174,72 @@
 			 */
 			jQuery.fn.wrapLines = function( openTag, closeTag )
             {
-                var dummy = this.clone().css({
+				// Get words & tidy up
+				var original = $(this).text();
+				var words = $(this).text().match(/\S+/g);
+				for (var i = 0; i < words.length; i++) {
+					if (words[i] == "&") {
+						words[i] == "and";
+					}
+				}
+				console.log('Text Array: ' + words);
+				
+				// Remove all bar the first word
+				$(this).text(words[0]);
+				
+				// Record height of the element
+				var height = $(this).height();
+				// Add words until height increases (ie. wraps)
+				for (var i = 1; i < words.length; i++) {
+					var currentLine = $(this).text();
+					$(this).text(currentLine + ' ' + words[i]);
+					if (this.height() == height) { // fits
+					}
+					else { // doesnt fit
+						$(this).before(openTag + currentLine + ' ' + closeTag);
+						$(this).text(words[i]);
+					}
+				}
+				$(this).before(openTag + $(this).text() + ' ' + closeTag);
+				
+				// Remove original
+				$(this).remove();
+            };
+			
+			jQuery.fn.wrapLines2 = function( openTag, closeTag )
+            {
+                var dummy = this.clone();
+				dummy.css({
                     top: -9999,
                     left: -9999,
                     position: 'absolute',
                     width: this.width()
-                }).appendTo(this.parent())
-                , text = dummy.text().match(/\S+\s+/g);
-                var words = text.length
-                , lastTopOffset = 0
-                , lines = []
-                , lineText = '';
-                for ( var i = 0; i < words; ++i )
+                });
+				dummy.appendTo(this.parent());
+                var text = dummy.text().match(/\S+\s+/g);
+                var words = text.length,
+					lastTopOffset = 0,
+					lines = [],
+					lineText = '';
+                for (var i = 0; i < words; i++)
                 {
                     dummy.html(
-                    text.slice(0,i).join('') +
-                        text[i].replace(/(\S)/, '$1<span/>') +
-                        text.slice(i+1).join('')
+						text.slice(0,i).join('') + text[i].trim().replace(/(\S)/, '$1<span/>') + text.slice(i+1).join('')
 					);
-					var topOffset = jQuery( 'span', dummy ).offset().top;
-					if ( topOffset !== lastTopOffset && i != 0 )
+					var topOffset = jQuery('span', dummy).offset().top;
+					if (topOffset !== lastTopOffset && i != 0)
 					{
-						lines.push( lineText );
+						console.log('New Line: ' + lineText);
+						lines.push(lineText);
 						lineText = text[i];
-					} else {
+					}
+					else {
 						lineText += text[i];
 					}
 					lastTopOffset = topOffset;
                 }
-                lines.push( lineText );
-                this.html( openTag + lines.join( closeTag + openTag ) + closeTag );
+				console.log('New Line: ' + lineText);
+                lines.push(lineText);
+                this.html(openTag + lines.join( closeTag + openTag ) + closeTag);
+				$(dummy).remove();
             };

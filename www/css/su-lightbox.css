@@ -48,7 +48,7 @@ div.sulb div.sulb-inner.news {
 
 div.sulb div.sulb-inner.news div.title {
 	height: 45px;
-	font-family: 'museo_sans_500regular';
+	font-family: 'MuseoSans500';
 	font-size: 32px;
 	text-transform: uppercase;
 	padding: 20px 40px 0px 40px;
@@ -76,7 +76,7 @@ div.sulb div.sulb-inner.event {
 
 div.sulb div.sulb-inner.event div.title {
 	height: 45px;
-	font-family: 'museo_sans_500regular';
+	font-family: 'MuseoSans500';
 	font-size: 32px;
 	text-transform: uppercase;
 	padding: 20px 40px 0px 40px;
@@ -108,7 +108,7 @@ div.sulb div.sulb-inner.event .buy {
 
 div.sulb div.sulb-inner.event .buy select,
 div.sulb div.sulb-inner.event .buy button {
-	font-family: 'museo_sans_500regular';
+	font-family: 'MuseoSans500';
 }
 
 div.sulb div.sulb-inner.event .buy .buy-info {

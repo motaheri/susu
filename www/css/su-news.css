@@ -46,6 +46,10 @@
 
 /*
  * NEWS ARTICLE CUSTOMISATION BELOW HERE
+ *
+ * Blue: #87CEEB
+ * Union Blue: #152558
+ * Red: #bf1616
  */
 
 /* Speech Bubble Effect */
@@ -56,9 +60,9 @@
 	right: 20px !important;
 	border-width: 0px 0 25px 25px !important;
 	border-style: solid;
-	border-color: transparent #87CEEB;
+	border-color: transparent #bf1616;
 	background: none;
-	color: #87CEEB;
+	color: #bf1616;
 	z-index: -100;
 }
 
@@ -69,7 +73,7 @@
 
 /* Inner - Coloured border*/
 #isonews .news .news-inner {
-	background-color: #87CEEB;
+	background-color: #bf1616;
 	color: #000000;
 	padding: 10px;
 	overflow: hidden;
@@ -78,6 +82,7 @@
 
 /* Inner - News Image & Content */
 #isonews .news .news-inner-img {
+	position: relative;
 	overflow: hidden;
 	background-size: cover;
 }
@@ -102,24 +107,33 @@
 }
 
 #isonews .news-inner div.title {
-	font-family: 'MuseoSans500';
-	text-transform: uppercase;
-}
-
-#isonews span.titlesplit {
-	font-family: 'MuseoSans500';
-	text-transform: uppercase;
-	display: inline-block;
+	color: #fff;
 	background-color: #bf1616;
-	padding: 4px 10px;
-	border-radius: 0px;
+	margin: 3px 5px 0px 5px;
+	padding: 3px 5px;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 18px;
+	font-family: 'MuseoSans300';
+	font-weight: normal;
+	text-transform: uppercase;
 	transform: skew(-10deg);
 	-o-transform: skew(-10deg);
 	-moz-transform: skew(-10deg);
 	-webkit-transform: skew(-10deg);
-	color: #fff;
-	margin-top: 3px;
-	font-weight: normal;
+}
+
+#isonews .news.big .news-inner div.title {
+	font-size: 36px;
+	line-height: 36px;
+}
+
+#isonews .news-inner div.title:first-child {
+	margin-top: 5px;
+}
+
+#isonews .news.big .news-inner div.title:first-child {
+	margin-top: 15px;
 }
 
 #isonews .news-inner div.description {
