@@ -214,7 +214,7 @@ var SU_Data = {
 					article.Story = $(this).find('.msl_newsbodytext').html();
 					article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
-					article.Link = $(this).find('.news_image a').first().attr('href');
+					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
 					if ($(this).find('img').length == 1) {
 						article.Image = $(this).find('img').first().attr('src');
 					}
