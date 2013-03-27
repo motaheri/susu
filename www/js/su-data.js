@@ -86,7 +86,7 @@ var SU_Data = {
 			this.Link = '';
 			this.ID = '';
 			this.Type = '';
-			this.Category '';
+			this.Category = '';
 		},
 		// Data transmission object for use with window.postMessage
 		messageObj: function() {

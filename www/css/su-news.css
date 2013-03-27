@@ -6,10 +6,11 @@
 	zoom: 1;
 	position: relative;
 	vertical-align: top;
+	margin-bottom: 10px;
 }
 #isonews .news.big {
     width: 684px;
-    height: 380px;
+    height: 390px;
 }
 #isonews .news.medium {
     width: 456px;
@@ -20,7 +21,7 @@
 	height: 190px;
 }
 #isonews .news.big .news-inner {
-    height: 329px;
+    height: 339px;
 }
 #isonews .medium .news-inner {
     height: 140px;
@@ -88,7 +89,7 @@
 }
 
 #isonews .news.big .news-inner-img {
-    height: 329px;
+    height: 339px;
 }
 #isonews .news.medium .news-inner-img {
     height: 140px;
