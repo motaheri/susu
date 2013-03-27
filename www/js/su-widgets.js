@@ -44,11 +44,13 @@ var SU_Widget = {
 			var news = $(document.createElement('div')).addClass('news default');
 			var link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'deep');
 			var inner = $(document.createElement('div')).addClass('news-inner');
-			var innerimg = $(document.createElement('div')).addClass('news-inner-img').css('background-image', 'url("http://www.swansea-union.co.uk' + o.Image + '")');
+			var innerimg = $(document.createElement('div')).addClass('news-inner-img');
+			var img = $(document.createElement('div')).addClass('news-bgimage').css('background-image', 'url(\'http://www.swansea-union.co.uk' + o.Image + '\')');
 			var title = $(document.createElement('div')).addClass('title');
 			var author = $(document.createElement('div')).addClass('news-author');
 			author.text(o.Organisation);
 			title.text(o.Title);
+			$(innerimg).append(img);
 			$(innerimg).append(title);
 			switch (i) {
 				case 0:

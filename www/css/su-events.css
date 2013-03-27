@@ -95,6 +95,10 @@
 .slider .slide .slide-inner img {
 	width: 228px;
 	height: 308px;
+	opacity: 0.8;
+}
+.slider .slide .slide-inner img:hover {
+	opacity: 1;
 }
 
 .slider .slide .slide-inner .event-title {

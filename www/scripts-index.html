@@ -25,3 +25,16 @@
 <script type="text/javascript" src="js/su-common.js"></script>
 
 <!-- Important: SU_Data must be loaded before any other JS which uses Widget Data -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(window).scroll(function() {
+			if ($(window).scrollTop() < 10) {
+				$('body > header.mike').css('opacity', '1');
+			}
+			else {
+				$('body > header.mike').css('opacity', '');
+			}
+		});
+		$(window).scroll();
+	});
+</script>

@@ -1,4 +1,16 @@
         <style>
+            /*
+            body {
+                background-image: url('http://www.swansea-union.co.uk/stylesheet/metro/bg.png');
+                background-position: top right;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            .wrapper {
+                background-color: white;
+            }
+            */
             body > header {
                 border-bottom: 1px solid #bbb;
                 height: 70px;
@@ -9,10 +21,16 @@
                 z-index: 1000;
                 background: white;
                 box-shadow: 0 0 5px rgba(0,0,0,.1);
+                opacity: 0.85;
             }
+            body > header:hover {
+                opacity: 1;
+            }
+            
             .su-nav {
                 height: 70px;
-                overflow: none;
+                overflow: hidden;
+                position: relative;
             }
             .su-nav ul {
                 margin: 0;
@@ -21,6 +39,9 @@
                 list-style: none;
                 font-family: "MuseoSans500";
                 font-size: 13px;
+                min-width: 369px;
+                position: relative;
+                z-index: 1;
             }
             .su-nav ul li {
                 display: inline-block;
@@ -114,7 +135,7 @@
                 border-bottom: 1px solid #bbb;
             }
         </style>
-        <header class="clearfix">
+        <header class="clearfix mike">
             <div class="wrapper su-nav">
                 <ul>
                     <li><a href="#">Your Union</a></li>
