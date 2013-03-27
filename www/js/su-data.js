@@ -80,6 +80,14 @@ var SU_Data = {
 			this.Name = '';
 			this.Link = '';
 		},
+		// Activity List
+		activitiesObj: function() {
+			this.Name = '';
+			this.Link = '';
+			this.ID = '';
+			this.Type = '';
+			this.Category '';
+		},
 		// Data transmission object for use with window.postMessage
 		messageObj: function() {
 			this.Message = null; // Message Type string
@@ -111,10 +119,22 @@ var SU_Data = {
 		loadMemberships: function () {
 			SU_Data.memberships = [];
 			$('div.mslwidget#MyMemberships dl.memberships a.membership').each(function () {
-				var membership = new SU_Data.types.membershipObj();
+				var membership = new SU_Data.types.activitiesObj();
 				membership.Name = $(this).text();
 				membership.Link = $(this).attr('href');
 				SU_Data.memberships.push(membership);
+			});
+		},
+		loadActivities: function () {
+			SU_Data.activities = [];
+			$('div.mslwidget .msl_organisation_list li a').each(function () {
+				var activities = new SU_Data.types.activitiesObj();
+				activities.Category = $(this).parent().parent().find('div.msl-gl-group').text();		
+				activities.Name = $(this).text();
+				activities.Link = $(this).attr('href');
+				activities.ID = $(this).attr('href').replace('activities/','').replace('/','');
+				activities.Type = $(this).parent().parent().parent().attr('id');
+				SU_Data.activities.push(activities);
 			});
 		},
 		/**
