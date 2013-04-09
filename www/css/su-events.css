@@ -24,6 +24,7 @@
 	height: 360px; /* 312 + 48 */
 	margin: 5px;
 }
+
 /*
  * Small Landscape Slider
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
@@ -34,7 +35,7 @@
 	left: 0;
 	overflow: hidden;
 	width: 684px;
-	height: 161px;
+	height: 221px;
 }
 .sliderSmall .slider {
 	width: 100%;
@@ -43,13 +44,39 @@
 .sliderSmall .slider .slide {
 	float: left;
 	width: 228px;
-	height: 161px;
+	height: 221px;
 }
 
 .sliderSmall .slider .slide .slide-inner {
 	width: 218px;
-	height: 151px;
+	height: 211px;
 	margin: 5px;
+}
+
+/*
+ * Lightbox Photo Gallery Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderPhotoGallery {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	height: 280px;
+}
+.sliderPhotoGallery .slider {
+	width: 100%;
+	height: 100%;
+}
+.sliderPhotoGallery .slider .slide {
+	float: left;
+	width: 190px;
+	height: 270px;
+}
+.sliderPhotoGallery .slider .slide .slide-inner {
+	width: 180px;
+	height: 270px;
+	margin: 0px 5px 0px 5px;
 }
 
 /*
@@ -89,12 +116,16 @@
 }
 
 .sliderSmall .slider .slide .slide-inner {
-	background-color: #87CEEB;
 }
 
-.slider .slide .slide-inner img {
+.sliderPortrait .slider .slide .slide-inner img {
 	width: 228px;
 	height: 308px;
+	opacity: 0.8;
+}
+.sliderSmall .slider .slide .slide-inner img {
+	width: 228px;
+	height: 157px;
 	opacity: 0.8;
 }
 .slider .slide .slide-inner img:hover {
@@ -128,4 +159,11 @@
 .slider .slide .slide-inner .event-location {
 	margin: 0px 5px 0px 5px;
 	height: 20px;
+}
+
+.sliderPhotoGallery .slider .slide .slide-inner {
+	line-height: 270px;
+}
+.sliderPhotoGallery .slider .slide .slide-inner img {
+	vertical-align: middle;
 }

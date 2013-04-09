@@ -5,6 +5,14 @@
             $(document).ready(function() {
                 SU_Widget.NewsWidget('newsmain', '#isonews', 10);
             });
+			
+			/*
+			 * EVENTS
+			 */
+            $(document).ready(function() {
+                SU_Widget.EventSlider_Portrait('eventsmain','#su-eventsPortrait');
+                SU_Widget.EventSlider_Landscape('eventsmain','#su-eventsLandscape');
+            });
             
             /*
              * BLOGS

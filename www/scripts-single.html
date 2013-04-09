@@ -1,0 +1,36 @@
+<!-- Master JS Files -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.0.6-development-only.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+<!-- Every Page -->
+<script type="text/javascript" src="js/jquery.address-1.5.min.js"></script> <!-- Links -->
+<script type="text/javascript" src="js/jquery.lightbox_me.js"></script> <!-- Lightbox -->
+
+<!-- This Page -->
+<script type="text/javascript" src="js/jquery.isotope.js"></script> <!-- News -->
+<script type="text/javascript" src="js/jquery.iosslider.min.js"></script> <!-- Slider -->
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script> <!-- Coverflow -->
+<script type="text/javascript" src="js/raphael.min.js"></script> <!-- Coverflow -->
+<script type="text/javascript" src="js/icarousel.js"></script> <!-- Coverflow -->
+
+<!-- SU Scripts-->
+<script type="text/javascript" src="js/su-data.js"></script>
+<script type="text/javascript" src="js/su-widgets.js"></script>
+<script type="text/javascript" src="js/su-common.js"></script>
+
+<!-- Important: SU_Data must be loaded before any other JS which uses Widget Data -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(window).scroll(function() {
+			if ($(window).scrollTop() < 10) {
+				$('body > header.mike').css('opacity', '1');
+			}
+			else {
+				$('body > header.mike').css('opacity', '');
+			}
+		});
+		$(window).scroll();
+	});
+</script>

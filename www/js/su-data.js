@@ -231,7 +231,7 @@ var SU_Data = {
 					article.Organisation = $.trim(article.Organisation.replace(/[\r\n\t]/g, ''));
 					article.Title = $(this).find('h5').text();
 					article.Description = $(this).find('.leader').text();
-					article.Story = $(this).find('.msl_newsbodytext').html();
+					article.Story = escapeHtml($(this).find('.msl_newsbodytext').html());
 					article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
@@ -302,7 +302,7 @@ var SU_Data = {
 			if (event.Link != '' && event.FullText == '') {
 				// Make ajax call to the event page to get the data
 				$.ajax({
-					url: event.Link,
+					url: 'http://www.swansea-union.co.uk/' + event.Link,
 					async: false,
 					success: function(data) {
 						// make sure we got some content

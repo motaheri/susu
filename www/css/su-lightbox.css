@@ -119,13 +119,18 @@ div.sulb div.sulb-inner.event .buy .buy-info select {
 	margin-bottom: 5px;
 }
 
-div.sulb div.sulb-inner.event .gallery {
+div.sulb div.sulb-inner.event h2.whiteToGray {
+	background: #e8e8e8 url(/img/whitetobiege.png) repeat-x;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+div.sulb div.sulb-inner.event .sliderPhotoGallery {
 	width: 100%;
 	min-height: 100px;
 	clear: both;
 	text-align: center;
-	background: #e8e8e8 url(/img/whitetobiege.png) repeat-x;
-	padding-top: 20px;
+	background: #e8e8e8
 }
 
 div.sulb div.sulb-inner.event .gallery img {

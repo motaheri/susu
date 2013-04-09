@@ -80,5 +80,67 @@ var SU_Widget = {
 		$(targetSelector + ' div.title').each(function() {
 			$(this).wrapLines('<div class="title">', '</div>');
 		})
+	},
+	EventSlider_Portrait: function(mslWidgetId, targetselector) {
+		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];
+		$(targetselector).addClass('sliderPortrait');
+		var slider = $(document.createElement('div')).addClass('slider');
+		var dayIndex = 0, prevDate = '01/01/2000';
+		jQuery.each(SU_Data.eventData[mslWidgetId], function(i, o) {
+			if (i > 0) {
+				if (prevDate != o.Date.format('dd/MM/yyyy')) {
+					dayIndex = (dayIndex+1) % dayColors.length;
+				}
+			}
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner').addClass(dayColors[dayIndex]); // use dayindex to decide class
+			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
+			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS mmmm yyyy'));
+			$(link).append(img).append(title).append(date);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+			prevDate = o.Date.format('dd/MM/yyyy');
+		});
+		$(targetselector).append(slider);
+		$(targetselector).iosSlider({
+			snapToChildren: true,
+			scrollbar: false,
+			desktopClickDrag: true,
+			infiniteSlider: false
+		});
+	},
+	EventSlider_Landscape: function(mslWidgetId, targetselector) {
+		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];
+		$(targetselector).addClass('sliderSmall');
+		var slider = $(document.createElement('div')).addClass('slider');
+		var dayIndex = 0, prevDate = '01/01/2000';
+		jQuery.each(SU_Data.eventData[mslWidgetId], function(i, o) {
+			if (i > 0) {
+				if (prevDate != o.Date.format('dd/MM/yyyy')) {
+					dayIndex = (dayIndex+1) % dayColors.length;
+				}
+			}
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner').addClass(dayColors[dayIndex]); // use dayindex to decide class
+			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
+			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS mmmm yyyy'));
+			$(link).append(img).append(title).append(date);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+			prevDate = o.Date.format('dd/MM/yyyy');
+		});
+		$(targetselector).append(slider);
+		$(targetselector).iosSlider({
+			snapToChildren: true,
+			scrollbar: false,
+			desktopClickDrag: true,
+			infiniteSlider: false
+		});
 	}
 };

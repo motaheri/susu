@@ -58,7 +58,7 @@
 #isonews .news:before {
 	content: "";
 	position: absolute !important;
-	bottom: 4px;
+	bottom: 8px;
 	right: 20px !important;
 	border-width: 0px 0 25px 25px !important;
 	border-style: solid;
@@ -80,6 +80,7 @@
 	padding: 5px;
 	overflow: hidden;
 	position: relative;
+	border-radius: 15px;
 }
 
 /* Inner - News Image & Content */
@@ -88,6 +89,7 @@
 	overflow: hidden;
 	background-color: white;
 	height: 140px;
+	border-radius: 10px;
 }
 
 #isonews .news .news-inner .news-bgimage {
