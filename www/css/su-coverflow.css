@@ -45,6 +45,7 @@ img {
 .carousel-container {
 	width: 100%;
 	overflow: hidden;
+	background: #fefefe url('images/noize.png');
 }
 
 #icarousel {
