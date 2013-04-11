@@ -76,24 +76,25 @@
 /* Inner - Coloured border*/
 #isonews .news .news-inner {
 	background-color: #152558;
+	background-color: transparent;
 	color: #000000;
 	padding: 5px;
 	overflow: hidden;
 	position: relative;
-	border-radius: 15px;
+	/* border-radius: 15px; */
 }
 
 /* Inner - News Image & Content */
 #isonews .news .news-inner-img {
 	position: relative;
 	overflow: hidden;
-	background-color: white;
+	background-color: #152558;
 	height: 140px;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 #isonews .news .news-inner .news-bgimage {
-    opacity: 0.6;
+    opacity: 0.3;
     top: 0;
     left: 0;
     bottom: 0;
@@ -102,6 +103,10 @@
     z-index: 0;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+#isonews .news:hover .news-inner .news-bgimage{
+    opacity: 1;
 }
 
 @media only screen and (min-width: 684px) {
@@ -125,6 +130,8 @@
 	vertical-align: bottom;
 	display: block;
 	height: 20px;
+	white-space: nowrap;
+	width: 200px;
 }
 
 #isonews .news-inner div.title {
@@ -142,6 +149,10 @@
 	-o-transform: skew(-8deg);
 	-moz-transform: skew(-8deg);
 	-webkit-transform: skew(-8deg);
+	transform: skew(0deg);
+	-o-transform: skew(0deg);
+	-moz-transform: skew(0deg);
+	-webkit-transform: skew(0deg);
 	z-index: 1;
 }
 
@@ -186,10 +197,13 @@
 	font-size: 14px;
 	color: white;
 	z-index: 1;
-	margin: 10px;
+	margin: 5px;
 	padding: 5px;
 	background-color: #152558;
 	display: inline-block;
 	position: relative;
 	font-family: 'MuseoSans500';
+}
+#isonews .news.big .news-inner div.description {
+	margin-left: 15px; /* Why is there a need for different margins on .big? */
 }
