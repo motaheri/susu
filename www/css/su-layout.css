@@ -152,7 +152,7 @@ h1,h2,h3,h4 {
 hr.soft {
         height: 1px;
         border: 0;
-        margin: 40px 0px;
+        margin: 0px 0px;
         /* IE9 SVG, needs conditional override of 'filter' to 'none' */
         background:
 					url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPS
@@ -175,6 +175,38 @@ hr.soft {
         background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.3) 80%,rgba(0,0,0,0) 100%); /* IE10+ */
         background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.3) 80%,rgba(0,0,0,0) 100%); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /*IE6-8 */
+}
+
+ .news-container {
+	width: 100%;
+	overflow: hidden;
+	background: #f5f5f5 url('../img/noize.png');
+	padding:25px 0px;
+}
+.carousel-container {
+	width: 100%;
+	overflow: hidden;
+	background: #fefefe url('../img/noize.png');
+	padding:25px 0px;
+}
+.events-container {
+	width: 100%;
+	overflow: hidden;
+	background: #222 url('../img/noize.png');
+	padding:25px 0px;
+	color: #fff !important;
+}
+.media-container {
+	width: 100%;
+	overflow: hidden;
+	background: #fefefe url('../img/noize.png');
+	padding:25px 0px;
+}
+.events-container h2{
+	margin-left: 5px !important;
+}
+.events-container  a{
+	color: #fff !important;
 }
 
 #sulogo {
@@ -231,6 +263,20 @@ h1,h2,h3{
 }
 h2,h3{
     margin-top: 10px;
+}
+
+
+#main h2{
+	margin-left: 15px; /* why do we need this? */
+}
+
+h2.container-header{
+	margin-top:40px;
+}
+
+.headericon{
+	vertical-align: top;
+	margin-top: 4px;
 }
 
 #events,#my-events{
