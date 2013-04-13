@@ -236,7 +236,7 @@ hr.soft {
     font-size:12px !important;
     font-weight: bold;
     font-family: 'NovecentowideUltraLightBold' !important;
-    border-bottom:1px #000 solid;
+    /*border-bottom:1px #000 solid;*/
 }
 
 .su-menu a{
@@ -249,6 +249,10 @@ hr.soft {
     border:none !important;
     padding:none !important;
     margin:none !important;
+}
+
+.menu-line{
+	margin-top: 38px !important;
 }
 
 #mobile-nav{
@@ -280,7 +284,7 @@ h2.container-header{
 }
 
 #events,#my-events{
-    padding-top:20px;
+    margin:40px 0px 80px 0px;
 }
 /*
  * GENERIC COLORS

@@ -118,6 +118,19 @@
 /*
  * EVENTS CUSTOMISATION BELOW HERE
  */
+ 
+ /*
+ #su-eventsPortrait,#su-eventsLandscape{
+	transition: all 0.2s ease;
+ }
+ 
+ Effect here
+ http://css-tricks.com/pop-hovers/
+ 
+ */
+#su-eventsPortrait:hover,#su-eventsLandscape:hover{
+	animation: up-bump 0.4s ease;
+}
 
 .slider .slide .slide-inner {
 	background-repeat: no-repeat;
