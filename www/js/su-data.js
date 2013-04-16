@@ -197,6 +197,8 @@ var SU_Data = {
 					event.Link = $(this).find('.msl_event_name').first().attr('href');
 					if ($(this).find('img').length == 1) {
 						event.Image = $(this).find('img').first().attr('src');
+						event.Image = event.Image.substring(0, event.Image.indexOf('?'));
+						event.Image = event.Image + '?' + $.param({thumbnail_width: 212, thumbnail_height: 300, fill_colour: 222222});
 					}
 					// push it into the events array
 					events.push(event);
