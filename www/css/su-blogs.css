@@ -1,6 +1,9 @@
 .su-blog-container {
 	width: 100%;
 }
+.su-blog-container  h2{
+	margin-left:-30px;
+}
 
 .su-blog {
 	display: inline-block;
@@ -13,13 +16,17 @@
 	width: 228px;
 	height: 200px;
 	vertical-align: top;
+	background: rgba(204, 204, 204, 0.30);
 }
 
 .su-blog-post-inner {
-	width: 218px;
+	width: 205px;
 	height: 190px;
 	margin: 5px;
 	overflow: hidden;
+	margin: 5px;
+	background: #efefef;
+	padding: 10px;
 }
 
 .su-blog-post-inner div.title {
