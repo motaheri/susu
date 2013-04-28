@@ -10,23 +10,57 @@
 	width: 100%;
 	vertical-align: top;
 }
-
 .su-blog-post {
+	position:relative;
 	display: inline-block;
 	width: 228px;
 	height: 200px;
 	vertical-align: top;
 	background: rgba(204, 204, 204, 0.30);
 }
+.su-blog-post{
+	position: relative;
+	display: inline-block;
+	white-space: normal;
+}
+
+#officer-blogs,.dcsns-content{
+	width: 1140px !important;
+	overflow: hidden;
+	height: 271px;
+	white-space: nowrap;
+}
+
+.dcsns-content{
+	height:205px;
+	white-space: normal;
+}
+
+
+
+.su-blog-post:before {
+	content: "";
+	position: absolute !important;
+	bottom: 25px;
+	right: 20px !important;
+	border-width: 0px 0 25px 25px !important;
+	border-style: solid;
+	border-color: transparent #fff;
+	background: none;
+	color: #fff;
+	xz-index: -100;
+	margin-bottom:-10px;
+}
 
 .su-blog-post-inner {
-	width: 205px;
-	height: 190px;
+	width: 196px;
+	height: 140px;
 	margin: 5px;
 	overflow: hidden;
 	margin: 5px;
-	background: #efefef;
+	background: #fff;
 	padding: 10px;
+	position: relative;
 }
 
 .su-blog-post-inner div.title {

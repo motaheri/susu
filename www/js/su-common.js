@@ -395,3 +395,13 @@
 			Date.prototype.format = function (mask, utc) {
 			   return dateFormat(this, mask, utc);
 			};
+			
+			
+			
+			
+			$('#officer-blogs').iosSlider({
+				snapToChildren: true,
+				scrollbar: false,
+				desktopClickDrag: true,
+				infiniteSlider: false
+			});

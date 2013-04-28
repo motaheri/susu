@@ -32,3 +32,20 @@ body{
 	font-size:14px;
 	text-decoration:none;
 }
+
+#social-stream .stream .inner{
+
+}
+#social-stream .stream .isotope-item:before {
+	content: "";
+	position: absolute !important;
+	bottom: 25px;
+	right: 20px !important;
+	border-width: 0px 0 25px 25px !important;
+	border-style: solid;
+	border-color: transparent #fff;
+	background: none;
+	color: #fff;
+	z-index: 100;
+	margin-bottom:-10px;
+}
