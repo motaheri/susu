@@ -1,10 +1,21 @@
-        <header class="clearfix header">
+        <style>
+		.typeahead{background: #152558 !important;height: 38px;color:#fff;}
+		#menu-left{background: #152558 !important; color:#fff}
+		</style>
+		<header class="clearfix header">
             <!--<h1>Title</h1>-->
             <div id="menu" class="wrapper">
                 <div id="menu-container">
                     <div id="menu-left" class="no-mobile">
                         <ul>
-                            <li id="menu-logo"><a href="./"><span>Swansea University</span> <span>Students' Union</span></a></li>
+                            <li id="menu-logo">
+									<div id="logo-box" class="inline-box"><a href="./">
+										<span>Swansea University</span> <span>Students' Union</span></a>
+									</div>
+							</li>
+							<li id="search-box" class="inline-box">
+									<input id="ss-input" name="ss-input" type="text" />
+							</li>
                         </ul>
                     </div>
                     <div id="menu-right"  class="menu-block no-mobile">
@@ -12,7 +23,7 @@
                             <li><a href="">Union</a></li>
                             <li><a href="">Societies</a></li>
                             <li><a href="">Sports</a></li>
-                            <li><a href="">Events</a></li>
+                            <li><a href="./events.php" rel="page">Events</a></li>
 							<li><a href="./media.php" rel="page">Media</a></li>
                         </ul>
                         <!--<ul class="menu-right">
@@ -26,7 +37,7 @@
                             <h2>Your Union</h2>
                         </div>
                         <div class="menu-content societies">
-                            <h2>Your Societies</h2>
+							{include="menu-societies"}
                         </div>
                         <div class="menu-content sports">
                             <h2>Your Sports</h2>

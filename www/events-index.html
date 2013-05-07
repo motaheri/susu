@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swansea Student Events</title>
+        
+        {include="meta"}
+        {include="head"}
+		<style>
+		#my-events {
+			display: block;
+		}
+		</style>
+
+    </head>
+    <body>
+        {include="header"}
+
+        {include="coverflow"}
+		<hr class="soft"/>
+        <div id="main" class="clearfix">
+          {include="events"}
+		  <hr class="soft"/>
+		  <!--<div id="media">
+			{include="media-index"}
+		  </div>-->
+		</div>
+		<hr class="soft"/>
+        {include="footer"}
+        {include="scripts-index"}
+		{include="scripts-facebook"}
+        
+        {include="widgetdata"}
+
+    </body>
+</html>

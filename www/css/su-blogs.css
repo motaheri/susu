@@ -16,7 +16,8 @@
 	width: 228px;
 	height: 200px;
 	vertical-align: top;
-	background: rgba(204, 204, 204, 0.30);
+	xbackground: rgba(204, 204, 204, 0.30);
+	background: transparent;
 }
 .su-blog-post{
 	position: relative;
@@ -149,3 +150,7 @@
 		height: 400px;
 	}
 }
+
+	.su-social {
+		height: 250px !important;
+	}

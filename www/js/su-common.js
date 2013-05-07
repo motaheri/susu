@@ -397,11 +397,8 @@
 			};
 			
 			
-			
-			
-			$('#officer-blogs').iosSlider({
-				snapToChildren: true,
-				scrollbar: false,
-				desktopClickDrag: true,
-				infiniteSlider: false
+			$(document).ready(function() {
+				 
+				$('.iosSlider').iosSlider();
+					
 			});

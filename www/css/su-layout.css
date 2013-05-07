@@ -225,7 +225,6 @@ hr.soft {
 	width: 100%;
 	overflow: hidden;
 	background: #f5f5f5 url('../img/noize.png');
-	padding-top:25px;
 }
 .media-container {
 	width: 100%;
@@ -773,10 +772,7 @@ Foooter
 }
 
 #footer{
-	height: 100px;
-    
-	position: absolute;
-	display:inline-block;
+	display:block;
 	white-space: nowrap;
 }
 .footer-left,.footer-middle,.footer-right{
