@@ -129,11 +129,11 @@ var SU_Data = {
 			SU_Data.activities = [];
 			$('div.mslwidget .msl_organisation_list li a').each(function () {
 				var activities = new SU_Data.types.activitiesObj();
-				activities.Category = $(this).parent().parent().find('div.msl-gl-group').text();		
+				activities.Category = $(this).parent().parent().prev().find('h3').text();		
 				activities.Name = $(this).text();
 				activities.Link = $(this).attr('href');
-				activities.ID = $(this).attr('href').replace('activities/','').replace('/','');
-				activities.Type = $(this).parent().parent().parent().attr('id');
+				activities.ID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
+				activities.Type = $(this).attr('id').indexOf('sport') >= 0 ? "Sports" : "Societies";
 				SU_Data.activities.push(activities);
 			});
 		},
@@ -491,6 +491,7 @@ SU_Data.basket.f_EventPage_AddToBasket = function() {
  * Document Ready Handler
  */
 $(document).ready(function() {
+	SU_Data.load.loadActivities();
 	SU_Data.load.loadMemberships();
 	SU_Data.load.loadEvents();
 	SU_Data.load.loadNews();
