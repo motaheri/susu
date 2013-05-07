@@ -48,9 +48,9 @@
     .no-mobile {
         display: none !important;
     }
-    #menu ul li{
+    #menu-right ul li{
         margin-right:0px;
-        width: 100% !important; 
+        width: 100% !important;
         background:#fff !important;
     }
     #mobile-nav{
@@ -89,7 +89,7 @@
         width: 912px;
         margin: 0 auto;
     }
-    #menu ul li{
+    #menu-right ul li{
         margin-right:20px;
     }
 	.advertteaser {
@@ -109,7 +109,7 @@
         width: 1140px;
         margin: 0 auto;
     }
-    #menu ul li{
+    #menu-right ul li{
         margin-right:50px;
     }
 	.halfadvert{

@@ -1,6 +1,43 @@
         <style>
-		.typeahead{background: #152558 !important;height: 38px;color:#fff;}
+		.typeahead{
+			xbackground: #152558 !important;
+			height: 38px;
+			color:#fff;
+			vertical-align:top;
+			margin-left: -190px !important;
+margin-top: 24px !important;
+		}
+		.typeahead li{
+		display:list-item !important;
+	 background:#152558;
+	 height:8px;
+	 min-width: 146px;
+		}
+		.typeahead li a{
+		color:#fff !important;
+		}
 		#menu-left{background: #152558 !important; color:#fff}
+		#menu-logo{margin-right:0px !important;}
+		#search-box{
+		padding: 0px !important;
+			vertical-align: top;
+			height:9px;
+			margin-left: -50px;
+			margin-top: -2px;
+			padding-right: 0px !important;
+			margin-top: 10px;
+margin-left: 10px;
+			}
+		#menu-logo{
+			width:auto !important;
+			}
+			#search-box.menu-link-hover{
+				border: 0px;
+				border-bottom: 0px !important;
+				background: transparent;
+				padding: 0px !important;
+				z-index: 19999 !important;
+			}
 		</style>
 		<header class="clearfix header">
             <!--<h1>Title</h1>-->
@@ -18,7 +55,7 @@
 							</li>
                         </ul>
                     </div>
-                    <div id="menu-right"  class="menu-block no-mobile">
+                    <div id="menu-right" class="menu-block no-mobile">
                         <ul class="menu-offleft" id="menu-pages">
                             <li><a href="">Union</a></li>
                             <li><a href="">Societies</a></li>
