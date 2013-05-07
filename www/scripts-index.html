@@ -41,32 +41,48 @@
 	
 	
 	
+	
+	/*
+	
+	Type Ahead 
+	
+	*/
+	
 	$(document).ready(function () {
 
-	// Grab a array of names, and map of names to url
-	var societiesList = $(".msl_organisation_list li a").map(function() { return this.innerHTML; }).get();
-	 
-	var societiesUrl = $(".msl_organisation_list li a").map(function() { return this.href; }).get();
-	//alert(societiesUrl);
-	// Activate TypeAhead with the societies list
-	//alert($('#ss-input'));
-	$('#ss-input').typeahead({
-		source: societiesList,
-		items: 8,
-		maxlength: 2
-	}).focus();
-	// alert($('#ss-input'));
-	// On Change Click Event
+		// Grab a array of names, and map of names to url
+		var societiesList = $(".msl_organisation_list a.msl-gl-link").map(function() { return this.innerHTML; }).get();
+		 
+		var societiesUrl = $(".msl_organisation_list a.msl-gl-link").map(function() { return this.href; }).get();
+		//alert(societiesUrl);
+		// Activate TypeAhead with the societies list
+		//alert($('#ss-input'));
+		$('#ss-input').typeahead({
+			source: societiesList,
+			items: 8,
+			maxlength: 2
+		}).focus();
+		// alert($('#ss-input'));
+		// On Change Click Event
+		
+		var onChangeSoc = function(event) {
+			var autoComText = event.target.value; 
+			// Find the matching URL
+			var listPos = $.inArray(autoComText, societiesList);
+			// If position is undefined or if there is no matching URL, stop location change
+			if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
+		};
+		$('#ss-input').on('change', onChangeSoc);
 	
-	var onChangeSoc = function(event) {
-		var autoComText = event.target.value; 
-		// Find the matching URL
-	  	var listPos = $.inArray(autoComText, societiesList);
-		// If position is undefined or if there is no matching URL, stop location change
-		if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
-	};
-	$('#ss-input').on('change', onChangeSoc);
+	
+	});
 	
 	
-});
+	/*
+	
+	End Type Ahead 
+	
+	*/
+	
+	
 </script>
