@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sports - Swansea University Students' Union</title>
+        <title>Societies - Swansea University Students' Union</title>
         
         {include="meta"}
         {include="head"}
@@ -10,42 +10,41 @@
     <body>
         {include="header"}
 		<div class="spacer"></div>
-		<div id="cover" class="coverSports"></div>
+		<div id="cover" class="coverSocieties"></div>
 		
         <div id="main" class="wrapper clearfix">
 			<div id="activitiesIntro">
 				<div class="activitiesType">
-					<h2>Sport Swansea</h2>
-					<p>Sport Swansea is the home of Swansea University's student sports clubs.</p>
-					<p>To find out more please click on the categories below and find a club.</p>
+					<h2>Societies</h2>
+					<p>Swansea University Students' Union has over N societies. Get involved, meet new people and try new things.</p>
+					<p>To find out more please click on the categories below and find a society.</p>
 				</div>
 				<div class="activitiesType">
-					<h2>Membership</h2>
-					<p>To take part in sports at Swansea University you need to have a Sport Swansea Membership. This covers your insurance and helps to finance student sport.</p>
-					<p>Membership costs &pound;10 for the whole academic year.</p>
-					<button class="btn btn-success">Join Now</button>
+					<h2>Documents</h2>
+					<p>Want to start a society or club?</p>
+					<p>Click here to download Society &amp; Sport documents and forms.</p>
 				</div>
 				<div class="activitiesType">
 					<h2>Contacts</h2>
-					<div style="display: inline-block;">
-						<img src="/img/activities/peopleImogen.jpg" width="132" height="177" /><br/>
-						Imogen Stanley<br/>
-						<i>Sport Officer</i>
+					<div style="display: inline-block; width: 132px; vertical-align: top;">
+						<img src="/img/activities/peopleJosh.jpg" width="132" height="177" /><br/>
+						Josh Hayman<br/>
+						<i>Societies and Services Officer</i>
 					</div>
-					<div style="display: inline-block;">
-						<img src="/img/activities/peopleSadie.jpg" width="132" height="177" /><br/>
-						Sadie Thwaites<br/>
-						<i>Sport Manager</i>
+					<div style="display: inline-block; width: 132px; vertical-align: top;">
+						<img src="/img/activities/peopleRosie.jpg" width="132" height="177" /><br/>
+						Rosie Hunnam<br/>
+						<i>Societies and Student Services Coordinator</i>
 					</div>
 				</div>
 			</div>
 			<div id="activitiesCategorySlider">
-				<h2>Sports Categories</h2>
+				<h2>Society Categories</h2>
 				<div id="su-activitiesCat">
 				</div>
 			</div>
 			<div id="activitiesListSlider">
-				<h2 id="su-activitiesListHeader">Sports Clubs</h2>
+				<h2 id="su-activitiesListHeader">Societies</h2>
 				<div id="su-activitiesList">
 				</div>
 			</div>
@@ -120,8 +119,10 @@
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
-				SU_Widget.EventSlider_ActivitiesCategorySlider("Sports", "#su-activitiesCat");
-				SU_Widget.EventSlider_ActivitiesListSlider("Ball Based Sports", "#su-activitiesList");
+				var activityType = "Societies";
+				var firstCat = SU_Data.activities.filter(function(d) { return d.Type == activityType; })[0].Category;
+				SU_Widget.EventSlider_ActivitiesCategorySlider(activityType, "#su-activitiesCat");
+				SU_Widget.EventSlider_ActivitiesListSlider(firstCat, "#su-activitiesList");
 				$('a.su-activity-category').first().addClass('selected');
 				$('a.su-activity-category').click(function (e) {
 					e.preventDefault();

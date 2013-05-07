@@ -149,6 +149,11 @@ body > div#cover.coverSports {
     background-position: center center;
 }
 
+body > div#cover.coverSocieties {
+    background-image: url(../img/activitiesTypeSociety.jpg);
+    background-position: center center;
+}
+
 .spacer {
 	height: 70px;
 }

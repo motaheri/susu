@@ -121,3 +121,10 @@ a.su-activity-category.selected img:hover {
 	padding: 2px;
 	text-transform: uppercase;
 }
+
+.sliderActivities .activitiesCatName.sport, .sliderActivities .activitiesItemName.sport {
+	background-color: #51a351;
+}
+.sliderActivities .activitiesCatName.society, .sliderActivities .activitiesItemName.society {
+	background-color: #BC5CA2;
+}
