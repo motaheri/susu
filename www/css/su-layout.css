@@ -144,6 +144,15 @@ body > div#cover {
 	margin-top:-70px;
 }
 
+body > div#cover.coverSports {
+    background-image: url(../img/activitiesTypeSport.jpg);
+    background-position: center center;
+}
+
+.spacer {
+	height: 70px;
+}
+
 @media only screen and (max-width: 683px) {
     body > div#cover {
         display: none;

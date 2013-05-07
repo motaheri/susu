@@ -142,5 +142,60 @@ var SU_Widget = {
 			desktopClickDrag: true,
 			infiniteSlider: false
 		});
+	},
+	EventSlider_ActivitiesCategorySlider: function(typeName, targetselector) {
+		$(targetselector).find('div').remove();
+		$(targetselector).addClass('sliderActivities');
+		var slider = $(document.createElement('div')).addClass('slider');
+		var categories = SU_Data.activities
+								.filter(function(d) { return d.Type == typeName; })
+								.map(function(d) { return d.Category; }).getUnique();
+		jQuery.each(categories, function(i, o) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner');
+			var link = $(document.createElement('a')).addClass('su-activity-category').attr('href', '#');
+			var img = $(document.createElement('img')).attr('src', '/img/activities/cat' + o.replace(/\W/g,'') + ".png");
+			var title = $(document.createElement('div')).addClass('activitiesCatName').text(o);
+			$(link).append(img).append(title);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+		});
+		$(targetselector).append(slider);
+		$(targetselector).iosSlider({
+			snapToChildren: true,
+			scrollbar: false,
+			desktopClickDrag: true,
+			infiniteSlider: false
+		});
+	},
+	EventSlider_ActivitiesListSlider: function(catName, targetselector) {
+		$(targetselector).fadeOut("fast", function() {
+			$(targetselector).iosSlider('destroy');
+			$(targetselector).find('div').remove();
+			$(targetselector).addClass('sliderActivities');
+			var slider = $(document.createElement('div')).addClass('slider');
+			var activities = SU_Data.activities.filter(function(d) { return d.Category == catName; });
+			jQuery.each(activities, function(i, o) {
+				var slide = $(document.createElement('div')).addClass('slide');
+				var inner = $(document.createElement('div')).addClass('slide-inner');
+				var link = $(document.createElement('a')).attr('href', '#');
+				var img = $(document.createElement('img')).attr('src', o.Image);
+				var title = $(document.createElement('div')).addClass('activitiesItemName').text(o.Name);
+				$(link).append(img).append(title);
+				$(inner).append(link);
+				$(slide).append(inner);
+				$(slider).append(slide);
+			});
+			$(targetselector).append(slider);
+			$('#su-activitiesListHeader').text("Sports Clubs - " + catName);
+			$(targetselector).iosSlider({
+				snapToChildren: true,
+				scrollbar: false,
+				desktopClickDrag: true,
+				infiniteSlider: false
+			});
+			$(targetselector).fadeIn();
+		});
 	}
 };

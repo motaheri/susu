@@ -1,0 +1,123 @@
+.activitiesListSlider {
+	height: 258px;
+}
+.activitiesSelectorA {
+	width: 100%;
+	text-align: center;
+}
+.activitiesType {
+	vertical-align: top;
+	display: inline-block;
+	width: 29%;
+	min-height: 150px;
+	margin: 0 20px 0 20px;
+	font-family: 'MuseoSans300';
+}
+.activitiesType.activitiesTypeSociety {
+	background-image: url('/img/activitiesTypeSport.jpg');
+}
+.activitiesType.activitiesTypeSport {
+	background-image: url('/img/activitiesTypeSport.jpg');
+	background-position: center center;
+	background-size: cover;
+}
+
+/*
+ * Activities Landscape Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderActivities {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 684px;
+	min-height: 221px;
+	height: 221px;
+}
+.sliderActivities .slider {
+	width: 100%;
+	height: 100%;
+}
+.sliderActivities:before {
+	content: '';
+	position: absolute;
+	width: 10%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0.8)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ccffffff',GradientType=1 );
+}
+
+.sliderActivities .slider .slide {
+	float: left;
+	width: 228px;
+	height: 221px;
+}
+
+.sliderActivities .slider .slide .slide-inner {
+	width: 218px;
+	height: 211px;
+	margin: 5px;
+	text-align: center;
+}
+
+@media only screen and (min-width: 912px) {
+	.sliderActivities {
+		width: 912px;
+	}
+}
+
+@media only screen and (min-width: 1140px) {
+	.sliderActivities {
+		width: 1140px;
+	}	
+}
+
+#activitiesCategorySlider .slider:hover {
+	animation: none !important;
+	-webkit-animation: none !important;
+}
+a.su-activity-category img {
+	opacity: 0.5 !important;
+}
+a.su-activity-category img:hover {
+	opacity: 0.8 !important;
+}
+a.su-activity-category.selected img {
+	opacity: 1 !important;
+}
+a.su-activity-category.selected img:hover {
+	opacity: 1 !important;
+}
+.sliderActivities img {
+	height: 160px !important;
+}
+.sliderActivities .activitiesCatName {
+	height: 45px;
+	background-color: #51a351;
+	font-family: 'MuseoSans700';
+	font-size: 15pt;
+	color: white;
+	text-align: center;
+	padding: 2px;
+	text-transform: uppercase;
+}
+.sliderActivities .activitiesItemName {
+	height: 45px;
+	background-color: #51a351;
+	font-family: 'MuseoSans700';
+	font-size: 15pt;
+	color: white;
+	text-align: center;
+	padding: 2px;
+	text-transform: uppercase;
+}

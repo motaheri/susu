@@ -85,6 +85,7 @@ var SU_Data = {
 			this.Name = '';
 			this.Link = '';
 			this.ID = '';
+			this.Image = '';
 			this.Type = '';
 			this.Category = '';
 		},
@@ -127,13 +128,14 @@ var SU_Data = {
 		},
 		loadActivities: function () {
 			SU_Data.activities = [];
-			$('div.mslwidget .msl_organisation_list li a').each(function () {
+			$('div.mslwidget .msl_organisation_list li a.msl-gl-link').each(function () {
 				var activities = new SU_Data.types.activitiesObj();
 				activities.Category = $(this).parent().parent().prev().find('h3').text();		
 				activities.Name = $(this).text();
 				activities.Link = $(this).attr('href');
 				activities.ID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
-				activities.Type = $(this).attr('id').indexOf('sport') >= 0 ? "Sports" : "Societies";
+				activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
+				activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
 				SU_Data.activities.push(activities);
 			});
 		},
@@ -506,3 +508,16 @@ $(document).ready(function() {
 	SU_Data.basket.f_EventPage_AddToBasket();
 	*/
 });
+
+
+Array.prototype.getUnique = function(){
+    var u = {}, a = [];
+    for(var i = 0, l = this.length; i < l; ++i){
+        if(u.hasOwnProperty(this[i])) {
+          continue;
+        }
+        a.push(this[i]);
+        u[this[i]] = 1;
+    }
+    return a;
+}

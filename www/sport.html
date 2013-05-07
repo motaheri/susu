@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swansea Student Events</title>
+        
+        {include="meta"}
+        {include="head"}
+
+    </head>
+    <body>
+        {include="header"}
+		<div class="spacer"></div>
+		<div id="cover" class="coverSports"></div>
+		
+        <div id="main" class="wrapper clearfix">
+			<div id="activitiesIntro">
+				<div class="activitiesType">
+					<h2>Sport Swansea</h2>
+					<p>Sport Swansea is the home of Swansea University's student sports clubs.</p>
+					<p>To find out more please click on the categories below and find a club.</p>
+				</div>
+				<div class="activitiesType">
+					<h2>Membership</h2>
+					<p>To take part in sports at Swansea University you need to have a Sport Swansea Membership. This covers your insurance and helps to finance student sport.</p>
+					<p>Membership costs &pound;10 for the whole academic year.</p>
+					<button class="btn btn-success">Join Now</button>
+				</div>
+				<div class="activitiesType">
+					<h2>Contacts</h2>
+					<div style="display: inline-block;">
+						<img src="/img/activities/peopleImogen.jpg" width="132" height="177" /><br/>
+						Imogen Stanley<br/>
+						<i>Sport Officer</i>
+					</div>
+					<div style="display: inline-block;">
+						<img src="/img/activities/peopleSadie.jpg" width="132" height="177" /><br/>
+						Sadie Thwaites<br/>
+						<i>Sport Manager</i>
+					</div>
+				</div>
+			</div>
+			<div id="activitiesCategorySlider">
+				<h2>Sports Categories</h2>
+				<div id="su-activitiesCat">
+				</div>
+			</div>
+			<div id="activitiesListSlider">
+				<h2 id="su-activitiesListHeader">Sports Clubs</h2>
+				<div id="su-activitiesList">
+				</div>
+			</div>
+			
+			<div class="su-social-container ib">
+				<h2>Social Media</h2>
+				<div id="su-socialfeed" class="su-social">
+					<div id="container"> 
+						<div id="wall">
+							<div id="social-stream"></div>
+							<div class="clear" style="margin-bottom: 20px;"></div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		
+		<hr class="soft"/>
+        
+		{include="footer"}
+        {include="scripts-index"}
+		{include="scripts-facebook"}
+<script type="text/javascript" src="media/js/jquery.social.stream.wall.1.3.js"></script> <!-- Media Wall -->
+<script type="text/javascript" src="media/js/jquery.social.stream.1.5.1.js"></script> <!-- Media Wall -->
+
+<!-- SU Scripts-->
+<script type="text/javascript" src="js/su-media.js"></script> <!-- Mediapage Scripts -->
+<link rel="stylesheet" type="text/css" href="media/css/dcsns_wall.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="media/css/custom.css" media="all" />
+		<style>
+		.dcsns-toolbar{ display:none;}
+		.dcsns-content .stream{
+			margin-left: 0px;
+			padding:5px;
+		}
+		.media-header,.officer-header{
+			margin-left:0px !important;
+		}
+		.dcsns-content{
+			xbackground:#000;	
+			xbackground: rgba(204, 204, 204, 0.30);
+			width: 443px;
+		}
+		#wall{
+			padding-top: 0px;
+		}
+		.stream li {
+			border: 0px;
+			width: 214px !important;
+			margin: 0px !important;
+			margin-right: 12px !important;
+			margin-bottom: 5px !important;
+			box-shadow: none !important;
+			height: 145px !important;
+			overflow:hidden;
+		}
+		.su-social-container,.su-blog-container{
+			xdisplay:inline-block;
+		}
+		.su-social-container{
+			width: 440px;
+		}
+		.stream li .section-intro{
+			padding: 10px 0;
+			margin-right: 10px;
+		}
+	 
+		</style>
+        
+        {include="widgetdata"}
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				SU_Widget.EventSlider_ActivitiesCategorySlider("Sports", "#su-activitiesCat");
+				SU_Widget.EventSlider_ActivitiesListSlider("Ball Based Sports", "#su-activitiesList");
+				$('a.su-activity-category').first().addClass('selected');
+				$('a.su-activity-category').click(function (e) {
+					e.preventDefault();
+					$('a.su-activity-category').removeClass('selected');
+					$(this).addClass('selected');
+					SU_Widget.EventSlider_ActivitiesListSlider($(this).text(), "#su-activitiesList");
+				});
+				$('#su-activitiesList').show();
+			});
+		</script>
+
+    </body>
+</html>
