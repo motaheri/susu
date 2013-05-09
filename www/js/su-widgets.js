@@ -183,7 +183,7 @@ var SU_Widget = {
 				var link = $(document.createElement('a')).attr('href', '#');
 				var img = $(document.createElement('img')).attr('src', o.Image);
 				var title = $(document.createElement('div')).addClass('activitiesItemName').text(o.Name);
-				title.addClass((catName == "Sport" || catName == "Sports") ? "sport" : "society");
+				title.addClass((o.Type == "Sport" || o.Type == "Sports") ? "sport" : "society");
 				$(link).append(img).append(title);
 				$(inner).append(link);
 				$(slide).append(inner);
