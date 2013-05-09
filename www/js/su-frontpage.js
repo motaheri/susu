@@ -57,5 +57,5 @@
              * EVENTS COVERFLOW
              */
             $(document).ready(function() {
-                SU_Widget.Coverflow(SU_Data.eventData.eventsmain, '#coverflow');
+                SU_Widget.Coverflow('eventsfeatured', '#coverflow');
             });

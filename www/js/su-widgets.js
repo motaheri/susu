@@ -147,7 +147,7 @@ var SU_Widget = {
 		$(targetselector).find('div').remove();
 		$(targetselector).addClass('sliderActivities');
 		var slider = $(document.createElement('div')).addClass('slider');
-		var categories = SU_Data.activities
+		var categories = SU_Data.activitiesData
 								.filter(function(d) { return d.Type == typeName; })
 								.map(function(d) { return d.Category; }).getUnique();
 		jQuery.each(categories, function(i, o) {
@@ -176,7 +176,7 @@ var SU_Widget = {
 			$(targetselector).find('div').remove();
 			$(targetselector).addClass('sliderActivities');
 			var slider = $(document.createElement('div')).addClass('slider');
-			var activities = SU_Data.activities.filter(function(d) { return d.Category == catName; });
+			var activities = SU_Data.activitiesData.filter(function(d) { return d.Category == catName; });
 			jQuery.each(activities, function(i, o) {
 				var slide = $(document.createElement('div')).addClass('slide');
 				var inner = $(document.createElement('div')).addClass('slide-inner');
@@ -201,6 +201,7 @@ var SU_Widget = {
 		});
 	},
 	Coverflow: function(eventData, targetSelector) {
+		eventData = SU_Data.eventData[eventData];
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');

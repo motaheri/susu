@@ -108,7 +108,7 @@ var SU_Data = {
 	/* --------------------------------
 	 * Data Tests
 	 * -------------------------------- */
-	hasMemberships: function() { return SU_Data.memberships.length > 0; },
+	hasMemberships: function() { return SU_Data.membershipsData.length > 0; },
 	hasEvents: function() { return Object.keys(SU_Data.eventData).length > 0; },
 	hasNews: function() { return Object.keys(SU_Data.newsData).length > 0; },
 	hasBlogs: function() { return Object.keys(SU_Data.blogData).length > 0; },
@@ -118,16 +118,16 @@ var SU_Data = {
 	 * -------------------------------- */
 	load: {
 		loadMemberships: function () {
-			SU_Data.memberships = [];
+			SU_Data.membershipsData = [];
 			$('div.mslwidget#MyMemberships dl.memberships a.membership').each(function () {
 				var membership = new SU_Data.types.activitiesObj();
 				membership.Name = $(this).text();
 				membership.Link = $(this).attr('href');
-				SU_Data.memberships.push(membership);
+				SU_Data.membershipsData.push(membership);
 			});
 		},
 		loadActivities: function () {
-			SU_Data.activities = [];
+			SU_Data.activitiesData = [];
 			$('div.mslwidget .msl_organisation_list li a.msl-gl-link').each(function () {
 				var activities = new SU_Data.types.activitiesObj();
 				activities.Category = $(this).parent().parent().prev().find('h3').text();		
@@ -136,7 +136,7 @@ var SU_Data = {
 				activities.ID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
 				activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
 				activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
-				SU_Data.activities.push(activities);
+				SU_Data.activitiesData.push(activities);
 			});
 		},
 		/**
@@ -508,7 +508,6 @@ $(document).ready(function() {
 	SU_Data.basket.f_EventPage_AddToBasket();
 	*/
 });
-
 
 Array.prototype.getUnique = function(){
     var u = {}, a = [];
