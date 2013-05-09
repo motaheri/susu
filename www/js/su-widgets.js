@@ -199,5 +199,45 @@ var SU_Widget = {
 			});
 			$(targetselector).fadeIn();
 		});
+	},
+	Coverflow: function(eventData, targetSelector) {
+		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
+		
+		var container = $(document.createElement('div')).addClass('carousel-container');
+		var icarousel = $(document.createElement('div')).addClass('icarousel').attr('id', randomId);
+		container.append(icarousel);
+		$(targetSelector).append(container);
+		
+		var carouselObj = $('#' + randomId);
+		jQuery.each(eventData, function(i, o) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
+			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 339, resize_type: 'CropToFit'});
+			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+			slide.append(img);
+			carouselObj.append(slide);
+		});
+		
+		carouselObj.iCarousel({
+                    easing: 'ease-in-out',
+                    slides: 5,
+                    make3D: true,
+                    perspective: 25,
+                    animationSpeed: 700,
+                    pauseTime: 5000,
+                    startSlide: 0,
+                    directionNav: true,
+                    autoPlay: true,
+                    keyboardNav: true,
+                    touchNav: true,
+                    mouseWheel: false,
+                    pauseOnHover: true,
+                    direction: 'rtl',
+                    timer: 'none',
+                    onBeforeChange: function(){}, // Triggers before a slide change
+                    onAfterChange: function(){}, // Triggers after a slide change
+                    onLastSlide: function(){}, // Triggers when last slide is shown
+                    onAfterLoad: function(){} // Triggers when carousel has loaded
+                });
 	}
 };

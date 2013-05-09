@@ -1,4 +1,4 @@
-img {
+.icarousel img {
     width: auto 9;
     height: auto;
     max-width: 100%;
@@ -42,7 +42,7 @@ img {
 	border-radius: 3px;
 }
 
-#icarousel {
+.icarousel {
 	width: 490px;
 	height: 380px;
 	position: relative;
@@ -60,7 +60,7 @@ img {
 	cursor: pointer;
 }
 
-#icarousel .slide {
+.icarousel .slide {
 	display: block;
 	/*border: 1px #333 solid;
 	border: 1px rgba(0,0,0,0.5) solid;*/
@@ -68,7 +68,7 @@ img {
 	height: 338px;
 }
 
-#icarousel .img {
+.icarousel .img {
 	width: 480px;
 	height: 338px;
 }

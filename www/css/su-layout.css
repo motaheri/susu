@@ -1,41 +1,4 @@
 /* --------------------------------------------------------------------
- * Define font
- * -------------------------------------------------------------------- */
-
-@font-face {
-    font-family: 'NovecentowideUltraLightBold';
-    src: url('Novecentowide-Medium-webfont.eot');
-    src: url('Novecentowide-Medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Novecentowide-Medium-webfont.woff') format('woff'),
-         url('Novecentowide-Medium-webfont.ttf') format('truetype'),
-         url('Novecentowide-Medium-webfont.svg#NovecentowideUltraLightBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'NovecentowideLightBold';
-    src: url('Novecentowide-DemiBold-webfont.eot');
-    src: url('Novecentowide-DemiBold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Novecentowide-DemiBold-webfont.woff') format('woff'),
-         url('Novecentowide-DemiBold-webfont.ttf') format('truetype'),
-         url('Novecentowide-DemiBold-webfont.svg#NovecentowideLightBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'NovecentowideBookBold';
-    src: url('Novecentowide-Bold-webfont.eot');
-    src: url('Novecentowide-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Novecentowide-Bold-webfont.woff') format('woff'),
-         url('Novecentowide-Bold-webfont.ttf') format('truetype'),
-         url('Novecentowide-Bold-webfont.svg#NovecentowideBookBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* --------------------------------------------------------------------
  * Master Page Width Definitions
  * -------------------------------------------------------------------- */
 
@@ -139,7 +102,7 @@ body > div#cover {
     background-size: cover;
 	margin-bottom: 20px;
 	opacity: 0.75;
-	margin-top:-70px;
+	margin-top: -70px;
 }
 
 body > div#cover.coverSports {
@@ -213,7 +176,7 @@ hr.soft {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /*IE6-8 */
 }
 
- .news-container {
+.news-container {
 	width: 100%;
 	overflow: hidden;
 	background: #f5f5f5 url('../img/noize.png');
@@ -242,13 +205,13 @@ hr.soft {
 	width: 100%;
 	overflow: hidden;
 	background: #fefefe url('../img/noize.png');
-	padding:25px 0px;
+	padding: 25px 0px;
 }
 .blogs-container {
 	width: 100%;
 	overflow: hidden;
 	background: #f5f5f5 url('../img/noize.png');
-	padding:25px 0px;
+	padding: 25px 0px;
 }
 .events-container h2{
 	margin-left: 5px !important;
@@ -371,34 +334,6 @@ h2.container-header{
 .bb-blue {
     border-bottom: 6px solid #3887C0;
 }
-
-/* BOOTSTRAP BREADCRUMB */
-/*
-.breadcrumb {
-  padding: 8px 15px;
-  margin: 0 0 20px;
-  list-style: none;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-}
-
-.breadcrumb > li {
-  display: inline-block;
-  *display: inline;
-  text-shadow: 0 1px 0 #ffffff;
-  *zoom: 1;
-}
-
-.breadcrumb > li > .divider {
-  padding: 0 5px;
-  color: #ccc;
-}
-
-.breadcrumb > .active {
-  color: #999999;
-}
-*/
 
 .breadcrumb { 
 	list-style: none; 
@@ -775,10 +710,9 @@ article h2{
 
 
 /*****
-
-Foooter
-
+Footer
 *****/
+
 #my-events{
 	display:none;
 }

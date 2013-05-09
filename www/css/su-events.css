@@ -1,4 +1,35 @@
 /*
+ * Global Slider Styles
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+
+.slider img {
+    width: auto 9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+@keyframes slider-peek {
+  0% { margin-left: 0px; }
+  50% { margin-left: -30px; }
+  100% { margin-left: 0px; }
+}
+
+@-webkit-keyframes slider-peek {
+  0% { margin-left: 0px; }
+  50% { margin-left: -30px; }
+  100% { margin-left: 0px; }
+}
+
+.slider:hover {
+	animation: slider-peek 0.5s ease;
+	-webkit-animation: slider-peek 0.5s ease;
+}
+
+/*
  * A4 Portrait Slider
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
  */
@@ -129,23 +160,6 @@
 /*
  * EVENTS CUSTOMISATION BELOW HERE
  */
-
-@keyframes slider-peek {
-  0% { margin-left: 0px; }
-  50% { margin-left: -30px; }
-  100% { margin-left: 0px; }
-}
-
-@-webkit-keyframes slider-peek {
-  0% { margin-left: 0px; }
-  50% { margin-left: -30px; }
-  100% { margin-left: 0px; }
-}
-
-.slider:hover {
-	animation: slider-peek 0.5s ease;
-	-webkit-animation: slider-peek 0.5s ease;
-}
 
 .slider .slide .slide-inner {
 	background-repeat: no-repeat;
