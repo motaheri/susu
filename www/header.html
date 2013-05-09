@@ -48,6 +48,52 @@
 			width: 155px;
 		}
 		</style>
+		
+		
+		
+		<style>
+#menu-content-container{
+margin-left:15px;
+}
+#menu-content-container ul{
+vertical-align:top;
+background: #fefefe;
+padding: 10px 5px;
+padding-bottom: 20px;
+margin: 0px 10px 0px 10px;
+xborder-left: 2px solid #333;
+min-height:150px;
+min-width: 70px;
+
+}
+#menu-content-container li{
+	display: list-item !important;
+	margin:0px !important;
+	padding:0px !important;
+	margin-bottom:5px !important;
+}
+#menu-content-container h3{  
+padding: 10px;
+margin-left: -7px;
+padding-bottom: 6px;
+margin-bottom: 10px;
+border-bottom: 3px solid #000;
+}
+#menu-content-container ul li{
+margin-left: 5px !important;
+}
+#ss-box{
+	padding-left:20px;
+} 
+.speech-bubble{
+	position: absolute;
+	top: 65px;
+	right: 10px;
+}
+</style>
+		
+		
+		
 		<header class="clearfix header">
             <!--<h1>Title</h1>-->
             <div id="menu" class="wrapper">
@@ -70,7 +116,7 @@
                             <li><a href="./societies.php" rel="page">Societies</a></li>
                             <li><a href="./sports.php" rel="page">Sports</a></li>
                             <li><a href="./events.php" rel="page">Events</a></li>
-							<li><a href="./media.php" rel="page">Media</a></li>
+							<li><a href="">Login</a></li>
                         </ul>
                         <!--<ul class="menu-right">
                             <li id="menu-account"><a href="">Your Account</a></li>
@@ -91,8 +137,10 @@
                         <div class="menu-content events">
                             <h2>Your Events</h2>
                         </div>  
-						<div class="menu-content media">
-                            <h2>Your Media</h2>
+						<div class="menu-content login">
+                            <h2>Login</h2>
+							{include="menu-login"}
+							
                         </div>
                     </div>
                     <div id="mobile-nav"></div>  
