@@ -31,16 +31,17 @@ var SU_Data = {
 	types: {
 		// Event Object
 		eventObj: function() {
-			this.Title = '';		// Event name
-			this.Description = '';	// Brief event description
-			this.Location = '';		// Venue
-			this.Date = null;		// Date
-			this.Image = '';		// Logo
-			this.Link = '';			// Event link
-			this.Organisation = ''; // Organisation Name
-			this.Brand = '';		// Brand Name
-			this.FullText = '';		// Full text description (not loaded by default)
-			this.Tickets = [];		// Array of ticket objects (not loaded by default)
+			this.Title = '';		  // Event name
+			this.Description = '';    // Brief event description
+			this.Location = '';		  // Venue
+			this.Date = null;		  // Date
+			this.Image = '';		  // Logo
+			this.Link = '';			  // Event link
+			this.Organisation = '';   // Organisation Name
+			this.OrganisationID = ''; // Organisation Name
+			this.Brand = '';		  // Brand Name
+			this.FullText = '';		  // Full text description (not loaded by default)
+			this.Tickets = [];		  // Array of ticket objects (not loaded by default)
 			this.GetEvent = function() { return SU_Data.load.loadFullEvent(this) };
 			this.AddToBasket = function(ticketIndex, quantity) { SU_Data.basket.eventAddToBasket(this, ticketIndex, quantity) };
 		},
@@ -79,12 +80,13 @@ var SU_Data = {
 		membershipObj: function() {
 			this.Name = '';
 			this.Link = '';
+			this.OrganisationID = ''; // Organisation Name
 		},
 		// Activity List
 		activitiesObj: function() {
 			this.Name = '';
 			this.Link = '';
-			this.ID = '';
+			this.OrganisationID = '';
 			this.Image = '';
 			this.Type = '';
 			this.Category = '';
@@ -119,10 +121,18 @@ var SU_Data = {
 	load: {
 		loadMemberships: function () {
 			SU_Data.membershipsData = [];
-			$('div.mslwidget#MyMemberships dl.memberships a.membership').each(function () {
-				var membership = new SU_Data.types.activitiesObj();
-				membership.Name = $(this).text();
-				membership.Link = $(this).attr('href');
+			/****************** Based on this preview code 
+			<dl class="memberships">
+			<dt data-msl-grouping-id="6487"><a href="/activities/6487/" class="membership" id="ctl00_memberships_rptMemberships_ctl00_lnkOrganisation">ACS</a></dt>
+							 <dd data-msl-organisation-id="6487" data-msl-groupingid="6488">Standard Membership </dd>
+			…
+			</dl>	
+			*******************/
+			$('div.mslwidget#MyMemberships dl.memberships').each(function () {
+				var membership = new SU_Data.types.activitiesObj();a.membership
+				membership.Name = $(this).find('a.membership').text();
+				membership.Link = $(this).find('a.membership').attr('href');
+				membership.OrganisationID = $(this).find('dt').attr('data-msl-organisation-id');
 				SU_Data.membershipsData.push(membership);
 			});
 		},
@@ -133,7 +143,7 @@ var SU_Data = {
 				activities.Category = $(this).parent().parent().prev().find('h3').text();		
 				activities.Name = $(this).text();
 				activities.Link = $(this).attr('href');
-				activities.ID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
+				activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
 				activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
 				activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
 				SU_Data.activitiesData.push(activities);
@@ -164,6 +174,10 @@ var SU_Data = {
 					event.Description = $.trim(event.Description.replace(/[\r\n\t]/g, ''));
 					event.Location = $(this).find('.msl_event_location').text();
 					event.Location = $.trim(event.Location.replace(/[\r\n\t]/g, ''));
+					event.Organisation = $(this).find('.msl_event_organisation').text();
+					event.OrganisationID = $(this).attr('data-msl-organisation-id');
+					event.Brand = $(this).find('.msl_event_brand').text();
+					
 					var dateValue = $(this).find('.msl_event_time').text();
 					if (dateValue != null) {
 						dateValue = $.trim(dateValue.replace(/[\r\n]/g, '').replace(/midnight/g, '0am').replace(/noon/g, '12pm'));
