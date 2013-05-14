@@ -3,6 +3,10 @@
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
  */
 
+.slider, .slider a, .slide img {
+	cursor: url('/css/openhand.cur') !important;
+}
+
 .slider img {
     width: auto 9;
     height: auto;

@@ -149,7 +149,7 @@ var SU_Widget = {
 		$(targetselector).find('div').remove();
 		$(targetselector).addClass('sliderActivities');
 		var slider = $(document.createElement('div')).addClass('slider');
-		var categories = SU_Data.activitiesData
+		var categories = SU_Data.getActivities()
 								.filter(function(d) { return d.Type == typeName; })
 								.map(function(d) { return d.Category; }).getUnique();
 		jQuery.each(categories, function(i, o) {
@@ -178,7 +178,7 @@ var SU_Widget = {
 			$(targetselector).find('div').remove();
 			$(targetselector).addClass('sliderActivities');
 			var slider = $(document.createElement('div')).addClass('slider');
-			var activities = SU_Data.activitiesData.filter(function(d) { return d.Category == catName; });
+			var activities = SU_Data.getActivities().filter(function(d) { return d.Category == catName; });
 			jQuery.each(activities, function(i, o) {
 				var slide = $(document.createElement('div')).addClass('slide');
 				var inner = $(document.createElement('div')).addClass('slide-inner');
@@ -202,8 +202,8 @@ var SU_Widget = {
 			$(targetselector).fadeIn();
 		});
 	},
-	Coverflow: function(eventData, targetSelector) {
-		eventData = SU_Data.eventData[eventData];
+	Coverflow: function(eventList, targetSelector) {
+		eventList = SU_Data.getEvents(eventList, 7);
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');
@@ -212,10 +212,10 @@ var SU_Widget = {
 		$(targetSelector).append(container);
 		
 		var carouselObj = $('#' + randomId);
-		jQuery.each(eventData, function(i, o) {
+		jQuery.each(eventList, function(i, o) {
 			var slide = $(document.createElement('div')).addClass('slide');
 			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
-			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 339, resize_type: 'CropToFit'});
+			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 679, resize_type: 'CropToFit'});
 			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
 			slide.append(img);
 			carouselObj.append(slide);

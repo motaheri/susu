@@ -138,26 +138,31 @@ var SU_Data = {
 				membership.Link = $(this).find('a.membership').attr('href');
 				membership.OrganisationID = $(this).find('dt').attr('data-msl-organisation-id');
 				SU_Data.membershipsData.push(membership);
+				$(this).parent().parent().remove();
 			});
 		},
 		loadActivities: function () {
 			SU_Data.activitiesData = [];
-			$('div.mslwidget .msl_organisation_list li a.msl-gl-link').each(function () {
-				var activities = new SU_Data.types.activitiesObj();
-				activities.Category = $(this).parent().parent().prev().find('h3').text();		
-				activities.Name = $(this).text();
-				activities.Link = $(this).attr('href');
-				activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
-				activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
-				activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
-				SU_Data.activitiesData.push(activities);
+			$('div.mslwidget div.msl_organisation_list').each(function () {
+				$(this).find('li a.msl-gl-link').each(function () {
+					var activities = new SU_Data.types.activitiesObj();
+					activities.Category = $(this).parent().parent().prev().find('h3').text();		
+					activities.Name = $(this).text();
+					activities.Link = $(this).attr('href');
+					activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
+					activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
+					activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
+					SU_Data.activitiesData.push(activities);
+				});
+				$(this).parent().remove();
 			});
 		},
 		/**
 		 * Parses any EventList widgets on the page and populates the eventData array with the data.
 		 */
 		loadEvents: function() {
-			$('.msl_eventlist').each(function() {
+			$('div.msl_eventlist').each(function() {
+				var divObj = $(this);
 				// get the div ID of the parent, used to reference this data list, set in widget config
 				var widgetId = null;
 				if ($(this).parent().attr('id') != null) {
@@ -225,12 +230,12 @@ var SU_Data = {
 				});
 				// add all the events to the eventData store, referenced using the widgetId
 				SU_Data.eventData[widgetId] = events;
-				var newBrands = events.map(function (d) { return d.Brand; }).getUnique();
+				var newBrands = events.map(function (d) { return d.Brand; }).getUnique().filter(function(d) { return d != ""; });
 				SU_Data.eventData.brands = SU_Data.eventData.brands.concat(newBrands).getUnique().sort();
 				var newOrgs = events.map(function(d) { return { OrganisationID: d.OrganisationID, Organisation: d.Organisation }; }).filter(function(d) { return typeof(d.OrganisationID) != 'undefined'; });
 				SU_Data.eventData.organisations = SU_Data.eventData.organisations.concat(newOrgs).getUnique(function (d) { return d.OrganisationID; }).sort(function(a,b) { return a.Organisation > b.Organisation; });
 				// Remove the Widget Data from the page. It's not needed any more.
-				$(this).parent().remove();
+				divObj.parent().remove();
 			});
 		},
 		/**
@@ -436,6 +441,9 @@ var SU_Data = {
 			limit = 10;
 		}
 		return SU_Data.eventData[eventList].filter(function (d) { return d.Organisation == orgIdOrName || d.OrganisationID == orgIdOrName }).slice(0, limit);
+	},
+	getActivities: function () {
+		return SU_Data.activitiesData;
 	}
 };
 
