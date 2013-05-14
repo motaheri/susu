@@ -86,7 +86,8 @@ var SU_Widget = {
 		$(targetselector).addClass('sliderPortrait');
 		var slider = $(document.createElement('div')).addClass('slider');
 		var dayIndex = 0, prevDate = '01/01/2000';
-		jQuery.each(SU_Data.eventData[mslWidgetId], function(i, o) {
+		var events = SU_Data.getEvents(mslWidgetId, 20);
+		jQuery.each(events, function(i, o) {
 			if (i > 0) {
 				if (prevDate != o.Date.format('dd/MM/yyyy')) {
 					dayIndex = (dayIndex+1) % dayColors.length;
@@ -117,7 +118,8 @@ var SU_Widget = {
 		$(targetselector).addClass('sliderSmall');
 		var slider = $(document.createElement('div')).addClass('slider');
 		var dayIndex = 0, prevDate = '01/01/2000';
-		jQuery.each(SU_Data.eventData[mslWidgetId], function(i, o) {
+		var events = SU_Data.getEvents(mslWidgetId, 20);
+		jQuery.each(events, function(i, o) {
 			if (i > 0) {
 				if (prevDate != o.Date.format('dd/MM/yyyy')) {
 					dayIndex = (dayIndex+1) % dayColors.length;

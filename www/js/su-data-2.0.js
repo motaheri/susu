@@ -103,13 +103,17 @@ var SU_Data = {
 	 * Data Objects/Arrays
 	 * -------------------------------- */
 	memberships: [],
-	eventData: {},
+	eventData: {
+		brands: [],
+		organisations: []
+	},
 	newsData: {},
 	blogData: {},
 	
 	/* --------------------------------
 	 * Data Tests
 	 * -------------------------------- */
+	hasActivities: function() { return SU_Data.activitiesData.length > 0; },
 	hasMemberships: function() { return SU_Data.membershipsData.length > 0; },
 	hasEvents: function() { return Object.keys(SU_Data.eventData).length > 0; },
 	hasNews: function() { return Object.keys(SU_Data.newsData).length > 0; },
@@ -129,7 +133,7 @@ var SU_Data = {
 			</dl>	
 			*******************/
 			$('div.mslwidget#MyMemberships dl.memberships').each(function () {
-				var membership = new SU_Data.types.activitiesObj();a.membership
+				var membership = new SU_Data.types.activitiesObj();
 				membership.Name = $(this).find('a.membership').text();
 				membership.Link = $(this).find('a.membership').attr('href');
 				membership.OrganisationID = $(this).find('dt').attr('data-msl-organisation-id');
@@ -214,13 +218,17 @@ var SU_Data = {
 					if ($(this).find('img').length == 1) {
 						event.Image = $(this).find('img').first().attr('src');
 						event.Image = event.Image.substring(0, event.Image.indexOf('?'));
-						event.Image = event.Image + '?' + $.param({thumbnail_width: 212, thumbnail_height: 300, fill_colour: 222222});
+						event.Image = event.Image + '?' + $.param({thumbnail_width: 212, thumbnail_height: 300, fill_colour: '000000'});
 					}
 					// push it into the events array
 					events.push(event);
 				});
 				// add all the events to the eventData store, referenced using the widgetId
 				SU_Data.eventData[widgetId] = events;
+				var newBrands = events.map(function (d) { return d.Brand; }).getUnique();
+				SU_Data.eventData.brands = SU_Data.eventData.brands.concat(newBrands).getUnique().sort();
+				var newOrgs = events.map(function(d) { return { OrganisationID: d.OrganisationID, Organisation: d.Organisation }; }).filter(function(d) { return typeof(d.OrganisationID) != 'undefined'; });
+				SU_Data.eventData.organisations = SU_Data.eventData.organisations.concat(newOrgs).getUnique(function (d) { return d.OrganisationID; }).sort(function(a,b) { return a.Organisation > b.Organisation; });
 				// Remove the Widget Data from the page. It's not needed any more.
 				$(this).parent().remove();
 			});
@@ -390,6 +398,44 @@ var SU_Data = {
 	basket: {
 		// contains the basket data to be transmitted (if there is any)
 		eventAddToBasket_Data: null
+	},
+	getEvents: function(eventList, limit) {
+		if (typeof(eventList) != 'string') {
+			console.error("SU_Data getEvents(): No event list specified.")
+			return [];
+		}
+		if (typeof(SU_Data.eventData[eventList]) != 'object') {
+			console.error("SU_Data getEvents(): Specified event list is not present in SU_Data.")
+			return [];
+		}
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		return SU_Data.eventData[eventList].slice(0, limit);
+	},
+	getBrandEvents: function(eventList, brandName, limit) {
+		if (typeof(eventList) != 'string' || typeof(brandName) != 'string') {
+			return [];
+		}
+		if (typeof(SU_Data.eventData[eventList]) != 'object') {
+			return [];
+		}
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		return SU_Data.eventData[eventList].filter(function (d) { return d.Brand == brandName }).slice(0, limit);
+	},
+	getOrganisationEvents: function(eventList, orgIdOrName, limit) {
+		if (typeof(eventList) != 'string' || typeof(orgIdOrName) != 'string') {
+			return [];
+		}
+		if (typeof(SU_Data.eventData[eventList]) != 'object') {
+			return [];
+		}
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		return SU_Data.eventData[eventList].filter(function (d) { return d.Organisation == orgIdOrName || d.OrganisationID == orgIdOrName }).slice(0, limit);
 	}
 };
 
@@ -523,14 +569,25 @@ $(document).ready(function() {
 	*/
 });
 
-Array.prototype.getUnique = function(){
+
+/**
+ * Get Unique items in an array.
+ * Optional accessor function to get unique key of object.
+ * e.g.
+ *      getUnique()
+ *      getUnique(function (d) { return d.Attribute; })
+ */
+Array.prototype.getUnique = function(accessor) {
+	if (typeof(accessor) != 'function') {
+		accessor = function (d) { return d };
+	}
     var u = {}, a = [];
     for(var i = 0, l = this.length; i < l; ++i){
-        if(u.hasOwnProperty(this[i])) {
+        if(u.hasOwnProperty(accessor(this[i]))) {
           continue;
         }
         a.push(this[i]);
-        u[this[i]] = 1;
+        u[accessor(this[i])] = 1;
     }
     return a;
 }
