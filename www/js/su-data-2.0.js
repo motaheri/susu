@@ -15,6 +15,19 @@
  * Add to Basket uses a hidden iframe and window.postMessage to communicate with the events page
  * and trigger the appropriate add-to-basket button. The postMessage also sends back the new
  * basket html from the page loaded after triggering the add-to-basket button in the hidden frame.
+ *
+ * Example Usages:  SU_Data.<function>
+ *
+ *  getEvents('widgetDivId', 8)							// Fetch 8 events from the event list with the given widget DIV id.
+ *
+ *  getBrandEvents('widgetDivId', 'tooters')			// Fetch default number of tooters branded events from the event list with the given widget DIV id.
+ *  getBrandEvents('ALL', 'tooters', 4)					// Fetch 4 tooters branded events any event list.
+ *
+ *  getOrganisationEvents('widgetDivId', 'Divas', 6)	// Fetch 6 Divas organisation events from the widget with the given widget DIV id.
+ *  getOrganisationEvents('widgetDivId', '6013', 6)		// Fetch 6 of this organisation ID's events from the widget with the given widget DIV id.
+ *  getOrganisationEvents('ALL', 'Divas')				// Fetch default number of Divas organisation events from any event list.
+ *
+ *  getActivities()										// Get Society and Sport Activities
  */
 
 /**
@@ -22,6 +35,12 @@
  *
  * Membership
  * <MSL:Memberships Organisations="6019,6109" ContainerID="MyMemberships" ExpiryWarningPeriod="" />
+ *
+ * EventList
+ * <MSL:Eventlist ShowFuture="True" ShowTypes="True" EventsToDisplay="100" ShowDate="False" ShowOrganisationName="True"
+ * 		ShowBrandName="True" ShowDateOnEvent="True" ShowTime="True" HideOnNoEvents="True" ShowRSSFeed="True"
+ * 		ShowBuyTicketsLink="True" ShowFeatured="False" OrganisationID="6013" IncludeChildOrganisations="True"
+ * 		EntertainmentsEventsOnly="False" ContainerID="eventsall" SortOrder="Start date (earliest first)" />
  */
 
 var SU_Data = {
@@ -31,6 +50,7 @@ var SU_Data = {
 	types: {
 		// Event Object
 		eventObj: function() {
+			this.EventID = '';        // Event ID
 			this.Title = '';		  // Event name
 			this.Description = '';    // Brief event description
 			this.Location = '';		  // Venue
@@ -52,6 +72,11 @@ var SU_Data = {
 			this.Quantities = [];
 			this.PurchaseID = '';
 			this.QuantityID = '';
+		},
+		// Organisation Object
+		organisationObj: function(orgId, orgName) {
+			this.OrganisationID = typeof(orgId) != 'undefined' ? orgId : '';
+			this.Organisation = typeof(orgName) != 'undefined' ? orgName : '';
 		},
 		// News Object
 		newsObj: function() {
@@ -103,10 +128,9 @@ var SU_Data = {
 	 * Data Objects/Arrays
 	 * -------------------------------- */
 	memberships: [],
-	eventData: {
-		brands: [],
-		organisations: []
-	},
+	eventBrands: [],
+	eventData: {},
+	eventOrganisations: [],
 	newsData: {},
 	blogData: {},
 	
@@ -220,6 +244,7 @@ var SU_Data = {
 						}
 					}
 					event.Link = $(this).find('.msl_event_name').first().attr('href');
+					event.EventID = parseInt(/\/event.*\/([0-9]+)\//.exec(event.Link)[1]);
 					if ($(this).find('img').length == 1) {
 						event.Image = $(this).find('img').first().attr('src');
 						event.Image = event.Image.substring(0, event.Image.indexOf('?'));
@@ -231,9 +256,9 @@ var SU_Data = {
 				// add all the events to the eventData store, referenced using the widgetId
 				SU_Data.eventData[widgetId] = events;
 				var newBrands = events.map(function (d) { return d.Brand; }).getUnique().filter(function(d) { return d != ""; });
-				SU_Data.eventData.brands = SU_Data.eventData.brands.concat(newBrands).getUnique().sort();
-				var newOrgs = events.map(function(d) { return { OrganisationID: d.OrganisationID, Organisation: d.Organisation }; }).filter(function(d) { return typeof(d.OrganisationID) != 'undefined'; });
-				SU_Data.eventData.organisations = SU_Data.eventData.organisations.concat(newOrgs).getUnique(function (d) { return d.OrganisationID; }).sort(function(a,b) { return a.Organisation > b.Organisation; });
+				SU_Data.eventBrands = SU_Data.eventBrands.concat(newBrands).getUnique().sort();
+				var newOrgs = events.map(function(d) { return new SU_Data.types.organisationObj(d.OrganisationID, d.Organisation); }).filter(function(d) { return typeof(d.OrganisationID) != 'undefined'; });
+				SU_Data.eventOrganisations = SU_Data.eventOrganisations.concat(newOrgs).getUnique(function (d) { return d.OrganisationID; }).sort(function(a,b) { return a.Organisation > b.Organisation; });
 				// Remove the Widget Data from the page. It's not needed any more.
 				divObj.parent().remove();
 			});
@@ -422,25 +447,49 @@ var SU_Data = {
 		if (typeof(eventList) != 'string' || typeof(brandName) != 'string') {
 			return [];
 		}
-		if (typeof(SU_Data.eventData[eventList]) != 'object') {
-			return [];
-		}
 		if (typeof(limit) != 'number') {
 			limit = 10;
 		}
-		return SU_Data.eventData[eventList].filter(function (d) { return d.Brand == brandName }).slice(0, limit);
+		var events = [];
+		if (eventList == 'ALL') {
+			for (var eL in SU_Data.eventData) {
+				events = events.concat(SU_Data.eventData[eL]);
+			}
+			events = events.getUnique(function (d) { return d.EventID; }).sort(function (a,b) { return a.Date - b.Date; });
+		}
+		else {
+			if (typeof(SU_Data.eventData[eventList]) != 'object') {
+				return [];
+			}
+			else {
+				events = SU_Data.eventData[eventList];
+			}
+		}
+		return events.filter(function (d) { return d.Brand == brandName || brandName == 'ALL'; }).slice(0, limit);
 	},
 	getOrganisationEvents: function(eventList, orgIdOrName, limit) {
 		if (typeof(eventList) != 'string' || typeof(orgIdOrName) != 'string') {
 			return [];
 		}
-		if (typeof(SU_Data.eventData[eventList]) != 'object') {
-			return [];
-		}
 		if (typeof(limit) != 'number') {
 			limit = 10;
 		}
-		return SU_Data.eventData[eventList].filter(function (d) { return d.Organisation == orgIdOrName || d.OrganisationID == orgIdOrName }).slice(0, limit);
+		var events = [];
+		if (eventList == 'ALL') {
+			for (var eL in SU_Data.eventData) {
+				events = events.concat(SU_Data.eventData[eL]);
+			}
+			events = events.getUnique(function (d) { return d.EventID; }).sort(function (a,b) { return a.Date - b.Date; });
+		}
+		else {
+			if (typeof(SU_Data.eventData[eventList]) != 'object') {
+				return [];
+			}
+			else {
+				events = SU_Data.eventData[eventList];
+			}
+		}
+		return events.filter(function (d) { return d.Organisation == orgIdOrName || d.OrganisationID == orgIdOrName || orgIdOrName == 'ALL' }).slice(0, limit);
 	},
 	getActivities: function () {
 		return SU_Data.activitiesData;

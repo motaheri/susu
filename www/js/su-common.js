@@ -193,7 +193,6 @@
 						words[i] == "and";
 					}
 				}
-				console.log('Text Array: ' + words);
 				
 				// Remove all bar the first word
 				$(this).text(words[0]);
