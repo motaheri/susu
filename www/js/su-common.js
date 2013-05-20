@@ -16,6 +16,20 @@
 					$('.sulb-inner.event div.desc').html('<p class="info"></p>' + eventObj.FullText);
 				}
                 $('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('dS mmmm yyyy @ HH:MM'));
+				
+				SU_Data.social.getGalleryImages(eventObj.Brand, 15, function(d) {
+					$.each(d, function(i, o) {
+						$('.sliderPhotoGallery .slider').append('<div class="slide"><div class="slide-inner"><img class="img-rounded" src="' + o.Image + '" /></div></div>');
+					});
+					$('.sliderPhotoGallery').iosSlider({
+						snapToChildren: true,
+						scrollbar: false,
+						desktopClickDrag: true,
+						infiniteSlider: false
+					});
+					console.log("SOCIAL GALLERY: " + eventObj.Brand);
+				});
+				/*
                 $.ajax({
                     url: 'https://graph.facebook.com/sinsavers?fields=albums.limit(1).fields(photos.limit(15))',
                     dataType: 'jsonp',
@@ -39,6 +53,7 @@
                         }
                     }
                 });
+                */
                 suLightBox('#events-lightbox', eventObj);
             }
             function contentHandler_Blog(blogObj) {

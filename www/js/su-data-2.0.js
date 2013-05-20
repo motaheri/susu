@@ -28,6 +28,9 @@
  *  getOrganisationEvents('ALL', 'Divas')				// Fetch default number of Divas organisation events from any event list.
  *
  *  getActivities()										// Get Society and Sport Activities
+ *
+ *  social.getGalleryImages('sinsavers', 10, CALLBACK(result))
+ *  		// Gets an array of types.socialImageObj objects and passes it to the callback function
  */
 
 /**
@@ -121,6 +124,13 @@ var SU_Data = {
 			this.Message = null; // Message Type string
 			this.Data = null; // Data object (any type)
 			this.Type = 'SU_Data postMessage';
+		},
+		socialImageObj: function() {
+			this.Image = '';
+			this.Width = 0;
+			this.Height = 0;
+			this.Created = null;
+			this.Tags = [];
 		}
 	},
 	
@@ -407,6 +417,48 @@ var SU_Data = {
 				});
 			}
 			return blogPost;
+		}
+	},
+	social: {
+		facebookGalleries: {
+			entertainments: "https://graph.facebook.com/studentswansea",
+			flux: "https://graph.facebook.com/497358860293326",
+			gigslivemusic: "https://graph.facebook.com/sinswansea",
+			playonwednesdays: "https://graph.facebook.com/116902985057714",
+			sinsavers: "https://graph.facebook.com/sinsavers",
+			tooters: "https://graph.facebook.com/104044273034617"
+		},
+		getGalleryImages: function(brand, imgCount, callback) {
+			if (typeof(SU_Data.social.facebookGalleries[brand]) == 'undefined') {
+				return;
+			}
+			if (typeof(imgCount) == 'string')
+				imgCount = parseInt(imgCount);
+			if (typeof(imgCount) != 'number')
+				imgCount = 15;
+			$.ajax({
+				url: SU_Data.social.facebookGalleries[brand] + "?fields=albums.limit(1).fields(type, photos.limit(" + imgCount + "))",
+				dataType: 'jsonp',
+				success: function(data) {
+					var result = [];
+					var fb_images = data.albums.data[0].photos.data;
+					if (fb_images.length > 0) {
+						$.each(fb_images, function(i, o) {
+							var img_src = o.images[3];
+							var img_obj = new SU_Data.types.socialImageObj();
+							img_obj.Image = img_src.source;
+							img_obj.Width = parseInt(img_src.width);
+							img_obj.Height = parseInt(img_src.height);
+							img_obj.Created = new Date(o.created_time);
+							if (typeof(o.tags) == "object" && o.tags.data.length > 0) {
+								img_obj.Tags = o.tags.data;
+							}
+							result.push(img_obj);
+						});
+					}
+					callback(result);
+				}
+			});
 		}
 	},
 	helper: {
