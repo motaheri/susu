@@ -17,43 +17,21 @@
 				}
                 $('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('dS mmmm yyyy @ HH:MM'));
 				
-				SU_Data.social.getGalleryImages(eventObj.Brand, 15, function(d) {
+				$('.sulb-inner.event .sliderPhotoGallery').iosSlider('destroy');
+				$('.sulb-inner.event .sliderPhotoGallery .slider').html('');
+				$('.sulb-inner.event h2#sulb-eventgallery-title').text("Gallery - Loading...");
+				SU_Data.social.getGalleryImages(eventObj.Brand, 15, function(d, albumName) {
+					$('.sulb-inner.event h2#sulb-eventgallery-title').text("Gallery - Facebook: " + albumName);
 					$.each(d, function(i, o) {
-						$('.sliderPhotoGallery .slider').append('<div class="slide"><div class="slide-inner"><img class="img-rounded" src="' + o.Image + '" /></div></div>');
+						$('.sulb-inner.event .sliderPhotoGallery .slider').append('<div class="slide' + (o.Height > o.Width ? ' portrait' : '') + '"><div class="slide-inner"><img class="img-rounded" src="' + o.Image + '" /></div></div>');
 					});
-					$('.sliderPhotoGallery').iosSlider({
+					$('.sulb-inner.event .sliderPhotoGallery').iosSlider({
 						snapToChildren: true,
 						scrollbar: false,
 						desktopClickDrag: true,
 						infiniteSlider: false
 					});
-					console.log("SOCIAL GALLERY: " + eventObj.Brand);
 				});
-				/*
-                $.ajax({
-                    url: 'https://graph.facebook.com/sinsavers?fields=albums.limit(1).fields(photos.limit(15))',
-                    dataType: 'jsonp',
-                    success: function(data) {
-                        var fb_images = data.albums.data[0].photos.data;
-                        if (fb_images.length > 0) {
-                            $.each(fb_images, function(i, o) {
-                                var img_obj = o.images[o.images.length - 3];
-                                //var img = $('<img>', {
-                                //    class: 'img-rounded',
-                                //    src: img_obj.source
-                                //});
-								$('.sliderPhotoGallery .slider').append('<div class="slide"><div class="slide-inner"><img class="img-rounded" src="' + img_obj.source + '" /></div></div>');
-                            });
-							$('.sliderPhotoGallery').iosSlider({
-								snapToChildren: true,
-								scrollbar: false,
-								desktopClickDrag: true,
-								infiniteSlider: false
-							});
-                        }
-                    }
-                });
-                */
                 suLightBox('#events-lightbox', eventObj);
             }
             function contentHandler_Blog(blogObj) {

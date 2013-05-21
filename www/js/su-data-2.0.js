@@ -29,8 +29,8 @@
  *
  *  getActivities()										// Get Society and Sport Activities
  *
- *  social.getGalleryImages('sinsavers', 10, CALLBACK(result))
- *  		// Gets an array of types.socialImageObj objects and passes it to the callback function
+ *  social.getGalleryImages('sinsavers', 10, CALLBACK(photos, galleryName))
+ *  		// Gets an array of types.socialImageObj objects and passes it to the callback function along with the album name
  */
 
 /**
@@ -420,6 +420,7 @@ var SU_Data = {
 		}
 	},
 	social: {
+		ignoredGalleries: ["Cover Photos", "Profile Pictures", "Timeline Photos", "Instagram Photos"],
 		facebookGalleries: {
 			entertainments: "https://graph.facebook.com/studentswansea",
 			flux: "https://graph.facebook.com/497358860293326",
@@ -437,11 +438,14 @@ var SU_Data = {
 			if (typeof(imgCount) != 'number')
 				imgCount = 15;
 			$.ajax({
-				url: SU_Data.social.facebookGalleries[brand] + "?fields=albums.limit(1).fields(type, photos.limit(" + imgCount + "))",
+				url: SU_Data.social.facebookGalleries[brand] + "?fields=albums.limit(7).fields(name, type, photos.limit(" + imgCount + "))",
 				dataType: 'jsonp',
 				success: function(data) {
 					var result = [];
-					var fb_images = data.albums.data[0].photos.data;
+					var album = data.albums.data.filter(function (d) {  return d.type == "normal" && $.inArray(d.name, SU_Data.social.ignoredGalleries) == -1; })[0];
+					var albumName = album.name;
+					console.log('Album Name: ' + albumName);
+					var fb_images = album.photos.data;
 					if (fb_images.length > 0) {
 						$.each(fb_images, function(i, o) {
 							var img_src = o.images[3];
@@ -456,7 +460,7 @@ var SU_Data = {
 							result.push(img_obj);
 						});
 					}
-					callback(result);
+					callback(result, albumName);
 				}
 			});
 		}
