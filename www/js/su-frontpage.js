@@ -59,3 +59,6 @@
             $(document).ready(function() {
                 SU_Widget.Coverflow('eventsfeatured', '#coverflow');
             });
+			
+	 
+ 

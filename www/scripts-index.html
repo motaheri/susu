@@ -8,6 +8,8 @@
 <script type="text/javascript" src="js/jquery.address-1.5.min.js"></script> <!-- Links -->
 <script type="text/javascript" src="js/jquery.lightbox_me.js"></script> <!-- Lightbox -->
 <script type="text/javascript" src="js/jquery.typeahead.js"></script> <!-- Lightbox -->
+<script type="text/javascript" src="js/jquery.collapse.js"></script> <!-- jQuery Collapse -->
+<script type="text/javascript" src="js/jquery.collapse_storage.js"></script> <!-- jQuery Collapse Storage -->
 
 <!-- This Page -->
 <script type="text/javascript" src="js/jquery.isotope.js"></script> <!-- News -->
@@ -31,18 +33,46 @@
 	Type Ahead
 	*/
 	$(document).ready(function () {
+	
+	$(document).keydown(function (e){
+    
+        $('.stts').hide();
+		$('#ss-input').show();
+		//$('#search-box').css('display','block');
+		$('#ss-input').focus();
+ 
+		$('#ss-input').focusout(function() {
+			if ($.trim($(this).val()).length == 0){
+				$('#ss-input').hide();
+				$('.stts').show();
+				}
+		});
+		$('.stts').click(function() {
+		 
+				$('.stts').hide();
+				$('#ss-input').show().focus();
+		});
+ 
+ 
+	}) 
+	
+	
+	
 		// Grab activities and url map from SU_Data
 		var activitiesList = SU_Data.getActivities();
 		var societiesList = activitiesList.map(function(d) { return d.Name; });
 		var societiesUrl = activitiesList.map(function(d) { return d.Link; });
 		// Activate TypeAhead with the societies list
+		
 		$('#ss-input').typeahead({
 			source: societiesList,
 			items: 8,
 			maxlength: 2
 		}).focus();
 		
+		
 		// On Change Click Event
+		
 		var onChangeSoc = function(event) {
 			var autoComText = event.target.value; 
 			// Find the matching URL
@@ -51,6 +81,7 @@
 			if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
 		};
 		$('#ss-input').on('change', onChangeSoc);
+		
 	});
 	/*
 	End Type Ahead 

@@ -131,7 +131,7 @@
              * MENU JAVASCRIPT
              */
             $(document).ready(function(){
-                $('#menu li:not(#menu-logo)').on('click',function(e){
+                $('#menu li:not(#menu-left)').on('click',function(e){
 					var linkRel = $(this).children('a').attr('rel');
 						if(linkRel != 'page'){
 							e.preventDefault();
