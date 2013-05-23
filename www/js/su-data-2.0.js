@@ -66,6 +66,7 @@ var SU_Data = {
 			this.FullText = '';		  // Full text description (not loaded by default)
 			this.Tickets = [];		  // Array of ticket objects (not loaded by default)
 			this.GetEvent = function() { return SU_Data.load.loadFullEvent(this) };
+			this.GetRelatedEvents = function() { return this.Brand.length > 0 ? SU_Data.getBrandEvents('ALL', this.Brand, 4) : []; }
 			this.AddToBasket = function(ticketIndex, quantity) { SU_Data.basket.eventAddToBasket(this, ticketIndex, quantity) };
 		},
 		// Ticket Object - child of eventObj
@@ -440,6 +441,7 @@ var SU_Data = {
 			$.ajax({
 				url: SU_Data.social.facebookGalleries[brand] + "?fields=albums.limit(7).fields(name, type, photos.limit(" + imgCount + "))",
 				dataType: 'jsonp',
+				cache: true,
 				success: function(data) {
 					var result = [];
 					var album = data.albums.data.filter(function (d) {  return d.type == "normal" && $.inArray(d.name, SU_Data.social.ignoredGalleries) == -1; })[0];

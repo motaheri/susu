@@ -32,7 +32,30 @@
 						infiniteSlider: false
 					});
 				});
+				var relatedEvents = eventObj.GetRelatedEvents();
+				if (relatedEvents.length > 0) {
+					$('.sulb-inner.event div.sulb-relatedEvents').html('');
+					$.each(relatedEvents, function(i, o) {
+						var revent = $(document.createElement('div')).addClass('sulb-relatedevent');
+						var relink = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
+						var reimage = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+						var retitle = $(document.createElement('div')).addClass('event-title').text(o.Title);
+						var redate = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS mmmm yyyy'));
+						relink.append(reimage).append(retitle).append(redate);
+						revent.append(relink);
+						$('.sulb-inner.event div.sulb-relatedEvents').append(revent);
+					});
+				}
                 suLightBox('#events-lightbox', eventObj);
+				$('a[rel="deep"]').unbind('click');
+				$('a[rel="deep"]').click(function(e) {
+					$('.js_lb_overlay').remove();
+					e.preventDefault();
+					var url = $(this).attr('href');
+					if ($.address.value() != url) {
+						$.address.value(url == '/' ? '/ ' : url);
+					}
+				});
             }
             function contentHandler_Blog(blogObj) {
                 
@@ -112,6 +135,7 @@
 				});
 				$('a[rel="deep"]').unbind('click');
 				$('a[rel="deep"]').click(function(e) {
+					$('.js_lb_overlay').remove();
 					e.preventDefault();
 					var url = $(this).attr('href');
 					if ($.address.value() != url) {
@@ -126,21 +150,21 @@
             $(document).ready(function(){
                 $('#menu li:not(#menu-left)').on('click',function(e){
 					var linkRel = $(this).children('a').attr('rel');
-						if(linkRel != 'page'){
-							e.preventDefault();
-							$('#menu li').removeClass('menu-link-hover'); 
-							var menuLink = $(this).text().toLowerCase();
-							if($('.'+menuLink).is(":visible")){
-								$('.'+menuLink).hide();
-								$.mask.close();
-							}else{
-								$('#menu li').removeClass('menu-link-hover');
-								$(this).addClass('menu-link-hover');
-								$('.menu-content').hide();
-								$('.'+menuLink).show(); 
-								$('#menu').expose();
-							}
+					if(linkRel != 'page'){
+						e.preventDefault();
+						$('#menu li').removeClass('menu-link-hover'); 
+						var menuLink = $(this).text().toLowerCase();
+						if($('.'+menuLink).is(":visible")){
+							$('.'+menuLink).hide();
+							$.mask.close();
+						}else{
+							$('#menu li').removeClass('menu-link-hover');
+							$(this).addClass('menu-link-hover');
+							$('.menu-content').hide();
+							$('.'+menuLink).show(); 
+							$('#menu').expose();
 						}
+					}
                 });
                 $('html').click(function() {
                     $('#menu li').removeClass('menu-link-hover');
