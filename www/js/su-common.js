@@ -61,8 +61,12 @@
                 
             }
             function contentHandler_News(newsObj) {
-				$('#news-lightbox div.title').html(newsObj.Title);
-				$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + newsObj.Image);
+				console.log(newsObj);
+				var imgSrc = setUrlParameters(newsObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
+				$('#news-lightbox h2.title').html(newsObj.Title);
+				$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+				$('#news-lightbox p.info span.organisation').text(newsObj.Organisation);
+				$('#news-lightbox p.info span.date').text(newsObj.Date.format('dddd, dS mmmm yyyy'));
 				$('#news-lightbox div.desc').html(newsObj.Story);
 				$('#news-lightbox div.sulb-author').html(newsObj.Organisation);
                 suLightBox('#news-lightbox', newsObj);
@@ -86,16 +90,15 @@
 				$.address.crawlable(true);
 				$.address.change(function(event) {
 					if (event.value == "/") return;
-					console.log("Change: " + event.value);
+					console.log("Address Change: " + event.value);
 					if (/^\/ents\/event\//i.test(event.value) ||
 						/^\/events\//.test(event.value)) {
-						console.log('CONTENT TRIGGER: Event');
 						// Find the event in the SU_Data object, if it exists.
 						if (typeof SU_Data != "undefined") {
 							if (SU_Data.hasEvents) {
 								for (var eventList in SU_Data.eventData) {
 									for (var obj in SU_Data.eventData[eventList]) {
-										if (SU_Data.eventData[eventList][obj].Link.indexOf(event.value) !== -1) {
+										if (typeof SU_Data.eventData[eventList][obj] == 'object' && SU_Data.eventData[eventList][obj].Link.indexOf(event.value) !== -1) {
 											contentHandler_Event(SU_Data.eventData[eventList][obj]);
 											return;
 										}
@@ -104,8 +107,7 @@
 							}
 						}
 						// If not, redirect to the standalone Event page
-						//window.location = event.value;
-						//contentHandler_Event();
+						window.location = event.value;
 					}
 					else if (/^\/blogs\/blog\//i.test(event.value) ||
 							 /^\/union\/officer\//i.test(event.value) ||
@@ -120,7 +122,6 @@
 								for (var newsList in SU_Data.newsData) {
 									for (var obj in SU_Data.newsData[newsList]) {
 										if (SU_Data.newsData[newsList][obj].Link.indexOf(event.value) !== -1) {
-											console.log(event.value);
 											contentHandler_News(SU_Data.newsData[newsList][obj]);
 											return;
 										}
@@ -129,8 +130,7 @@
 							}
 						}
 						// If not, redirect to the standalone News page
-						//window.location = event.value;
-						contentHandler_News();
+						window.location = event.value;
 					}
 				});
 				$('a[rel="deep"]').unbind('click');

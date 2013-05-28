@@ -42,20 +42,17 @@ div.sulb div.sulb-author {
  * NEWS LIGHTBOX
  */
 
-div.sulb div.sulb-inner.news {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-div.sulb div.sulb-inner.news div.title {
-	height: 45px;
-	font-family: 'MuseoSans500';
-	font-size: 32px;
-	text-transform: uppercase;
+div.sulb div.sulb-inner.news h2.title {
 	padding: 20px 40px 0px 40px;
 }
 
+div.sulb div.sulb-inner.news p {
+	font-size: 12px;
+}
+
 div.sulb div.sulb-inner.news img.lead {
-	width: 220px;
+	max-width: 220px;
+	max-height: 311px;
 	float: left;
 	margin: 10px 20px 10px 20px;
 }
@@ -64,6 +61,13 @@ div.sulb div.sulb-inner.news .desc {
 	margin: 10px 50px 0px 100px;
 	min-height: 315px;
 	text-align: justify;
+}
+div.sulb div.sulb-inner.news p.info {
+	font-style: italic;
+}
+div.sulb div.sulb-inner.news p.info span.highlight {
+	font-style: normal;
+	font-weight: bold;
 }
 
 /*

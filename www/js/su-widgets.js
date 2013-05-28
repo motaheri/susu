@@ -214,10 +214,12 @@ var SU_Widget = {
 		var carouselObj = $('#' + randomId);
 		jQuery.each(eventList, function(i, o) {
 			var slide = $(document.createElement('div')).addClass('slide');
+			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
 			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
 			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 679, resize_type: 'CropToFit'});
 			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
-			slide.append(img);
+			link.append(img);
+			slide.append(link);
 			carouselObj.append(slide);
 		});
 		

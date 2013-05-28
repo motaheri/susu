@@ -421,19 +421,24 @@ var SU_Data = {
 		}
 	},
 	social: {
-		ignoredGalleries: ["Cover Photos", "Profile Pictures", "Timeline Photos", "Instagram Photos"],
+		ignoredGalleries: ["Cover Photos", "Profile Pictures", "Timeline Photos", "Instagram Photos", "Coming Soon!"],
 		facebookGalleries: {
 			entertainments: "https://graph.facebook.com/studentswansea",
 			flux: "https://graph.facebook.com/497358860293326",
 			gigslivemusic: "https://graph.facebook.com/sinswansea",
+			ilovemondays: "https://graph.facebook.com/ilovemondaysswansea",
 			playonwednesdays: "https://graph.facebook.com/116902985057714",
 			sinsavers: "https://graph.facebook.com/sinsavers",
 			tooters: "https://graph.facebook.com/104044273034617"
 		},
 		getGalleryImages: function(brand, imgCount, callback) {
 			if (typeof(SU_Data.social.facebookGalleries[brand]) == 'undefined') {
+				$('.sulb-inner.event .sliderPhotoGallery').hide();
+				$('#sulb-eventgallery-title').hide();
 				return;
 			}
+			$('.sulb-inner.event .sliderPhotoGallery').show();
+			$('#sulb-eventgallery-title').show();
 			if (typeof(imgCount) == 'string')
 				imgCount = parseInt(imgCount);
 			if (typeof(imgCount) != 'number')
@@ -705,4 +710,15 @@ Array.prototype.getUnique = function(accessor) {
         u[accessor(this[i])] = 1;
     }
     return a;
+}
+
+/**
+ * Reset the given URL address parameters
+ */
+function setUrlParameters(address, parameters) {
+	var ret = address;
+	if (ret.indexOf('?') >= 0) {
+		ret = ret.substring(0, ret.indexOf('?'));
+	}
+	return ret + '?' + $.param(parameters);
 }
