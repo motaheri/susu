@@ -144,6 +144,7 @@ var SU_Data = {
 	eventOrganisations: [],
 	newsData: {},
 	blogData: {},
+	menuData: {},
 	
 	/* --------------------------------
 	 * Data Tests
@@ -158,6 +159,40 @@ var SU_Data = {
 	 * Load Data Functions
 	 * -------------------------------- */
 	load: {
+		loadMenu: function () {
+			/****************** Menu Code
+			<div id="menu-items">
+				<div class="democracy menu-list">
+					<h1>Democracy</h1>
+						<div id="democracy-menu-id" class="mslwidget democracy-menu-css msl-imagenav">
+							<ul>
+								<li><a href="/democracy/officers/">
+									<span class="msl-imagenav-title">Officers</span>
+										<img id="ctl00_democracymenu_rptNavigation_ctl01_imgPlaceholder" class="msl-imagenav-image" src="../pageassets/democracy/officers/325x229.gif?thumbnail=true&amp;height=229&amp;width=325&amp;resize_type=CropToFit" style="border-width:0px;" />
+									<span class="msl-imagenav-description">Your Elected Officers</span>
+									</a>
+								</li>
+								<li><a href="/democracy/studentforum/">
+									<span class="msl-imagenav-title">StudentForum</span>
+									<span class="msl-imagenav-description"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+				</div>
+			</div>
+			*******************/
+			SU_Data.menuData = [];
+			$('#menu-items .menu-list').each(function () {
+				var menu = new SU_Data.types.menuObj();
+				menu.Category = $(this).find('h1').text();
+				menu.Title = $(this).find('ul li .msl-imagenav-title').text();
+				menu.Link = $(this).find('ul li a').attr('href');
+				menu.Image = $(this).find('ul li span img').attr('src');
+				SU_Data.menuData.push(menu);
+				$(this).parent().parent().remove();
+			});
+		},
 		loadMemberships: function () {
 			SU_Data.membershipsData = [];
 			/****************** Based on this preview code 
@@ -674,6 +709,7 @@ SU_Data.basket.f_EventPage_AddToBasket = function() {
  */
 $(document).ready(function() {
 	SU_Data.load.loadActivities();
+	SU_Data.load.loadMenu();
 	SU_Data.load.loadMemberships();
 	SU_Data.load.loadEvents();
 	SU_Data.load.loadNews();
