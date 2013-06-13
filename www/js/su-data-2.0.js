@@ -182,7 +182,7 @@ var SU_Data = {
 				</div>
 			</div>
 			*******************/
-			/*
+		
 			SU_Data.menuData = [];
 			$('#menu-items .menu-list').each(function () {
 				var menu = new SU_Data.types.menuObj();
@@ -192,7 +192,7 @@ var SU_Data = {
 				menu.Image = $(this).find('ul li span img').attr('src');
 				SU_Data.menuData.push(menu);
 				$(this).parent().parent().remove();
-			});*/
+			});
 		},
 		loadMemberships: function () {
 			SU_Data.membershipsData = [];
