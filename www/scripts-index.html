@@ -26,6 +26,11 @@
 <script type="text/javascript" src="js/su-frontpage.js"></script> <!-- Frontpage Scripts -->
 <script type="text/javascript" src="js/su-common.js"></script>
 
+<style>
+.border { border: 1px solid #000; }
+</style>
+
+
 <!-- Important: SU_Data must be loaded before any other JS which uses Widget Data -->
 <script type="text/javascript">
 	/*
@@ -85,4 +90,31 @@
 	/*
 	End Type Ahead 
 	*/
+	
+	
+	
+$(document).ready(function() {
+   $('#menu-items li').each(function() {
+      var $img = $(this).find('img');
+      var link = $img.attr('src').replace("../","http://swansea-union.co.uk/");
+	  var description = $(this).find('.msl-imagenav-description').text();
+      //alert(description);
+      $(this).hover(
+		function(){
+			$('.teaser-image img').attr("src",link);
+			$('.teaser-image img').fadeIn();
+			$('#menu-page-teaser .teaser-text p').text('test');
+			$('#menu-page-teaser .teaser-text p').fadeIn();
+			return false;
+		},function(){
+			$('.teaser-image img').fadeOut();
+			$('#menu-page-teaser .teaser-text p').fadeOut();
+        }
+		
+	  );
+   });
+});
+	
+	
+	
 </script>
