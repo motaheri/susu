@@ -30,7 +30,7 @@
 						scrollbar: false,
 						desktopClickDrag: true,
 						infiniteSlider: false
-					}); 
+					});
 				});
 				var relatedEvents = eventObj.GetRelatedEvents();
 				if (relatedEvents.length > 0) {
