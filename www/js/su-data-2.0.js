@@ -69,8 +69,15 @@ var SU_Data = {
 			this.GetRelatedEvents = function() { return this.Brand.length > 0 ? SU_Data.getBrandEvents('ALL', this.Brand, 4) : []; }
 			this.AddToBasket = function(ticketIndex, quantity) { SU_Data.basket.eventAddToBasket(this, ticketIndex, quantity) };
 		},
-		// Ticket Object - child of eventObj
+		// Menu Object	
 		eventTicketObj: function() {
+			this.Category = '';
+			this.Title = '';
+			this.Link = '';
+			this.Image = '';
+		},
+		// Ticket Object - child of eventObj
+		menuObj: function() {
 			this.Name = '';
 			this.Price = '';
 			this.Quantities = [];

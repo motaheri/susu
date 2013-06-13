@@ -173,7 +173,7 @@
                         $.mask.close();
                     }
                 });
-                $('#menu li, #menu-content-container').click(function(event){
+                $('#menu-left, #menu li, #menu-content-container').click(function(event){
                     event.stopPropagation();
                 });
                 
