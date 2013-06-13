@@ -14,23 +14,32 @@
 		<hr class="soft"/>
 
         <div id="main" class="clearfix">
-          {include="news"}
-		  <hr class="soft"/>
-          {include="events"}
-		  <hr class="soft"/>
-		  <!--<div id="media">
-			{include="media-index"}
-		  </div>-->
-		  <div id="media">
-			{include="blogs"}
-		  </div>
+			{include="news"}
+			
+			<hr class="soft"/>
+			
+			{include="events"}
+			
+			<hr class="soft"/>
+			
+			<div id="blogs-container" class="wrapper">
+				<h2>Officer Blogs</h2>
+				<div id="officer-blogs" class="su-blog"></div>
+			</div>
+			
+			<hr class="soft"/>
+			
+			<div id="media-container" class="wrapper">
+				<h2>Social Media</h2>
+				<div id="su-media-frontpage"></div>
+		    </div>
 		</div>
 		<hr class="soft"/>
         {include="footer"}
+		
         {include="scripts-index"}
 		{include="scripts-facebook"}
         
         {include="widgetdata"}
-
     </body>
 </html>

@@ -1,10 +1,3 @@
-.su-blog-container {
-	width: 100%;
-}
-.su-blog-container  h2{
-	margin-left:-30px;
-}
-
 .su-blog {
 	display: inline-block;
 	width: 100%;
@@ -24,20 +17,6 @@
 	display: inline-block;
 	white-space: normal;
 }
-
-#officer-blogs,.dcsns-content{
-	width: 1140px !important;
-	overflow: hidden;
-	height: 271px;
-	white-space: nowrap;
-}
-
-.dcsns-content{
-	height:205px;
-	white-space: normal;
-}
-
-
 
 .su-blog-post:before {
 	content: "";
@@ -83,31 +62,18 @@
 	margin: 0px 0px 5px 5px;
 }
 
-.su-social-container {
-	width: 100%;
-}
-
-.su-social {
-	display: inline-block;
-	width: 100%;
-	height: 400px;
-	vertical-align: top;
-}
-
-#twitter-widget-0 {
-	width: 100%;
-}
-
 .ib {
 	display: inline-block;
 	vertical-align: top;
 }
 
+
+.su-blog-post.hideBP1, .su-blog-post.hideBP2 {
+	display: none;
+}
+	
 @media only screen and (max-width: 683px) {
 	.su-blog-container, .su-blog {
-		width: 100%;
-	}
-	.su-social-container, .su-social {
 		width: 100%;
 	}
 	.su-blog-post {
@@ -116,41 +82,31 @@
 	.su-blog-post-inner {
 		width: 90%;
 	}
+	.su-blog-post.hideBP1 {
+		display: inline-block;
+	}
 }
 
 @media only screen and (min-width: 684px) {
 	.su-blog-container, .su-blog {
 		width: 684px;
 	}
-	.su-social-container, .su-social {
-		width: 684px;
-	}
 }
 
 @media only screen and (min-width: 912px) {
 	.su-blog-container, .su-blog {
-		width: 456px;
+		width: 912px;
 	}
-	.su-social-container, .su-social {
-		width: 456px;
-	}
-	.su-social {
-		height: 600px;
+	.su-blog-post.hideBP1 {
+		display: inline-block;
 	}
 }
 
 @media only screen and (min-width: 1140px) {
 	.su-blog-container, .su-blog {
-		width: 684px;
+		width: 1140px;
 	}
-	.su-social-container, .su-social {
-		width: 456px;
-	}
-	.su-social {
-		height: 400px;
+	.su-blog-post.hideBP2 {
+		display: inline-block;
 	}
 }
-
-	.su-social {
-		height: 250px !important;
-	}

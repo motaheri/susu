@@ -18,7 +18,7 @@
              * BLOGS
              */
             $(document).ready(function() {
-                SU_Widget.BlogWidget('officerblogs','#officer-blogs',6);
+                SU_Widget.BlogWidget('officerblogs','#officer-blogs',5);
             });
             
             /*
@@ -59,6 +59,58 @@
             $(document).ready(function() {
                 SU_Widget.Coverflow('eventsfeatured', '#coverflow');
             });
+			
+			/*
+			 * FRONT PAGE MEDIA
+			 */
+			$(document).ready(function($){
+				$('#su-media-frontpage').dcSocialStream({
+					feeds: {
+						twitter: {
+							id: 'Sinkswansea,SinCitySwansea,SUSUflux,thewaterfrontSU,SwanseaUnion,SUSUVoice,studentswansea',
+							intro: 'Tweeted',
+							search: 'Tweeted',
+							out: 'intro,thumb,text,share',
+							retweets: false,
+							replies: false,
+							images: 'small',
+							url: 'http://studentswansea.co.uk/twitter/twitter.php',
+							icon: 'twitter.png'
+						},
+						facebook: {
+							id: '18315300553,153740337972319', //Facebook Timeline/160254513987568
+							out: 'user,intro,text',
+							text: 'content',
+							comments: 0,
+							image_width: 6, //3 = 600 4 = 480 5 = 320 6 = 180
+							icon: 'facebook.png'
+						},
+						youtube: {
+							id: 'StudentSwanseaEvents',
+							intro: 'Uploaded,Favorite,New Video',
+							search: 'Search',
+							out: 'thumb,text,user,share',
+							feed: 'uploads,favorites,newsubscriptionvideos',
+							thumb: 'default',
+							icon: 'youtube.png'
+						}
+					},
+					rotate: {
+						delay: 0
+					},
+					twitterId: '',
+					control: false,
+					filter: false,
+					wall: true,
+					cache: false,
+					order: 'date',
+					max: 'limit',
+					limit: 1,
+					height: 450,
+					iconPath: 'images/dcsns-dark/',
+					imagePath: 'images/dcsns-dark/'
+				});
+			});
 			
 	 
  

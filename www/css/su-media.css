@@ -1,0 +1,105 @@
+#media-container h2 {
+	padding-top: 20px;
+}
+#media-container .dcsns-toolbar {
+	display: none !important;
+}
+#su-media-frontpage {
+	background: white;
+	margin-bottom: 20px;
+}
+#su-media-frontpage .dcsns-content {
+	height: 450px;
+}
+ul.stream {
+	vertical-align: top;
+}
+ul.stream li.dcsns-li {
+	width: 222px;
+	height: 220px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
+ul.stream li.dcsns-li div.inner {
+	height: 178px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+ul.stream li.dcsns-li .section-intro {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
+ul.stream li.dcsns-li div.inner span.section-thumb {
+	float: right;
+}
+ul.stream li.dcsns-li div.inner span.section-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	height: 125px;
+	display: inline;
+	text-align: justify;
+}
+ul.stream li.dcsns-li div.inner span.twitter-user {
+	text-align: left;
+	clear: left;
+}
+ul.stream li.dcsns-li.dcsns-facebook div.inner span.section-user {
+	float: none;
+	font-style: normal;
+	font-weight: bold;
+	padding: 0;
+	text-align: left;
+}
+ul.stream li.dcsns-li.dcsns-facebook div.inner span.section-user a {
+	color: #444;
+}
+ul.stream li.dcsns-li.dcsns-facebook div.inner span.section-user a:hover {
+	color: #38AEAE;
+}
+ul.stream li.dcsns-li.dcsns-facebook div.inner span.section-title {
+	display: none;
+	text-align: left;
+}
+ul.stream li.dcsns-li.dcsns-facebook div.inner span.section-text {
+	height: auto;
+	max-height: 134px;
+	display: block;
+}
+ul.stream li.dcsns-li div.inner span.section-text img {
+	display: none;
+}
+ul.stream li.dcsns-li div.inner span.section-thumb img {
+	max-height: 150px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 683px) {
+	#su-media-frontpage {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 684px) {
+	#su-media-frontpage {
+		width: 684px;
+	}
+}
+
+@media only screen and (min-width: 912px) {
+	#su-media-frontpage {
+		width: 912px;
+	}
+}
+
+@media only screen and (min-width: 1140px) {
+	#su-media-frontpage {
+		width: 1140px;
+	}
+}

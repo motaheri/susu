@@ -15,6 +15,12 @@ var SU_Widget = {
 		jQuery.each(SU_Data.blogData[mslWidgetId], function(i, o) {
 			if (i >= number) return;
 			var post = $(document.createElement('div')).addClass('su-blog-post');
+			if (i >= 4) {
+				post.addClass('hideBP2');
+			}
+			else if (i >= 3) {
+				post.addClass('hideBP1');
+			}
 			var inner = $(document.createElement('div')).addClass('su-blog-post-inner');
 			var title = $(document.createElement('div')).addClass('title').text(o.Title);
 			var intro = $(document.createElement('div')).addClass('intro').text(o.Description);
