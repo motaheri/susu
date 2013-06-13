@@ -30,7 +30,7 @@
 						scrollbar: false,
 						desktopClickDrag: true,
 						infiniteSlider: false
-					});
+					}); 
 				});
 				var relatedEvents = eventObj.GetRelatedEvents();
 				if (relatedEvents.length > 0) {
@@ -173,7 +173,7 @@
                         $.mask.close();
                     }
                 });
-                $('#menu li, #menu-content-container').click(function(event){
+                $('#menu-left, #menu li, #menu-content-container').click(function(event){
                     event.stopPropagation();
                 });
                 
