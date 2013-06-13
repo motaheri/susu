@@ -108,7 +108,7 @@
 }
 
 #isonews .news .news-inner .news-bgimage {
-    opacity: 0.3;
+    opacity: 0.55;
     top: 0;
     left: 0;
     bottom: 0;
@@ -119,9 +119,11 @@
 	background-repeat: no-repeat;
 }
 
-#isonews .news:hover .news-inner .news-bgimage{
+/*
+#isonews .news:hover .news-inner .news-bgimage {
     opacity: 0;
 }
+*/
 
 @media only screen and (min-width: 684px) {
 	#isonews .news.big .news-inner-img {
