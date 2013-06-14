@@ -1,6 +1,9 @@
 /*
  * CSS STRUCTURE - DO NOT CHANGE
  */
+#isonews {
+	padding-bottom: 15px;
+}
 #isonews .news {
 	display: inline-block;
 	zoom: 1;

@@ -180,8 +180,8 @@ hr.soft {
 	width: 100%;
 	overflow: hidden;
 	background: #f5f5f5 url('../img/pattern.jpg') !important;
-	padding-top:25px;
-	padding-bottom: 55px;
+	padding-top: 25px;
+	padding-bottom: 15px;
 }
 .carousel-container {
 	width: 100%;
@@ -270,6 +270,18 @@ hr.soft {
     display:none;
 }
 
+div.seemore {
+	font-family: 'MuseoSans500';
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 0.85em;
+	padding-bottom: 15px;
+	text-align: right;
+}
+div.seemore a {
+	text-decoration: none;
+}
+
 h1,h2,h3{
     margin: 0px;
     margin-left: 5px;
@@ -294,8 +306,8 @@ h2.container-header{
 	margin-top: 4px;
 }
 
-#events,#my-events{
-    margin:40px 0px 80px 0px;
+#events, #my-events{
+    margin: 40px 0px 40px 0px;
 }
 /*
  * GENERIC COLORS
