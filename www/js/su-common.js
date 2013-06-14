@@ -33,8 +33,8 @@
 					});
 				});
 				var relatedEvents = eventObj.GetRelatedEvents();
+				$('.sulb-inner.event div.sulb-relatedEvents').html('');
 				if (relatedEvents.length > 0) {
-					$('.sulb-inner.event div.sulb-relatedEvents').html('');
 					$.each(relatedEvents, function(i, o) {
 						var revent = $(document.createElement('div')).addClass('sulb-relatedevent');
 						var relink = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
@@ -58,7 +58,15 @@
 				});
             }
             function contentHandler_Blog(blogObj) {
-                
+				console.log(blogObj);
+				var imgSrc = setUrlParameters(blogObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
+				$('#blog-lightbox h2.title').html(blogObj.Title);
+				$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+				$('#blog-lightbox p.info span.organisation').text(blogObj.Author);
+				$('#blog-lightbox p.info span.date').text(blogObj.Date.format('dddd, dS mmmm yyyy'));
+				$('#blog-lightbox div.desc').html(blogObj.Story);
+				$('#blog-lightbox div.sulb-author').html(blogObj.Author);
+                suLightBox('#blog-lightbox', blogObj);
             }
             function contentHandler_News(newsObj) {
 				console.log(newsObj);
@@ -111,8 +119,23 @@
 					}
 					else if (/^\/blogs\/blog\//i.test(event.value) ||
 							 /^\/union\/officer\//i.test(event.value) ||
+							 /^\/union\/officers\//i.test(event.value) ||
+							 /^\/union\/pto\//i.test(event.value) ||
 							 /^\/union\/fto\//i.test(event.value)) {
 						console.log('CONTENT TRIGGER: Blog');
+						// Find the news article in the SU_Data object, if it exists.
+						if (typeof SU_Data != "undefined") {
+							if (SU_Data.hasBlogs) {
+								for (var blogList in SU_Data.blogData) {
+									for (var obj in SU_Data.blogData[blogList]) {
+										if (SU_Data.blogData[blogList][obj].Link.indexOf(event.value) !== -1) {
+											contentHandler_Blog(SU_Data.blogData[blogList][obj]);
+											return;
+										}
+									}
+								}
+							}
+						}
 					}
 					else if (/^\/news\/article\//i.test(event.value)) {
 						console.log('CONTENT TRIGGER: News');

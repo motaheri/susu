@@ -15,6 +15,7 @@ var SU_Widget = {
 		jQuery.each(SU_Data.blogData[mslWidgetId], function(i, o) {
 			if (i >= number) return;
 			var post = $(document.createElement('div')).addClass('su-blog-post');
+			var link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'deep');
 			if (i >= 4) {
 				post.addClass('hideBP2');
 			}
@@ -28,7 +29,8 @@ var SU_Widget = {
 			$(inner).append(title);
 			$(inner).append(image);
 			$(inner).append(intro);
-			$(post).append(inner);
+			$(link).append(inner);
+			$(post).append(link);
 			$(targetSelector).append(post);
 		});
 	},

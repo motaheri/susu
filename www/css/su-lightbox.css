@@ -37,6 +37,35 @@ div.sulb div.sulb-author {
 	padding-top: 10px;
 	padding-right: 70px;
 }
+/*
+ * BLOG LIGHTBOX
+ */
+
+div.sulb div.sulb-inner.blog h2.title {
+	padding: 20px 40px 0px 40px;
+}
+div.sulb div.sulb-inner.blog p {
+	font-size: 12px;
+}
+div.sulb div.sulb-inner.blog img.lead {
+	max-width: 220px;
+	max-height: 311px;
+	float: left;
+	margin: 10px 20px 10px 20px;
+}
+div.sulb div.sulb-inner.blog .desc {
+	margin: 10px 50px 0px 100px;
+	min-height: 315px;
+	text-align: justify;
+}
+div.sulb div.sulb-inner.blog p.info {
+	font-style: italic;
+}
+div.sulb div.sulb-inner.blog p.info span.highlight {
+	font-style: normal;
+	font-weight: bold;
+}
+
 
 /*
  * NEWS LIGHTBOX

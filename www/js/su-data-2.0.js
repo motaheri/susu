@@ -385,11 +385,11 @@ var SU_Data = {
 					article.Description = $(this).find('span.msl-recentblogpost').text();
 					article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
 					article.Author = $(this).find('.msl-recentblogpostblogname').text()
-					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href');
+					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href').replace('../','/');
 					article.Story = '';
-					article.Date = $(this).find('.msl-recentblogpostdate').text();
+					article.Date = new Date(Date.parse($(this).find('.msl-recentblogpostdate').text()));
 					article.Image = $(this).find('.msl-recentblogpostimage').first().attr('src');
-					article.Link = $(this).find('.msl-recentblogposttitle').attr('href');
+					article.Link = $(this).find('.msl-recentblogposttitle').attr('href').replace('../','/');
 					// push it into the blogpost array
 					blogPosts.push(article);
 				});
