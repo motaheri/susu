@@ -52,9 +52,56 @@
 		<hr class="soft"/>
         {include="footer"}
 		
+		<div id="su-mobile-menu">
+			<ul>
+				<li>
+					<a href="#">Union</a>
+					<ul class="sub-menu">
+						<li><a href="">SubPage1</a></li>
+						<li><a href="">SubPage2</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Societies</a>
+				</li>
+				<li>
+					<a href="#">Sports</a>
+				</li>
+				<li>
+					<a href="#">Events</a>
+				</li>
+			</ul>
+		</div>
+		
         {include="scripts-index"}
 		{include="scripts-facebook"}
         
+		<script type="text/javascript">
+			<!--
+			$(document).ready(function() {
+				console.log("MENU");
+				$(document).bind('menufication-done', function(e) {
+					console.log('Menufication has been initialized!')
+				});
+				
+				$(document).bind('menufication-reset', function(e) {
+					console.log('Menufication has been reset!')
+				});
+				
+				$(document).bind('menufication-reapply', function(e) {
+					console.log('Menufication has been reapplied from reset state!')
+				});
+				$('#su-mobile-menu').menufication({
+					childMenuSupport: true,
+					hideDefaultMenu: true,
+					triggerWidth: 770,
+					onlyMobile: false,
+					menuText: "SUSU"
+				});
+			});
+			-->
+		</script>
+		
         {include="widgetdata"}
     </body>
 </html>
