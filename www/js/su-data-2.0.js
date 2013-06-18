@@ -198,7 +198,7 @@ var SU_Data = {
 				menu.Link = $(this).find('ul li a').attr('href');
 				menu.Image = $(this).find('ul li span img').attr('src');
 				SU_Data.menuData.push(menu);
-				$(this).parent().parent().remove();
+				//$(this).parent().parent().remove();
 			});
 		},
 		loadMemberships: function () {

@@ -185,6 +185,7 @@
 							$(this).addClass('menu-link-hover');
 							$('.menu-content').hide();
 							$('.'+menuLink).show(); 
+							$('.union').show();
 							$('#menu').expose();
 						}
 					}
@@ -199,7 +200,7 @@
                 $('#menu-left, #menu li, #menu-content-container').click(function(event){
                     event.stopPropagation();
                 });
-                
+                /*
                 // Create the dropdown base
                 $("<select />").appendTo("#mobile-nav");
 
@@ -218,6 +219,7 @@
                      "text"    : el.text()
                  }).appendTo("#mobile-nav select");
                 });
+				*/
             });
 			
 			/*

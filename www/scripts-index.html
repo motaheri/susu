@@ -38,60 +38,64 @@
 	*/
 	$(document).ready(function () {
 	
-	$(document).keydown(function (e){
-    
-        $('.stts').hide();
-		$('#ss-input').show();
-		//$('#search-box').css('display','block');
-		$('#ss-input').focus();
- 
-		$('#ss-input').focusout(function() {
-			if ($.trim($(this).val()).length == 0){
-				$('#ss-input').hide();
-				$('.stts').show();
-				}
-		});
-		$('.stts').click(function() {
-		 
-				$('.stts').hide();
-				$('#ss-input').show().focus();
-		});
- 
- 
-	}) 
+		$(document).keydown(function (e){
+		
+			$('.stts').hide();
+			$('#ss-input').show();
+			//$('#search-box').css('display','block');
+			$('#ss-input').focus();
+	 
+			$('#ss-input').focusout(function() {
+				if ($.trim($(this).val()).length == 0){
+					$('#ss-input').hide();
+					$('.stts').show();
+					}
+			});
+			$('.stts').click(function() {
+			 
+					$('.stts').hide();
+					$('#ss-input').show().focus();
+			});
+	 
+	 
+		}) 
 	
 	
-	
-		// Grab activities and url map from SU_Data
-		var activitiesList = SU_Data.getActivities();
-		var societiesList = activitiesList.map(function(d) { return d.Name; });
-		var societiesUrl = activitiesList.map(function(d) { return d.Link; });
-		// Activate TypeAhead with the societies list
 		
-		$('#ss-input').typeahead({
-			source: societiesList,
-			items: 8,
-			maxlength: 2
-		}).focus();
-		
-		
-		// On Change Click Event
-		
-		var onChangeSoc = function(event) {
-			var autoComText = event.target.value; 
-			// Find the matching URL
-			var listPos = $.inArray(autoComText, societiesList);
-			// If position is undefined or if there is no matching URL, stop location change
-			if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
-		};
-		$('#ss-input').on('change', onChangeSoc);
+			// Grab activities and url map from SU_Data
+			var activitiesList = SU_Data.getActivities();
+			var societiesList = activitiesList.map(function(d) { return d.Name; });
+			var societiesUrl = activitiesList.map(function(d) { return d.Link; });
+			// Activate TypeAhead with the societies list
+			
+			$('#ss-input').typeahead({
+				source: societiesList,
+				items: 8,
+				maxlength: 2
+			}).focus();
+			
+			
+			// On Change Click Event
+			
+			var onChangeSoc = function(event) {
+				var autoComText = event.target.value; 
+				// Find the matching URL
+				var listPos = $.inArray(autoComText, societiesList);
+				// If position is undefined or if there is no matching URL, stop location change
+				if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
+			};
+			$('#ss-input').on('change', onChangeSoc);
 		
 	});
 	/*
 	End Type Ahead 
 	*/
 	
+	/**
 	
+	Change the Teaser Image and description in the Menu 
+	
+	**/
 	
 	$(document).ready(function() {
 	   $('#menu-items li').each(function() {
