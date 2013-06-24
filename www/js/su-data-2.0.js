@@ -55,6 +55,7 @@ var SU_Data = {
 		eventObj: function() {
 			this.EventID = '';        // Event ID
 			this.Title = '';		  // Event name
+			this.Type = '';			  // Event Type
 			this.Description = '';    // Brief event description
 			this.Location = '';		  // Venue
 			this.Date = null;		  // Date

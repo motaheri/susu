@@ -111,13 +111,13 @@
 		  $(this).hover(
 			function(){
 				$('.teaser-image img').attr("src",link);
-				$('.teaser-image img').fadeIn();
-				$('#menu-page-teaser .teaser-text p').text('test');
-				$('#menu-page-teaser .teaser-text p').fadeIn();
+				$('.teaser-image img').show();
+				$('#menu-page-teaser .teaser-text p').text(description);
+				$('#menu-page-teaser .teaser-text p').show();
 				return false;
 			},function(){
-				$('.teaser-image img').fadeOut();
-				$('#menu-page-teaser .teaser-text p').fadeOut();
+				$('.teaser-image img').hide();
+				$('#menu-page-teaser .teaser-text p').hide();
 			}
 			
 		  );
