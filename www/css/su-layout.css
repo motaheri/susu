@@ -82,6 +82,29 @@
 }
 
 /* --------------------------------------------------------------------
+ * Mobile Menu CSS
+ * -------------------------------------------------------------------- */
+
+@media(max-width: 683px) {
+	/* Disable standard menu at low-resolution */
+	header {
+		display: none;
+	}
+	#menu-spacer {
+		display: none !important;
+	}
+}
+@media(min-width: 684px) {
+	/* Disable mobile menu at normal resolution and above */
+	#su-mobile-menu {
+		display: none !important;
+	}
+}
+#menufication-top #menufication-btn, #menufication-non-css3-top #menufication-non-css3-btn {
+	width: auto !important;
+}
+
+/* --------------------------------------------------------------------
  * Layout Main Sections
  * -------------------------------------------------------------------- */
 
@@ -136,12 +159,6 @@ body > footer {
 body > section#news {
     text-align: center;
 }
-
-/*
-html,body{
-    font-family: 'Bitter', serif;
-}
-*/
 
 h1,h2,h3,h4 {
     font-family: 'MuseoSans500';

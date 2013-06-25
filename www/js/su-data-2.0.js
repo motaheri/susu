@@ -747,7 +747,7 @@ Array.prototype.getUnique = function(accessor) {
 		accessor = function (d) { return d };
 	}
     var u = {}, a = [];
-    for(var i = 0, l = this.length; i < l; ++i){
+    for(var i = 0, l = this.length; i < l; i++){
         if(u.hasOwnProperty(accessor(this[i]))) {
           continue;
         }
