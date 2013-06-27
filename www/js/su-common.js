@@ -167,60 +167,6 @@
 				});
 			});
 			
-			/*
-             * MENU JAVASCRIPT
-             */
-            $(document).ready(function(){
-                $('#menu li:not(#menu-left)').on('click',function(e){
-					var linkRel = $(this).children('a').attr('rel');
-					if(linkRel != 'page'){
-						e.preventDefault();
-						$('#menu li').removeClass('menu-link-hover'); 
-						var menuLink = $(this).text().toLowerCase();
-						if($('.'+menuLink).is(":visible")){
-							$('.'+menuLink).hide();
-							$.mask.close();
-						}else{
-							$('#menu li').removeClass('menu-link-hover');
-							$(this).addClass('menu-link-hover');
-							$('.menu-content').hide();
-							$('.'+menuLink).show(); 
-							$('.union').show();
-							$('#menu').expose();
-						}
-					}
-                });
-                $('html').click(function() {
-                    $('#menu li').removeClass('menu-link-hover');
-                    if($('.menu-content').is(":visible")){
-                        $('.menu-content').hide();
-                        $.mask.close();
-                    }
-                });
-                $('#menu-left, #menu li, #menu-content-container').click(function(event){
-                    event.stopPropagation();
-                });
-                /*
-                // Create the dropdown base
-                $("<select />").appendTo("#mobile-nav");
-
-                // Create default option  
-                $("<option />", {
-                   "selected": "selected",
-                   "value"   : "",
-                   "text"    : "Click to Browse.."
-                }).appendTo("#mobile-nav select");
-
-                // Populate dropdown with menu items
-                $("#menu-pages li a").each(function() {
-                 var el = $(this);
-                 $("<option />", {
-                     "value"   : el.attr("href"),
-                     "text"    : el.text()
-                 }).appendTo("#mobile-nav select");
-                });
-				*/
-            });
 			
 			/*
 			 * HEADLINE WRAP TEXT
