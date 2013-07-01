@@ -38,7 +38,6 @@ $(document).ready(function(){
 				$(this).addClass('menu-link-hover');
 				$('.menu-content').hide();
 				$('.'+menuLink).show(); 
-				$('.union').show();
 				$('#menu').expose();
 			}
 		}
