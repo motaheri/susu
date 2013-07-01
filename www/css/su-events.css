@@ -53,11 +53,11 @@
 	float: left;
 	width: 228px;
 	height: 372px; /* 322 + 50 */
+	margin-right:25px;
 }
 .sliderPortrait .slider .slide .slide-inner {
 	width: 218px;
 	height: 360px; /* 312 + 48 */
-	margin: 5px;
 }
 
 /*
