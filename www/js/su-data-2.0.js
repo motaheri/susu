@@ -140,6 +140,14 @@ var SU_Data = {
 			this.Height = 0;
 			this.Created = null;
 			this.Tags = [];
+		},
+		personObj: function() {
+			this.ID = 0;
+			this.Name = '';
+			this.Email = '';
+			this.Image = '';
+			this.Link = '';
+			this.Info = '';
 		}
 	},
 	
@@ -153,6 +161,7 @@ var SU_Data = {
 	newsData: {},
 	blogData: {},
 	menuData: {},
+	personData: {},
 	
 	/* --------------------------------
 	 * Data Tests
@@ -167,6 +176,23 @@ var SU_Data = {
 	 * Load Data Functions
 	 * -------------------------------- */
 	load: {
+		loadMemberList: function() {
+			$('div.mslwidget div.msl-groupedmemberlist').each(function(){
+				var divId = $(this).parent().attr('id');
+				SU_Data.personData[divId] = [];
+				$(this).find('ul li > div').each(function() {
+					var person = new SU_Data.types.personObj();
+					person.Name = $(this).find('dl > dt > a').text();
+					person.Email = $(this).find('dl > dd > a').text();
+					person.ID = $(this).find('input').attr('value');
+					person.Image = $(this).find('div.badge_tools img').attr('src').replace('/80x100','');
+					person.Link = $(this).find('div.badge_tools a').attr('href');
+					person.Title = $(this).parent().parent().prev().text();
+					console.log(person);
+					SU_Data.personData[divId].push(person);
+				});
+			});
+		},
 		loadMenu: function () {
 			/****************** Menu Code
 			<div id="menu-items">
@@ -723,6 +749,7 @@ $(document).ready(function() {
 	SU_Data.load.loadEvents();
 	SU_Data.load.loadNews();
 	SU_Data.load.loadBlogs();
+	SU_Data.load.loadMemberList();
 	/*
 	// Basket & Add To Basket Code
 	if (window.addEventListener){

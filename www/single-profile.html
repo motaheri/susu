@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- 
+Space for magic colors and sizes
+    Sky blue RGB: 135, 206, 235, HEX: #87CEEB;
+    Font sans-serif: Cantarell, Doppio One
+    Font serif: Bitter
+
+-->
+<html>
+    <head>
+        <title>Swansea University Students' Union</title>
+        
+        {include="meta"}
+        {include="head"}
+		<link rel="stylesheet" href="css/su-single.css" />
+
+		<style>
+			article {
+				width: 70%;
+			}
+			article .content {
+				width: 90% !important;
+			}
+			article .content > p {
+				text-align: justify;
+			}
+			aside {
+				width: 30%;
+				float: right;
+			}
+			div.content h3 {
+				padding-top: 10px;
+			}
+		</style>
+    </head>
+    <body class="page_profile">
+        {include="header"}
+		<div id="cover"></div>
+        <div class="wrapper clearfix">
+			<div id="aside">
+				<aside>
+					<div id="page-badge">
+						<div id="page-badge-title">
+							<h2 id="profile_badgename"></h2>
+						</div>
+						<div id="page-badge-photo">
+							<img src="http://www.swansea-union.co.uk/assets/profilephotos/200x300/nophoto.jpg" />
+						</div>
+					</div>
+				</aside>
+			</div>
+			<div id="article">
+				<article>
+					<ul class="breadcrumb">
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">NAME</a></li>
+					</ul>
+					<h2 class="title" id="profile_name"></h2>
+					<div class="content">
+						<div id="profile_text"></div>
+						<div id="profile_about"></div>
+						<p><a href="/profile/edit">Edit Profile</a></p>
+					</div>
+				</article>
+				<div id="profile" style="display: none;">
+					<div id="profile_content">
+						<div id="profile_side">
+							<div id="profile_photo">
+								<img src="/assets/profilephotos/200x300/nophoto.jpg" id="ctl00_Main_imgPhoto">
+							</div>
+							<a id="ctl00_Main_lnkEditProfile" class="edit_profile" href="edit/">Edit Profile</a>
+						</div>
+						<div id="profile_main">
+							<h1>Michael Nicholas</h1>
+							<span class="profile_tagline">The quick brown fox jumped over the lazy dog. 123.</span>		
+							<div id="profile_about">
+								<h2>About Me</h2>
+								<dl>
+									<dt>Age:</dt><dd></dd>
+									<dt>Birthday:</dt><dd></dd>
+									<dt>Course:</dt><dd><a href="/friends/find/course/">Visual Computing</a></dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+		
+        {include="footer"}
+        {include="scripts-single"}
+		{include="scripts-facebook"}
+		
+		<script>
+			$(document).ready(function() {
+				var name = $('div#profile div#profile_main h1').text();
+				var tagline = $('div#profile div#profile_main h1').text();
+				var image = $('div#profile_photo img').attr('src');
+				var abouttagline = $('div#profile .profile_tagline').text();
+				var abouthtml = $('div#profile #profile_about').html();
+				$('article #profile_name').text(name);
+				$('article #profile_text').append(abouttagline);
+				$('article #profile_about').append(abouthtml);
+				$('aside #profile_badgename').text(name);
+				$('aside #page-badge-photo').attr('src', image);
+				$('article ul.breadcrumb li a').last().text(name);
+			});
+		</script>
+    </body>
+</html>

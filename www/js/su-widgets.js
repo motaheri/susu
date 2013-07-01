@@ -210,6 +210,43 @@ var SU_Widget = {
 			$(targetselector).fadeIn();
 		});
 	},
+	OfficerSlider: function(mslWidgetId, targetselector) {
+		if (typeof SU_Data == "undefined") {
+			console.error("SU_Widget: SU_Data not defined.");
+			return;
+		}
+		if (typeof SU_Data.personData[mslWidgetId] == "undefined") {
+			console.error("SU_Widget: SU_Data doesn't contain a person widget called '" + mslWidgetId + "'");
+			return;
+		}
+		if ($(targetselector).length != 1) {
+			console.error("SU_Widget: Officer slider target object invalid '" + targetselector + "'");
+			return;
+		}
+		$(targetselector).addClass('sliderOfficers');
+		var slider = $(document.createElement('div')).addClass('slider');
+		var officers = SU_Data.personData[mslWidgetId];
+		jQuery.each(officers, function(i, o) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner');
+			var link = $(document.createElement('a')).attr('href', o.Link);
+			var img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+			var name = $(document.createElement('div')).addClass('officer-name').text(o.Name);
+			var title = $(document.createElement('div')).addClass('officer-title').text(o.Title);
+			var email = $(document.createElement('a')).addClass('officer-email').text(o.Email).attr('href','mailto:' + o.Email);
+			$(link).append(title).append(img).append(name).append(email);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+		});
+		$(targetselector).append(slider);
+		$(targetselector).iosSlider({
+			snapToChildren: true,
+			scrollbar: false,
+			desktopClickDrag: true,
+			infiniteSlider: false
+		});
+	},
 	Coverflow: function(eventList, targetSelector) {
 		eventList = SU_Data.getEvents(eventList, 7);
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
