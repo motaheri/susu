@@ -75,7 +75,7 @@
 	display: none;
 }
 	
-@media only screen and (max-width: 683px) {
+@media only screen and (max-width: 619px) {
 	.su-blog-container, .su-blog {
 		width: 100%;
 	}
@@ -90,7 +90,7 @@
 	}
 }
 
-@media only screen and (min-width: 684px) {
+@media only screen and (min-width: 620px) {
 	.su-blog-container, .su-blog {
 		width: 684px;
 	}
