@@ -25,7 +25,7 @@ var SU_Widget = {
 			var inner = $(document.createElement('div')).addClass('su-blog-post-inner');
 			var title = $(document.createElement('div')).addClass('title').text(o.Title);
 			var intro = $(document.createElement('div')).addClass('intro').text(o.Description);
-			var image = $(document.createElement('img')).addClass('author').addClass('img-polaroid').attr('src', 'http://www.swansea-union.co.uk/' + o.Image);
+			var image = $(document.createElement('img')).addClass('author').attr('src', 'http://www.swansea-union.co.uk/' + o.Image);
 			$(inner).append(title);
 			$(inner).append(image);
 			$(inner).append(intro);
