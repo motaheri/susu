@@ -2,10 +2,13 @@
 	display: inline-block;
 	width: 100%;
 	vertical-align: top;
+	background: url('../img/blog-post-bg.gif');
+	background-size:225px auto;
 }
 .su-blog a {
 	text-decoration: none;
 	color: black;
+	background:
 }
 .su-blog-post {
 	position:relative;
@@ -24,7 +27,7 @@
 .su-blog-post:before {
 	content: "";
 	position: absolute !important;
-	bottom: 25px;
+	bottom: 30px;
 	right: 20px !important;
 	border-width: 0px 0 25px 25px !important;
 	border-style: solid;
@@ -37,11 +40,10 @@
 
 .su-blog-post-inner {
 	width: 196px;
-	height: 140px;
+	height: 155px;
 	margin: 5px;
 	overflow: hidden;
 	margin: 5px;
-	background: #fff;
 	padding: 10px;
 	position: relative;
 }
