@@ -196,8 +196,7 @@ hr.soft {
 .news-container {
 	width: 100%;
 	overflow: hidden;
-	background: #f5f5f5 url('../img/pattern.jpg') !important;
-	padding-top: 25px;
+	background: #f5f5f5 url('../img/news-bw-light.jpg') !important;
 	padding-bottom: 15px;
 }
 .carousel-container {

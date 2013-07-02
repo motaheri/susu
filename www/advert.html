@@ -1,8 +1,8 @@
 <style>
 #advert{
-	margin-left: 200px;
-	margin-top:10px;
-	position: absolute;
+	margin-left: 0px;
+	xmargin-top:10px;
+	xposition: absolute;
 	display:inline-block;
 	white-space: nowrap;
 	background: rgba(255, 255, 255, 0.3);
@@ -20,21 +20,29 @@
 }
 .halfadvert{
 	width: 234px;
-	margin-left: 30px;
+	margin-left: 15px;
 	display:none;
 }
 .advertteaser{
-	width: 155px;
-	margin-left: 30px;
+	xwidth: 155px;
+	margin-left: -10px;
 	border: none;
 	text-align: right;
 	background: none;
 }
+.advert-container{
+width: 100%;
+background: #fefefe url('../img/noize.png') !important;
+}
 </style>
-<div class="wrapper">
-	<div id="advert">
-		<div class="fulladvert">468 x 60</div>
-		<div class="halfadvert">234 x 60</div>
-		<div class="advertteaser">Advertisement Space</div>
+<div class="advert-container">
+	<div class="wrapper">
+
+		<div id="advert">
+			<div class="fulladvert">468 x 60</div>
+			<div class="halfadvert">234 x 60</div>
+			<div class="halfadvert">234 x 60</div>
+			<div class="advertteaser">Advertisement Space</div>
+		</div>
 	</div>
 </div>
