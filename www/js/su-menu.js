@@ -9,6 +9,7 @@
 			hideDefaultMenu: true,
 			triggerWidth: 683,
 			onlyMobile: false,
+			enableSwipe: false, // conflicts with sliders
 			menuText: "Swansea University Students' Union"
 		});
 	})
