@@ -409,7 +409,7 @@ var SU_Data = {
 					// create and populate a new blogObj object
 					var article = new SU_Data.types.blogObj();
 					article.Title = $(this).find('.msl-recentblogposttitle').text();
-					article.Description = $(this).find('span.msl-recentblogpost').text();
+					article.Description = '' + $(this).find('span.msl-recentblogpost').text();
 					article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
 					article.Author = $(this).find('.msl-recentblogpostblogname').text()
 					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href').replace('../','/');
@@ -482,7 +482,8 @@ var SU_Data = {
 						// make sure we got some content
 						if (data == null) return;
 						// get the blog post
-						blogPost.Story = $('.msl_blog_post_body', data).html();
+						var blogStory = $('.msl_blog_post_body', data).html();
+						blogPost.Story = blogStory || '';
 						blogPost.Story = $.trim(blogPost.Story.replace(/[\r\n\t]/g, ''));
 					}
 				});
