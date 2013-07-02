@@ -126,7 +126,7 @@
 }
 */
 
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 684px) {
 	#isonews .news.big .news-inner-img {
 		height: 330px;
 		height: 326px;
@@ -186,7 +186,7 @@
 #isonews .news-inner div.title:nth-of-type(2) {
 	margin-top: 5px;
 }
-@media only screen and (max-width: 619px) {
+@media only screen and (max-width: 683px) {
 	#isonews .news {
 		width: 100% !important;
 		height: 190px !important;
@@ -201,7 +201,7 @@
 		bottom: 12px;
 	}
 }
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 684px) {
 	#isonews .news.big .news-inner div.title {
 		margin: 3px 5px 0px 15px;
 		font-size: 48px;

@@ -80,13 +80,13 @@ ul.stream li.dcsns-li div.inner span.section-thumb img {
 	margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 619px) {
+@media only screen and (max-width: 683px) {
 	#su-media-frontpage {
 		width: 100%;
 	}
 }
 
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 684px) {
 	#su-media-frontpage {
 		width: 684px;
 	}

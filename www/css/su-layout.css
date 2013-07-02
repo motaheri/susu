@@ -2,7 +2,7 @@
  * Master Page Width Definitions
  * -------------------------------------------------------------------- */
 
-@media only screen and (max-width: 619px) {
+@media only screen and (max-width: 683px) {
     .menu-block, .menu-block ul,#menu li{
         display: block !important;
     } 
@@ -26,7 +26,7 @@
     }
 }
 
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 684px) {
     .wrapper {
         width: 684px;
         margin: 0 auto;
@@ -85,7 +85,7 @@
  * Mobile Menu CSS
  * -------------------------------------------------------------------- */
 
-@media(max-width: 619px) {
+@media(max-width: 683px) {
 	/* Disable standard menu at low-resolution */
 	header {
 		display: none;
@@ -94,7 +94,7 @@
 		display: none !important;
 	}
 }
-@media(min-width: 620px) {
+@media(min-width: 684px) {
 	/* Disable mobile menu at normal resolution and above */
 	#su-mobile-menu {
 		display: none !important;
@@ -142,7 +142,7 @@ body > div#cover.coverSocieties {
 	height: 70px;
 }
 
-@media only screen and (max-width: 619px) {
+@media only screen and (max-width: 683px) {
     body > div#cover {
         display: none;
     }
