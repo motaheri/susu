@@ -120,6 +120,29 @@ var SU_Widget = {
 			desktopClickDrag: true,
 			infiniteSlider: false
 		});
+		$(targetselector).on("webkitAnimationStart", SU_Widget.sliderAnimListener);
+		$(targetselector).on("webkitAnimationEnd", SU_Widget.sliderAnimListener);
+		$(targetselector).on("animationstart", SU_Widget.sliderAnimListener);
+		$(targetselector).on("animationend", SU_Widget.sliderAnimListener);
+	},
+	sliderAnimListener: function(e) {
+		switch(e.type) {
+			case "animationstart":
+			case "webkitAnimationStart":
+				var peekCount = jQuery.data(this, 'slidePeekCount');
+				if (typeof(peekCount) == 'undefined') {
+					peekCount = 0;
+				}
+				peekCount++;
+				jQuery.data(this, 'slidePeekCount', peekCount);
+				if (peekCount > 3) {
+					$(this).find('.slider').addClass('noAnim');
+				}
+				break;
+			case "animationend":
+			case "webkitAnimationEnd":
+				break;
+		}
 	},
 	EventSlider_Landscape: function(mslWidgetId, targetselector) {
 		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];

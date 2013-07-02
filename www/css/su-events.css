@@ -29,8 +29,13 @@
 }
 
 .slider:hover {
-	animation: slider-peek 0.5s ease;
-	-webkit-animation: slider-peek 0.5s ease;
+	animation: slider-peek 0.25s ease;
+	-webkit-animation: slider-peek 0.25s ease;
+}
+
+.slider.noAnim:hover {
+	animation: none !important;
+	-webkit-animation: none !important;
 }
 
 /*
