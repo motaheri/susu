@@ -225,10 +225,10 @@ hr.soft {
 	background: #fefefe url('../img/noize.png');
 	padding: 25px 0px;
 }
-.blogs-container {
+.blog-container {
 	width: 100%;
 	overflow: hidden;
-	background: #f5f5f5 url('../img/noize.png');
+	background: #f5f5f5 url('../img/blog-bg-4.png');
 	padding: 25px 0px;
 }
 .events-container  a{

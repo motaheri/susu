@@ -38,11 +38,10 @@
 .su-blog-post-inner {
 	width: 196px;
 	height: 170px;
-	margin: 5px;
 	overflow: hidden;
 	padding: 10px;
 	position: relative;
-	background: url('../img/blog-post-bg.gif');
+	background: url('../img/blog-post-bg.gif') repeat-x;
 	background-size: 225px auto;
 }
 
