@@ -84,9 +84,11 @@ Type Ahead
 */
 $(document).ready(function () {
 	$(document).keydown(function (e){
-		$('.stts').hide();
-		$('#ss-input').show();
-		$('#ss-input').focus();
+		if(e.keyCode > 40 && e.keyCode < 37){ // Not interested in the navigational arrow keys 
+			$('.stts').hide();
+			$('#ss-input').show();
+			$('#ss-input').focus();
+		}
 	});
 	$('#ss-input').focusout(function() {
 		if ($.trim($(this).val()).length == 0){
