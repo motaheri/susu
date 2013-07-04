@@ -5,12 +5,13 @@
 	display: none !important;
 }
 #su-media-frontpage {
-	background: white;
 	margin-bottom: 20px;
 }
 .dcsns {
 	padding:0px !important;
+	background: transparent !important;
 }
+
 #su-media-frontpage .dcsns-content {
 	height: 450px;
 	margin:0px !important;

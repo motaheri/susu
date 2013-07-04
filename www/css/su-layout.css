@@ -222,13 +222,15 @@ hr.soft {
 .media-container {
 	width: 100%;
 	overflow: hidden;
-	background: #fefefe url('../img/noize.png');
+	background: #fefefe url('../img/socialmedia-bg.jpg');
 	padding: 25px 0px;
+		background-size: auto 80%; 
 }
 .blog-container {
 	width: 100%;
 	overflow: hidden;
 	background: #f5f5f5 url('../img/blog-bg-4.png');
+	
 	padding: 25px 0px;
 }
 .events-container  a{
@@ -291,6 +293,7 @@ div.seemore {
 	font-weight: 500;
 	font-size: 0.85em;
 	padding-bottom: 15px;
+	margin-top: 25px;
 	text-align: right;
 }
 div.seemore a {
@@ -322,7 +325,7 @@ h2.container-header{
 }
 
 #events, #my-events{
-    margin: 40px 0px 40px 0px;
+    margin: 40px 0px 0px 0px;
 }
 /*
  * GENERIC COLORS

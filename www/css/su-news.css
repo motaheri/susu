@@ -2,7 +2,7 @@
  * CSS STRUCTURE - DO NOT CHANGE
  */
 #isonews {
-	padding-bottom: 15px;
+	padding-bottom: 0px;
 }
 #isonews .news {
 	display: inline-block;
@@ -138,18 +138,19 @@
 
 /* Author Text outside speech bubble*/
 #isonews .news-author {
-	position: absolute; 
+	position: absolute;
 	right: 51px;
-	bottom: 2px;
+	bottom: 4px;
 	font-size: 11px;
 	color: #000;
-	width: 140px;
 	text-align: right;
 	vertical-align: bottom;
 	display: block;
-	height: 20px;
+	height: 15px;
+	display: block;
 	white-space: nowrap;
-	width: 200px;
+	background: rgba(255, 255, 255, 0.6);
+	padding: 2px;
 }
 
 #isonews .news .news-inner div.title {
