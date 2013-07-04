@@ -8,8 +8,12 @@
 	background: white;
 	margin-bottom: 20px;
 }
+.dcsns {
+	padding:0px !important;
+}
 #su-media-frontpage .dcsns-content {
 	height: 450px;
+	margin:0px !important;
 }
 ul.stream {
 	vertical-align: top;
