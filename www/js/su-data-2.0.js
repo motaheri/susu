@@ -55,7 +55,7 @@ var SU_Data = {
 		eventObj: function() {
 			this.EventID = '';        // Event ID
 			this.Title = '';		  // Event name
-			this.Type = '';			  // Event Type
+			this.Type = [];			  // Event Type
 			this.Description = '';    // Brief event description
 			this.Location = '';		  // Venue
 			this.Date = null;		  // Date
@@ -291,6 +291,9 @@ var SU_Data = {
 					event.Organisation = $(this).find('.msl_event_organisation').text();
 					event.OrganisationID = $(this).attr('data-msl-organisation-id');
 					event.Brand = $(this).find('.msl_event_brand').text();
+					$(this).find('.msl_event_types a').each(function() {
+						event.Type.push($(this).text());
+					});
 					
 					var dateValue = $(this).find('.msl_event_time').text();
 					if (dateValue != null) {
@@ -600,6 +603,30 @@ var SU_Data = {
 			}
 		}
 		return events.filter(function (d) { return d.Brand == brandName || brandName == 'ALL'; }).slice(0, limit);
+	},
+	getTypeEvents: function(eventList, typeName, limit) {
+		if (typeof(eventList) != 'string' || typeof(typeName) != 'string') {
+			return [];
+		}
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		var events = [];
+		if (eventList == 'ALL') {
+			for (var eL in SU_Data.eventData) {
+				events = events.concat(SU_Data.eventData[eL]);
+			}
+			events = events.getUnique(function (d) { return d.EventID; }).sort(function (a,b) { return a.Date - b.Date; });
+		}
+		else {
+			if (typeof(SU_Data.eventData[eventList]) != 'object') {
+				return [];
+			}
+			else {
+				events = SU_Data.eventData[eventList];
+			}
+		}
+		return events.filter(function (d) { return d.Type.indexOf(typeName) > -1 || typeName == 'All' || typeName == 'ALL'; }).slice(0, limit);
 	},
 	getOrganisationEvents: function(eventList, orgIdOrName, limit) {
 		if (typeof(eventList) != 'string' || typeof(orgIdOrName) != 'string') {

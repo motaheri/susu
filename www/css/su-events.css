@@ -208,3 +208,22 @@
 	margin: 0px 5px 0px 5px;
 	height: 20px;
 }
+
+/*
+ * Slider Filter
+ */
+div.sliderFilter {
+	float: right;
+	line-height: 37px;
+	vertical-align: middle;
+	font-family: 'MuseoSans300';
+}
+div.sliderFilter a {
+	text-decoration: none;
+}
+div.sliderFilter a:before {
+	content: ' | '
+}
+div.sliderFilter a:first-of-type:before {
+	content: '' !important;
+}
