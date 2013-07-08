@@ -11,12 +11,11 @@ body{
 #container{
 	margin-left: auto;
 	margin-right: auto;
-	width: 99% !important;
 	text-align:left;
 	display:block;
 }
 .stream li {
-	border: 1px solid #333;
+	border: none !important;
 	width: 218px !important; 
 	margin: 0px !important;
 	margin-right:5px !important;
@@ -36,6 +35,7 @@ body{
 #social-stream .stream .inner{
 
 }
+/*
 #social-stream .stream .isotope-item:before {
 	content: "";
 	position: absolute !important;
@@ -49,3 +49,4 @@ body{
 	z-index: 100;
 	margin-bottom:-11px;
 }
+*/

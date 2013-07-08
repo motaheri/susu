@@ -193,6 +193,10 @@ hr.soft {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /*IE6-8 */
 }
 
+.white{
+	color:#fff;
+}
+
 .news-container {
 	width: 100%;
 	overflow: hidden;

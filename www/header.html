@@ -51,7 +51,7 @@
 		
 #menu-items{
 margin-left: 15px;
-margin-top: 10px;
+margin-top: 20px;
 }
 #menu-content-container{
 }
@@ -93,7 +93,7 @@ margin-left: 5px !important;
 	right: 10px;
 }
 .menu-content{
-	min-height: 300px;
+	min-height: 330px;
 } 
 
 .stts{
@@ -129,7 +129,10 @@ margin-left:0px !important;
 .msl-imagenav-description, .msl-imagenav-image{
 display:none;
 }
-
+.menu-content.login{
+	width: 370px;
+	float: right;
+}
 </style>
 	
 		
@@ -168,7 +171,6 @@ display:none;
                     </div>
                     <div id="menu-content-container">
                         <div class="menu-content union">
-							<h2>Union</h2>
                             {include="menu-union"}
                         </div>
                         <div class="menu-content societies">
@@ -181,8 +183,7 @@ display:none;
                             <h2>Your Events</h2>
                         </div>  
 						<div class="menu-content login">
-                            <h2>Login</h2>
-							{include="menu-login"}
+							{include="login-pop"}
                         </div>
                     </div>
                     <div id="mobile-nav"></div>  

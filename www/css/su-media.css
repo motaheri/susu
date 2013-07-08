@@ -19,6 +19,12 @@
 ul.stream {
 	vertical-align: top;
 }
+
+.stream li{
+	border:none;
+}
+
+
 ul.stream li.dcsns-li {
 	width: 222px;
 	height: 220px;
