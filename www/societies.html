@@ -1,66 +1,97 @@
 <!DOCTYPE html>
+<!-- 
+Space for magic colors and sizes
+    Sky blue RGB: 135, 206, 235, HEX: #87CEEB;
+    Font sans-serif: Cantarell, Doppio One
+    Font serif: Bitter
+
+-->
 <html>
     <head>
-        <title>Societies - Swansea University Students' Union</title>
+        <title>Swansea University Students' Union</title>
         
         {include="meta"}
         {include="head"}
+		<link rel="stylesheet" href="css/su-single.css" />
 
+		<style>
+			article {
+				width: 70%;
+			}
+			article .content {
+				width: 90% !important;
+			}
+			article .content > p {
+				text-align: justify;
+			}
+			aside {
+				width: 30%;
+				float: right;
+			}
+			div.content h3 {
+				padding-top: 10px;
+			}
+		</style>
     </head>
     <body>
         {include="header"}
-		<div class="spacer"></div>
 		<div id="cover" class="coverSocieties"></div>
+        <div class="wrapper clearfix">
+			<div id="aside">
+				<aside>
+					<ul class="nav nav-list">
+						<li class="nav-header">Exec Committee</li>
+						<li class="nav-exec">
+							<img src="/img/activities/peopleBlank.jpg" />
+							<div>Josh Hayman</div>
+							<div>Societies and Services Officer</div>
+						</li>
+						<li class="nav-exec">
+							<img src="/img/activities/peopleBlank.jpg" />
+							<div>Rosie Hunnam</div>
+							<div>Societies and Services Coordinator</div>
+						</li>
+					</ul>
+				</aside>
+			</div>
+			<div id="article">
+				<article>
+					<ul class="breadcrumb">
+						<li><a href="#">Organisations</a></li>
+						<li><a href="#">Societies</a></li>
+					</ul>
+					<h2 class="title">Societies</h2>
+					<div class="content">
+						<p>Swansea University Students' Union has over N societies. Get involved, meet new people and try new things. To find out more please click on the categories below and find a society.</p>
+						<p>This will be a nice big intro text about how to join, what societies are, who to speak to and all that jazz. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</p>
+					</div>
+				</article>
+			</div>
+        </div>
 		
-        <div id="main" class="wrapper clearfix">
-
+        <article class="wrapper clearfix">
 			<div id="activitiesCategorySlider">
-				<h2>Society Categories</h2>
+				<h2 class="title">Society Categories</h2>
 				<div id="su-activitiesCat">
 				</div>
 			</div>
 			<div id="activitiesListSlider">
-				<h2 id="su-activitiesListHeader">Societies</h2>
+				<h2 class="title" id="su-activitiesListHeader">Societies</h2>
 				<div id="su-activitiesList">
 				</div>
 			</div>
-			
-			<div id="activitiesIntro">
-				<div class="activitiesType">
-					<h2>Societies</h2>
-					<p>Swansea University Students' Union has over N societies. Get involved, meet new people and try new things.</p>
-					<p>To find out more please click on the categories below and find a society.</p>
-				</div>
-				<div class="activitiesType">
-					<h2>Documents</h2>
-					<p>Want to start a society or club?</p>
-					<p>Click here to download Society &amp; Sport documents and forms.</p>
-				</div>
-				<div class="activitiesType">
-					<h2>Contacts</h2>
-					<div style="display: inline-block; width: 132px; vertical-align: top;">
-						<img src="./img/activities/peopleJosh.jpg" width="132" height="177" /><br/>
-						Josh Hayman<br/>
-						<i>Societies and Services Officer</i>
-					</div>
-					<div style="display: inline-block; width: 132px; vertical-align: top;">
-						<img src="./img/activities/peopleRosie.jpg" width="132" height="177" /><br/>
-						Rosie Hunnam<br/>
-						<i>Societies and Student Services Coordinator</i>
-					</div>
+			<div>
+				<h2 class="title">Documents</h2>
+				<div class="content">
+					<p>... list of documents and resources ...</p>
 				</div>
 			</div>
-			
-			
-			
-		</div>
+		</article>
 		
-		<hr class="soft"/>
-        
-		{include="footer"}
+        {include="footer"}
         {include="scripts-index"}
 		{include="scripts-facebook"}
-        
+		
         {include="widgetdata"}
 		
 		<script type="text/javascript">
@@ -79,6 +110,5 @@
 				$('#su-activitiesList').show();
 			});
 		</script>
-
     </body>
 </html>

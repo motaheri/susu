@@ -11,4 +11,3 @@
 	$tpl = new RainTPL;
 	$tpl->draw( 'societies' );
 ?>
-
