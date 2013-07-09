@@ -125,17 +125,18 @@ body > div#cover {
     background-size: cover;
 	margin-bottom: 20px;
 	opacity: 0.75;
-	margin-top: -70px;
 }
 
 body > div#cover.coverSports {
     background-image: url(../img/activitiesTypeSport.jpg);
     background-position: center center;
+    height: 315px;
 }
 
 body > div#cover.coverSocieties {
     background-image: url(../img/activitiesTypeSociety.jpg);
     background-position: center center;
+    height: 315px;
 }
 
 .spacer {
