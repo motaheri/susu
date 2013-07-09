@@ -89,24 +89,78 @@ var SU_Widget = {
 			$(this).wrapLines('<div class="title">', '</div>');
 		})
 	},
-	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes) {
+	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes, validVenues) {
+		if (typeof(validTypes) == 'undefined')
+			validTypes = ['Club Nights', 'Live Music', 'Special Events'];
+		if (typeof(validVenues) == 'undefined')
+			validVenues = ['Divas', 'Oceana', 'Sin City'];
 		var types = [];
+		var venues = [];
 		SU_Data.eventData[mslWidgetId].map(function(d) {
 			types.push.apply(types, d.Type);
+			venues.push(d.Organisation);
 		});
 		types = types.getUnique().sort();
 		types = types.filter(function(d) { return validTypes.indexOf(d) > -1; });
-		types = ['All'].concat(types);
-		for (var i = 0; i < types.length; i++) {
-			var aTrigger = $(document.createElement('a')).text(types[i]);
-			$(targetselector).append(aTrigger);
-			aTrigger.on('click', function(e) {
-				SU_Widget.EventSlider_Filter_ClickEvent(mslWidgetId, sliderselector, $(this).text());
+		venues = venues.getUnique().sort();
+		venues = venues.filter(function(d) { return validVenues.indexOf(d) > -1; });
+		// Output HTML
+		/*
+			<div class="m-btn-strip">
+				<a href="#" class="m-btn">Compose New</a>
+				
+				<div class="m-btn-group">
+					<a href="#" class="m-btn">Archive</a>
+					<a href="#" class="m-btn">Spam</a>
+					<a href="#" class="m-btn">Delete</a>
+				</div>
+									
+				<div class="m-btn-group">
+					<a href="#" class="m-btn">Move to</a>
+					<a href="#" class="m-btn">Labels</a>
+				</div>
+			
+				<a href="#" class="m-btn">More</a>
+			</div>
+		*/
+		var btnStrip = $(document.createElement('div')).addClass('m-btn-strip');
+		var makeBtn = function(type, text) {
+			var btn = $(document.createElement('div')).addClass('m-btn filter').addClass(type).text(text);
+			if (type == 'venue') btn.addClass('red');
+			else if (type == 'type') btn.addClass('red');
+			else btn.addClass('blue');
+			btn.on('click', function(e) {
+				$(targetselector).find('div.filter').addClass('disabled').removeClass('active');
+				$(this).removeClass('disabled').addClass('active');
+				SU_Widget.EventSlider_Filter_ClickEvent(mslWidgetId, sliderselector, text, type);
 			});
+			return btn;
+		};
+		var makeGroup = function() {
+			return $(document.createElement('div')).addClass('m-btn-group');
+		};
+		btnStrip.append(makeBtn('all', 'All'));
+		var typeBtnGroup = makeGroup();
+		for (var i = 0; i < types.length; i++) {
+			typeBtnGroup.append(makeBtn('type', types[i]));
 		}
+		var venueBtnGroup = makeGroup();
+		for (var i = 0; i < venues.length; i++) {
+			venueBtnGroup.append(makeBtn('venue', venues[i]));
+		}
+		btnStrip.append(typeBtnGroup).append(venueBtnGroup);
+		$(targetselector).append(btnStrip);
+		$(targetselector).find('div.filter').addClass('disabled').removeClass('active');
+		$(targetselector).find('div.filter.all').removeClass('disabled').addClass('active');
 	},
-	EventSlider_Filter_ClickEvent: function(mslWidgetId, targetselector, selected) {
-		var eventsList = SU_Data.getTypeEvents(mslWidgetId, selected).map(function (d) { return d.EventID; });
+	EventSlider_Filter_ClickEvent: function(mslWidgetId, targetselector, selected, filterType) {
+		var eventsList = null;
+		if (filterType == 'type') {
+			eventsList = SU_Data.getTypeEvents(mslWidgetId, selected).map(function (d) { return d.EventID; });
+		}
+		else if (filterType == 'venue') {
+			eventsList = SU_Data.getOrganisationEvents(mslWidgetId, selected).map(function (d) { return d.EventID; });
+		}
 		SU_Widget.EventSlider_Portrait(mslWidgetId, targetselector, eventsList);
 	},
 	EventSlider_Portrait: function(mslWidgetId, targetselector, filterEventIds) {
@@ -161,7 +215,7 @@ var SU_Widget = {
 				}
 				peekCount++;
 				jQuery.data(this, 'slidePeekCount', peekCount);
-				if (peekCount > 3) {
+				if (peekCount > 2) {
 					$(this).find('.slider').addClass('noAnim');
 				}
 				break;
