@@ -217,13 +217,8 @@ div.sliderFilter {
 	line-height: 37px;
 	vertical-align: middle;
 	font-family: 'MuseoSans300';
+	margin-bottom: 10px;
 }
-div.sliderFilter a {
-	text-decoration: none;
-}
-div.sliderFilter a:before {
-	content: ' | '
-}
-div.sliderFilter a:first-of-type:before {
-	content: '' !important;
+div.sliderFilter div.m-btn {
+	padding: 5px 14px;
 }
