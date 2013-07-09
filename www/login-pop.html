@@ -8,10 +8,58 @@
 			currentAddress = document.location.href;
 			window.location.href(currentAddress + "#login");
 			}
+			
+			
+/*
+ * MENU JAVASCRIPT
+ */
+$(document).ready(function(){
+	
+
+	$('#menu li').not('#menu-logo').on('click',function(e){
+	
+		var linkRel = $(this).children('a').attr('rel');
+		if(linkRel != 'page'){
+			e.preventDefault();
+			$('#menu li').removeClass('menu-link-hover'); 
+			var menuLink = $(this).text().toLowerCase();
+			if($('.'+menuLink).is(":visible")){
+				$('.'+menuLink).hide();
+				$.mask.close();
+			}else{
+				$('#menu li').removeClass('menu-link-hover');
+				$(this).addClass('menu-link-hover');
+				$('.menu-content').hide();
+				$('.'+menuLink).show(); 
+				$('#menu').expose();
+			}
+		}
+	});
+	
+	$('html').click(function() {
+		$('#menu li').removeClass('menu-link-hover');
+		if($('.menu-content').is(":visible")){
+			$('.menu-content').hide();
+			$.mask.close();
+		}
+	});
+	 
+	$('#menu-right').click(function(event){
+		event.stopPropagation();
+	});
+	
+});
+			
+			
 	</script>
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css" />
+	<link href="./css/modern-buttons.css" rel="stylesheet"> 
+
+	
 	<style>
 	html{
-	background:#000;
+		xbackground:#000;
 	}
 	.iframe-pop-container {
 		width: 367px;
@@ -88,16 +136,49 @@
 		top:0px;
 		left:0px;
 	}
+	.login-button{
+		display: inline-block !important;
+	}
+	ul.buttons{
+		margin:0px;
+		padding:0px;
+	}
+	.iam{
+		font-family: arial;
+		font-size: 24px;
+	}
+	.underline{
+		text-decoration: underline;
+	}
 	</style>
     <body>
+	<div id="menu">
+		<div class="iam">Login As <span class="underline">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</span></div>
+		<ul class="buttons">
+			<li class="login-button student m-btn blue">A Swansea Uni Student</li>
+			<li class="login-button guest m-btn green">A Guest</li>
+			<li class="login-button staff m-btn red">Staff</li>
+		</ul>
 	
-		<div class="login-logo">&nbsp;</div>
-		
-		<div class="iframe-pop-container">
-			<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" onLoad="reloadLogin()"></iframe><br />
+		<div class="login-content student">
+			<div class="login-logo">&nbsp;</div>
+			
+			<div class="iframe-pop-container">
+				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" onLoad="reloadLogin()"></iframe><br / >
+			</div>
 		</div>
+		<div class="login-content guest">
+				Guest
+		</div>
+		<div class="login-content staff">
+				Staff
+		</div>
+		
 		
 		<div class="blocker">&nbsp;</div>
 		<div class="login-help"><a href="#">Need Help?</a></div>
+		</div>
 	</body>
 </html>
