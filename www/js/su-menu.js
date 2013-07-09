@@ -155,4 +155,56 @@ $(document).ready(function() {
 		
 	  );
    });
+   
+   
+   
+   
+   
+   		function reloadLogin(){
+			/*
+			currentAddress = document.location.href;
+			window.location.href = currentAddress + "#login";
+			*/
+			}
+			
+	
+
+	$('#login-container .login-button-group li').not('.login-as').on('click',function(e){
+	
+		var linkRel = $(this).children('a').attr('rel');
+		if(linkRel != 'page'){
+			e.preventDefault();
+			$('#login-container .login-button-group li').removeClass('menu-link-hover'); 
+			var menuLink = $(this).text().toLowerCase();
+			if($('.'+menuLink).is(":visible")){
+				$('.'+menuLink).hide();
+				$.mask.close();
+			}else{
+				$('#login-container .login-button-group li').removeClass('menu-link-hover');
+				$(this).addClass('menu-link-hover');
+				$('.login-content').hide();
+				$('.'+menuLink).show(); 
+				/*$('#menu').expose();*/
+			}
+		}
+	});
+/*	
+	$('html').click(function() {
+		$('#menu li').removeClass('menu-link-hover');
+		if($('.menu-content').is(":visible")){
+			$('.menu-content').hide();
+			$.mask.close();
+		}
+	});
+	 
+	$('#menu-right').click(function(event){
+		event.stopPropagation();
+	});
+	*/
+   
+   
+   
+   
+   
+   
 });	
