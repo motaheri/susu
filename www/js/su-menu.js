@@ -43,15 +43,15 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
-	$('html').click(function() {
+	/*
+	$('html').not('#menu').click(function() {
 		$('#menu li').removeClass('menu-link-hover');
 		if($('.menu-content').is(":visible")){
 			$('.menu-content').hide();
 			$.mask.close();
 		}
 	});
-	 
+	 */
 	$('#menu-right').click(function(event){
 		event.stopPropagation();
 	});
