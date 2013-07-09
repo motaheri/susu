@@ -188,7 +188,6 @@ var SU_Data = {
 					person.Image = $(this).find('div.badge_tools img').attr('src').replace('/80x100','');
 					person.Link = $(this).find('div.badge_tools a').attr('href');
 					person.Title = $(this).parent().parent().prev().text();
-					console.log(person);
 					SU_Data.personData[divId].push(person);
 				});
 			});
