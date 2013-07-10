@@ -117,8 +117,16 @@
 		float: right;
 		}
 		.menu-content {
-min-height: 350px;
-}
+		min-height: 350px;
+		}
+		.a-guest,.staff{
+		display:none;
+		}
+		.a-guest{
+		background: rgba(22, 156, 10, 0.84);
+height: 295px;
+width: 370px;
+		}
 </style>
 	<script type="text/javascript">
  
@@ -128,27 +136,27 @@ min-height: 350px;
 <div id="login-container">
 		<div class="login-button-group">
 			<div class="login-button login-as">Login As:</div>
-			<div class="login-button student m-btn blue">A Swansea Uni Student</div>
-			<div class="login-button guest m-btn green">A Guest</div>
-			<div class="login-button staff m-btn red">Staff</div>
+			<div class="login-button m-btn blue">A Swansea Uni Student</div>
+			<div class="login-button m-btn green">A Guest</div>
+			<div class="login-button m-btn red">Staff</div>
 		</div>
 		</div>
 	
-		<div class="login-content student">
+		<div class="login-content a-swansea-uni-student">
 			<div class="login-logo">&nbsp;</div>
 			
 			<div class="iframe-pop-container">
-				<!--
+				 
 				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" onLoad="reloadLogin()"></iframe>
-				-->
+				 
 				<br / >
 			</div>
 		</div>
-		<div class="login-content guest">
-				Guest
+		<div class="login-content a-guest green">
+				{include="login-gueststaff"}
 		</div>
-		<div class="login-content staff">
-				Staff
+		<div class="login-content staff red">
+				{include="login-gueststaff"}
 		</div>
 		
 		

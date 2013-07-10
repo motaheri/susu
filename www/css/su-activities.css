@@ -43,7 +43,7 @@
 .sliderActivities .slider .slide {
 	float: left;
 	width: 228px;
-	height: 221px;
+	height: 165px;
 	padding-right: 25px;
 }
 .sliderActivities .slider .slide:last-of-type {
@@ -52,9 +52,10 @@
 
 .sliderActivities .slider .slide .slide-inner {
 	width: 218px;
-	height: 211px;
-	margin: 5px;
-	text-align: center;
+	xxheight: 211px;
+	xxmargin: 5px;
+	xxtext-align: center;
+	border: 2px solid #BC5CA2;
 }
 
 @media only screen and (min-width: 912px) {
@@ -89,24 +90,30 @@ a.su-activity-category.selected img:hover {
 	height: 160px !important;
 }
 .sliderActivities .activitiesCatName {
-	height: 45px;
+	xxheight: 45px;
 	background-color: #51a351;
-	font-family: 'MuseoSans700';
-	font-size: 15pt;
+	font-family: 'MuseoSans500';
+	font-size: 13pt;
 	color: white;
 	text-align: center;
 	padding: 2px;
-	text-transform: uppercase;
+	xxtext-transform: uppercase;
+	position: absolute;
+	top:0px;
+	padding-right: 4px;
 }
 .sliderActivities .activitiesItemName {
-	height: 45px;
+	xxheight: 45px;
 	background-color: #51a351;
-	font-family: 'MuseoSans700';
-	font-size: 15pt;
+	font-family: 'MuseoSans500';
+	font-size: 13pt;
 	color: white;
 	text-align: center;
 	padding: 2px;
-	text-transform: uppercase;
+	xxtext-transform: uppercase;
+	position: absolute;
+	top: 0px;
+	padding-right:4px;
 }
 
 .sliderActivities .activitiesCatName.sport, .sliderActivities .activitiesItemName.sport {

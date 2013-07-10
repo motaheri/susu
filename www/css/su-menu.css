@@ -13,7 +13,7 @@ body > header:hover{
 }
 #menu{
     font-size:14px !important;
-    text-transform: uppercase;
+    xtext-transform: uppercase;
     font-family: 'NovecentowideUltraLightBold', arial;
     height:20px;
     margin-top: 12px;
@@ -27,6 +27,7 @@ body > header:hover{
 #menu-right{
     vertical-align:top;
     margin-top:12px;
+	margin-left:20px;
 }
 #menu-logo a{
     color:#fff !important;
@@ -42,7 +43,7 @@ body > header:hover{
     margin:0px;
 }
 #menu ul li{
-    xmargin-right:50px;
+    margin-right:20px;
 }
 #menu ul.menu-right{
     display:block;
@@ -120,4 +121,8 @@ li#menu-logo:hover{
 }
 #exposeMask{   
     z-index:800 !important;
+}
+.basket-icon{
+	height:20px;
+	margin-top:-20px;
 }

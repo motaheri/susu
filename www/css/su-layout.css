@@ -51,7 +51,7 @@
         margin: 0 auto;
     }
     #menu-right ul li{
-        margin-right:20px;
+        xmargin-right:20px;
     }
 	.advertteaser {
 		width: 195px !important;
@@ -71,7 +71,7 @@
         margin: 0 auto;
     }
     #menu-right ul li{
-        margin-right:50px;
+        xmargin-right:50px;
     }
 	.halfadvert{
 		display:inline-block !important;
