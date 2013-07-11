@@ -15,7 +15,7 @@
         background:#fff !important;
     }
     #mobile-nav{
-        display:block !important;
+        display: block !important;
         font-size: 54px !important;
     }
     #mobile-nav select{
@@ -74,7 +74,7 @@
         xmargin-right:50px;
     }
 	.halfadvert{
-		display:inline-block !important;
+		display: inline-block !important;
 	}
 	.advertteaser {
 		width: 155px !important;
@@ -195,8 +195,40 @@ hr.soft {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000',GradientType=1 ); /*IE6-8 */
 }
 
+article {
+	width: 70%;
+}
+
+article .content {
+	width: 90% !important;
+}
+
+article .content > p {
+	text-align: left;
+}
+
+aside {
+	width: 30%;
+	float: right;
+}
+
+div.content h3 {
+	padding-top: 10px;
+}
+
+.nav-exec {
+	position:relative;
+}
+
+.admin-people{
+	font-size: 12px;
+	position: absolute;
+	top: -20px;
+	left: 90px;
+}
+
 .white{
-	color:#fff;
+	color: #fff;
 }
 
 .news-container {
@@ -210,14 +242,14 @@ hr.soft {
 	width: 100%;
 	overflow: hidden;
 	background: #fefefe url('../img/noize.png');
-	padding:25px 0px;
+	padding: 25px 0px;
 }
 .events-container {
 	width: 100%;
 	overflow: hidden;
 	xxbackground: #222 url('../img/events-bg.jpg');
 	background-size: auto 80%; 
-	padding:25px 0px;
+	padding: 25px 0px;
 	xxcolor: #fff !important;
 }
 .footer-container {
@@ -230,13 +262,12 @@ hr.soft {
 	overflow: hidden;
 	xxbackground: #fefefe url('../img/socialmedia-bg.jpg');
 	padding: 25px 0px;
-		background-size: auto 80%; 
+	background-size: auto 80%; 
 }
 .blog-container {
 	width: 100%;
 	overflow: hidden;
 	xxbackground: #f5f5f5 url('../img/blog-bg-4.png');
-	
 	padding: 25px 0px;
 }
 .events-container  a{
@@ -246,15 +277,15 @@ hr.soft {
 #sulogo {
     height: 50px;
     margin: 0px;
-    margin-top:-5px;
+    margin-top: -5px;
     padding: 5px;
-    padding-top:0px;
+    padding-top: 0px;
     position: relative;
     opacity: 1.0;
     font-weight: bold;
     margin-left: 0px;
     margin-right: 100px;
-    font-size:12px !important;
+    font-size: 12px !important;
 }
 
 .su-menu{
@@ -279,10 +310,10 @@ hr.soft {
 }
 
 .su-menu img{
-    display:inline-block;
-    border:none !important;
-    padding:none !important;
-    margin:none !important;
+    display: inline-block;
+    border: none !important;
+    padding: none !important;
+    margin: none !important;
 }
 
 .menu-line{
@@ -290,7 +321,7 @@ hr.soft {
 }
 
 #mobile-nav{
-    display:none;
+    display: none;
 }
 
 div.seemore {
@@ -432,25 +463,23 @@ h2.container-header{
 	border-color:#0088CC;
 }
 .breadcrumb li:last-child a:after { border-left: 30px solid   #0088CC; }
-.breadcrumb li a:hover { background:  #0088CC; }
-.breadcrumb li a:hover:after { border-left-color:  #0088CC; !important; }
-.breadcrumb li a:hover:before { border-left-color:  #fff; !important; }
+.breadcrumb li a:hover { background: #0088CC; }
+.breadcrumb li a:hover:after { border-left-color: #0088CC; !important; }
+.breadcrumb li a:hover:before { border-left-color: #fff; !important; }
 
 		
 article, .info, .content{
 	font-size: 12px;
 }
+
 article h2{
-	margin-top:40px;
+	margin-top: 40px;
 }
+
 h2.title{
-	margin-bottom:10px;
+	margin-bottom: 10px;
 }
-		
-		
-		
-		
-		
+
 /* BOOTSTRAP NAV */
 
 .nav {
@@ -747,16 +776,16 @@ Footer
 *****/
 
 #my-events{
-	display:none;
+	display: none;
 }
 
 #footer{
-	display:block;
+	display: block;
 	white-space: nowrap;
 }
 .footer-left,.footer-middle,.footer-right{
 	height: 60px;
-	display:inline-block;
+	display: inline-block;
 	background: rgba(255, 255, 255, 0.9);
 	text-transform: uppercase;
 	font-size: 10px;
