@@ -110,6 +110,7 @@
 
 body {
     text-rendering: optimizeLegibility;
+	background: #f6f6f8 url(../img/gradient.jpg) repeat-x 0px 380px;
 }
 
 body > header {

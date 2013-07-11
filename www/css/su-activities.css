@@ -22,6 +22,10 @@
 	background-size: cover;
 }
 
+#aside ul.nav-list{
+	background: rgba(255, 255, 255, 0.5);
+}
+
 /*
  * Activities Landscape Slider
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
@@ -122,8 +126,7 @@ a.su-activity-category.selected img:hover {
 	position: absolute;
 	top: 0px;
 	padding-right:4px;
-}
-
+} 
 .sliderActivities .activitiesCatName.sport, .sliderActivities .activitiesItemName.sport {
 	background-color: #51a351;
 	background-color: #000;
@@ -132,3 +135,31 @@ a.su-activity-category.selected img:hover {
 	background-color: #BC5CA2;
 	background-color: #000;
 }
+
+
+			article {
+				width: 70%;
+			}
+			article .content {
+				width: 90% !important;
+			}
+			article .content > p {
+				text-align: left;
+			}
+			aside {
+				width: 30%;
+				float: right;
+			}
+			div.content h3 {
+				padding-top: 10px;
+			}
+
+			.nav-exec{
+				position:relative;
+			}
+			.admin-people{
+				font-size: 12px;
+				position: absolute;
+				top: -20px;
+				left: 90px;
+			}
