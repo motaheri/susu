@@ -67,14 +67,25 @@
 		background: #fff;
 	}
 	.login-logo{
-		background: #095292 url('../img/su-intranet-login.png') no-repeat 10px 5px;
 		display:inline-block;
-		pasdding:5px;
 		position:absolute;
-		xtop:0px;
-		xleft:0px;
 		height: 45px;
 		width:373px;
+	}
+	.a-swansea-uni-student .login-logo{
+		background: #095292 url('../img/su-intranet-login.png') no-repeat 10px 5px;
+		display:inline-block;
+		position:absolute;
+		height: 45px;
+		width:373px;
+	}
+	.a-guest .login-logo{
+			background: #3AAB30;
+			position:relative;
+	}
+	.staff .login-logo{
+			background: #D94A38;
+			position:relative;
 	}
 	#login-container{
 		margin-top: 20px;
@@ -123,10 +134,28 @@
 		display:none;
 		}
 		.a-guest{
-		background: rgba(22, 156, 10, 0.84);
-height: 295px;
-width: 370px;
+			background: rgba(22, 156, 10, 0.84);
+			height: 295px;
+			width: 370px;
 		}
+		.login input{
+			display:block;
+			position:relative;
+		}
+		.login input{
+			display:block;
+			position:relative;
+		}
+		#menu-container .mslwidget{
+		white-space: normal;
+		position: relative;
+padding: 15px;
+
+		}
+		#menu-container .msl_list{
+			background: transparent;
+		}
+		
 </style>
 	<script type="text/javascript">
  
@@ -153,10 +182,12 @@ width: 370px;
 			</div>
 		</div>
 		<div class="login-content a-guest green">
-				{include="login-gueststaff"}
+			<div class="login-logo">&nbsp;</div>
+			{include="login-gueststaff"}
 		</div>
 		<div class="login-content staff red">
-				{include="login-gueststaff"}
+			<div class="login-logo">&nbsp;</div>
+			{include="login-gueststaff"}
 		</div>
 		
 		
