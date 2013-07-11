@@ -31,6 +31,16 @@ Space for magic colors and sizes
 			div.content h3 {
 				padding-top: 10px;
 			}
+			.nav-exec{
+				position:relative;
+			}
+			.admin-people{
+				font-size: 12px;
+				position: absolute;
+				top: -20px;
+				left: 90px;
+			}
+
 		</style>
     </head>
     <body>
@@ -43,13 +53,17 @@ Space for magic colors and sizes
 						<li class="nav-header">Exec Committee</li>
 						<li class="nav-exec">
 							<img src="/img/activities/peopleBlank.jpg" />
-							<div>Josh Hayman</div>
-							<div>Societies and Services Officer</div>
+							<div class="admin-people">
+								<div>Josh Hayman</div>
+								<div>Societies and Services Officer</div>
+							</div>
 						</li>
 						<li class="nav-exec">
 							<img src="/img/activities/peopleBlank.jpg" />
-							<div>Rosie Hunnam</div>
-							<div>Societies and Services Coordinator</div>
+							<div class="admin-people">
+								<div>Rosie Hunnam</div>
+								<div>Societies and Services Coordinator</div>
+							</div>
 						</li>
 					</ul>
 				</aside>
@@ -70,12 +84,12 @@ Space for magic colors and sizes
         </div>
 		
         <article class="wrapper clearfix">
-			<div id="activitiesCategorySlider">
+			<div id="activitiesCategorySlider" class="activity-slider-group">
 				<h2 class="title">Society Categories</h2>
 				<div id="su-activitiesCat">
 				</div>
 			</div>
-			<div id="activitiesListSlider">
+			<div id="activitiesListSlider" class="activity-slider-group">
 				<h2 class="title" id="su-activitiesListHeader">Societies</h2>
 				<div id="su-activitiesList">
 				</div>

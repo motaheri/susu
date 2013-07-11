@@ -55,6 +55,9 @@
 	xxheight: 211px;
 	xxmargin: 5px;
 	xxtext-align: center;
+	border: 2px solid #000;
+}
+.selected .slider .slide .slide-inner{
 	border: 2px solid #BC5CA2;
 }
 
@@ -69,13 +72,16 @@
 		width: 1140px;
 	}	
 }
+.activity-slider-group{
+	height:195px;
+}
 
 #activitiesCategorySlider .slider:hover {
 	animation: none !important;
 	-webkit-animation: none !important;
 }
 a.su-activity-category img {
-	opacity: 0.8 !important;
+	opacity: 0.3 !important;
 }
 a.su-activity-category img:hover {
 	opacity: 1 !important;
@@ -92,6 +98,7 @@ a.su-activity-category.selected img:hover {
 .sliderActivities .activitiesCatName {
 	xxheight: 45px;
 	background-color: #51a351;
+	background-color: #000;
 	font-family: 'MuseoSans500';
 	font-size: 13pt;
 	color: white;
@@ -105,6 +112,7 @@ a.su-activity-category.selected img:hover {
 .sliderActivities .activitiesItemName {
 	xxheight: 45px;
 	background-color: #51a351;
+	background-color: #000;
 	font-family: 'MuseoSans500';
 	font-size: 13pt;
 	color: white;
@@ -118,7 +126,9 @@ a.su-activity-category.selected img:hover {
 
 .sliderActivities .activitiesCatName.sport, .sliderActivities .activitiesItemName.sport {
 	background-color: #51a351;
+	background-color: #000;
 }
 .sliderActivities .activitiesCatName.society, .sliderActivities .activitiesItemName.society {
 	background-color: #BC5CA2;
+	background-color: #000;
 }
