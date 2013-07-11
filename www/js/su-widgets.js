@@ -269,10 +269,22 @@ var SU_Widget = {
 			var link = $(document.createElement('a')).addClass('su-activity-category').attr('href', '#');
 			var img = $(document.createElement('img')).attr('src', './img/activities/cat' + o.replace(/\W/g,'') + ".png");
 			var title = $(document.createElement('div')).addClass('activitiesCatName').text(o);
+			if (i == 0) {
+				slide.addClass("selected");
+				link.addClass("selected");
+			}
 			title.addClass((typeName == "Sport" || typeName == "Sports") ? "sport" : "society");
-			$(link).append(img).append(title);
-			$(inner).append(link);
-			$(slide).append(inner);
+			link.append(img).append(title);
+			link.on('click', function (e) {
+				e.preventDefault();
+				$(targetselector).find('div.slide').removeClass('selected');
+				$(this).closest('div.slide').addClass('selected');
+				$(targetselector).find('a.su-activity-category').removeClass('selected');
+				$(this).addClass('selected');
+				SU_Widget.EventSlider_ActivitiesListSlider($(this).text(), "#su-activitiesList");
+			});
+			inner.append(link);
+			slide.append(inner);
 			$(slider).append(slide);
 		});
 		$(targetselector).append(slider);
@@ -303,7 +315,8 @@ var SU_Widget = {
 				$(slider).append(slide);
 			});
 			$(targetselector).append(slider);
-			$('#su-activitiesListHeader').text("Sports Clubs - " + catName);
+			var listType = activities[0].Type;
+			$('#su-activitiesListHeader').text(((listType == "Sport" || listType == "Sports") ? "Sports Clubs - " : "Societies - ") + catName);
 			$(targetselector).iosSlider({
 				snapToChildren: true,
 				scrollbar: false,

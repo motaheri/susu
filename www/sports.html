@@ -85,15 +85,10 @@ Space for magic colors and sizes
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
-				SU_Widget.EventSlider_ActivitiesCategorySlider("Sports", "#su-activitiesCat");
-				SU_Widget.EventSlider_ActivitiesListSlider("Ball Based Sports", "#su-activitiesList");
-				$('a.su-activity-category').first().addClass('selected');
-				$('a.su-activity-category').click(function (e) {
-					e.preventDefault();
-					$('a.su-activity-category').removeClass('selected');
-					$(this).addClass('selected');
-					SU_Widget.EventSlider_ActivitiesListSlider($(this).text(), "#su-activitiesList");
-				});
+				var activityType = "Sports";
+				var firstCat = SU_Data.activitiesData.filter(function(d) { return d.Type == activityType; })[0].Category;
+				SU_Widget.EventSlider_ActivitiesCategorySlider(activityType, "#su-activitiesCat");
+				SU_Widget.EventSlider_ActivitiesListSlider(firstCat, "#su-activitiesList");
 				$('#su-activitiesList').show();
 			});
 		</script>
