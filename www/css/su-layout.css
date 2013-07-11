@@ -800,3 +800,8 @@ Footer
 .footer-right{
 	width: 468px;
 }
+
+.hand{
+	cursor: pointer;
+	cursor: hand;
+}

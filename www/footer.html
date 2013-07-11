@@ -1,6 +1,5 @@
 <style>
 .two-column-left,.two-column-middle,.column-right{
-	height: 150px;
 	display:inline-block;
 	xxbackground: rgba(255, 255, 255, 0.4);
 	font-size: 10px;
@@ -12,8 +11,7 @@
  
 
 .two-column-left,.two-column-middle{
-width:445px;
-margin-right:10px;
+padding-right: 30px;
 } 
 #footer .column-right{
 width:220px;
@@ -80,7 +78,17 @@ a#flickr
     background-position: -370px 0;
     width: 60px;
 }
- 
+#back-up{
+	position: relative;
+	bottom: 40px;
+ }
+a.center{
+	position: absolute;
+	left: 50%;
+}
+a.center:hover{
+	opacity:0.5;
+}
 </style>
 
 
@@ -89,15 +97,29 @@ a#flickr
 				<div id="footer">  
 					<div class="wrapper">
 						<div class="two-column-left">
-							<h3>About</h3>
 							<p>
 							Swansea University Students' Union is here to support students and to make your experience the best it can be.
 							</p>
-							<p>We use cookies on this website to assist you logging into your account and improve your experience. By Using this website you agree to our term of use and also our cookie policy. Disable Cookies. (By Disabling cookies you will disable major functionality of this website).
 						</div>
-						
 						<div class="two-column-middle">
-							<h3>Stay Connected</h3>
+							<p>
+							Students' Union, 
+							Swansea University, 
+							Union House, 
+							Singleton Park, 
+							Swansea, 
+							SA2 8PP
+							</p>
+						</div>
+						<div class="two-column-middle">
+							<p><strong>Contact:</strong><br/>
+							t: 01792 29 5466<br/>
+							f: 01792 20 6029<br/>
+							e: info@swansea-union.co.uk
+							</p>
+						</div>
+						<div class="two-column-middle">
+							<!--
 							<div id="social-links">
 								<a href="https://www.facebook.com/swanseauniversitystudentsunion" target="_blank" id="facebook"></a>
 								<a href="https://twitter.com/SwanseaUnion" target="_blank" id="twitter"></a>
@@ -105,22 +127,12 @@ a#flickr
 							</div>
 							<!--<h3>Sponsors</h3>-->
 						</div>
-						
-						<div class="column-right">
-							<h3>Address</h3>
-							<p>
-							Students' Union<br/>
-							Swansea University<br/>
-							Union House<br/>
-							Singleton Park<br/>
-							Swansea<br/>
-							SA2 8PP<br/>
-
-							t: 01792 29 5466<br/>
-							f: 01792 20 6029<br/>
-							e: info@swansea-union.co.uk
-							</p>
+						<div id="back-up" class="hand"> 
+							<a class="center">
+								<img src="./img/up.png"/>
+							</a>
 						</div>
+
 					</div>
 				</div>
 			</footer>
