@@ -44,7 +44,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('body').not('#menu').not('.menu-content').click(function() {
+	$('body').click(function() {
 		$('#menu li').removeClass('menu-link-hover');
 		if($('.menu-content').is(":visible")){
 			$('.menu-content').hide();
@@ -52,7 +52,7 @@ $(document).ready(function(){
 		}
 	});
 	 
-	$('#menu-right').click(function(event){
+	$('#menu,.menu-content').click(function(event){
 		event.stopPropagation();
 	});
 	
