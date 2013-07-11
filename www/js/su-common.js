@@ -164,6 +164,13 @@
 					}
 				});
 				resetDeepLinks();
+				
+				/* Scroll to top */ 
+				$('#back-up').click(function () {
+					$('html, body').animate({scrollTop: 0}, 'slow');
+				});
+				$('#ctl00_ctl11_lnkForgottenPassword').addClass('m-btn purple resetpass');
+				
 			});
 			
 			
@@ -257,10 +264,7 @@
 			}
 			
 			
-			/* Scroll to top */ 
-			$('#back-up').click(function () {
-				$('html, body').animate({scrollTop: 0}, 'slow');
-			});
+
 
 			
 			/*
