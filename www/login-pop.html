@@ -4,7 +4,7 @@
 	
 	<style>
 	html{
-		xbackground:#000;
+		xxbackground:#000;
 	}
 	.iframe-pop-container {
 		width: 367px;
@@ -146,16 +146,45 @@
 			display:block;
 			position:relative;
 		}
-		#menu-container .mslwidget{
-		white-space: normal;
-		position: relative;
-padding: 15px;
-
+		.login-content .mslwidget{
+			white-space: normal;
+			position: relative;
+			padding: 15px;
 		}
 		#menu-container .msl_list{
 			background: transparent;
 		}
-		
+		.login-font{
+			color: #fff;
+			font-size: 25px;
+			padding-left: 15px;
+			display: block;
+			padding-top: 10px;
+		}
+		.login-gueststaff .mslwidget{
+			color: #fff
+		}
+		#ctl00_ctl11_btnLogin{
+			margin-top: 10px;
+			float: right;
+			position: absolute;
+			top: 20px;
+			left: 190px;
+			height: 60px;
+			width: 130px;
+		}
+		.login-content .msl_list{
+			float: right;
+			margin-right: 50px !important;
+		}
+		.login-content{
+			height: 295px;
+			width: 373px;
+		}
+		.login-content.red{
+			background: #D94A38;
+			border: 1px solid #D94A38;
+		}
 </style>
 	<script type="text/javascript">
  
@@ -176,17 +205,17 @@ padding: 15px;
 			
 			<div class="iframe-pop-container">
 				 
-				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" <!--onLoad="reloadLogin()"-->></iframe>
+				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" <!--onLoad="reloadLogin()"--></iframe>
 				 
 				<br / >
 			</div>
 		</div>
 		<div class="login-content a-guest green">
-			<div class="login-logo">&nbsp;</div>
+			<div class="login-logo"><span class="login-font">Guest</span></div>
 			{include="login-gueststaff"}
 		</div>
 		<div class="login-content staff red">
-			<div class="login-logo">&nbsp;</div>
+			<div class="login-logo"><span class="login-font">Staff</span></div>
 			{include="login-gueststaff"}
 		</div>
 		
