@@ -5,6 +5,17 @@
             function resetHashUrl() {
                 $.address.value('/ ');
             }
+			function resetDeepLinks() {
+				$('a[rel="deep"]').unbind('click');
+				$('a[rel="deep"]').click(function(e) {
+					$('.js_lb_overlay').remove();
+					e.preventDefault();
+					var url = $(this).attr('href');
+					if ($.address.value() != url) {
+						$.address.value(url == '/' ? '/ ' : url);
+					}
+				});
+			}
             function contentHandler_Event(eventObj) {
                 $('.sulb-inner.event .buy button').unbind('click');
                 $('.sulb-inner.event .buy button').click(function () {
@@ -47,15 +58,7 @@
 					});
 				}
                 suLightBox('#events-lightbox', eventObj);
-				$('a[rel="deep"]').unbind('click');
-				$('a[rel="deep"]').click(function(e) {
-					$('.js_lb_overlay').remove();
-					e.preventDefault();
-					var url = $(this).attr('href');
-					if ($.address.value() != url) {
-						$.address.value(url == '/' ? '/ ' : url);
-					}
-				});
+				resetDeepLinks();
             }
             function contentHandler_Blog(blogObj) {
 				console.log(blogObj);
@@ -73,9 +76,9 @@
 				var imgSrc = setUrlParameters(newsObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 				$('#news-lightbox h2.title').html(newsObj.Title);
 				$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
-				$('#news-lightbox p.info span.organisation').text(newsObj.Organisation);
-				$('#news-lightbox p.info span.date').text(newsObj.Date.format('dddd, dS mmmm yyyy'));
-				$('#news-lightbox div.desc').html(newsObj.Story);
+				$('#news-lightbox div.organisation').text(newsObj.Organisation);
+				$('#news-lightbox div.date').text(newsObj.Date.format('dddd, dS mmmm yyyy'));
+				$('#news-lightbox div.content').html(newsObj.Story);
 				$('#news-lightbox div.sulb-author').html(newsObj.Organisation);
                 suLightBox('#news-lightbox', newsObj);
             }
@@ -155,16 +158,12 @@
 						// If not, redirect to the standalone News page
 						window.location = event.value;
 					}
-				});
-				$('a[rel="deep"]').unbind('click');
-				$('a[rel="deep"]').click(function(e) {
-					$('.js_lb_overlay').remove();
-					e.preventDefault();
-					var url = $(this).attr('href');
-					if ($.address.value() != url) {
-						$.address.value(url == '/' ? '/ ' : url);
+					else {
+						// If not, redirect to the standalone page
+						window.location = event.value;
 					}
 				});
+				resetDeepLinks();
 			});
 			
 			

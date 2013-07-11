@@ -4,28 +4,6 @@
              */
             $(document).ready(function() {
                 SU_Widget.NewsWidget('newsmain', '#isonews', 10);
-            });
-			
-			/*
-			 * EVENTS
-			 */
-            $(document).ready(function() {
-                SU_Widget.EventSlider_Portrait('eventsmain','#su-eventsPortrait');
-				SU_Widget.EventSlider_Filter('eventsmain', '#su-eventsPortraitFilter', '#su-eventsPortrait', ['Club Nights', 'Live Music', 'Special Events']);
-                SU_Widget.EventSlider_Landscape('eventsmain','#su-eventsLandscape');
-            });
-            
-            /*
-             * BLOGS
-             */
-            $(document).ready(function() {
-                SU_Widget.BlogWidget('officerblogs', '#officer-blogs', 5);
-            });
-            
-            /*
-             * NEWS ISOTOPE
-             */
-            $(function(){
                 $('#isonews').isotope({
                     itemSelector : '.news',
                     layoutMode: 'masonry',
@@ -52,6 +30,22 @@
             };
             $(window).resize(function() {
                 isoNewsFilter();
+            });
+			
+			/*
+			 * EVENTS
+			 */
+            $(document).ready(function() {
+                SU_Widget.EventSlider_Portrait('eventsmain','#su-eventsPortrait');
+				SU_Widget.EventSlider_Filter('eventsmain', '#su-eventsPortraitFilter', '#su-eventsPortrait', ['Club Nights', 'Live Music', 'Special Events']);
+                SU_Widget.EventSlider_Landscape('eventsmain','#su-eventsLandscape');
+            });
+            
+            /*
+             * BLOGS
+             */
+            $(document).ready(function() {
+                SU_Widget.BlogWidget('officerblogs', '#officer-blogs', 5);
             });
             
             /*

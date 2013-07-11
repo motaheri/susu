@@ -7,6 +7,7 @@
 <!-- Every Page -->
 <script type="text/javascript" src="js/jquery.address-1.5.min.js"></script> <!-- Links -->
 <script type="text/javascript" src="js/jquery.lightbox_me.js"></script> <!-- Lightbox -->
+<script type="text/javascript" src="js/jquery.typeahead.js"></script> <!-- Menu Typeahead -->
 <script type="text/javascript" src="js/jquery.menufication.min.js"></script> <!-- Menufication -->
 
 <!-- This Page -->
@@ -19,19 +20,7 @@
 <!-- SU Scripts-->
 <script type="text/javascript" src="js/su-data-2.0.js"></script>
 <script type="text/javascript" src="js/su-widgets.js"></script>
+<script type="text/javascript" src="js/su-menu.js"></script> <!-- Menu -->
 <script type="text/javascript" src="js/su-common.js"></script>
 
 <!-- Important: SU_Data must be loaded before any other JS which uses Widget Data -->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(window).scroll(function() {
-			if ($(window).scrollTop() < 10) {
-				$('body > header.mike').css('opacity', '1');
-			}
-			else {
-				$('body > header.mike').css('opacity', '');
-			}
-		});
-		$(window).scroll();
-	});
-</script>

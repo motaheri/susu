@@ -88,6 +88,7 @@ var SU_Widget = {
 		$(targetSelector + ' div.title').each(function() {
 			$(this).wrapLines('<div class="title">', '</div>');
 		})
+		resetDeepLinks();
 	},
 	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes, validVenues) {
 		if (typeof(validTypes) == 'undefined')

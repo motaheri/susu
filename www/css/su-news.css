@@ -248,3 +248,32 @@
 #isonews .news.big .news-inner div.description {
 	margin-left: 15px; /* Why is there a need for different margins on .big? */
 }
+
+/*
+ * SINGLE PAGE NEWS STYLING
+ */
+
+.news-single {
+}
+
+.news-single article {
+	width: 100%;
+}
+
+.news-single article h2.title {
+	padding-top: 15px;
+}
+
+.news-single article .content {
+	width: 100%;
+}
+
+.news-single article .content > p {
+	text-align: justify;
+}
+
+.news-single aside {
+	width: 30%;
+	float: right;
+	padding-left: 25px;
+}

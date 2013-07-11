@@ -67,8 +67,13 @@ div.sulb div.sulb-inner.blog p.info span.highlight {
  * NEWS LIGHTBOX
  */
 
+div.sulb div.sulb-inner.news aside {
+	width: 35%;
+	float: right;
+}
+
 div.sulb div.sulb-inner.news h2.title {
-	xpadding: 20px 40px 0px 40px;
+	padding: 15px 0px;
 }
 
 div.sulb div.sulb-inner.news p {
@@ -76,12 +81,14 @@ div.sulb div.sulb-inner.news p {
 }
 
 div.sulb div.sulb-inner.news img.lead {
-	max-width: 220px;
-	max-height: 311px;
-	float: left;
+	max-width: 300px;
+	max-height: 320px;
 	margin: 10px 20px 10px 20px;
 }
 
+div.sulb div.sulb-inner.news div.content {
+	padding: 0px 30px 15px 30px;
+}
 
 div.sulb div.sulb-inner.news p.info {
 	font-style: italic;
