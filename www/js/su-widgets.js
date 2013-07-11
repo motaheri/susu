@@ -260,6 +260,7 @@ var SU_Widget = {
 		$(targetselector).find('div').remove();
 		$(targetselector).addClass('sliderActivities');
 		var slider = $(document.createElement('div')).addClass('slider');
+		$(targetselector).addClass((typeName == "Sport" || typeName == "Sports") ? "sport" : "society");
 		var categories = SU_Data.getActivities()
 								.filter(function(d) { return d.Type == typeName; })
 								.map(function(d) { return d.Category; }).getUnique();
@@ -303,6 +304,9 @@ var SU_Widget = {
 			var slider = $(document.createElement('div')).addClass('slider');
 			var activities = SU_Data.getActivities().filter(function(d) { return d.Category == catName; });
 			jQuery.each(activities, function(i, o) {
+				if (i == 0) {
+					$(targetselector).addClass((o.Type == "Sport" || o.Type == "Sports") ? "sport" : "society");
+				}
 				var slide = $(document.createElement('div')).addClass('slide');
 				var inner = $(document.createElement('div')).addClass('slide-inner');
 				var link = $(document.createElement('a')).attr('href', '#');
