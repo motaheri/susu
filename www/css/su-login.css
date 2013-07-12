@@ -1,12 +1,8 @@
-
 .iframe-pop-container {
     width: 367px;
     height: 245px;
     background: #095292;
     position: absolute;
-    xtop: 0px;
-    xleft: 0px;
-    xdisplay: none;
     overflow: hidden;
     margin-top: 45px;
     border: 3px solid #095292;
@@ -41,7 +37,6 @@
     left: -78px;
     width: 524px;
     height: 465px;
-    xtop: -100px;
     -moz-transform: scale(0.85, 0.85);
     -webkit-transform: scale(0.85, 0.85);
     -o-transform: scale(0.85, 0.85);
@@ -52,11 +47,8 @@
     -o-transform-origin: top left;
     -ms-transform-origin: top left;
     transform-origin: top left;
-    xborder: solid #ccc 10px;
     background: #d00;
     overflow: hidden;
-    xborder-top: 20px solid #b00;
-    xborder-left: 20px solid #b00;
     background: #fff;
 }
 .login-logo {
@@ -65,14 +57,14 @@
     height: 45px;
     width: 373px;
 }
-.a-swansea-uni-student .login-logo {
+.swansea-uni-student .login-logo {
     background: #095292 url('../img/su-intranet-login.png') no-repeat 10px 5px;
     display: inline-block;
     position: absolute;
     height: 45px;
     width: 373px;
 }
-.a-guest .login-logo {
+.guest .login-logo {
     background: #3AAB30;
     position: relative;
 }
@@ -86,7 +78,7 @@
 .login-button-group {
     margin: 0px;
     padding: 0px;
-    margin-left: 15px;
+    margin-left: 10px;
     right: 0px;
     top: 0px;
 }
@@ -97,6 +89,7 @@
     font-weight: bold;
     vertical-align: middle !important;
     margin-right: 0px;
+	display:none !important;
 }
 .underline { text-decoration: underline }
 .m-btn {
@@ -110,7 +103,7 @@
     float: right;
 }
 .menu-content { min-height: 350px }
-.a-guest,
+.guest,
 .staff { display: none }
 .login input {
     display: block;
@@ -156,14 +149,14 @@
     width: 373px;
 }
 .login-content.red {
-    background: #D94A38;
-    border: 1px solid #D94A38;
+    background: rgba(217, 74, 56, 0.83);
+    border: 1px solid #d84a38;
 }
 .login-content.green {
-    background: rgba(22, 156, 10, 0.84);
-    border: 1px solid rgba(22, 156, 10, 0.84);
+    background: rgba(53, 170, 71, 0.73);
+    border: 1px solid #35aa47;
 }
 .resetpass { margin-top: 45px !important }
 .staff .msl_list .new-guest,
-.a-guest .msl_list .new-staff { display: none !important }
+.guest .msl_list .new-staff { display: none !important }
 .login-gueststaff { font-size: 16px }

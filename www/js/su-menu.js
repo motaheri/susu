@@ -132,6 +132,8 @@ Change the Teaser Image and description in the Menu
 **/
 
 $(document).ready(function() {
+   var defaultImg = $('.teaser-image img').attr('src');
+   var defaultTxt = $('#menu-page-teaser .teaser-text p').html();
    $('#menu-items li').each(function() {
 	  var $img = $(this).find('img');
 	  if($img.attr('src')){
@@ -139,18 +141,20 @@ $(document).ready(function() {
 		}else{
 			var link = '';
 		}
-	  var description = $(this).find('.msl-imagenav-description').text();
+	  var description = $(this).find('.msl-imagenav-description').text().replace(/\|/g,"</br>");
 	  //alert(description);
 	  $(this).hover(
 		function(){
 			$('.teaser-image img').attr("src",link);
 			$('.teaser-image img').show();
-			$('#menu-page-teaser .teaser-text p').text(description);
+			$('#menu-page-teaser .teaser-text p').html(description);
 			$('#menu-page-teaser .teaser-text p').show();
 			return false;
 		},function(){
-			$('.teaser-image img').hide();
-			$('#menu-page-teaser .teaser-text p').hide();
+			$('.teaser-image img').attr("src",defaultImg);
+			$('.teaser-image img').show();
+			$('#menu-page-teaser .teaser-text p').html(defaultTxt);
+			$('#menu-page-teaser .teaser-text p').show();
 		}
 		
 	  );
@@ -173,7 +177,7 @@ $(document).ready(function() {
 			//$('#login-container .login-button-group li').removeClass('menu-link-hover'); 
 			var menuLink = $(this).text().toLowerCase().replace(/ /g,"-");
 			if($('.'+menuLink).is(":visible")){
-				$('.'+menuLink).hide();
+				//$('.'+menuLink).hide();
 				//$.mask.close();
 			}else{
 				//$('#login-container .login-button-group li').removeClass('menu-link-hover');
