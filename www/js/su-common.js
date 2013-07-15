@@ -160,7 +160,7 @@
 					}
 					else {
 						// If not, redirect to the standalone page
-						window.location = event.value;
+						//window.location = event.value;
 					}
 				});
 				resetDeepLinks();
