@@ -354,7 +354,7 @@ h2.container-header{
 	margin-top:40px;
 }
 
-.headericon{
+.headericon.ticket-icon{
 	vertical-align: top;
 	margin-top: 4px;
 }
@@ -362,6 +362,8 @@ h2.container-header{
 #events, #my-events{
     margin: 40px 0px 0px 0px;
 }
+ 
+
 /*
  * GENERIC COLORS
  */
