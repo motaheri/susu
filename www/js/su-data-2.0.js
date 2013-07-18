@@ -154,7 +154,6 @@ var SU_Data = {
 	/* --------------------------------
 	 * Data Objects/Arrays
 	 * -------------------------------- */
-	memberships: [],
 	eventBrands: [],
 	eventData: {},
 	eventOrganisations: [],
@@ -229,18 +228,11 @@ var SU_Data = {
 		},
 		loadMemberships: function () {
 			SU_Data.membershipsData = [];
-			/****************** Based on this preview code 
-			<dl class="memberships">
-			<dt data-msl-grouping-id="6487"><a href="/activities/6487/" class="membership" id="ctl00_memberships_rptMemberships_ctl00_lnkOrganisation">ACS</a></dt>
-							 <dd data-msl-organisation-id="6487" data-msl-groupingid="6488">Standard Membership </dd>
-			…
-			</dl>	
-			*******************/
 			$('div.mslwidget#MyMemberships dl.memberships').each(function () {
-				var membership = new SU_Data.types.activitiesObj();
+				var membership = new SU_Data.types.membershipObj();
 				membership.Name = $(this).find('a.membership').text();
 				membership.Link = $(this).find('a.membership').attr('href');
-				membership.OrganisationID = $(this).find('dt').attr('data-msl-organisation-id');
+				membership.OrganisationID = $(this).attr('data-msl-organisation-id');
 				SU_Data.membershipsData.push(membership);
 				$(this).parent().parent().remove();
 			});
@@ -653,6 +645,26 @@ var SU_Data = {
 	},
 	getActivities: function () {
 		return SU_Data.activitiesData;
+	},
+	getMyEvents: function(eventList, limit) {
+		// Check the event list is valid
+		if (typeof(eventList) != 'string' || typeof(SU_Data.eventData[eventList]) != 'object') {
+			return [];
+		}
+		// Default limit if none given
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		// My Memberships must be: count > 0
+		if (SU_Data.membershipsData.length == 0) {
+			return [];
+		}
+		// Get My Memberships
+		var memberships = SU_Data.membershipsData.map(function(d) { return d.OrganisationID; });
+		// Filter events in the given widget based on memberships
+		return SU_Data.eventData[eventList].filter(function(d) {
+			return memberships.indexOf(d.OrganisationID) > -1;
+		});
 	}
 };
 
