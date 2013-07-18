@@ -301,3 +301,6 @@ right: 0px;
 width: 950px;
 float:right;
 }
+.menu-content.login{
+min-height: 350px;
+}
