@@ -100,9 +100,7 @@
 .login-content { margin-left: 10px }
 .menu-content.login {
     width: 390px;
-    float: right;
 }
-.menu-content { min-height: 350px }
 .guest,
 .staff { display: none }
 .login input {

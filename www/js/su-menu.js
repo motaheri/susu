@@ -30,7 +30,7 @@ $(document).ready(function(){
 		if(linkRel != 'page'){
 			e.preventDefault();
 			$('#menu li').removeClass('menu-link-hover'); 
-			var menuLink = $(this).text().toLowerCase();
+			var menuLink = $(this).text().toLowerCase().trim();
 			if($('.'+menuLink).is(":visible")){
 				$('.'+menuLink).hide();
 				$.mask.close();
