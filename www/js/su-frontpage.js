@@ -39,6 +39,8 @@
                 SU_Widget.EventSlider_Portrait('eventsmain','#su-eventsPortrait');
 				SU_Widget.EventSlider_Filter('eventsmain', '#su-eventsPortraitFilter', '#su-eventsPortrait', ['Club Nights', 'Live Music', 'Special Events']);
                 SU_Widget.EventSlider_Landscape('eventsmain','#su-eventsLandscape');
+				var myOrgs = SU_Data.membershipsData.map(function(d) { return d.Name; }).sort();
+				SU_Widget.EventSlider_Filter('eventsmain', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
             });
             
             /*
