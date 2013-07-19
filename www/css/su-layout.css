@@ -773,33 +773,29 @@ h2.title{
 
 
 
-/*****
-Footer
-*****/
+/******
+ Footer
+ ******/
 
-#my-events{
-	display: none;
-}
-
-#footer{
+#footer {
 	display: block;
 	white-space: nowrap;
 }
-.footer-left,.footer-middle,.footer-right{
+.footer-left, .footer-middle, .footer-right {
 	height: 60px;
 	display: inline-block;
 	background: rgba(255, 255, 255, 0.9);
 	text-transform: uppercase;
 	font-size: 10px;
 }
-.footer-left{
+.footer-left {
 	width: 468px;
 }
-.footer-middle{
+.footer-middle {
 	width: 425px;
 	margin-left: 30px;
 }
-.footer-right{
+.footer-right {
 	width: 468px;
 }
 
