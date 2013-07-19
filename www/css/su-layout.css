@@ -348,6 +348,8 @@ h2,h3{
 
 #main h2{
 	margin-left: 0px; /* why do we need this? */
+	margin-bottom: 5px;
+	color:#444;
 }
 
 h2.container-header{
@@ -358,7 +360,12 @@ h2.container-header{
 	vertical-align: top;
 	margin-top: 4px;
 }
-
+.headericon.news-icon{
+	margin-bottom: -6px; 
+}
+.headericon.media-icon{
+	margin-bottom: -4px;
+}
 #events, #my-events{
     margin: 40px 0px 0px 0px;
 }
