@@ -236,7 +236,6 @@ div.content h3 {
 	overflow: hidden;
 	xxbackground: #f5f5f5 url('../img/news-bw-light.jpg') !important;
 	background-size: auto 50%; 
-	padding-bottom: 15px;
 }
 .carousel-container {
 	width: 100%;
@@ -249,7 +248,6 @@ div.content h3 {
 	overflow: hidden;
 	xxbackground: #222 url('../img/events-bg.jpg');
 	background-size: auto 80%; 
-	padding: 25px 0px;
 	xxcolor: #fff !important;
 }
 .footer-container {
@@ -261,14 +259,12 @@ div.content h3 {
 	width: 100%;
 	overflow: hidden;
 	xxbackground: #fefefe url('../img/socialmedia-bg.jpg');
-	padding: 25px 0px;
 	background-size: auto 80%; 
 }
 .blog-container {
 	width: 100%;
 	overflow: hidden;
 	xxbackground: #f5f5f5 url('../img/blog-bg-4.png');
-	padding: 25px 0px;
 }
 .events-container  a{
 	xxcolor: #fff !important;
@@ -333,6 +329,9 @@ div.seemore {
 	margin-top: 25px;
 	text-align: right;
 }
+.index-page .seemore{
+	display:none;
+}
 div.seemore a {
 	text-decoration: none;
 }
@@ -364,10 +363,11 @@ h2.container-header{
 	margin-bottom: -6px; 
 }
 .headericon.media-icon{
-	margin-bottom: -4px;
+	margin-bottom: -2px;
+	zoom: 0.8;
 }
-#events, #my-events{
-    margin: 40px 0px 0px 0px;
+.headericon.blog-icon{
+	zoom: 0.9;
 }
  
 

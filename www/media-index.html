@@ -1,33 +1,26 @@
-<div class="media-container">
-	<div class="wrapper">
-		<h2 class="white">Social Media</h2>
-			<link rel="stylesheet" type="text/css" href="media/css/dcsns_wall.css" media="all" />
-			<link rel="stylesheet" type="text/css" href="media/css/custom.css" media="all" />
-	
-			<style type="text/css">
-				#wall {
-					padding: 10px 0 0;
-					min-height: auto;
-				}
-				.dcsns {
-					background: inherit;
-					border-radius: 0px;
-					-webkit-border-radius: 0px;
-					padding: 0;
-				}
-				.dcsns-content {
-					height: auto;
-				}
-				#main h2 {
-					margin-left: 0px;
-				}
-			</style>
-			<div id="container"> 
-				<div id="wall">
-					<div id="social-stream"></div>
-					<div class="clear" style="margin-bottom: 20px;"></div>
-				</div>
-			</div>
- 
-	</div>
-</div>
+<!DOCTYPE html>
+<!-- 
+Space for magic colors and sizes
+    Sky blue RGB: 135, 206, 235, HEX: #87CEEB;
+    Font sans-serif: Cantarell, Doppio One
+    Font serif: Bitter
+
+-->
+<html>
+    <head>
+        <title>Swansea Student Events</title>
+        
+        {include="meta"}
+        {include="head"}
+
+    </head>
+    <body>
+        {include="menu"}
+        <div id="main" class="learfix"> 
+			{include="media-index"} 
+        </div>
+        {include="footer"}
+        {include="scripts-media"}
+        {include="scripts-facebook"}
+    </body>
+</html>

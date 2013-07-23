@@ -42,7 +42,7 @@
  * A4 Portrait Slider
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
  */
-.sliderPortrait {
+.sliderPortrait,.sliderSmall{
 	position: relative;
 	top: 0;
 	left: 0;
@@ -50,36 +50,35 @@
 	width: 684px;
 	height: 372px; /* 322 + 50 */
 }
-.sliderPortrait .slider {
+.sliderPortrait .slider, .sliderSmall .slider {
 	width: 100%;
 	height: 100%;
 }
-.sliderPortrait .slider .slide {
+.sliderPortrait .slider .slide,.sliderSmall .slider .slide {
 	float: left;
 	width: 228px;
 	height: 372px; /* 322 + 50 */
 	padding-right:25px;
 }
-.sliderPortrait .slider .slide .slide-inner {
+.sliderPortrait .slider .slide .slide-inner,.sliderSmall .slider .slide .slide-inner  {
 	width: 218px;
 	height: 360px; /* 312 + 48 */
 }
+
+
 
 /*
  * Small Landscape Slider
  * DO NOT CHANGE - CUSTOMISE AT BOTTOM
  */
 .sliderSmall {
-	position: relative;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	width: 684px;
 	height: 221px;
 }
-.sliderSmall .slider {
-	width: 100%;
-	height: 100%;
+.sliderSmall .slider .slide {
+	height: 221px;
+}
+.sliderSmall .slider .slide .slide-inner {
+	height: 211px;
 }
 /*
 .sliderPortrait:before, .sliderSmall:before {
@@ -110,18 +109,6 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', endColorstr='#cc222222',GradientType=1 );
 }
 */
-
-.sliderSmall .slider .slide {
-	float: left;
-	width: 228px;
-	height: 221px;
-}
-
-.sliderSmall .slider .slide .slide-inner {
-	width: 218px;
-	height: 211px;
-	margin: 5px;
-}
 
 /*
  * Dynamic Size Media Queries
@@ -214,11 +201,16 @@
  */
 div.sliderFilter {
 	float: right;
-	line-height: 37px;
 	vertical-align: middle;
 	font-family: 'MuseoSans300';
 	margin-bottom: 10px;
 }
 div.sliderFilter div.m-btn {
-	padding: 5px 14px;
+	xpadding: 5px 14px;
+}
+.m-btn-group .m-btn:first-child {
+margin-left: 15px !important;
+}
+.m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, .m-btn-group + .m-btn-group {
+margin-left: 0px !important;
 }
