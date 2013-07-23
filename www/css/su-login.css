@@ -92,7 +92,7 @@
 	display:none !important;
 }
 .underline { text-decoration: underline }
-.m-btn {
+#menu .m-btn {
     zoom: .8;
     margin: 0px !important;
 }

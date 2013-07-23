@@ -323,7 +323,7 @@ var SU_Data = {
 					if ($(this).find('img').length == 1) {
 						event.Image = $(this).find('img').first().attr('src');
 						event.Image = event.Image.substring(0, event.Image.indexOf('?'));
-						event.Image = event.Image + '?' + $.param({thumbnail_width: 212, thumbnail_height: 300, fill_colour: '000000'});
+						event.Image = event.Image + '?' + $.param({thumbnail_width: 218, thumbnail_height: 308, fill_colour: '000000'});
 					}
 					// push it into the events array
 					events.push(event);
