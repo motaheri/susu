@@ -41,8 +41,9 @@
 	overflow: hidden;
 	padding: 10px;
 	position: relative;
-	background: url('../img/blog-post-bg.gif') repeat-x;
+	background: url('../img/yellow-notepad.png') repeat-x;
 	background-size: 225px auto;
+	padding-top: 30px;
 }
 
 .su-blog-post-inner div.title {
