@@ -114,12 +114,26 @@
  * Dynamic Size Media Queries
  */
 @media only screen and (max-width: 683px) {
+	.sliderFilter {
+		display: none !important;
+	}
+	.su-eventsSubTitle {
+		display: none;
+	}
 }
 @media only screen and (min-width: 684px) {
+	.su-eventsSubTitle {
+		display: none;
+	}
 }
 @media only screen and (min-width: 912px) {
 	.sliderPortrait, .sliderSmall {
 		width: 912px;
+	}
+	.su-eventsSubTitle {
+		display: inline-block;
+		margin-left: 30px;
+		font-style: italic;
 	}
 }
 @media only screen and (min-width: 1140px) {
@@ -226,12 +240,12 @@ div.sliderFilter {
 	font-family: 'MuseoSans300';
 	margin-bottom: 10px;
 }
+
 div.sliderFilter div.m-btn {
-	xpadding: 5px 14px;
+	padding: 5px 14px;
 }
-.m-btn-group .m-btn:first-child {
-margin-left: 15px !important;
+div.sliderFilter .m-btn-group .m-btn:first-child {
+	margin-left: 15px !important;
 }
-.m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, .m-btn-group + .m-btn-group {
-margin-left: 0px !important;
-}
+div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, .m-btn-group + .m-btn-group {
+	margin-left: 0px !important;

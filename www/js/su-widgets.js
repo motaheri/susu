@@ -162,7 +162,12 @@ var SU_Widget = {
 		else if (filterType == 'venue') {
 			eventsList = SU_Data.getOrganisationEvents(mslWidgetId, selected).map(function (d) { return d.EventID; });
 		}
-		SU_Widget.EventSlider_Portrait(mslWidgetId, targetselector, eventsList);
+		if ($(targetselector).hasClass('sliderSmall')) {
+			SU_Widget.EventSlider_Landscape(mslWidgetId, targetselector, eventsList);
+		}
+		else {
+			SU_Widget.EventSlider_Portrait(mslWidgetId, targetselector, eventsList);
+		}
 	},
 	EventSlider_Portrait: function(mslWidgetId, targetselector, filterEventIds) {
 		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];
@@ -270,6 +275,10 @@ var SU_Widget = {
 			desktopClickDrag: true,
 			infiniteSlider: false
 		});
+		$(targetselector).on("webkitAnimationStart", SU_Widget.sliderAnimListener);
+		$(targetselector).on("webkitAnimationEnd", SU_Widget.sliderAnimListener);
+		$(targetselector).on("animationstart", SU_Widget.sliderAnimListener);
+		$(targetselector).on("animationend", SU_Widget.sliderAnimListener);
 	},
 	EventSlider_ActivitiesCategorySlider: function(typeName, targetselector) {
 		$(targetselector).find('div').remove();
