@@ -9,6 +9,6 @@
 
 	//initialize a Rain TPL object
 	$tpl = new RainTPL;
-	$tpl->draw( 'sports' );
+	$tpl->draw( 'template_sports' );
 ?>
 

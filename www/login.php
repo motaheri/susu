@@ -9,6 +9,6 @@
 
 	//initialize a Rain TPL object
 	$tpl = new RainTPL;
-	$tpl->draw( 'login-pop' );
+	$tpl->draw( 'snippet_login-pop' );
 ?>
 

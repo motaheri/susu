@@ -9,6 +9,6 @@
 
 	//initialize a Rain TPL object
 	$tpl = new RainTPL;
-	$tpl->draw( 'activity-single' );
+	$tpl->draw( 'template_activity-single' );
 ?>
 
