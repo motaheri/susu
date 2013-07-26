@@ -192,29 +192,6 @@ var SU_Data = {
 			});
 		},
 		loadMenu: function () {
-			/****************** Menu Code
-			<div id="menu-items">
-				<div class="democracy menu-list">
-					<h1>Democracy</h1>
-						<div id="democracy-menu-id" class="mslwidget democracy-menu-css msl-imagenav">
-							<ul>
-								<li><a href="/democracy/officers/">
-									<span class="msl-imagenav-title">Officers</span>
-										<img id="ctl00_democracymenu_rptNavigation_ctl01_imgPlaceholder" class="msl-imagenav-image" src="../pageassets/democracy/officers/325x229.gif?thumbnail=true&amp;height=229&amp;width=325&amp;resize_type=CropToFit" style="border-width:0px;" />
-									<span class="msl-imagenav-description">Your Elected Officers</span>
-									</a>
-								</li>
-								<li><a href="/democracy/studentforum/">
-									<span class="msl-imagenav-title">StudentForum</span>
-									<span class="msl-imagenav-description"></span>
-									</a>
-								</li>
-							</ul>
-						</div>
-				</div>
-			</div>
-			*******************/
-		
 			SU_Data.menuData = [];
 			$('#menu-items .menu-list').each(function () {
 				var menu = new SU_Data.types.menuObj();
@@ -228,7 +205,7 @@ var SU_Data = {
 		},
 		loadMemberships: function () {
 			SU_Data.membershipsData = [];
-			$('div.mslwidget#MyMemberships dl.memberships').each(function () {
+			$('div.mslwidget#Data_MyMemberships dl.memberships').each(function () {
 				var membership = new SU_Data.types.membershipObj();
 				membership.Name = $(this).find('a.membership').text();
 				membership.Link = $(this).find('a.membership').attr('href');
@@ -319,6 +296,9 @@ var SU_Data = {
 						}
 					}
 					event.Link = $(this).find('.msl_event_name').first().attr('href');
+					if (event.Link.indexOf("http://") == 0 || event.Link.indexOf("https://") == 0) {
+						return;
+					}
 					event.EventID = parseInt(/\/event.*\/([0-9]+)\//.exec(event.Link)[1]);
 					if ($(this).find('img').length == 1) {
 						event.Image = $(this).find('img').first().attr('src');
