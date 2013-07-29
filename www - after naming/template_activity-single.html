@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Societies - Swansea University Students' Union</title>
+        
+        {include="snippet_meta"}
+        {include="snippet_head"}
+
+    </head>
+    <body>
+        {include="snippet_menu"}
+		<div class="spacer"></div>
+		<div id="cover" class="coverSocieties"></div>
+		
+        <div id="main" class="wrapper clearfix">
+			<div id="activitiesIntro">
+				<div class="activitiesType">
+					<h2>Societies</h2>
+					<p>Swansea University Students' Union has over N societies. Get involved, meet new people and try new things.</p>
+					<p>To find out more please click on the categories below and find a society.</p>
+				</div>
+				<div class="activitiesType">
+					<h2>Join</h2>
+					<button class="btn btn-success">Join Now</button> 
+				</div>
+				
+				<div class="activitiesType">
+					<h2>Contacts</h2>
+					<div style="display: inline-block; width: 132px; vertical-align: top;">
+						<img src="http://placehold.it/137x177" width="132" height="177" /><br/>
+						President<br/>
+						<i>Matt Hurst</i>
+					</div>
+					<div style="display: inline-block; width: 132px; vertical-align: top;">
+						<img src="http://placehold.it/137x177" width="132" height="177" /><br/>
+						Social Secretary<br/>
+						<i>Joey Law</i>
+					</div>
+				</div>
+				
+			</div>
+		<hr class="soft"/>
+		{include="snippet_events"}
+		<hr class="soft"/>
+        
+		{include="snippet_footer"}
+        {include="snippet_scripts-home"}
+		{include="snippet_scripts-facebook"}
+        
+        {include="widget_widgetdata"}
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var activityType = "Societies";
+				var firstCat = SU_Data.activities.filter(function(d) { return d.Type == activityType; })[0].Category;
+				SU_Widget.EventSlider_ActivitiesCategorySlider(activityType, "#su-activitiesCat");
+				SU_Widget.EventSlider_ActivitiesListSlider(firstCat, "#su-activitiesList");
+				$('a.su-activity-category').first().addClass('selected');
+				$('a.su-activity-category').click(function (e) {
+					e.preventDefault();
+					$('a.su-activity-category').removeClass('selected');
+					$(this).addClass('selected');
+					SU_Widget.EventSlider_ActivitiesListSlider($(this).text(), "#su-activitiesList");
+				});
+				$('#su-activitiesList').show();
+			});
+		</script>
+
+    </body>
+</html>
