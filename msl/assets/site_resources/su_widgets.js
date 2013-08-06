@@ -88,8 +88,31 @@ var SU_Widget = {
 		$(targetSelector + ' div.title').each(function() {
 			$(this).wrapLines('<div class="title">', '</div>');
 		})
+		$(targetSelector).isotope({
+			itemSelector : '.news',
+			layoutMode: 'masonry',
+			masonry: {
+				columnWidth: 228
+			},
+			filter: '.news:not(.extra)'
+		});
+		$(window).resize(function() {
+			var w = $(window).width();
+			if (w >= 912 && w < 1140) {
+				if (SU_Widget.IsotopeNewsFilterCheck) return;
+				$(targetSelector).isotope({ filter: '.news' });
+				SU_Widget.IsotopeNewsFilterCheck = true;
+			}
+			else {
+				if (!SU_Widget.IsotopeNewsFilterCheck) return;
+				$(targetSelector).isotope({ filter: '.news:not(.extra)' });
+				SU_Widget.IsotopeNewsFilterCheck = false;
+			}
+		});
+		window.resizeBy(0, 0);
 		resetDeepLinks();
 	},
+	IsotopeNewsFilterCheck: false,
 	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes, validVenues) {
 		if (typeof(validTypes) == 'undefined')
 			validTypes = ['Club Nights', 'Live Music', 'Special Events'];
@@ -192,13 +215,17 @@ var SU_Widget = {
 			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
 			var img = $(document.createElement('img'));
 			if (o.Image != null && o.Image.length > 0) {
+				img.on('error', function() {
+					$(this).replaceWith($(document.createElement('div')).addClass('orgText').text(o.Organisation));
+					
+				});
 				img.attr('src', 'http://www.swansea-union.co.uk' + o.Image);
 			}
 			else {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS mmmm yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS MMMM yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
@@ -253,6 +280,10 @@ var SU_Widget = {
 			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
 			var img = $(document.createElement('img'));
 			if (o.Image != null && o.Image.length > 0) {
+				img.on('error', function() {
+					$(this).replaceWith($(document.createElement('div')).addClass('orgText').text(o.Organisation));
+					
+				});
 				var imgSrc = o.Image.substring(0, o.Image.indexOf('?'));
 				imgSrc = imgSrc + '?' + $.param({thumbnail_width: 217, thumbnail_height: 157, fill_colour: 'f6f6f8', resize_type: 'CropToFit'});
 				img.attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
@@ -261,7 +292,7 @@ var SU_Widget = {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS mmmm yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS MMMM yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
