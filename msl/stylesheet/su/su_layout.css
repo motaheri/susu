@@ -107,7 +107,7 @@ body div#cover {
     height: 315px;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(../img/cover.jpg);
+    background-image: url('/stylesheet/su/cover.jpg');
     background-size: cover;
 	margin-bottom: 20px;
 	opacity: 0.75;
