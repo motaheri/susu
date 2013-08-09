@@ -357,9 +357,14 @@ margin-left: 20px !important;
 }
 
 
-.login-controlpanel-links p{
-	margin-left: 20px;
+.login-controlpanel-links p {
+	padding: 5px;
+	margin-left: 19px;
+	background: rgba(21, 37, 88, 0.1);
+	white-space: normal;
+	word-wrap: break-word;
 }
+ 
 
 .login-controlpanel-links .logout{
 	margin-left: 19px !important;
@@ -397,7 +402,7 @@ white-space: normal;
 	margin-left: 20px;
 }
 
-.login-admin-links{
+.login-admin-links,.login-controlpanel-links{
 	padding-bottom: 20px;
 }
 #menu-content-container .menu-content li.logout{
@@ -416,4 +421,41 @@ white-space: normal;
 	border-bottom: none !important;
 	margin-left: 0px !important;
 	margin-top: 20px;
+}
+
+div.sidepanel.controlpanel{
+	width: 205px;
+}
+
+
+
+/* Basket Styles */
+
+
+.menu-content.basket #basket dl{
+margin:0px !important
+}
+
+.menu-content.basket #basket{
+	padding-bottom: 20px;
+}
+
+
+.menu-content.basket #basket dd {
+margin: 0;
+padding: 0;
+padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 20px;
+}
+
+.menu-content.basket #basket dd.price {
+color: #152558;
+font-weight: bold;
+float: left;
+}
+
+.menu-content.basket #basket a{
+
+color: #000;
 }
