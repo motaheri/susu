@@ -225,7 +225,7 @@ var SU_Widget = {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS MMMM yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d mmmm yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
@@ -292,7 +292,7 @@ var SU_Widget = {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, dS MMMM yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d mmmm yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
@@ -436,7 +436,7 @@ var SU_Widget = {
 			var slide = $(document.createElement('div')).addClass('slide');
 			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
 			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
-			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 679, resize_type: 'CropToFit'});
+			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 679, resize_type: 'ResizeFitAll'});
 			var img = $(document.createElement('img'));
 			img.on('error', function() {
 				$(this).attr('src', 'http://placehold.it/480x679');

@@ -678,6 +678,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 			var basketHtml = msg.Data;
 			$('#eventAddToBasketFrame').remove();
 			$('#msl-basket').html(basketHtml);
+			/*
 			if ($('#ctl00_basket_pnlBasket .qty').length > 0) {
 				var qtyText = $("#basket .qty").text();
 				var basketQuantity = $('.qty').length;
@@ -694,6 +695,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 				$('.blue-login').removeClass('blue-login-basket');
 				$('#basket-summary').hide();
 			}
+			*/
 		}
 	}
 	else if (msg.Message == 'EventBasketCallback') {
