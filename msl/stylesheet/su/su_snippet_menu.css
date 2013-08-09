@@ -72,7 +72,7 @@ li#menu-logo:hover                      { border: none }
 	 color: #000;
 	 text-decoration: none;
 	}
-#menu li:hover a                        { border-bottom: 2px #000 solid }
+#menu-right li:hover a                        { border-bottom: 2px #000 solid }
 .menu-right{ left: 0px }
 #menu-spacer {
 	 height: 70px;
@@ -180,12 +180,18 @@ li#menu-logo:hover                      { border: none }
 	 padding: 0px !important;
 	 padding-bottom: 5px !important;
 	}
-#menu-content-container h1              {
+#menu-content-container h1 , #menu-content-container h3 {
 	 font-size: 15px;
 	 margin-bottom: 10px;
-	 xxborder-bottom: 3px solid #000;
+	 border-bottom: none;
 	 margin-top: 0px;
 	}
+#menu-content-container li{
+	border:none;
+}	
+#menu-content-container li a{
+	background: none;
+}
 #menu-content-container ul li           { margin-left: 5px !important }
 #ss-box    { padding-left: 20px; }
 .speech-bubble {
@@ -318,3 +324,73 @@ width: auto;
 background:#fff;
 }
 
+
+
+
+
+/* Admin Link Styles */
+/* Needs to be reconciled with the styles above */
+
+
+#menu-content-container ul li {
+margin-left: 5px !important;
+border: none;
+}
+
+#menu-content-container h3{
+
+border-bottom: none !important;
+
+margin-left: 20px !important;
+}
+
+
+#menu-content-container ul li a:hover{
+	text-decoration:none !important;
+	border: none !important;
+}
+
+
+.login-controlpanel-links,.login-admin-links{
+	display:inline-block !important;
+	vertical-align:top;
+}
+
+
+.login-controlpanel-links p{
+	margin-left: 20px;
+}
+
+.login-controlpanel-links .logout{
+	margin-left: 19px !important;
+}
+
+
+.login-controlpanel-links li{
+	background: none !important;
+}
+
+.login-controlpanel-links ul{
+	margin-left: 20px;
+}
+
+#menu #menu-content-container li:hover{
+	border-bottom: none !important;
+}
+
+#controlpanel {
+	padding-top: 20px;
+}
+
+#controlpanel ul{
+margin-left: 20px !important;
+}
+
+#menu-content-container h4 {
+	font-size:15px;
+	margin-left: 20px;
+}
+
+.login-admin-links{
+	padding-bottom: 20px;
+}

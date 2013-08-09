@@ -92,10 +92,23 @@
 					</div>
 				</div>
 			</div>
+</div>
+
+
+
+
+
+
+
 
 
 
 <!-- /* MENU UNION CONTENT END */ -->
+
+
+
+
+
 
 
 				</div>
@@ -106,10 +119,99 @@
 				<div class="menu-content events">
 				</div>  
 				<div class="menu-content login">
-					<MSL:TemplateSnippet SnippetName="su-content-navigation-login" />
+
+<!-- /* MENU LOGIN CONTENT START */ -->
+
+
+
+
+
+
+
+
+					<div id="login-container">
+		<div class="login-button-group">
+			<div class="login-button login-as">Login As:</div>
+			<div class="login-button m-btn blue">Swansea Uni Student</div>
+			<div class="login-button m-btn green">Guest</div>
+			<div class="login-button m-btn red">Staff</div>
+		</div>
+	
+		<div class="login-content swansea-uni-student">
+			<div class="login-logo">&nbsp;</div>
+			
+			<div class="iframe-pop-container">
+				 
+				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" <!--onLoad="reloadLogin()"--></iframe>
+				 
+				<br / >
+			</div>
+		</div>
+		<div class="login-content guest green">
+			<div class="login-logo"><span class="login-font">Guest</span></div>
+
+<!-- /* GUEST LOGIN START */ -->
+
+
+
+
+<MSL:Login  ShowRegistrationLink="false" UsernameText="Username" PasswordText="Password" ForgottenPasswordLinkText="Forgotten Password"/>
+
+
+
+
+
+<!-- /* GUEST LOGIN END */ -->
+
+
+
+		</div>
+		<div class="login-content staff red">
+			<div class="login-logo"><span class="login-font">Staff</span></div>
+
+
+
+
+<!-- /* STAFF LOGIN START */ -->
+
+
+
+
+
+<MSL:Login  ShowRegistrationLink="false" UsernameText="Username" PasswordText="Password" ForgottenPasswordLinkText="Forgotten Password"/>
+
+
+
+
+
+
+
+<!-- /* STAFF LOGIN END */ -->
+
+
+
+
+
+		</div>
+		
+		
+		<div class="blocker">&nbsp;</div>
+		<div class="login-help"><a href="#">Need Help?</a></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- /* MENU LOGIN CONTENT END */ -->
 				</div>
 				<div class="menu-content basket">
-					<MSL:TemplateSnippet SnippetName="su-content-navigation-basket" />
+					<MSL:Basket />
 				</div>
 			</div>
 		</div>
@@ -117,6 +219,6 @@
 	<hr class="menu-line soft"/>	
 </header>
 
-<!--<div id="menu-spacer"></div>-->
+<div id="menu-spacer"></div>
 
 <MSL:TemplateSnippet SnippetName="su-content-navigation-mobile" />
