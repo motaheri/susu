@@ -384,6 +384,12 @@ margin-left: 20px !important;
 
 #controlpanel ul{
 margin-left: 20px !important;
+list-style: none;
+margin: 0;
+padding: 0;
+word-wrap: break-word;
+width: 190px;
+white-space: normal;
 }
 
 #menu-content-container h4 {
@@ -393,4 +399,21 @@ margin-left: 20px !important;
 
 .login-admin-links{
 	padding-bottom: 20px;
+}
+#menu-content-container .menu-content li.logout{
+	padding: 5px !important;
+	margin-left: 18px !important;
+	background: #152558 !important;
+	color: #fff;
+	width: 50px;
+	float: left;
+}
+#login-container .logout a{
+	color: #fff;
+}
+
+#menu-content-container  div.menu-content.basket h3{
+	border-bottom: none !important;
+	margin-left: 0px !important;
+	margin-top: 20px;
 }
