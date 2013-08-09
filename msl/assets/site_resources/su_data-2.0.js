@@ -709,6 +709,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
  * @param {number} quantity How many tickets to add.
  */
 SU_Data.basket.eventAddToBasket = function(event, ticketIndex, quantity) {
+	console.log("eventAddToBasket()");
 	$('#eventAddToBasketFrame').remove();
 	if (event == null || ticketIndex == null || typeof(ticketIndex) != 'number') return;
 	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
@@ -717,6 +718,7 @@ SU_Data.basket.eventAddToBasket = function(event, ticketIndex, quantity) {
 	var ticket = event.Tickets[ticketIndex];
 	if (ticket == null) return;
 	SU_Data.basket.eventAddToBasket_Data = { PurchaseID: ticket.PurchaseID, QuantityID: ticket.QuantityID, Quantity: quantity };
+	console.log(SU_Data.basket.eventAddToBasket_Data);
 	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '"></iframe>').hide();
 	$('body').append(frame);
 }
@@ -769,7 +771,6 @@ $(document).ready(function() {
 	SU_Data.load.loadNews();
 	SU_Data.load.loadBlogs();
 	SU_Data.load.loadMemberList();
-	/*
 	// Basket & Add To Basket Code
 	if (window.addEventListener){
 		addEventListener("message", SU_Data.basket.eventAddToBasket_Callback, false);
@@ -777,7 +778,6 @@ $(document).ready(function() {
 		attachEvent("onmessage", SU_Data.basket.eventAddToBasket_Callback);
 	}
 	SU_Data.basket.f_EventPage_AddToBasket();
-	*/
 });
 
 
