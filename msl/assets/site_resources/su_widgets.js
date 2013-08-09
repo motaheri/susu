@@ -323,7 +323,7 @@ var SU_Widget = {
 			var slide = $(document.createElement('div')).addClass('slide');
 			var inner = $(document.createElement('div')).addClass('slide-inner');
 			var link = $(document.createElement('a')).addClass('su-activity-category').attr('href', '#');
-			var img = $(document.createElement('img')).attr('src', './img/activities/cat' + o.replace(/\W/g,'') + ".png");
+			var img = $(document.createElement('img')).attr('src', '/stylesheet/su/activities-cat' + o.replace(/\W/g,'') + ".png");
 			var title = $(document.createElement('div')).addClass('activitiesCatName').text(o);
 			if (i == 0) {
 				slide.addClass("selected");
