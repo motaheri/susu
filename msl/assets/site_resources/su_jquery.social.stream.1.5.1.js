@@ -27,7 +27,7 @@
 						text: 'content',
 						comments: 3,
 						image_width: 6, //3 = 600 4 = 480 5 = 320 6 = 180
-						icon: 'facebook.png'
+						icon: 'icon-social-facebook.png'
 					},
 					twitter: {
 						id: '',
@@ -38,7 +38,7 @@
 						replies: false,
 						images: 'small', // large w: 786 h: 346, thumb w: 150 h: 150, medium w: 600 h: 264, small w: 340 h 150
 						url: 'http://studentswansea.co.uk/twitter/twitter.php',
-						icon: 'twitter.png'
+						icon: 'icon-social-twitter.png'
 					},
 					google: {
 						id: '',
@@ -48,7 +48,7 @@
 						image_height: 75,
 						image_width: 75,
 						shares: true,
-						icon: 'google.png'
+						icon: 'icon-social-google.png'
 					},
 					youtube: {
 						id: 'StudentSwanseaEvents',
@@ -57,47 +57,47 @@
 						out: 'intro,thumb,title,text,user,share',
 						feed: 'uploads,favorites,newsubscriptionvideos',
 						thumb: 'default',
-						icon: 'youtube.png'
+						icon: 'icon-social-youtube.png'
 					},
 					flickr: {
 						id: '',
 						intro: 'Uploaded',
 						out: 'intro,thumb,title,text,share',
 						lang: 'en-us',
-						icon: 'flickr.png'
+						icon: 'icon-social-flickr.png'
 					},
 					delicious: {
 						id: '',
 						intro: 'Bookmarked',
 						out: 'intro,thumb,title,text,user,share',
-						icon: 'delicious.png'
+						icon: 'icon-social-delicious.png'
 					},
 					pinterest: {
 						id: '',
 						intro: 'Pinned',
 						out: 'intro,thumb,text,user,share',
-						icon: 'pinterest.png'
+						icon: 'icon-social-pinterest.png'
 					},
 					rss: {
 						id: '',
 						intro: 'Posted',
 						out: 'intro,title,text,share',
 						text: 'contentSnippet',
-						icon: 'rss.png'
+						icon: 'icon-social-rss.png'
 					},
 					lastfm: {
 						id: '',
 						intro: 'Listened to,Loved,Replied',
 						out: 'intro,thumb,title,text,user,share',
 						feed: 'recenttracks,lovedtracks,replytracker',
-						icon: 'lastfm.png'
+						icon: 'icon-social-lastfm.png'
 					},
 					dribbble: {
 						id: '',
 						intro: 'Posted,Liked',
 						out: 'intro,thumb,title,text,user,share',
 						feed: 'shots,likes',
-						icon: 'dribbble.png'
+						icon: 'icon-social-dribbble.png'
 					},
 					vimeo: {
 						id: '',
@@ -106,20 +106,20 @@
 						feed: 'likes,videos,appears_in,all_videos,albums,channels,groups',
 						thumb: 'medium',
 						stats: true,
-						icon: 'vimeo.png'
+						icon: 'icon-social-vimeo.png'
 					},
 					stumbleupon: {
 						id: '',
 						intro: 'Shared,Reviewed',
 						out: 'intro,thumb,title,text,user,share',
 						feed: 'favorites,reviews',
-						icon: 'stumbleupon.png'
+						icon: 'icon-social-stumbleupon.png'
 					},
 					deviantart: {
 						id: '',
 						intro: 'Deviation',
 						out: 'intro,thumb,title,text,user,share',
-						icon: 'deviantart.png'
+						icon: 'icon-social-deviantart.png'
 					},
 					tumblr: {
 						id: '',
@@ -127,7 +127,7 @@
 						out: 'intro,title,text,user,share',
 						thumb: 100,
 						video: 250,
-						icon: 'tumblr.png'
+						icon: 'icon-social-tumblr.png'
 					},
 					instagram: {
 						id: '',
@@ -140,7 +140,7 @@
 						thumb: 'low_resolution',
 					    comments: 3,
 						likes: 8,
-						icon: 'instagram.png'
+						icon: 'icon-social-instagram.png'
 					}
 				},
 				twitterId: '',
@@ -162,8 +162,8 @@
 				container: 'dcsns',
 				cstream: 'stream',
 				content: 'dcsns-content',
-				iconPath: 'images/dcsns-dark/',
-				imagePath: 'images/dcsns-dark/',
+				iconPath: '/stylesheet/su/',
+				imagePath: '/stylesheet/su/',
 				debug: false
 			};
 			

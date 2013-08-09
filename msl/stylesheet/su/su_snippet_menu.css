@@ -127,6 +127,7 @@ li#menu-logo:hover                      { border: none }
 	 background: #152558 !important;
 	 color: #fff;
 	 min-width: 370px !important;
+	 vertical-align: top;
 	}
 #menu-logo {
 	 margin-right: 0px !important;
@@ -177,7 +178,7 @@ li#menu-logo:hover                      { border: none }
 	 display: list-item !important;
 	 margin: 0px !important;
 	 padding: 0px !important;
-	 margin-bottom: 5px !important;
+	 padding-bottom: 5px !important;
 	}
 #menu-content-container h1              {
 	 font-size: 15px;
@@ -190,9 +191,9 @@ li#menu-logo:hover                      { border: none }
 .speech-bubble {
 	 position: absolute;
 	 top: 65px;
-	 right: 10px;
-border-left: 1px solid rgba(0, 0, 0, 0.27);
-padding-left: 15px;
+	 right: 45px;
+	 border-left: 1px solid rgba(0, 0, 0, 0.27);
+	 padding-left: 15px;
 	}
 .teaser-text,.teaser-image{
 	display:inline-block;
@@ -201,7 +202,7 @@ padding-left: 15px;
 .teaser-text p{
 	margin-top:0px;
 }
-.speech-bubble img  { height: 120px }
+.speech-bubble img  { height: 120px; width:auto; }
 .speech-bubble .teaser-text {
 	 font-size: 11px;
 	 line-height: 18px;
@@ -246,6 +247,7 @@ padding-left: 15px;
 	 background: #12103F !important;
 	 position: relative;
 	 min-width: 250px !important;
+	 vertical-align: top;
 	}
 .suicon    {
 	 left: 0px;
@@ -285,22 +287,34 @@ li#menu-logo { padding: 0px !important }
 	 vertical-align: bottom;
 	 margin-bottom: 1px;
 	}
-	.menu-far-right{
-
+.menu-far-right,.menu-offleft{
 	position: absolute;
-top: 3px;
-right: 0px;
-	
-	}
+	top: 3px;
+}
+.menu-far-right{
+	right: 0px;
+}
 #menu-right{
-	width: 890px;
+	width: 885px;
 	position: relative;
 	height: 38px;
 }
 .menu-content.union{
-width: 950px;
+width: 970px;
 float:right;
+min-height: 180px;
 }
 .menu-content.login{
 min-height: 350px;
 }
+
+.menu-content.basket{
+float: left;
+min-width: 441px;
+min-height: 100px;
+width: auto;
+}
+.basket{
+background:#fff;
+}
+

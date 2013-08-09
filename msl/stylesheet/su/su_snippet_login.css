@@ -58,7 +58,7 @@
     width: 373px;
 }
 .swansea-uni-student .login-logo {
-    background: #095292 url('../img/su-intranet-login.png') no-repeat 10px 5px;
+    background: #095292 url('/stylesheet/su/logo-su-intranet.png') no-repeat 10px 5px;
     display: inline-block;
     position: absolute;
     height: 45px;
@@ -153,6 +153,9 @@
 .login-content.green {
     background: rgba(53, 170, 71, 0.73);
     border: 1px solid #35aa47;
+}
+.login-content h3{
+	display:none;
 }
 .resetpass { margin-top: 45px !important }
 .staff .msl_list .new-guest,

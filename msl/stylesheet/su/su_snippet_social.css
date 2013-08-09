@@ -12,6 +12,12 @@
 	background: transparent !important;
 }
 
+.stream li .section-share {
+	position: absolute;
+	bottom: 0px;
+	right: 2px;
+}
+
 #su-media-frontpage .dcsns-content {
 	margin:0px !important;
 }
