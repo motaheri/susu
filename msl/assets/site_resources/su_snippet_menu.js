@@ -24,10 +24,11 @@
 $(document).ready(function(){
 	
 
-	$('#menu li').not('#menu-logo').on('click',function(e){
+	$('#menu li').not('#menu-logo').not('.menu-content').on('click',function(e){
 	
 		var linkRel = $(this).children('a').attr('rel');
 		if(linkRel != 'page'){
+	 
 			e.preventDefault();
 			$('#menu li').removeClass('menu-link-hover'); 
 			var menuLink = $(this).text().toLowerCase().trim();
@@ -44,7 +45,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('body').click(function() {
+	$('body').not('.menu-content').click(function() {
+ 
 		$('#menu li').removeClass('menu-link-hover');
 		if($('.menu-content').is(":visible")){
 			$('.menu-content').hide();
@@ -52,7 +54,7 @@ $(document).ready(function(){
 		}
 	});
 	 
-	$('#menu,.menu-content').click(function(event){
+	$('#menu,.menu-content,.menu-content a').click(function(event){
 		event.stopPropagation();
 	});
 });
@@ -63,10 +65,13 @@ Type Ahead
 */
 $(document).ready(function () {
 	$(document).keydown(function (e){
-		if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
-			$('.stts').hide();
-			$('#ss-input').show();
-			$('#ss-input').focus();
+		var anyInputFocus = $('input').is(':focus');
+		if(!anyInputFocus){
+			if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
+				$('.stts').hide();
+				$('#ss-input').show();
+				$('#ss-input').focus();
+			}
 		}
 	});
 	$('#ss-input').focusout(function() {

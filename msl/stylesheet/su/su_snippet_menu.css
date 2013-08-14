@@ -316,7 +316,7 @@ min-height: 350px;
 
 .menu-content.basket{
 float: left;
-min-width: 441px;
+min-width: 457px;
 min-height: 100px;
 width: auto;
 }
@@ -402,9 +402,15 @@ white-space: normal;
 	margin-left: 20px;
 }
 
+#menu-content-container h4  a{
+text-decoration: none;
+color: #509BD6;
+}
+
 .login-admin-links,.login-controlpanel-links{
 	padding-bottom: 20px;
 }
+
 #menu-content-container .menu-content li.logout{
 	padding: 5px !important;
 	margin-left: 18px !important;
@@ -439,8 +445,11 @@ margin:0px !important
 .menu-content.basket #basket{
 	padding-bottom: 20px;
 }
-
-
+.menu-content.basket #basket dt{
+display: list-item;
+list-style-type:square;
+margin-left: 18px;
+}
 .menu-content.basket #basket dd {
 margin: 0;
 padding: 0;
@@ -453,6 +462,8 @@ padding-bottom: 20px;
 color: #152558;
 font-weight: bold;
 float: left;
+height: 15px;
+margin-left: 18px;
 }
 
 .menu-content.basket #basket a{

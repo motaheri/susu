@@ -205,6 +205,12 @@ div.content h3 {
 	position:relative;
 }
 
+.nav-exec img{
+	display: block;
+	height: auto;
+	width: 60px;
+}
+
 .admin-people{
 	font-size: 12px;
 	position: absolute;
@@ -796,3 +802,20 @@ h2.title{
 	cursor: pointer;
 	cursor: hand;
 }
+
+
+
+
+/* Last Minute Changes Please Merge in Proper CSS Location Later */
+
+#menu.menu,.seemore{
+	display:none;
+}
+div#su_page_content{
+	padding-bottom: 50px;
+}
+.wrapper h2{
+	margin-top: 60px;
+	margin-bottom: 10px;
+}
+#menu{}

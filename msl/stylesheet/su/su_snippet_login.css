@@ -49,7 +49,7 @@
     transform-origin: top left;
     background: #d00;
     overflow: hidden;
-    background: #fff;
+	background: #095292 url('/stylesheet/su/preloader-white-on-sublue.gif') no-repeat 290px 280px;
 }
 .login-logo {
     display: inline-block;
@@ -98,7 +98,7 @@
 }
 .m-btn.blue { background: #095292 }
 .login-content { margin-left: 10px }
-.menu-content.login {
+.menu-content.login ,.menu-content.account{
     width: 390px;
 }
 .guest,

@@ -697,3 +697,43 @@ input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
 }
+
+.sulb-relatedevent a img{
+width: 228px;
+height: auto;
+}
+
+div.sulb div.sulb-inner.blog .desc, div.sulb div.sulb-inner.news .desc, div.sulb div.sulb-inner.event .desc {
+vertical-align: top;
+}
+
+div.sulb div.sulb-inner.event .buy {
+width: 200px;
+float: right;
+margin: 10px 20px 10px 20px;
+height: 130px;
+}
+
+div.sulb .desc,
+div.sulb .desc h1, 
+div.sulb .desc h2, 
+div.sulb .desc h3{
+font-size: 13px;
+line-height: 25px;
+}
+
+div.sulb div.sulb-inner.event img.poster {
+float:none !important;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedEvents {
+height: 370px;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedevent .event-title {
+margin:0px;
+padding:0px;
+padding-top: 10px;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedevent .event-date {
+margin:0px;
+}
+
