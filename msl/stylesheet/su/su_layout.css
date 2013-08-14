@@ -818,4 +818,6 @@ div#su_page_content{
 	margin-top: 60px;
 	margin-bottom: 10px;
 }
-#menu{}
+#admin_page_content {
+	display: inline-block;
+}

@@ -223,7 +223,7 @@ var SU_Data = {
 					activities.Name = $(this).text();
 					activities.Link = $(this).attr('href');
 					activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
-					activities.Type = $(this).attr('id').indexOf('Sport') >= 0 ? "Sports" : "Societies";
+					activities.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('6109') >= 0 ? "Sports" : "Societies";
 					activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.activitiesData.push(activities);
 				});
