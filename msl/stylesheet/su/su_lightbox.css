@@ -155,7 +155,7 @@ div.sulb div.sulb-inner.event .buy .buy-info select {
 }
 
 div.sulb div.sulb-inner.event h2.whiteToGray {
-	background: #e8e8e8 url('/stylesheet/su/whitetobeige.png') repeat-x top;
+	background: #e8e8e8 url('/img/whitetobeige.png') repeat-x top;
 	padding-top: 20px;
 	padding-left: 25px;
 	margin-left: 0px !important;
@@ -163,7 +163,7 @@ div.sulb div.sulb-inner.event h2.whiteToGray {
 }
 
 div.sulb div.sulb-inner.event h2.grayToWhite {
-	background: white url('/stylesheet/su/whitetobeige-inverse.png') repeat-x top;
+	background: white url('/img/whitetobeige-inverse.png') repeat-x top;
 	padding-top: 30px;
 	padding-left: 25px;
 	margin-left: 0px !important;
@@ -696,4 +696,53 @@ button.btn.btn-mini,
 input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
+}
+
+.sulb-relatedevent a img{
+	width: 228px;
+	height: auto;
+}
+
+div.sulb div.sulb-inner.blog .desc, div.sulb div.sulb-inner.news .desc, div.sulb div.sulb-inner.event .desc {
+	vertical-align: top;
+}
+
+div.sulb div.sulb-inner.event .buy {
+	width: 200px;
+	float: right;
+	margin: 10px 20px 10px 20px;
+	height: 130px;
+}
+
+div.sulb .desc,
+div.sulb .desc h1, 
+div.sulb .desc h2, 
+div.sulb .desc h3{
+	font-size: 13px;
+	line-height: 25px;
+}
+
+div.sulb div.sulb-inner.event img.poster {
+	float:none !important;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedEvents {
+	height: 370px;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedevent .event-title {
+	margin:0px;
+	padding:0px;
+	padding-top: 10px;
+}
+div.sulb div.sulb-inner.event div.sulb-relatedevent .event-date {
+	margin:0px;
+}
+
+#sulb-ticketbutton{
+	min-width: 160px;
+}
+div.sulb div.sulb-inner.event .buy .buy-info select {
+	min-width: 133px;
+}
+.sliderPhotoGallery .slider {
+	margin-left: 20px;
 }

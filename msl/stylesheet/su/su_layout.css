@@ -892,7 +892,6 @@ height: auto;
 position: relative;
 }
 .msl_blog .msl_blog_description {
-width: 600px;
 display: inline-block;
 }
 
@@ -925,4 +924,21 @@ background:none;
 text-decoartion:none;
 color:#000;
 font-size: 12px;
+}
+.msl_blog h1 {
+color: #fff;
+font-size: 60px;
+position: absolute;
+top: -380px;
+}
+.msl_blog_post a, .single_post a{
+color:#000;
+text-decoration:underline;
+}
+.msl_blog_post h1 a, .single_post a{
+color:#000;
+text-decoration:underline;
+}
+h2.msl_blog_post_title{
+text-decoration:none;
 }
