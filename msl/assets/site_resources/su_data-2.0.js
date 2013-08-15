@@ -346,6 +346,7 @@ var SU_Data = {
 					article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
+					article.Link = ('/' + article.Link).replace('//','/');
 					if ($(this).find('img').length == 1) {
 						article.Image = $(this).find('img').first().attr('src');
 					}
@@ -385,12 +386,14 @@ var SU_Data = {
 					article.Title = $(this).find('.msl-recentblogposttitle').text();
 					article.Description = '' + $(this).find('span.msl-recentblogpost').text();
 					article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
-					article.Author = $(this).find('.msl-recentblogpostblogname').text()
+					article.Author = $(this).find('.msl-recentblogpostblogname').text();
 					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href').replace('../','/');
+					article.AuthorLink = ('/' + article.AuthorLink).replace('//','/');
 					article.Story = '';
 					article.Date = new Date(Date.parse($(this).find('.msl-recentblogpostdate').text()));
 					article.Image = $(this).find('.msl-recentblogpostimage').first().attr('src');
 					article.Link = $(this).find('.msl-recentblogposttitle').attr('href').replace('../','/');
+					article.Link = ('/' + article.Link).replace('//','/');
 					// push it into the blogpost array
 					blogPosts.push(article);
 				});
@@ -474,7 +477,8 @@ var SU_Data = {
 			ilovemondays: "https://graph.facebook.com/ilovemondaysswansea",
 			playonwednesdays: "https://graph.facebook.com/116902985057714",
 			sinsavers: "https://graph.facebook.com/sinsavers",
-			tooters: "https://graph.facebook.com/104044273034617"
+			tooters: "https://graph.facebook.com/104044273034617",
+			freshers: "https://graph.facebook.com/studentswansea",
 		},
 		getGalleryImages: function(brand, imgCount, callback) {
 			if (typeof(SU_Data.social.facebookGalleries[brand]) == 'undefined') {
@@ -678,6 +682,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 			var basketHtml = msg.Data;
 			$('#eventAddToBasketFrame').remove();
 			$('#msl-basket').html(basketHtml);
+			$('div.sulb-inner.event #buy-confirm').text('Basket Updated');
 			/*
 			if ($('#ctl00_basket_pnlBasket .qty').length > 0) {
 				var qtyText = $("#basket .qty").text();
@@ -713,6 +718,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 SU_Data.basket.eventAddToBasket = function(event, ticketIndex, quantity) {
 	console.log("eventAddToBasket()");
 	$('#eventAddToBasketFrame').remove();
+	$('div.sulb-inner.event #buy-confirm').text('');
 	if (event == null || ticketIndex == null || typeof(ticketIndex) != 'number') return;
 	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
 	event.GetEvent();

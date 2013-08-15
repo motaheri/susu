@@ -23,30 +23,34 @@ function contentHandler_Event(eventObj) {
 	eventObj = eventObj.GetEvent();
 	console.log(eventObj);
 	
+	$('div.sulb-inner.event #buy-confirm').text('');
 	$('.sulb-inner.event #sulb-ticketselect').html('');
 	
-	/* Something here needs to change so input field & buy button is not shown when tickets are not available */
-	
-	for (var i = 0; i < eventObj.Tickets.length; i++) {
-		var ticketObj = eventObj.Tickets[i];
-		$('.sulb-inner.event #sulb-ticketselect').append('<option data-index="' + i + '">'+ ticketObj.Name + ' (&pound;' + ticketObj.Price + ')</option>');
-		$('.sulb-inner.event #sulb-ticketqty').html('');
-		for (var j = 0; j < ticketObj.Quantities.length; j++) {
-			$('.sulb-inner.event #sulb-ticketqty').append('<option>'+ ticketObj.Quantities[j] + '</option>');
+	if (eventObj.Tickets.length > 0) {
+		$('div.sulb-inner.event div.buy').show();
+		for (var i = 0; i < eventObj.Tickets.length; i++) {
+			var ticketObj = eventObj.Tickets[i];
+			$('.sulb-inner.event #sulb-ticketselect').append('<option data-index="' + i + '">'+ ticketObj.Name + ' (&pound;' + ticketObj.Price + ')</option>');
+			$('.sulb-inner.event #sulb-ticketqty').html('');
+			for (var j = 0; j < ticketObj.Quantities.length; j++) {
+				$('.sulb-inner.event #sulb-ticketqty').append('<option>'+ ticketObj.Quantities[j] + '</option>');
+			}
 		}
-	}
-	
-	$('.sulb-inner.event .buy button').unbind('click');
-	$('.sulb-inner.event .buy button').click(function () {
-		$('.sulb-inner.event .buy-info').slideDown();
 		$('.sulb-inner.event .buy button').unbind('click');
 		$('.sulb-inner.event .buy button').click(function () {
-			var ticketIndex = parseInt($('.sulb-inner.event #sulb-ticketselect option:selected').first().attr('data-index'));
-			var ticketQty = parseInt($('.sulb-inner.event #sulb-ticketqty option:selected').text());
-			console.log('AddToBasket() ' + ticketIndex + ':' + ticketQty);
-			eventObj.AddToBasket(ticketIndex, ticketQty);
+			$('.sulb-inner.event .buy-info').slideDown();
+			$('.sulb-inner.event .buy button').unbind('click');
+			$('.sulb-inner.event .buy button').click(function () {
+				var ticketIndex = parseInt($('.sulb-inner.event #sulb-ticketselect option:selected').first().attr('data-index'));
+				var ticketQty = parseInt($('.sulb-inner.event #sulb-ticketqty option:selected').text());
+				console.log('AddToBasket() ' + ticketIndex + ':' + ticketQty);
+				eventObj.AddToBasket(ticketIndex, ticketQty);
+			});
 		});
-	});
+	}
+	else {
+		$('div.sulb-inner.event div.buy').hide();
+	}
 	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image);
 	$('.sulb-inner.event div.title').text(eventObj.Title);
 	if (eventObj.FullText.length > 0) {
@@ -69,7 +73,7 @@ function contentHandler_Event(eventObj) {
 			infiniteSlider: false
 		});
 	});
-	var relatedEvents = eventObj.GetRelatedEvents();
+	var relatedEvents = eventObj.GetRelatedEvents().filter(function(d) { return d.EventID != eventObj.EventID; });
 	$('.sulb-inner.event div.sulb-relatedEvents').html('');
 	if (relatedEvents.length > 0) {
 		$.each(relatedEvents, function(i, o) {
@@ -82,17 +86,24 @@ function contentHandler_Event(eventObj) {
 			revent.append(relink);
 			$('.sulb-inner.event div.sulb-relatedEvents').append(revent);
 		});
+		$('#sulb-eventrelated-title').show();
+		$('div.sulb-relatedEvents').show();
+	}
+	else {
+		$('#sulb-eventrelated-title').hide();
+		$('div.sulb-relatedEvents').hide();
 	}
 	suLightBox('#events-lightbox', eventObj);
 	resetDeepLinks();
 }
 
 function contentHandler_Blog(blogObj) {
+	blogObj.GetPost();
 	var imgSrc = setUrlParameters(blogObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 	$('#blog-lightbox h2.title').html(blogObj.Title);
-	$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+	$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk/' + imgSrc);
 	$('#blog-lightbox p.info span.organisation').text(blogObj.Author);
-	$('#blog-lightbox p.info span.date').text(blogObj.Date.format('dddd, dS mmmm yyyy'));
+	$('#blog-lightbox p.info span.date').text(blogObj.Date.format('dddd, d MMMM yyyy'));
 	$('#blog-lightbox div.desc').html(blogObj.Story);
 	$('#blog-lightbox div.sulb-author').html(blogObj.Author);
 	suLightBox('#blog-lightbox', blogObj);
@@ -102,9 +113,9 @@ function contentHandler_News(newsObj) {
 	console.log(newsObj);
 	var imgSrc = setUrlParameters(newsObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 	$('#news-lightbox h2.title').html(newsObj.Title);
-	$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+	$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk/' + imgSrc);
 	$('#news-lightbox div.organisation').text(newsObj.Organisation);
-	$('#news-lightbox div.date').text(newsObj.Date.format('dddd, dS mmmm yyyy'));
+	$('#news-lightbox div.date').text(newsObj.Date.format('dddd, d MMMM yyyy'));
 	$('#news-lightbox div.content').html(newsObj.Story);
 	$('#news-lightbox div.sulb-author').html(newsObj.Organisation);
 	suLightBox('#news-lightbox', newsObj);
@@ -186,6 +197,14 @@ $(document).ready(function() {
 			}
 			// If not, redirect to the standalone News page
 			window.location = event.value;
+		}
+		else if (/^\/shop\/reviewbasket/i.test(event.value)) {
+			console.log('CONTENT TRIGGER: Show Basket');
+			$('#events-lightbox').trigger('close');
+			$('#blog-lightbox').trigger('close');
+			$('#news-lightbox').trigger('close');
+			// scroll to top
+			// open basket tab thingy
 		}
 		else {
 			// If not, redirect to the standalone page

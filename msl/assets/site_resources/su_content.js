@@ -36,7 +36,7 @@ $(document).ready(function() {
     var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_testpagemike'];
     if ($.exists(pageTriggers_Events_Main)) {
         SU_Widget.EventSlider_Portrait('Data_Events_Ents','#su-eventsPortrait');
-        SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsPortraitFilter', '#su-eventsPortrait', ['Club Nights', 'Freshers Events', 'Live Music', 'Special Events']);
+        SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsPortraitFilter', '#su-eventsPortrait');
 		
         SU_Widget.EventSlider_Landscape('Data_Events_All','#su-eventsLandscape');
         var myOrgs = SU_Data.membershipsData.map(function(d) { return d.Name; }).sort();
@@ -106,5 +106,6 @@ $(document).ready(function() {
 		});
 	}
 	
+	resetDeepLinks();
     
 });
