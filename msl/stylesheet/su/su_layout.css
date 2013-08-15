@@ -880,3 +880,49 @@ text-decoration:none;
 .msl_blog_post{
 width: 600px;
 }
+
+
+.msl_blog_image img {
+width: 342px;
+height: auto;
+}
+
+
+.mslwidget .msl_blog {
+position: relative;
+}
+.msl_blog .msl_blog_description {
+width: 600px;
+display: inline-block;
+}
+
+.msl_blog_description{
+float: right;
+width: 342px;
+margin-right: -342px;
+margin-top: 480px;
+}
+.msl_blog_image{
+float: right;
+}
+.msl_blog_tools {
+position: absolute;
+top: -270px;
+margin: 0px;
+left: 0px;
+padding-right: 30px;
+background: rgba(255, 255, 255, 0.8);
+margin-left: 5px;
+}
+.msl_blog_tools ul {
+list-style: none;
+margin-top: 5px;
+margin-left: -40px;
+margin-bottom: 5px;
+}
+.msl_blog_tools ul li a{
+background:none;
+text-decoartion:none;
+color:#000;
+font-size: 12px;
+}
