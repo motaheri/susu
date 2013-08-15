@@ -88,6 +88,7 @@ function contentHandler_Event(eventObj) {
 }
 
 function contentHandler_Blog(blogObj) {
+	blogObj.GetPost();
 	var imgSrc = setUrlParameters(blogObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 	$('#blog-lightbox h2.title').html(blogObj.Title);
 	$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);

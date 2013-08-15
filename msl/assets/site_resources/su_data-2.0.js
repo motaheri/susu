@@ -387,10 +387,12 @@ var SU_Data = {
 					article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
 					article.Author = $(this).find('.msl-recentblogpostblogname').text();
 					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href').replace('../','/');
+					article.AuthorLink = ('/' + article.AuthorLink).replace('//','/');
 					article.Story = '';
 					article.Date = new Date(Date.parse($(this).find('.msl-recentblogpostdate').text()));
 					article.Image = $(this).find('.msl-recentblogpostimage').first().attr('src');
 					article.Link = $(this).find('.msl-recentblogposttitle').attr('href').replace('../','/');
+					article.Link = ('/' + article.Link).replace('//','/');
 					// push it into the blogpost array
 					blogPosts.push(article);
 				});

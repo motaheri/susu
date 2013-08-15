@@ -225,7 +225,7 @@ var SU_Widget = {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d mmmm yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d MMMM yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
@@ -292,7 +292,7 @@ var SU_Widget = {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
 			}
 			var title = $(document.createElement('div')).addClass('event-title').text(o.Title);
-			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d mmmm yyyy'));
+			var date = $(document.createElement('div')).addClass('event-date').text(o.Date.format('dddd, d MMMM yyyy'));
 			$(link).append(img).append(title).append(date);
 			$(inner).append(link);
 			$(slide).append(inner);
