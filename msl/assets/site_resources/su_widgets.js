@@ -117,7 +117,7 @@ var SU_Widget = {
 		if (typeof(validTypes) == 'undefined')
 			validTypes = ['Club Nights', 'Freshers Events', 'Live Music', 'Special Events'];
 		if (typeof(validVenues) == 'undefined')
-			validVenues = ['Divas', 'Peppermint', 'Oceana', 'Sin City'];
+			validVenues = ['360 Swansea', 'Divas', 'Freshers Week', 'JC\'s', 'Oceana', 'Peppermint', 'Sin City', 'Walkabout', 'Wonky Sheep'];
 		var types = [];
 		var venues = [];
 		SU_Data.eventData[mslWidgetId].map(function(d) {
