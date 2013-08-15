@@ -115,9 +115,9 @@ var SU_Widget = {
 	IsotopeNewsFilterCheck: false,
 	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes, validVenues) {
 		if (typeof(validTypes) == 'undefined')
-			validTypes = ['Club Nights', 'Live Music', 'Special Events'];
+			validTypes = ['Club Nights', 'Freshers Events', 'Live Music', 'Special Events'];
 		if (typeof(validVenues) == 'undefined')
-			validVenues = ['Divas', 'Oceana', 'Sin City'];
+			validVenues = ['Divas', 'Peppermint', 'Oceana', 'Sin City'];
 		var types = [];
 		var venues = [];
 		SU_Data.eventData[mslWidgetId].map(function(d) {
