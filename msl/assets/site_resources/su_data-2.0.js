@@ -268,7 +268,7 @@ var SU_Data = {
 						dateValue = $.trim(dateValue.replace(/[\r\n]/g, '').replace(/midnight/g, '0am').replace(/noon/g, '12pm'));
 						// Parse date as an object if we can
 						var year = new Date().getFullYear();
-						var dateMatch = dateValue.match(/^([0-9]{1,2}).* ([a-z]+)/i);
+						var dateMatch = dateValue.match(/^([0-9]{1,2})[^-]* ([a-z]+)/i);
 						if (dateMatch != null && dateMatch.length >= 3) {
 							event.Date = new Date(Date.parse(dateMatch[1] + ' ' + dateMatch[2] + ' ' + year));
 							if (new Date(event.Date).getMonth() < new Date().getMonth()) {
