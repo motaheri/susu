@@ -249,3 +249,35 @@ div.sliderFilter .m-btn-group .m-btn:first-child {
 }
 div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, .m-btn-group + .m-btn-group {
 	margin-left: 0px !important;
+}
+	
+	
+	
+/*
+* Single Event Page PLEASE LOOK INTO THIS, SEEMS LIKE OLD TOBY CSS CLASSES 
+*/
+	
+	
+#msl_event .grid_4{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#msl_event .msl-event-description{
+	width: 600px;
+	display: inline-block;
+}
+
+#msl_event .container_12{
+	position: relative;
+}
+
+.msl-box .msl-dy-sidebar-padding img{
+	width: 342px;
+	height: auto;
+}
+
+.wrapper #msl_event{
+	min-height:700px;
+}

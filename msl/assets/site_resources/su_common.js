@@ -24,6 +24,9 @@ function contentHandler_Event(eventObj) {
 	console.log(eventObj);
 	
 	$('.sulb-inner.event #sulb-ticketselect').html('');
+	
+	/* Something here needs to change so input field & buy button is not shown when tickets are not available */
+	
 	for (var i = 0; i < eventObj.Tickets.length; i++) {
 		var ticketObj = eventObj.Tickets[i];
 		$('.sulb-inner.event #sulb-ticketselect').append('<option data-index="' + i + '">'+ ticketObj.Name + ' (&pound;' + ticketObj.Price + ')</option>');

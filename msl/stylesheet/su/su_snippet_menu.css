@@ -470,3 +470,13 @@ margin-left: 18px;
 
 color: #000;
 }
+
+#menu-items a{
+  pointer-events: none;
+  cursor: default;
+}
+
+.menu-content #login-container .login-admin-links{
+width: 170px;
+white-space: normal;
+}

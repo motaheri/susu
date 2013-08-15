@@ -114,13 +114,25 @@ body div#cover {
 }
 
 body div#cover.coverSports {
-    background-image: url(/stylesheet/su/activitiesTypeSport.jpg);
+    background-image: url(/stylesheet/su/coverTypeSport.jpg);
     background-position: center center;
     height: 315px;
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/activitiesTypeSociety.jpg);
+    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
+    background-position: center center;
+    height: 315px;
+}
+
+body div#cover.coverEvents {
+    background-image: url(/stylesheet/su/coverTypeEvent.jpg);
+    background-position: center center;
+    height: 315px;
+}
+
+body div#cover.coverBlogs {
+    background-image: url(/stylesheet/su/coverTypeUnion.jpg);
     background-position: center center;
     height: 315px;
 }
@@ -845,4 +857,26 @@ h2#org-page-title {
 }
 article .content {
 	margin-top: 20px;
+}
+
+
+/* Temporary Styles for Launch Day */
+#my-events{
+	display: none;
+	}
+	
+	
+.msl_blog h1{
+color: #fff;
+font-size: 60px;
+position: absolute;
+top: 20px;
+}
+.msl_blog h1 a{
+color: #fff;
+text-decoration:none;
+}
+
+.msl_blog_post{
+width: 600px;
 }
