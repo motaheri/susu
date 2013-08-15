@@ -91,7 +91,7 @@ function contentHandler_Blog(blogObj) {
 	blogObj.GetPost();
 	var imgSrc = setUrlParameters(blogObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 	$('#blog-lightbox h2.title').html(blogObj.Title);
-	$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+	$('#blog-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk/' + imgSrc);
 	$('#blog-lightbox p.info span.organisation').text(blogObj.Author);
 	$('#blog-lightbox p.info span.date').text(blogObj.Date.format('dddd, dS mmmm yyyy'));
 	$('#blog-lightbox div.desc').html(blogObj.Story);
@@ -103,9 +103,9 @@ function contentHandler_News(newsObj) {
 	console.log(newsObj);
 	var imgSrc = setUrlParameters(newsObj.Image, {thumbnail_width: 220, thumbnail_height: 311, resize_type: 'ResizeFitAll'});
 	$('#news-lightbox h2.title').html(newsObj.Title);
-	$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk' + imgSrc);
+	$('#news-lightbox img.lead').attr('src', 'http://www.swansea-union.co.uk/' + imgSrc);
 	$('#news-lightbox div.organisation').text(newsObj.Organisation);
-	$('#news-lightbox div.date').text(newsObj.Date.format('dddd, dS mmmm yyyy'));
+	$('#news-lightbox div.date').text(newsObj.Date.format('dddd, d MMMM yyyy'));
 	$('#news-lightbox div.content').html(newsObj.Story);
 	$('#news-lightbox div.sulb-author').html(newsObj.Organisation);
 	suLightBox('#news-lightbox', newsObj);
