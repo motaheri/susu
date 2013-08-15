@@ -385,7 +385,7 @@ var SU_Data = {
 					article.Title = $(this).find('.msl-recentblogposttitle').text();
 					article.Description = '' + $(this).find('span.msl-recentblogpost').text();
 					article.Description = $.trim(article.Description.replace(/[\r\n\t]/g, ''));
-					article.Author = $(this).find('.msl-recentblogpostblogname').text()
+					article.Author = $(this).find('.msl-recentblogpostblogname').text();
 					article.AuthorLink = $(this).find('.msl-recentblogpostblogname').attr('href').replace('../','/');
 					article.Story = '';
 					article.Date = new Date(Date.parse($(this).find('.msl-recentblogpostdate').text()));
@@ -474,7 +474,8 @@ var SU_Data = {
 			ilovemondays: "https://graph.facebook.com/ilovemondaysswansea",
 			playonwednesdays: "https://graph.facebook.com/116902985057714",
 			sinsavers: "https://graph.facebook.com/sinsavers",
-			tooters: "https://graph.facebook.com/104044273034617"
+			tooters: "https://graph.facebook.com/104044273034617",
+			freshers: "https://graph.facebook.com/studentswansea",
 		},
 		getGalleryImages: function(brand, imgCount, callback) {
 			if (typeof(SU_Data.social.facebookGalleries[brand]) == 'undefined') {
