@@ -942,3 +942,19 @@ text-decoration:underline;
 h2.msl_blog_post_title{
 text-decoration:none;
 }
+.msl_blog .blog_day{
+width: 600px;
+display: inline-block;
+}
+ul.join_list li{
+list-style-type: square !important;
+margin-bottom: 20px;
+width: 180px;
+}
+ul.join_list li input{
+padding:3px;
+}
+#sport-swansea-product{
+font-size: 13px;
+text-align: left;
+}
