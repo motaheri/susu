@@ -126,12 +126,10 @@ li#menu-logo:hover                      { border: none }
 #menu-left {
 	 background: #152558 !important;
 	 color: #fff;
-	 min-width: 370px !important;
 	 vertical-align: top;
 	}
 #menu-logo {
 	 margin-right: 0px !important;
-	 #: ;
 	}
 #search-box{
 	 padding: 0px !important;
@@ -252,7 +250,7 @@ li#menu-logo:hover                      { border: none }
 #menu-left {
 	 background: #12103F !important;
 	 position: relative;
-	 min-width: 250px !important;
+	 min-width: 85px;
 	 vertical-align: top;
 	}
 .suicon    {
@@ -275,11 +273,8 @@ li#menu-logo { padding: 0px !important }
 	}
 #search-box{
 	 position: absolute;
-	 top: auto;
+
 	 margin-left: 20px;
-	}
-#search-box{
-	 position: absolute;
 	 left: 90px;
 	 top: auto;
 	}
@@ -301,12 +296,10 @@ li#menu-logo { padding: 0px !important }
 	right: 0px;
 }
 #menu-right{
-	width: 885px;
 	position: relative;
 	height: 38px;
 }
 .menu-content.union{
-width: 970px;
 float:right;
 min-height: 180px;
 }

@@ -122,7 +122,7 @@ div.sulb div.sulb-inner.event img.poster {
 }
 
 div.sulb div.sulb-inner.blog .desc,div.sulb div.sulb-inner.news .desc,div.sulb div.sulb-inner.event .desc {
-	min-height: 315px;
+	min-height: 370px;
 	width: 500px;
 	display: inline-block;
 	text-align: left;
@@ -722,9 +722,6 @@ div.sulb .desc h3{
 	line-height: 25px;
 }
 
-div.sulb div.sulb-inner.event img.poster {
-	float:none !important;
-}
 div.sulb div.sulb-inner.event div.sulb-relatedEvents {
 	height: 370px;
 }
@@ -745,4 +742,21 @@ div.sulb div.sulb-inner.event .buy .buy-info select {
 }
 .sliderPhotoGallery .slider {
 	margin-left: 20px;
+}
+.sulb-inner .info{
+display: block;
+}
+
+div.sulb div.sulb-inner.blog .desc, div.sulb div.sulb-inner.news .desc{
+display: inline;
+margin-left: 0px;
+vertical-align: text-top;
+}
+
+div.sulb p{
+margin-right: 20px;
+padding-left: 20px;
+}
+div.sulb .news-single p {
+padding-left: 0px;
 }

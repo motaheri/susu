@@ -17,15 +17,19 @@ $(document).ready(function() {
     /*
      * COVERFLOW
      */
-    var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_testpagemike'];
+    var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_tv'];
     if ($.exists(pageTriggers_Coverflow)) {
-        SU_Widget.Coverflow('Data_Events_Ents', '#coverflow');
+		if ($(".page_tv")[0]){
+			SU_Widget.CoverflowFull('Data_Events_Ents', '#coverflow');
+		}else{
+			SU_Widget.Coverflow('Data_Events_Ents', '#coverflow');
+		}
     }
     
     /*
      * NEWS
      */
-    var pageTriggers_News = ['.page_root', '.page_frontpage', '.page_testpagemike'];
+    var pageTriggers_News = ['.page_root', '.page_frontpage'];
     if ($.exists(pageTriggers_News)) {
         SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
     }
@@ -33,7 +37,7 @@ $(document).ready(function() {
     /*
      * EVENTS - MAIN LIST
      */
-    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_testpagemike'];
+    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_event', '.page_frontpage'];
     if ($.exists(pageTriggers_Events_Main)) {
         SU_Widget.EventSlider_Portrait('Data_Events_Ents','#su-eventsPortrait');
         SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsPortraitFilter', '#su-eventsPortrait');
@@ -47,7 +51,7 @@ $(document).ready(function() {
     /*
      * OFFICER BLOGS
      */
-    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', '.page_testpagemike'];
+    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage'];
     if ($.exists(pageTriggers_OfficerBlogs)) {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
@@ -56,7 +60,7 @@ $(document).ready(function() {
 	/*
 	 * FRONT PAGE MEDIA
 	 */
-	var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', '.page_testpagemike'];
+	var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage'];
     if ($.exists(pageTriggers_OfficerBlogs)) {
 		$('#su-media-frontpage').dcSocialStream({
 			feeds: {
