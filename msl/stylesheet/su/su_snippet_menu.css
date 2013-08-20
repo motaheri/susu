@@ -6,7 +6,6 @@ body header {
 	 background: rgba(256, 256, 256, 0.95);
 	 z-index: 1000;
 	 height: 70px;
-	 border-bottom: 1px #eee solid;
 	}
 body header:hover { background: rgba(256, 256, 256, 1.0) }
 #menu {

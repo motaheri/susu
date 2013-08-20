@@ -46,6 +46,9 @@
 .icarousel {
 	width: 374px;
 	height: 525px;
+	/* Smaller Sizes */
+	width: 320px;
+	height: 400px;
 	position: relative;
 	margin: 10px auto;
 	-webkit-transform-style: preserve-3d;
@@ -65,18 +68,20 @@
 	display: block;
 	width: 364px;
 	height: 515px;
+	width: 290px;
+	height: 410px;
 }
 
 .icarousel img {
-	width: 364px;
-	height: 515px;
+	width: 290px;
+	height: 410px;
 }
 
 /* The Navigation buttons in the Slider */
 a.iCarouselNav {
 	display: block;
 	position: absolute;
-	top: 207px;
+	top: 160px;
 	width: 40px;
 	height: 100px;
 	background-image: url('http://www.swansea-union.co.uk/stylesheet/su/icarousel_nav_paddles.png');

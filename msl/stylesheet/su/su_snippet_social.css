@@ -94,7 +94,7 @@ ul.stream li.dcsns-li div.inner span.section-text img {
 }
 ul.stream li.dcsns-li div.inner span.section-thumb img {
 	max-height: 150px;
-	margin-left: 10px;
+	margin-left: 0px;
 	margin-bottom: 5px;
 }
 

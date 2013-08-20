@@ -157,10 +157,14 @@
 /* --------------------------------------------------------------------
  * Layout Main Sections
  * -------------------------------------------------------------------- */
+html {
+    text-rendering: optimizeLegibility;
+background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+}
 
 body {
     text-rendering: optimizeLegibility;
-	background: #f6f6f8 url('http://www.swansea-union.co.uk/stylesheet/su/gradient.jpg') repeat-x 0px 380px;
+	background: #f6f6f8 url('http://www.swansea-union.co.uk/stylesheet/su/gradient.jpg') repeat-x 0px 0px;
 }
 
 body header {
@@ -169,7 +173,7 @@ body header {
 
 body div#cover {
     width: 100%;
-    height: 315px;
+    height: 215px;
     background-repeat: no-repeat;
     background-position: center center;
     background-image: url('/stylesheet/su/cover.jpg');
@@ -180,26 +184,18 @@ body div#cover {
 
 body div#cover.coverSports {
     background-image: url(/stylesheet/su/coverTypeSport.jpg);
-    background-position: center center;
-    height: 315px;
 }
 
 body div#cover.coverSocieties {
     background-image: url(/stylesheet/su/coverTypeSociety.jpg);
-    background-position: center center;
-    height: 315px;
 }
 
 body div#cover.coverEvents {
     background-image: url(/stylesheet/su/coverTypeEvent.jpg);
-    background-position: center center;
-    height: 315px;
 }
 
 body div#cover.coverBlogs {
     background-image: url(/stylesheet/su/coverTypeUnion.jpg);
-    background-position: center center;
-    height: 315px;
 }
 
 .spacer {
@@ -309,8 +305,13 @@ div.content h3 {
 	width: 100%;
 	overflow: hidden;
 	background: #fefefe url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
-	padding: 25px 0px;
+	padding: 5px 0px;
 }
+.advert-container, .notice-container{
+	width: 100%;
+	background: #fefefe url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+}
+
 .events-container {
 	width: 100%;
 	overflow: hidden;
@@ -844,6 +845,31 @@ h2.title{
   text-decoration: none;
   cursor: default;
   background-color: transparent;
+}
+
+/*****
+Notice
+******/
+.notice{
+background:rgba(255, 246, 19, 0.25);
+margin: 10px 0px;
+float:left;
+padding:10px;
+font-size:10px;
+font-family:arial;
+min-width:200px;
+}
+.notice h1{
+font-weight:bold;
+text-transform:uppercase;
+font-size:11px;
+margin:0px;
+padding:0px;
+}
+.notice p{
+padding:0px;
+margin:0px;
+margin-top:5px;
 }
 
 /******
