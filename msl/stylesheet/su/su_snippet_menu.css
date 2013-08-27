@@ -469,6 +469,6 @@ color: #000;
 }
 
 .menu-content #login-container .login-admin-links{
-width: 170px;
+max-width: 170px;
 white-space: normal;
 }

@@ -522,7 +522,7 @@ h2.container-header{
 	border-top: 50px solid transparent;           
 	/* Go big on the size, and let overflow hide */
 	border-bottom: 50px solid transparent;
-	border-left: 30px solid #fff;
+	border-left: 30px solid #fefefe;
 	position: absolute;
 	top: 50%;
 	margin-top: -50px; 
@@ -540,7 +540,7 @@ h2.container-header{
 	cursor: default;
 	border-color:#0088CC;
 }
-.breadcrumb li:last-child a:after { border-left: 30px solid   #0088CC; }
+#article  .breadcrumb li:last-child a:after { border-left: 30px solid   #0088CC; }
 .breadcrumb li a:hover { background: #0088CC; }
 .breadcrumb li a:hover:after { border-left-color: #0088CC; !important; }
 .breadcrumb li a:hover:before { border-left-color: #fff; !important; }
@@ -1049,3 +1049,45 @@ padding:3px;
 font-size: 13px;
 text-align: left;
 }
+
+
+/******
+ Navigation 
+ ******/
+ 
+#aside .breadcrumb li {
+overflow: hidden;
+float:none !important;
+height: 34px;
+background: transparent !important;
+margin: 1px !important;
+}
+
+#aside .breadcrumb li a,#aside .breadcrumb li:first-child a {
+background: #152558 !important;
+min-width: 200px !important;
+padding: 10px 0 10px 45px !important;
+}
+
+#aside .breadcrumb li:last-child a:after {
+border-color: 30px solid #152558 !important;
+pointer-events: auto;
+cursor: pointer;
+cursor: hand;
+}
+
+#aside .breadcrumb li a:before {
+content: " ";
+border-left: 30px solid #fefefe;
+position: absolute;
+top: 50%;
+margin-top: -50px;
+left: 0px !important;
+margin-left:0px !important;
+}
+#aside .breadcrumb li a:hover { background: #0088CC !important; }
+#aside .nav-list {
+padding-left: 0px;
+background: transparent !important;
+}
+ 
