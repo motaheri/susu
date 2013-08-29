@@ -347,7 +347,7 @@ var SU_Data = {
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
 					article.Link = ('/' + article.Link).replace('//','/');
-					if ($(this).find('img').length == 1) {
+					if ($(this).find('img').length > 0) {
 						article.Image = $(this).find('img').first().attr('src');
 					}
 					var tags = $(this).attr('class').split(/\s+/);
@@ -504,6 +504,37 @@ var SU_Data = {
 					var fb_images = album.photos.data;
 					if (fb_images.length > 0) {
 						$.each(fb_images, function(i, o) {
+							var img_src = o.images[3];
+							var img_obj = new SU_Data.types.socialImageObj();
+							img_obj.Image = img_src.source;
+							img_obj.Width = parseInt(img_src.width);
+							img_obj.Height = parseInt(img_src.height);
+							img_obj.Created = new Date(o.created_time);
+							if (typeof(o.tags) == "object" && o.tags.data.length > 0) {
+								img_obj.Tags = o.tags.data;
+							}
+							result.push(img_obj);
+						});
+					}
+					callback(result, albumName);
+				}
+			});
+		},
+		getFacebookGallery: function(galleryId, callback) {
+			if (galleryId == null || typeof(galleryId) != "string" || galleryId.length < 3) {
+				return;
+			}
+			var graphUrl = 'https://graph.facebook.com/' + galleryId + '?fields=name,photos.limit(24)';
+			$.ajax({
+				url: graphUrl,
+				dataType: 'jsonp',
+				cache: true,
+				success: function(data) {
+					var result = [];
+					var album = data.photos.data;
+					var albumName = data.name;
+					if (album.length > 0) {
+						$.each(album, function(i, o) {
 							var img_src = o.images[3];
 							var img_obj = new SU_Data.types.socialImageObj();
 							img_obj.Image = img_src.source;

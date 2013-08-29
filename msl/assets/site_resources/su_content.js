@@ -111,5 +111,39 @@ $(document).ready(function() {
 	}
 	
 	resetDeepLinks();
-    
+	
+
+	/*
+	 * AUTO FACEBOOK GALLERY
+	 */
+    $('.su-fbgallery').each(function() {
+		var container = $(this);
+		var fbGalleryId = $(this).attr('id');
+		if (fbGalleryId == null || typeof(fbGalleryId) != "string" || fbGalleryId.length < 5 || fbGalleryId.substring(0,2) != "fb") {
+			console.error('SU Facebook Gallery: Invalid ID. The DIV ID must be like fb123456789.')
+			return;
+		}
+		fbGalleryId = fbGalleryId.substring(2);
+		var slider = $(document.createElement('div')).addClass('slider');
+		SU_Data.social.getFacebookGallery(fbGalleryId, function(data, name) {
+			$("<h2>" + name + "</h2>").insertBefore(container);
+			$.each(data, function() {
+				var desiredImageWidth = parseInt(this.Width * (161.0 / this.Height));
+				var slide = $(document.createElement('div')).addClass('slide');
+				var img = $(document.createElement('img'));
+				img.css('width', desiredImageWidth + 'px');
+				img.css('height', '161px');
+				img.attr('src', this.Image);
+				slide.append(img);
+				slider.append(slide);
+			});
+			container.append(slider);
+			$(container).iosSlider({
+				snapToChildren: true,
+				scrollbar: false,
+				desktopClickDrag: true,
+				infiniteSlider: false
+			});
+		});
+	});
 });
