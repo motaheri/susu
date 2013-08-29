@@ -347,7 +347,7 @@ var SU_Data = {
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
 					article.Link = ('/' + article.Link).replace('//','/');
-					if ($(this).find('img').length == 1) {
+					if ($(this).find('img').length > 0) {
 						article.Image = $(this).find('img').first().attr('src');
 					}
 					var tags = $(this).attr('class').split(/\s+/);
