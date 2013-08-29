@@ -18,7 +18,7 @@
 					
 					<li id="search-box" class="inline-box">
 							<span class="stts">Type to Search <img class="search-icon" src="/stylesheet/su/icon-search.png" /></span>
-							<input id="ss-input" name="ss-input" type="text" autocomplete="off" />
+							<input id="ss-input" name="ss-input" type="text" />
 					</li>
 				</ul>
 			</div>
@@ -88,7 +88,7 @@
 						<img src="/stylesheet/su/logo-su-229px.jpg" />
 					</div>
 					<div class="teaser-text">
-						<p>Swansea University<br/>Students' Union<br/>phone: 01792295466<br/>email: info@swansea-union.co.uk</p>
+						<p>Swansea University<br/>Students' Union<br/>phone: 01792 20 6029<br/>email: info@swansea-union.co.uk</p>
 					</div>
 				</div>
 			</div>
@@ -135,6 +135,7 @@
 			<div class="login-button m-btn blue">Swansea Uni Student</div>
 			<div class="login-button m-btn green">Guest</div>
 			<div class="login-button m-btn red">Staff</div>
+			<div class="login-button login-help"><a href="/website/">Login Help</a></div>
 		</div>
 	
 		<div class="login-content swansea-uni-student">
@@ -142,7 +143,7 @@
 			
 			<div class="iframe-pop-container">
 				 
-				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" <!--onLoad="reloadLogin()"--></iframe>
+				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/loginsucess/" <!--onLoad="reloadLogin()"--></iframe>
 				 
 				<br / >
 			</div>
@@ -211,7 +212,7 @@
 <!-- /* MENU LOGIN CONTENT END */ -->
 				</div>
 				<div id="msl-basket" class="menu-content basket">
-					<p>Please Log In to view Basket</p>
+					<MSL:Basket />
 				</div>
 			</div>
 		</div>
