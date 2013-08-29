@@ -43,7 +43,7 @@ function contentHandler_Event(eventObj) {
 			$('.sulb-inner.event .buy button').click(function () {
 				var ticketIndex = parseInt($('.sulb-inner.event #sulb-ticketselect option:selected').first().attr('data-index'));
 				var ticketQty = parseInt($('.sulb-inner.event #sulb-ticketqty option:selected').text());
-				console.log('AddToBasket() ' + ticketIndex + ':' + ticketQty);
+				//console.log('AddToBasket() ' + ticketIndex + ':' + ticketQty);
 				eventObj.AddToBasket(ticketIndex, ticketQty);
 			});
 		});
@@ -55,6 +55,9 @@ function contentHandler_Event(eventObj) {
 	$('.sulb-inner.event div.title').text(eventObj.Title);
 	if (eventObj.FullText.length > 0) {
 		$('.sulb-inner.event div.desc').html('<p class="info"></p>' + eventObj.FullText);
+	}
+	else {
+		$('.sulb-inner.event div.desc').html('<p class="info"></p><p>Information Coming Soon</p>');
 	}
 	$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy @ HH:MM'));
 	

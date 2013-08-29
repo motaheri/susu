@@ -111,5 +111,24 @@ $(document).ready(function() {
 	}
 	
 	resetDeepLinks();
-    
+	
+
+	/*
+	 * AUTO FACEBOOK GALLERY
+	 */
+    $('.su-fbgallery').each(function() {
+		var container = $(this);
+		var fbGalleryId = $(this).attr('id');
+		if (fbGalleryId == null || typeof(fbGalleryId) != "string" || fbGalleryId.length < 5 || fbGalleryId.substring(0,2) != "fb") {
+			console.error('SU Facebook Gallery: Invalid ID. The DIV ID must be like fb123456789.')
+			return;
+		}
+		fbGalleryId = fbGalleryId.substring(2);
+		SU_Data.social.getFacebookGallery(fbGalleryId, function(data, name) {
+			container.html("<h2>" + name + "</h2>");
+			$.each(data, function() {
+				container.append("<img src='" + this.Image + "' />");
+			});
+		});
+	});
 });

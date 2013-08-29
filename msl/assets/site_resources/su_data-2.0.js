@@ -519,6 +519,37 @@ var SU_Data = {
 					callback(result, albumName);
 				}
 			});
+		},
+		getFacebookGallery: function(galleryId, callback) {
+			if (galleryId == null || typeof(galleryId) != "string" || galleryId.length < 3) {
+				return;
+			}
+			var graphUrl = 'https://graph.facebook.com/' + galleryId + '?fields=name,photos';
+			$.ajax({
+				url: graphUrl,
+				dataType: 'jsonp',
+				cache: true,
+				success: function(data) {
+					var result = [];
+					var album = data.photos.data;
+					var albumName = data.name;
+					if (album.length > 0) {
+						$.each(album, function(i, o) {
+							var img_src = o.images[3];
+							var img_obj = new SU_Data.types.socialImageObj();
+							img_obj.Image = img_src.source;
+							img_obj.Width = parseInt(img_src.width);
+							img_obj.Height = parseInt(img_src.height);
+							img_obj.Created = new Date(o.created_time);
+							if (typeof(o.tags) == "object" && o.tags.data.length > 0) {
+								img_obj.Tags = o.tags.data;
+							}
+							result.push(img_obj);
+						});
+					}
+					callback(result, albumName);
+				}
+			});
 		}
 	},
 	helper: {
