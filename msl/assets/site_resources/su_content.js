@@ -20,9 +20,9 @@ $(document).ready(function() {
     var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_tv'];
     if ($.exists(pageTriggers_Coverflow)) {
 		if ($(".page_tv")[0]){
-			SU_Widget.CoverflowFull('Data_Events_Ents', '#coverflow');
+			SU_Widget.CoverflowFull('Data_Events_Featured', '#coverflow');
 		}else{
-			SU_Widget.Coverflow('Data_Events_Ents', '#coverflow');
+			SU_Widget.Coverflow('Data_Events_Featured', '#coverflow');
 		}
     }
     
