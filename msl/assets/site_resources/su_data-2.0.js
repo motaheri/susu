@@ -524,7 +524,7 @@ var SU_Data = {
 			if (galleryId == null || typeof(galleryId) != "string" || galleryId.length < 3) {
 				return;
 			}
-			var graphUrl = 'https://graph.facebook.com/' + galleryId + '?fields=name,photos';
+			var graphUrl = 'https://graph.facebook.com/' + galleryId + '?fields=name,photos.limit(24)';
 			$.ajax({
 				url: graphUrl,
 				dataType: 'jsonp',

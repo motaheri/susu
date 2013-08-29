@@ -124,10 +124,25 @@ $(document).ready(function() {
 			return;
 		}
 		fbGalleryId = fbGalleryId.substring(2);
+		var slider = $(document.createElement('div')).addClass('slider');
 		SU_Data.social.getFacebookGallery(fbGalleryId, function(data, name) {
-			container.html("<h2>" + name + "</h2>");
+			$("<h2>" + name + "</h2>").insertBefore(container);
 			$.each(data, function() {
-				container.append("<img src='" + this.Image + "' />");
+				var desiredImageWidth = parseInt(this.Width * (161.0 / this.Height));
+				var slide = $(document.createElement('div')).addClass('slide');
+				var img = $(document.createElement('img'));
+				img.css('width', desiredImageWidth + 'px');
+				img.css('height', '161px');
+				img.attr('src', this.Image);
+				slide.append(img);
+				slider.append(slide);
+			});
+			container.append(slider);
+			$(container).iosSlider({
+				snapToChildren: true,
+				scrollbar: false,
+				desktopClickDrag: true,
+				infiniteSlider: false
 			});
 		});
 	});
