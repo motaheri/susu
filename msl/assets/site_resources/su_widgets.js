@@ -449,7 +449,7 @@ var SU_Widget = {
 		
 		carouselObj.iCarousel({
                     easing: 'ease-in-out',
-                    slides: 5,
+                    slides: eventList.length,
                     make3D: true,
                     perspective: 25,
                     animationSpeed: 700,
@@ -471,6 +471,7 @@ var SU_Widget = {
 	},
 	CoverflowFull: function(eventList, targetSelector) {
 		eventList = SU_Data.getEvents(eventList, 7);
+		
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');
@@ -496,7 +497,7 @@ var SU_Widget = {
 		
 		carouselObj.iCarousel({
                     easing: 'ease-in-out',
-                    slides: 5,
+                    slides: eventList.length,
                     make3D: true,
                     perspective: 25,
                     animationSpeed: 700,
