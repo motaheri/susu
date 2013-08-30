@@ -1095,3 +1095,13 @@ padding-left: 0px;
 background: transparent !important;
 }
  
+#sport-swansea-product .msl_info{
+	color:#000;
+}
+ 
+/* Buy Buttons need to add this to org purchases as well */
+
+#msl_event .event_ticket input.button{
+	padding: 2px 10px !important;
+	float: right;
+}

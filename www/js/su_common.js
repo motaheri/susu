@@ -26,7 +26,8 @@
 				if (eventObj.FullText.length > 0) {
 					$('.sulb-inner.event div.desc').html('<p class="info"></p>' + eventObj.FullText);
 				}
-                $('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('dS mmmm yyyy @ HH:MM'));
+                //$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('dS mmmm yyyy @ HH:MM'));
+				$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('dS mmmm yyyy'));
 				
 				$('.sulb-inner.event .sliderPhotoGallery').iosSlider('destroy');
 				$('.sulb-inner.event .sliderPhotoGallery .slider').html('');

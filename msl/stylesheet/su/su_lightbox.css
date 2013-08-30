@@ -139,7 +139,6 @@ div.sulb div.sulb-inner.event .desc .info {
 }
 
 div.sulb div.sulb-inner.event .buy {
-	width: 200px;
 	float: right;
 	margin: 10px 20px 10px 20px;
 }
@@ -711,7 +710,6 @@ div.sulb div.sulb-inner.blog .desc, div.sulb div.sulb-inner.news .desc, div.sulb
 }
 
 div.sulb div.sulb-inner.event .buy {
-	width: 200px;
 	float: right;
 	margin: 10px 20px 10px 20px;
 	height: 130px;

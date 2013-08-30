@@ -59,7 +59,8 @@ function contentHandler_Event(eventObj) {
 	else {
 		$('.sulb-inner.event div.desc').html('<p class="info"></p><p>Information Coming Soon</p>');
 	}
-	$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy @ HH:MM'));
+	//$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy @ HH:MM'));
+	$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy'));
 	
 	$('.sulb-inner.event .sliderPhotoGallery').iosSlider('destroy');
 	$('.sulb-inner.event .sliderPhotoGallery .slider').html('');

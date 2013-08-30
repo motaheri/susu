@@ -131,7 +131,11 @@ $(document).ready(function() {
 		function(){
 			$('.teaser-image img').attr("src",link);
 			$('.teaser-image img').show();
-			$('#menu-page-teaser .teaser-text p').html(description);
+			if ($.trim(description).length){
+				$('#menu-page-teaser .teaser-text p').html(description);
+				}else{
+				$('#menu-page-teaser .teaser-text p').html(defaultTxt);
+				}
 			$('#menu-page-teaser .teaser-text p').show();
 			return false;
 		},function(){
