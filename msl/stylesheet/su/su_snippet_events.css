@@ -278,6 +278,10 @@ div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, 
 	height: auto;
 }
 
-.wrapper #msl_event{
+.page_event .wrapper #msl_event{
 	min-height:700px;
+}
+
+.page_event .wrapper #msl_event .msl_notification{
+	width: 320px;
 }

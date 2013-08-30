@@ -17,7 +17,7 @@ $(document).ready(function() {
     /*
      * COVERFLOW
      */
-    var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_event', '.page_frontpage', '.page_tv'];
+    var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_frontpage', '.page_tv'];
     if ($.exists(pageTriggers_Coverflow)) {
 		if ($(".page_tv")[0]){
 			SU_Widget.CoverflowFull('Data_Events_Featured', '#coverflow');
@@ -37,7 +37,7 @@ $(document).ready(function() {
     /*
      * EVENTS - MAIN LIST
      */
-    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_event', '.page_frontpage'];
+    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_frontpage'];
     if ($.exists(pageTriggers_Events_Main)) {
         SU_Widget.EventSlider_Portrait('Data_Events_Ents','#su-eventsPortrait');
         SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsPortraitFilter', '#su-eventsPortrait');

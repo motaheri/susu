@@ -536,8 +536,10 @@ h2.container-header{
 .breadcrumb li:last-child a {
 	background: #0088CC !important;
 	color: white;
+	/*
 	pointer-events: none;
 	cursor: default;
+	*/
 	border-color:#0088CC;
 }
 #article  .breadcrumb li:last-child a:after { border-left: 30px solid   #0088CC; }
@@ -1072,8 +1074,10 @@ padding: 10px 0 10px 45px !important;
 #aside .breadcrumb li:last-child a:after {
 border-color: 30px solid #152558 !important;
 pointer-events: auto;
+/*
 cursor: pointer;
 cursor: hand;
+*/
 }
 
 #aside .breadcrumb li a:before {
