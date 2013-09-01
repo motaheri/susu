@@ -26,20 +26,18 @@ $(document).ready(function(){
 
 	$('#menu li').not('#menu-logo').not('.menu-content').on('click',function(e){
 	
-		var linkRel = $(this).children('a').attr('rel');
-		if(linkRel != 'page'){
-	 
+		var menuLink = $(this).children('a').attr('rel');
+		if(menuLink != 'page'){
 			e.preventDefault();
 			$('#menu li').removeClass('menu-link-hover'); 
-			var menuLink = $(this).text().toLowerCase().trim();
-			if($('.'+menuLink).is(":visible")){
-				$('.'+menuLink).hide();
+			if($('.menu-content.'+menuLink).is(":visible")){
+				$('.menu-content.'+menuLink).hide();
 				$.mask.close();
 			}else{
 				$('#menu li').removeClass('menu-link-hover');
 				$(this).addClass('menu-link-hover');
 				$('.menu-content').hide();
-				$('.'+menuLink).show(); 
+				$('.menu-content.'+menuLink).show(); 
 				$('#menu').expose();
 			}
 		}
@@ -67,10 +65,12 @@ $(document).ready(function () {
 	$(document).keydown(function (e){
 		var anyInputFocus = $('input, textarea').is(':focus');
 		if(!anyInputFocus){
-			if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
-				$('.stts').hide();
-				$('#ss-input').show();
-				$('#ss-input').focus();
+			if(e.keyCode != 17){ // Not interested in Ctrl
+				if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
+					$('.stts').hide();
+					$('#ss-input').show();
+					$('#ss-input').focus();
+				}
 			}
 		}
 	});
@@ -176,4 +176,24 @@ $(document).ready(function() {
 			}
 	});
 	
+});	
+
+/**
+	Some Basket Functions
+**/
+	function updateBasketQty(){
+		var qtyTotal = 0;
+		$(".menu-content.basket .qty").each(function() {
+			qtyTotal += parseInt($(this).text().replace( /^\D+/g, ''));
+			if(qtyTotal > 0){
+				$('.basket-count').text(qtyTotal);
+				$('.menu-item-basket a').addClass('gold-underline');
+			}else{
+				$('.basket-count').text('');
+				$('.menu-item-basket a').removeClass('gold-underline');
+			}
+		});
+	}
+$(document).ready(function() {
+	updateBasketQty();
 });	

@@ -1095,7 +1095,7 @@ padding-left: 0px;
 background: transparent !important;
 }
  
-#sport-swansea-product .msl_info{
+#sport-swansea-product .msl_info, #sport-swansea-product .msl_warning {
 	color:#000;
 }
  

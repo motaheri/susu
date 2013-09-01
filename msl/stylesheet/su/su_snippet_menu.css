@@ -313,8 +313,6 @@ float: left;
 min-width: 457px;
 min-height: 100px;
 width: auto;
-}
-.basket{
 background:#fff;
 }
 
@@ -465,12 +463,25 @@ margin-left: 18px;
 color: #000;
 }
 
-#menu-items a{
-  pointer-events: none;
-  cursor: default;
-}
-
 .menu-content #login-container .login-admin-links{
 max-width: 170px;
 white-space: normal;
+}
+
+.gold-underline{
+	border-bottom: 3px solid rgba(255, 225, 66, 1) !important;
+}
+.basket-count{
+	position: absolute;
+	vertical-align: top;
+	text-align: center;
+	width: 16px;
+	top: 5px;
+	font-size: 9px !important;
+	}
+	
+.page_shop.page_reviewbasket .menu-item-basket,.page_shop.page_customise .menu-item-basket,.page_shop.page_checkout .menu-item-basket{
+	opacity: 0.3;
+	pointer-events: none;
+	cursor: default;
 }

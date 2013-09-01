@@ -761,3 +761,9 @@ padding-left: 20px;
 div.sulb .news-single p {
 padding-left: 0px;
 }
+div.sulb-inner .buy #buy-confirm{
+	width: 200px;
+	font-size: 12px;
+	color: #000000;
+	margin: 10px 0px;
+}

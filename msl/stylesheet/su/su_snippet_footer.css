@@ -1,29 +1,25 @@
 .two-column-left,.two-column-middle,.column-right{
 	display:inline-block;
-	xxbackground: rgba(255, 255, 255, 0.4);
 	font-size: 10px;
 	vertical-align: top;
 	padding-bottom:10px;
 	white-space: normal;
 }
 .two-column-left,.two-column-middle{
-padding-right: 30px;
+	padding-right: 30px;
 } 
 #footer .column-right{
-width:220px;
-}
-.footer-container{
-xxbackground: #fff;
+	width:220px;
 }
 #footer h3{ 
-padding-bottom:0px;
-margin-left:0px;
+	padding-bottom:0px;
+	margin-left:0px;
 }
 #footer p{
-xxmargin-left:10px;
+ 
 }
 #footer{
-padding-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 
@@ -86,17 +82,17 @@ a.center:hover{
 	opacity:0.5;
 }
 .sponsors img{
-max-height:45px;
-opacity:0.5;
-vertical-align:middle;
-margin-right:10px;
+	max-height:45px;
+	opacity:0.5;
+	vertical-align:middle;
+	margin-right:10px;
 }
 .sponsors .dominos-icon{
-max-height:40px;
+	max-height:40px;
 }
 .sponsors .nus-icon{
-max-height:25px;
+	max-height:25px;
 }
 .sponsors .podio-icon{
-max-height:20px;
+	max-height:20px;
 }

@@ -18,18 +18,13 @@
     display: none;
 }
 .login-help {
-    background: rgb(255, 255, 255);
     position: absolute;
-    top: 238px;
-    width: 60px;
-    height: 20px;
-    left: 75px;
     z-index: 200;
     font-size: 10px;
     color: #095292;
-    font-family: arial;
-    padding-left: 20px;
+    padding: 5px;
     display: none;
+    margin-left: 5px;
 }
 .login-pop {
     position: absolute;

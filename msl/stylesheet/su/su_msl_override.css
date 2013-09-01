@@ -58,7 +58,7 @@ margin-bottom:10px;
 }
 
 input.button{
-padding:5px;
+padding: 2px 5px;
 }
 
 #message_centre li {
@@ -79,4 +79,15 @@ background-image: none !important;
 table.msl_table th {
 background-image: none !important;
 background:#000 !important;
+}
+#checkout .tac input{
+margin-right: 10px;
+}
+#ctl00_Main_pnlProtx p{
+background: #fff;
+padding: 10px;
+margin-top: 0px;
+}
+.msl_admin_page table.msl_table th {
+color:#fff !important;
 }

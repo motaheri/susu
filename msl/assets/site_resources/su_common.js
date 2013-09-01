@@ -209,6 +209,10 @@ $(document).ready(function() {
 			$('#news-lightbox').trigger('close');
 			// scroll to top
 			// open basket tab thingy
+			updateBasketQty();
+			console.log('updated Basket Qty');
+			//$('.menu-content.basket').show(); 
+			//$('#menu').expose();
 		}
 		else {
 			// If not, redirect to the standalone page
