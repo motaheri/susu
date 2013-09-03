@@ -21,12 +21,18 @@ function resetDeepLinks() {
 
 function contentHandler_Event(eventObj) {
 	eventObj = eventObj.GetEvent();
-	console.log(eventObj);
 	
 	$('div.sulb-inner.event #buy-confirm').text('');
 	$('.sulb-inner.event #sulb-ticketselect').html('');
+	$('div.sulb-inner.event div.buyloginhint').hide();
 	
-	if (eventObj.Tickets.length > 0) {
+	if (!$.exists('div#menu.loggedin') && eventObj.Tickets.length > 0) {
+		// NOT LOGGED IN, SHOW LOGIN HINT
+		$('div.sulb-inner.event div.buy').hide();
+		$('div.sulb-inner.event div.buyloginhint').show();
+	}
+	else if (eventObj.Tickets.length > 0) {
+		// LOGGED IN AND TICKETS
 		$('div.sulb-inner.event div.buy').show();
 		for (var i = 0; i < eventObj.Tickets.length; i++) {
 			var ticketObj = eventObj.Tickets[i];
@@ -43,12 +49,12 @@ function contentHandler_Event(eventObj) {
 			$('.sulb-inner.event .buy button').click(function () {
 				var ticketIndex = parseInt($('.sulb-inner.event #sulb-ticketselect option:selected').first().attr('data-index'));
 				var ticketQty = parseInt($('.sulb-inner.event #sulb-ticketqty option:selected').text());
-				//console.log('AddToBasket() ' + ticketIndex + ':' + ticketQty);
 				eventObj.AddToBasket(ticketIndex, ticketQty);
 			});
 		});
 	}
 	else {
+		// ELSE HIDEEEEEEEE
 		$('div.sulb-inner.event div.buy').hide();
 	}
 	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image);
@@ -59,7 +65,7 @@ function contentHandler_Event(eventObj) {
 	else {
 		$('.sulb-inner.event div.desc').html('<p class="info"></p><p>Information Coming Soon</p>');
 	}
-	//$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy @ HH:MM'));
+	//$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy @ HH:mm'));
 	$('.sulb-inner.event p.info').text(eventObj.Location + ' - ' + eventObj.Date.format('d MMMM yyyy'));
 	
 	$('.sulb-inner.event .sliderPhotoGallery').iosSlider('destroy');

@@ -142,6 +142,11 @@ div.sulb div.sulb-inner.event .buy {
 	float: right;
 	margin: 10px 20px 10px 20px;
 }
+div.sulb div.sulb-inner.event .buyloginhint {
+	float: right;
+	margin: 10px 20px 10px 20px;
+	width: 200px;
+}
 
 div.sulb div.sulb-inner.event .buy select,
 div.sulb div.sulb-inner.event .buy button {
