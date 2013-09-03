@@ -19,10 +19,12 @@ $(document).ready(function() {
      */
     var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_frontpage', '.page_tv'];
     if ($.exists(pageTriggers_Coverflow)) {
-		if ($(".page_tv")[0]){
-			SU_Widget.CoverflowFull('Data_Events_Featured', '#coverflow');
-		}else{
-			SU_Widget.Coverflow('Data_Events_Featured', '#coverflow');
+		if ($(".page_root")[0]){
+			SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow', '960', '1358');
+		}else if($(".page_events")[0]){
+			SU_Widget.Coverflow('Data_Events_FeaturedEnts', '#coverflow');
+		}else if($(".page_tv")[0]){
+			SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow');
 		}
     }
     

@@ -713,9 +713,9 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 			var basketHtml = msg.Data;
 			$('#eventAddToBasketFrame').remove();
 			$('#msl-basket').html(basketHtml);
-			$('div.sulb-inner.event #buy-confirm').text('Basket updated!');
 			updateBasketQty();
 			console.log('updated Basket Qty');
+			$('div.sulb-inner.event #buy-confirm').text('Basket updated!');
 		}
 	}
 	else if (msg.Message == 'EventBasketCallback') {
@@ -733,7 +733,8 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 SU_Data.basket.eventAddToBasket = function(event, ticketIndex, quantity) {
 	console.log("eventAddToBasket()");
 	$('#eventAddToBasketFrame').remove();
-	$('div.sulb-inner.event #buy-confirm').text('Please wait while item is being placed in your basket...');
+	var pendingMessage = "Please wait while item is being placed in your basket..." + "<br/>Taking too long? <a href='" + event.Link + "'>click here.</a>";
+	$('div.sulb-inner.event #buy-confirm').html(pendingMessage);
 	if (event == null || ticketIndex == null || typeof(ticketIndex) != 'number') return;
 	if (quantity == null || typeof(quantity) != 'number' || quantity < 1 || quantity > 10) return;
 	event.GetEvent();

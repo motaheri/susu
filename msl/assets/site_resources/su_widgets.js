@@ -422,9 +422,12 @@ var SU_Widget = {
 			infiniteSlider: false
 		});
 	},
-	Coverflow: function(eventList, targetSelector) {
+	Coverflow: function(eventList, targetSelector, featureWidth, featureHeight) {
 		eventList = SU_Data.getEvents(eventList, 7);
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
+
+		var featureWidth = (typeof featureWidth === "undefined") ? "480" : featureWidth;
+		var featureHeight = (typeof featureHeight === "undefined") ? "679" : featureHeight;
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');
 		var icarousel = $(document.createElement('div')).addClass('icarousel').attr('id', randomId);
@@ -436,55 +439,7 @@ var SU_Widget = {
 			var slide = $(document.createElement('div')).addClass('slide');
 			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
 			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
-			o.Image = o.Image + '?' + $.param({thumbnail_width: 480, thumbnail_height: 679, resize_type: 'ResizeFitAll'});
-			var img = $(document.createElement('img'));
-			img.on('error', function() {
-				$(this).attr('src', 'http://placehold.it/480x679');
-			});
-			img.attr('src', 'http://www.swansea-union.co.uk' + o.Image);
-			link.append(img);
-			slide.append(link);
-			carouselObj.append(slide);
-		});
-		
-		carouselObj.iCarousel({
-                    easing: 'ease-in-out',
-                    slides: eventList.length,
-                    make3D: true,
-                    perspective: 25,
-                    animationSpeed: 700,
-                    pauseTime: 5000,
-                    startSlide: 0,
-                    directionNav: true,
-                    autoPlay: true,
-                    keyboardNav: true,
-                    touchNav: true,
-                    mouseWheel: false,
-                    pauseOnHover: true,
-                    direction: 'rtl',
-                    timer: 'none',
-                    onBeforeChange: function(){}, // Triggers before a slide change
-                    onAfterChange: function(){}, // Triggers after a slide change
-                    onLastSlide: function(){}, // Triggers when last slide is shown
-                    onAfterLoad: function(){} // Triggers when carousel has loaded
-                });
-	},
-	CoverflowFull: function(eventList, targetSelector) {
-		eventList = SU_Data.getEvents(eventList, 7);
-		
-		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
-		
-		var container = $(document.createElement('div')).addClass('carousel-container');
-		var icarousel = $(document.createElement('div')).addClass('icarousel').attr('id', randomId);
-		container.append(icarousel);
-		$(targetSelector).append(container);
-		
-		var carouselObj = $('#' + randomId);
-		jQuery.each(eventList, function(i, o) {
-			var slide = $(document.createElement('div')).addClass('slide');
-			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
-			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
-			o.Image = o.Image + '?' + $.param({thumbnail_width: 960, thumbnail_height: 1358, resize_type: 'ResizeFitAll'});
+			o.Image = o.Image + '?' + $.param({thumbnail_width: featureWidth, thumbnail_height: featureHeight, resize_type: 'ResizeFitAll'});
 			var img = $(document.createElement('img'));
 			img.on('error', function() {
 				$(this).attr('src', 'http://placehold.it/480x679');
