@@ -425,9 +425,9 @@ var SU_Widget = {
 	Coverflow: function(eventList, targetSelector, featureWidth, featureHeight) {
 		eventList = SU_Data.getEvents(eventList, 7);
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
-
-		var featureWidth = (typeof featureWidth === "undefined") ? "480" : featureWidth;
-		var featureHeight = (typeof featureHeight === "undefined") ? "679" : featureHeight;
+		
+		featureWidth = (typeof(featureWidth) == "undefined") ? "480" : featureWidth;
+		featureHeight = (typeof(featureHeight) == "undefined") ? "679" : featureHeight;
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');
 		var icarousel = $(document.createElement('div')).addClass('icarousel').attr('id', randomId);
