@@ -344,6 +344,7 @@ var SU_Data = {
 					article.Description = $(this).find('.leader').text();
 					article.Story = escapeHtml($(this).find('.msl_newsbodytext').html());
 					article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
+					article.Story = article.Story.replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"');
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
 					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
 					article.Link = ('/' + article.Link).replace('//','/');
