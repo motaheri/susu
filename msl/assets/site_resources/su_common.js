@@ -134,6 +134,8 @@ function contentHandler_News(newsObj) {
 function suLightBox(selector, data) {
 	$(selector).lightbox_me({
 		centered: true,
+		overlaySpeed: 0,
+		lightboxSpeed: 0,
 		overlayCSS: { background: 'black', opacity: 0.9 },
 		onLoad: function() {
 			$("body").css("overflow", "hidden");

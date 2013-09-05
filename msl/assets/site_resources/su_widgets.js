@@ -128,25 +128,6 @@ var SU_Widget = {
 		types = types.filter(function(d) { return validTypes.indexOf(d) > -1; });
 		venues = venues.getUnique().sort();
 		venues = venues.filter(function(d) { return validVenues.indexOf(d) > -1; });
-		// Output HTML
-		/*
-			<div class="m-btn-strip">
-				<a href="#" class="m-btn">Compose New</a>
-				
-				<div class="m-btn-group">
-					<a href="#" class="m-btn">Archive</a>
-					<a href="#" class="m-btn">Spam</a>
-					<a href="#" class="m-btn">Delete</a>
-				</div>
-									
-				<div class="m-btn-group">
-					<a href="#" class="m-btn">Move to</a>
-					<a href="#" class="m-btn">Labels</a>
-				</div>
-			
-				<a href="#" class="m-btn">More</a>
-			</div>
-		*/
 		var btnStrip = $(document.createElement('div')).addClass('m-btn-strip');
 		var makeBtn = function(type, text) {
 			var btn = $(document.createElement('div')).addClass('m-btn mini filter').addClass(type).text(text);
@@ -425,9 +406,9 @@ var SU_Widget = {
 	Coverflow: function(eventList, targetSelector, featureWidth, featureHeight) {
 		eventList = SU_Data.getEvents(eventList, 7);
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
-
-		var featureWidth = (typeof featureWidth === "undefined") ? "480" : featureWidth;
-		var featureHeight = (typeof featureHeight === "undefined") ? "679" : featureHeight;
+		
+		featureWidth = (typeof(featureWidth) == "undefined") ? "480" : featureWidth;
+		featureHeight = (typeof(featureHeight) == "undefined") ? "679" : featureHeight;
 		
 		var container = $(document.createElement('div')).addClass('carousel-container');
 		var icarousel = $(document.createElement('div')).addClass('icarousel').attr('id', randomId);
