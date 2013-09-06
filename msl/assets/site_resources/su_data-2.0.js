@@ -726,7 +726,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 		else {
 			var basketHtml = msg.Data;
 			$('#eventAddToBasketFrame').remove();
-			$('#msl-basket').html(basketHtml);
+			$('#basket').html(basketHtml);
 			SU_Data.basket.updateBasketQty();
 			console.log('updated Basket Qty');
 			$('div.sulb-inner.event #buy-confirm').text('Basket updated!');
@@ -792,7 +792,7 @@ SU_Data.basket.f_EventPage_AddToBasket = function() {
 			}
 			var msg = new SU_Data.types.messageObj();
 			msg.Message = 'EventBasketRequest';
-			msg.Data = $('#msl-basket').html();
+			msg.Data = $('#basket').html();
 			parent.postMessage(msg, "http://www.swansea-union.co.uk/");
 		}
 	}
