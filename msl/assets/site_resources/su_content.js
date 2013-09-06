@@ -172,5 +172,26 @@ $(document).ready(function() {
 			}
 			$(this).remove();
 		});
+		facebookLikeButtonClass = 'su-facebook-like-buttonsimple';
+		facebookLikeButtonSelector = 'div.' + facebookLikeButtonClass;
+		$(facebookLikeButtonSelector).each(function () {
+			var path = window.location.pathname;
+			if (typeof(SU_Facebook.page_likes[path]) == "string") {
+				var pageName = SU_Facebook.page_likes[path];
+				if (typeof(pageName) == "string" && pageName.length > 4) {
+					var like = $(this).first();
+					like.attr('data-href', 'https://www.facebook.com/' + pageName);
+					like.attr('data-width', '300');
+					like.attr('data-height', '70');
+					like.attr('data-show-faces', 'false');
+					like.attr('data-header', 'false');
+					like.attr('data-stream', 'false');
+					like.attr('data-show-border', 'false');
+					like.removeClass(facebookLikeButtonClass).addClass('fb-like-box');
+					return;
+				}
+			}
+			$(this).remove();
+		});
 	}
 });
