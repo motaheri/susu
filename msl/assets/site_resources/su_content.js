@@ -150,20 +150,27 @@ $(document).ready(function() {
 	/*
 	 * FACEBOOK PAGE LIKE BUTTON
 	 */
-	$('div.su-fb-like-box').each(function() {
-		var pageName = $(this).text();
-		if (typeof(pageName) != "string" || pageName.length < 4) {
+	if (typeof(SU_Facebook) == 'object') {
+		var facebookLikeButtonClass = 'su-facebook-like-button';
+		var facebookLikeButtonSelector = 'div.' + facebookLikeButtonClass;
+		$(facebookLikeButtonSelector).each(function () {
+			var path = window.location.pathname;
+			if (typeof(SU_Facebook.page_likes[path]) == "string") {
+				var pageName = SU_Facebook.page_likes[path];
+				if (typeof(pageName) == "string" && pageName.length > 4) {
+					var like = $(this).first();
+					like.attr('data-href', 'https://www.facebook.com/' + pageName);
+					like.attr('data-width', '300');
+					like.attr('data-height', '190');
+					like.attr('data-show-faces', 'true');
+					like.attr('data-header', 'false');
+					like.attr('data-stream', 'false');
+					like.attr('data-show-border', 'false');
+					like.removeClass(facebookLikeButtonClass).addClass('fb-like-box');
+					return;
+				}
+			}
 			$(this).remove();
-			return;
-		}
-		$(this).html('');
-		var like = $(this);
-		like.attr('data-href', 'https://www.facebook.com/' + pageName);
-		like.attr('data-width', '292');
-		like.attr('data-show-faces', 'false');
-		like.attr('data-header', 'false');
-		like.attr('data-stream', 'false');
-		like.attr('data-show-border', 'false');
-		like.removeClass('su-fb-like-box').addClass('fb-like-box');
-	});
+		});
+	}
 });
