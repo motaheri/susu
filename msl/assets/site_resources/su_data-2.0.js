@@ -571,7 +571,20 @@ var SU_Data = {
 	},
 	basket: {
 		// contains the basket data to be transmitted (if there is any)
-		eventAddToBasket_Data: null
+		eventAddToBasket_Data: null,
+		updateBasketQty: function(){
+			var qtyTotal = 0;
+			$(".menu-content.basket .qty").each(function() {
+				qtyTotal += parseInt($(this).text().replace( /^\D+/g, ''));
+				if(qtyTotal > 0){
+					$('.basket-count').text(qtyTotal);
+					$('.menu-item-basket a').addClass('gold-underline');
+				}else{
+					$('.basket-count').text('');
+					$('.menu-item-basket a').removeClass('gold-underline');
+				}
+			});
+		}
 	},
 	getEvents: function(eventList, limit) {
 		if (typeof(eventList) != 'string') {
@@ -714,7 +727,7 @@ SU_Data.basket.eventAddToBasket_Callback = function(e) {
 			var basketHtml = msg.Data;
 			$('#eventAddToBasketFrame').remove();
 			$('#msl-basket').html(basketHtml);
-			updateBasketQty();
+			SU_Data.basket.updateBasketQty();
 			console.log('updated Basket Qty');
 			$('div.sulb-inner.event #buy-confirm').text('Basket updated!');
 		}
@@ -744,7 +757,7 @@ SU_Data.basket.eventAddToBasket = function(event, ticketIndex, quantity) {
 	if (ticket == null) return;
 	SU_Data.basket.eventAddToBasket_Data = { PurchaseID: ticket.PurchaseID, QuantityID: ticket.QuantityID, Quantity: quantity };
 	console.log(SU_Data.basket.eventAddToBasket_Data);
-	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '"></iframe>').hide();
+	var frame = $('<iframe id="eventAddToBasketFrame" src="' + event.Link + '?skin=su&template=eventsapi"></iframe>').hide();
 	$('body').append(frame);
 }
 
@@ -796,6 +809,7 @@ $(document).ready(function() {
 	SU_Data.load.loadNews();
 	SU_Data.load.loadBlogs();
 	SU_Data.load.loadMemberList();
+	SU_Data.basket.updateBasketQty();
 	// Basket & Add To Basket Code
 	if (window.addEventListener){
 		addEventListener("message", SU_Data.basket.eventAddToBasket_Callback, false);

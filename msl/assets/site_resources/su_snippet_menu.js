@@ -3,15 +3,18 @@
  */
 (function($) {
 	$(document).ready(function() {
-		$('#su-mobile-menu').menufication({
-			childMenuSupport: true,
-			childMenuSelector: "su-mobile-menu-sub",
-			hideDefaultMenu: true,
-			triggerWidth: 683,
-			onlyMobile: false,
-			enableSwipe: false, // conflicts with sliders
-			menuText: "Swansea University Students' Union"
-		});
+		if (typeof menufication == 'function') { 
+			// Run only on Pages that Need it (don't run on API page)
+			$('#su-mobile-menu').menufication({
+				childMenuSupport: true,
+				childMenuSelector: "su-mobile-menu-sub",
+				hideDefaultMenu: true,
+				triggerWidth: 683,
+				onlyMobile: false,
+				enableSwipe: false, // conflicts with sliders
+				menuText: "Swansea University Students' Union"
+			});
+		}
 	})
 })(jQuery);
  /*
