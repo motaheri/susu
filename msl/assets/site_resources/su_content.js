@@ -17,16 +17,15 @@ $(document).ready(function() {
     /*
      * COVERFLOW
      */
-    var pageTriggers_Coverflow = ['.page_root', '.page_events', '.page_frontpage', '.page_tv'];
-    if ($.exists(pageTriggers_Coverflow)) {
-		if ($(".page_root")[0]){
-			SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow', '960', '1358');
-		}else if($(".page_events")[0]){
-			SU_Widget.Coverflow('Data_Events_FeaturedEnts', '#coverflow');
-		}else if($(".page_tv")[0]){
-			SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow');
-		}
-    }
+	if ($.exists('.page_root')){
+		SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow');
+	}
+	else if($.exists('.page_events')){
+		SU_Widget.Coverflow('Data_Events_FeaturedEnts', '#coverflow');
+	}
+	else if($.exists('.page_tv')){
+		SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow', '960', '1358');
+	}
     
     /*
      * NEWS
@@ -147,5 +146,24 @@ $(document).ready(function() {
 				infiniteSlider: false
 			});
 		});
+	});
+	/*
+	 * FACEBOOK PAGE LIKE BUTTON
+	 */
+	$('div.su-fb-like-box').each(function() {
+		var pageName = $(this).text();
+		if (typeof(pageName) != "string" || pageName.length < 4) {
+			$(this).remove();
+			return;
+		}
+		$(this).html('');
+		var like = $(this);
+		like.attr('data-href', 'https://www.facebook.com/' + pageName);
+		like.attr('data-width', '292');
+		like.attr('data-show-faces', 'false');
+		like.attr('data-header', 'false');
+		like.attr('data-stream', 'false');
+		like.attr('data-show-border', 'false');
+		like.removeClass('su-fb-like-box').addClass('fb-like-box');
 	});
 });
