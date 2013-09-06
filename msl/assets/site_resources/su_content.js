@@ -150,21 +150,23 @@ $(document).ready(function() {
 	/*
 	 * FACEBOOK PAGE LIKE BUTTON
 	 */
-	if (SU_Facebook != undefined) {
-		var facebookLikeButtonSelector = 'div.su-facebook-like-button';
+	if (typeof(SU_Facebook) == 'object') {
+		var facebookLikeButtonClass = 'su-facebook-like-button';
+		var facebookLikeButtonSelector = 'div.' + facebookLikeButtonClass;
 		$(facebookLikeButtonSelector).each(function () {
 			var path = window.location.pathname;
-			if (SU_Facebook.page_likes[path] != undefined) {
+			if (typeof(SU_Facebook.page_likes[path]) == "string") {
 				var pageName = SU_Facebook.page_likes[path];
-				if (typeof(pageName) == "string" || pageName.length > 4) {
+				if (typeof(pageName) == "string" && pageName.length > 4) {
 					var like = $(this).first();
 					like.attr('data-href', 'https://www.facebook.com/' + pageName);
-					like.attr('data-width', '292');
-					like.attr('data-show-faces', 'false');
+					like.attr('data-width', '300');
+					like.attr('data-height', '190');
+					like.attr('data-show-faces', 'true');
 					like.attr('data-header', 'false');
 					like.attr('data-stream', 'false');
 					like.attr('data-show-border', 'false');
-					like.removeClass(facebookLikeButtonSelector).addClass('fb-like-box');
+					like.removeClass(facebookLikeButtonClass).addClass('fb-like-box');
 					return;
 				}
 			}

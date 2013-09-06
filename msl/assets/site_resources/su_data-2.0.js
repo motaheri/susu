@@ -471,18 +471,8 @@ var SU_Data = {
 	},
 	social: {
 		ignoredGalleries: ["Cover Photos", "Profile Pictures", "Timeline Photos", "Instagram Photos", "Coming Soon!"],
-		facebookGalleries: {
-			entertainments: "https://graph.facebook.com/studentswansea",
-			flux: "https://graph.facebook.com/497358860293326",
-			gigslivemusic: "https://graph.facebook.com/sinswansea",
-			ilovemondays: "https://graph.facebook.com/ilovemondaysswansea",
-			playonwednesdays: "https://graph.facebook.com/116902985057714",
-			sinsavers: "https://graph.facebook.com/sinsavers",
-			tooters: "https://graph.facebook.com/104044273034617",
-			freshers: "https://graph.facebook.com/studentswansea",
-		},
 		getGalleryImages: function(brand, imgCount, callback) {
-			if (typeof(SU_Data.social.facebookGalleries[brand]) == 'undefined') {
+			if (typeof(SU_Facebook.brand_galleries[brand]) == 'undefined') {
 				$('.sulb-inner.event .sliderPhotoGallery').hide();
 				$('#sulb-eventgallery-title').hide();
 				return;
@@ -494,7 +484,7 @@ var SU_Data = {
 			if (typeof(imgCount) != 'number')
 				imgCount = 15;
 			$.ajax({
-				url: SU_Data.social.facebookGalleries[brand] + "?fields=albums.limit(7).fields(name, type, photos.limit(" + imgCount + "))",
+				url: SU_Facebook.brand_galleries[brand] + "?fields=albums.limit(7).fields(name, type, photos.limit(" + imgCount + "))",
 				dataType: 'jsonp',
 				cache: true,
 				success: function(data) {
