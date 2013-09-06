@@ -184,6 +184,7 @@ $(document).ready(function() {
 /**
 	Some Basket Functions
 **/
+/* Moved to SU_Data
 	function updateBasketQty(){
 		var qtyTotal = 0;
 		$(".menu-content.basket .qty").each(function() {
@@ -200,3 +201,4 @@ $(document).ready(function() {
 $(document).ready(function() {
 	updateBasketQty();
 });	
+*/
