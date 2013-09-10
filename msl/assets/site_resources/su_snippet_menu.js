@@ -18,7 +18,7 @@ $(document).ready(function() {
 			childMenuSelector: "su-mobile-menu-sub",
 			hideDefaultMenu: true,
 			triggerWidth: 683,
-			onlyMobile: false,
+			onlyMobile: true,
 			enableSwipe: false, // conflicts with sliders
 			menuText: "Swansea University Students' Union"
 		});
