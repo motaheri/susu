@@ -100,7 +100,17 @@ ul.stream li.dcsns-li div.inner span.section-thumb img {
 
 @media only screen and (max-width: 683px) {
 	#su-media-frontpage {
-		width: 100%;
+		width: 98%;
+	}
+	ul.stream li.dcsns-li {
+		width: 98%;
+		height: auto;
+		border-right: none;
+		border-bottom: none;
+	}
+	ul.stream li.dcsns-li div.inner {
+		padding-bottom: 35px;
+		height: auto;
 	}
 }
 
