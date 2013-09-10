@@ -33,6 +33,9 @@
 	h2#org-page-title{
 		display:none !important;
 	}
+	.advert-container {
+		display: none;
+	}
 }
 
 @media only screen and (min-width: 684px) {
@@ -42,7 +45,7 @@
     }
 }
 
-@media only screen and (max-width: 912px) {
+@media only screen and (min-width: 684px) and (max-width: 912px) {
     .wrapper {
         width: 684px;
         margin: 0 auto;
