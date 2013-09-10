@@ -272,7 +272,7 @@
 	text-align: justify;
 }
 
-.news-single aside {
+.news-single #aside {
 	width: 30%;
 	float: right;
 	padding-left: 25px;

@@ -71,7 +71,7 @@ div.sulb div.sulb-inner.blog p.info span.highlight {
  * NEWS LIGHTBOX
  */
 
-div.sulb div.sulb-inner.news aside {
+div.sulb div.sulb-inner.news #aside {
 	width: 35%;
 	float: right;
 }

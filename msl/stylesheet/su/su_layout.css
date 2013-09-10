@@ -268,11 +268,16 @@ article .content > p {
 	text-align: left;
 }
 
-aside {
+#aside {
 	width: 30%;
 	float: right;
 }
-
+@media only screen and (max-width: 683px) {
+	#aside {
+		width: 100%;
+		float: none;
+	}
+}
 div.content h3 {
 	padding-top: 10px;
 }
