@@ -1,25 +1,32 @@
 /*
  * MOBILE MENU START
  */
-(function($) {
-	$(document).ready(function() {
-		if (typeof menufication == 'function') { 
-			// Run only on Pages that Need it (don't run on API page)
-			$('#su-mobile-menu').menufication({
-				childMenuSupport: true,
-				childMenuSelector: "su-mobile-menu-sub",
-				hideDefaultMenu: true,
-				triggerWidth: 683,
-				onlyMobile: false,
-				enableSwipe: false, // conflicts with sliders
-				menuText: "Swansea University Students' Union"
-			});
-		}
-	})
-})(jQuery);
- /*
-  * MOBILE MENU END
-  */
+$(document).ready(function() {
+	if (typeof $('#su-mobile-menu').menufication == 'function') { 
+		// Run only on Pages that Need it (don't run on API page)
+		$(document).bind('menufication-done', function(e) {
+			SU_Data.basket.updateBasketQty();
+		});
+		$(document).bind('menufication-reset', function(e) {
+			SU_Data.basket.updateBasketQty();
+		});
+		$(document).bind('menufication-reapply', function(e) {
+			SU_Data.basket.updateBasketQty();
+		});
+		$('#su-mobile-menu').menufication({
+			childMenuSupport: true,
+			childMenuSelector: "su-mobile-menu-sub",
+			hideDefaultMenu: true,
+			triggerWidth: 683,
+			onlyMobile: false,
+			enableSwipe: false, // conflicts with sliders
+			menuText: "Swansea University Students' Union"
+		});
+	}
+});
+/*
+ * MOBILE MENU END
+ */
 
 /*
  * MENU JAVASCRIPT
@@ -124,7 +131,7 @@ $(document).ready(function() {
    $('#menu-items li').each(function() {
 	  var $img = $(this).find('img');
 	  if($img.attr('src')){
-			var link = $img.attr('src').replace("../","http://swansea-union.co.uk/");
+			var link = $img.attr('src').replace("../","/");
 		}else{
 			var link = '';
 		}
