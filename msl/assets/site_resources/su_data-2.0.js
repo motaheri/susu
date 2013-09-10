@@ -224,7 +224,7 @@ var SU_Data = {
 					activities.Link = $(this).attr('href');
 					activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('/','').replace('/','');
 					activities.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('6109') >= 0 ? "Sports" : "Societies";
-					activities.Image = 'http://www.swansea-union.co.uk/' + $(this).parent().prev().find('img').attr('src');
+					activities.Image = '/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.activitiesData.push(activities);
 				});
 				$(this).parent().remove();
@@ -569,9 +569,11 @@ var SU_Data = {
 				if(qtyTotal > 0){
 					$('.basket-count').text(qtyTotal);
 					$('.menu-item-basket a').addClass('gold-underline');
+					$('#menufication-nav a[href="/shop/reviewbasket"]').text('Basket (' + qtyTotal + ')');
 				}else{
 					$('.basket-count').text('');
 					$('.menu-item-basket a').removeClass('gold-underline');
+					$('#menufication-nav a[href="/shop/reviewbasket"]').text('Basket');
 				}
 			});
 		}
