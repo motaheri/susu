@@ -9,9 +9,9 @@ function resetHashUrl() {
 
 function resetDeepLinks() {
 	$('a[rel="deep"]').unbind('click');
-	$('a[rel="deep"]').click(function(e) {
-		$('.js_lb_overlay').remove();
+	$('a[rel="deep"]').on('click', function(e) {
 		e.preventDefault();
+		$('.js_lb_overlay').remove();
 		var url = $(this).attr('href');
 		if ($.address.value() != url) {
 			$.address.value(url == '/' ? '/ ' : url);
