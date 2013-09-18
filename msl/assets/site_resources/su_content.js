@@ -48,7 +48,6 @@ $(document).ready(function() {
         SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
     }
     
-    
     /*
      * OFFICER BLOGS
      */
@@ -57,7 +56,6 @@ $(document).ready(function() {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
 	
-
 	/*
 	 * FRONT PAGE MEDIA
 	 */
@@ -113,7 +111,14 @@ $(document).ready(function() {
 	
 	resetDeepLinks();
 	
-
+	/*
+	 * ORGANISATION PAGES
+	 */
+	if ($.exists('page_organisation')) {
+		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
+	}
+	
+	
 	/*
 	 * AUTO FACEBOOK GALLERY
 	 */
@@ -147,6 +152,7 @@ $(document).ready(function() {
 			});
 		});
 	});
+	
 	/*
 	 * FACEBOOK PAGE LIKE BUTTON
 	 */
