@@ -750,23 +750,23 @@ div.sulb div.sulb-inner.event .buy .buy-info select {
 	margin-left: 20px;
 }
 .sulb-inner .info{
-display: block;
+	display: block;
 }
 
 div.sulb div.sulb-inner.blog .desc, div.sulb div.sulb-inner.news .desc{
-display: inline;
-margin-left: 0px;
-vertical-align: text-top;
+	display: inline;
+	margin-left: 0px;
+	vertical-align: text-top;
 }
 
 div.sulb p{
-margin-right: 20px;
-padding-left: 20px;
+	margin-right: 20px;
+	padding-left: 20px;
 }
-div.sulb .news-single p {
-padding-left: 0px;
+div.sulb .news-single p, #events-lightbox .sulb-inner p, #events-lightbox .buyloginhint p {
+	padding-left: 0px;
 }
-div.sulb-inner .buy #buy-confirm{
+div.sulb-inner .buy #buy-confirm, #events-lightbox .buyloginhint{
 	width: 200px;
 	font-size: 12px;
 	color: #000000;

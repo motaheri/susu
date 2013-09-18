@@ -345,7 +345,7 @@ var SU_Widget = {
 				}
 				var slide = $(document.createElement('div')).addClass('slide');
 				var inner = $(document.createElement('div')).addClass('slide-inner');
-				var link = $(document.createElement('a')).attr('href', '#');
+				var link = $(document.createElement('a')).attr('href', o.Link);
 				var img = $(document.createElement('img')).attr('src', o.Image);
 				var title = $(document.createElement('div')).addClass('activitiesItemName').text(o.Name);
 				title.addClass((o.Type == "Sport" || o.Type == "Sports") ? "sport" : "society");

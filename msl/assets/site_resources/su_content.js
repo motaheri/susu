@@ -57,6 +57,31 @@ $(document).ready(function() {
     }
 	
 	/*
+     * ORGANIZATIONS
+     */
+    var pageTriggers_Organizations = ['.page_organisation'];
+	if ($.exists('page_organisation')) {
+		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
+	}
+    if ($.exists(pageTriggers_Organizations)) {
+        var pageName = $('#page-badge-title').text();
+		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
+		$("#cover .banner-title").html(pageName).show('300');
+    }
+	
+	/*
+     * ACTIVITIES	
+     */
+	var pageTriggers_Activities = ['.page_activities'];
+	/*
+	if ($.exists(pageTriggers_Activities)) {
+        var currentUrl = window.location;
+		currentUrl = currentUrl.replace('/activities/','/organisation/');
+		window.location.replace(currentUrl);
+    }
+	*/
+
+	/*
 	 * FRONT PAGE MEDIA
 	 */
 	var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage'];
@@ -110,14 +135,6 @@ $(document).ready(function() {
 	}
 	
 	resetDeepLinks();
-	
-	/*
-	 * ORGANISATION PAGES
-	 */
-	if ($.exists('page_organisation')) {
-		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
-	}
-	
 	
 	/*
 	 * AUTO FACEBOOK GALLERY

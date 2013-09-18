@@ -235,6 +235,7 @@ $(document).ready(function() {
 	});
 	$('#ctl00_ctl11_lnkForgottenPassword,#ctl00_ctl11_lnkForgottenPassword,#ctl00_ctl11_btnLogin').addClass('m-btn purple resetpass');
 	
+	
 });
 
 
