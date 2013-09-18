@@ -66,8 +66,10 @@ $(document).ready(function() {
     if ($.exists(pageTriggers_Organizations)) {
         var pageName = $('#page-badge-title').text();
 		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
+		pageName = pageName.replace('(change)','');
 		$("#cover .banner-title").html(pageName).show('300');
     }
+	
 	
 	/*
      * ACTIVITIES	
