@@ -200,7 +200,7 @@ var SU_Widget = {
 					$(this).replaceWith($(document.createElement('div')).addClass('orgText').text(o.Organisation));
 					
 				});
-				img.attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+				img.attr('src', o.Image);
 			}
 			else {
 				img = $(document.createElement('div')).addClass('orgText').text(o.Organisation);
@@ -215,7 +215,7 @@ var SU_Widget = {
 		});
 		$(targetselector).append(slider);
 		$(targetselector).iosSlider({
-			snapToChildren: true,
+			snapToChildren: false,
 			scrollbar: false,
 			desktopClickDrag: true,
 			infiniteSlider: false
@@ -282,7 +282,7 @@ var SU_Widget = {
 		});
 		$(targetselector).append(slider);
 		$(targetselector).iosSlider({
-			snapToChildren: true,
+			snapToChildren: false,
 			scrollbar: false,
 			desktopClickDrag: true,
 			infiniteSlider: false
