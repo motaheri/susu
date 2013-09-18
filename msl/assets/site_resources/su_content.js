@@ -57,6 +57,32 @@ $(document).ready(function() {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
 	
+	
+	/*
+     * ORGANIZATIONS
+     */
+    var pageTriggers_Organizations = ['.page_organisation'];
+    if ($.exists(pageTriggers_Organizations)) {
+        var pageName = $('#page-badge-title').text();
+		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
+		$("#cover .banner-title").html(pageName).show('300');
+    }
+	
+	/*
+     * ACTIVITIES	
+     */
+	var pageTriggers_Activities = ['.page_activities'];
+	/*
+	if ($.exists(pageTriggers_Activities)) {
+        var currentUrl = window.location;
+		currentUrl = currentUrl.replace('/activities/','/organisation/');
+		window.location.replace(currentUrl);
+    }
+	*/
+
+
+
+	
 
 	/*
 	 * FRONT PAGE MEDIA
