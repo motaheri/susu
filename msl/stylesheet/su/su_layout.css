@@ -952,7 +952,7 @@ body footer {
 }
 h2#org-page-title {
 	position: absolute;
-	top: 30px;
+	top: 45px;
 	color: #fff;
 	font-size: 50px;
 }
@@ -1137,4 +1137,9 @@ text-align: left;
 }
 .orgcommittee{
 	padding-top: 20px;
+}
+.page_organisation .mslwidget .vp_content .hint-text {
+	display: block;
+	font-size: small;
+	margin-bottom: 5px;
 }

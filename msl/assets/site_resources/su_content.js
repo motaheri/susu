@@ -60,8 +60,23 @@ $(document).ready(function() {
      * ORGANIZATIONS
      */
     var pageTriggers_Organizations = ['.page_organisation'];
-	if ($.exists('page_organisation')) {
+	if ($.exists(pageTriggers_Organizations)) {
 		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
+		var matchingOrgs = SU_Data.activitiesData.filter(function(d) { return d.Link == window.location.pathname && d.Link.length > 0; });
+		if (matchingOrgs.length > 0) {
+			var orgType = matchingOrgs[0].Type;
+			if (orgType == "Sports") {
+				$('div#cover').addClass('coverSports');
+			}
+			else {
+				$('div#cover').addClass('coverSocieties');
+			}
+		}
+		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
+		if (fbPageId.length > 3) {
+			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', 'http://www.facebook.com/' + fbPageId).text('Society Facebook Page');
+			$('div.mslwidget#su-org-facebook-page').html(fbLink);
+		}
 	}
     if ($.exists(pageTriggers_Organizations)) {
         var pageName = $('#page-badge-title').text();
