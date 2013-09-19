@@ -75,7 +75,7 @@ $(document).ready(function () {
 	$(document).keydown(function (e){
 		var anyInputFocus = $('input, textarea').is(':focus');
 		if(!anyInputFocus){
-			if(e.keyCode != 17){ // Not interested in Ctrl
+			if(e.keyCode > 17 || e.keyCode < 16){ // Not interested in Ctrl or Shift
 				if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
 					$('.stts').hide();
 					$('#ss-input').show();
