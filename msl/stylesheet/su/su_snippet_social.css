@@ -36,8 +36,10 @@ ul.stream li.dcsns-li {
 	vertical-align: top;
 	display: inline-block;
 	overflow: hidden;
+	
 	border-right: 12px solid #f5f5f5;
 	border-bottom: 10px solid #f5f5f5;
+	
 	border-radius: 0px;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;

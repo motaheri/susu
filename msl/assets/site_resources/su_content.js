@@ -1,3 +1,15 @@
+	/*
+     * ACTIVITIES	
+     */
+
+	var currentWebUrl = window.location.href;
+	if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
+		currentWebUrl = currentWebUrl.replace('swansea-union.co.uk/activities','swansea-union.co.uk/organisation');
+		window.location.replace(currentWebUrl);
+    }
+
+
+
 jQuery.exists = function (selectors) {
     if (typeof selectors == "string") {
         return $(selectors).length > 0;
@@ -56,6 +68,13 @@ $(document).ready(function() {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
 	
+	
+	function url_domain(data) {
+	  var    a      = document.createElement('a');
+			 a.href = data;
+	  return a.hostname;
+	}
+	
 	/*
      * ORGANIZATIONS
      */
@@ -74,6 +93,11 @@ $(document).ready(function() {
 		}
 		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
 		if (fbPageId.length > 3) {
+			var hasFbDomain = (url_domain(fbPageId) == 'facebook.com');
+			if(hasFbDomain){
+				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
+				fbPageId = fbPageId.substring(urlSlice).replace(/^\/|\/$/g, '');
+			}
 			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', 'http://www.facebook.com/' + fbPageId).text('Society Facebook Page');
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
 		}
@@ -85,19 +109,9 @@ $(document).ready(function() {
 		$("#cover .banner-title").html(pageName).show('300');
     }
 	
-	
-	/*
-     * ACTIVITIES	
-     */
-	var pageTriggers_Activities = ['.page_activities'];
-	/*
-	if ($.exists(pageTriggers_Activities)) {
-        var currentUrl = window.location;
-		currentUrl = currentUrl.replace('/activities/','/organisation/');
-		window.location.replace(currentUrl);
-    }
-	*/
 
+
+	
 	/*
 	 * FRONT PAGE MEDIA
 	 */
