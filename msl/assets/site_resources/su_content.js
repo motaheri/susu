@@ -59,6 +59,13 @@ $(document).ready(function() {
         var myOrgs = SU_Data.membershipsData.map(function(d) { return d.Name; }).sort();
         SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
     }
+	
+	/*
+	 * EVENTS - SOCIETY BOOKINGS
+	 */
+	if ($.exists('.page_events.page_societies')) {
+		$('div#cover').addClass('coverSocieties');
+	}
     
     /*
      * OFFICER BLOGS
