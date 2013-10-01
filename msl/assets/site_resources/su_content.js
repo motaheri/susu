@@ -75,6 +75,30 @@ $(document).ready(function() {
 	  return a.hostname;
 	}
 	
+    /*
+     * Activity Purchases - Customisation Pages
+     */
+    var pageTriggers_CustomizePages = ['.page_shop.page_customise'];
+    if ($.exists(pageTriggers_CustomizePages)) {
+	
+		$('.vpFormPair').each(function () {
+			if ($(this).find('.title').text() == 'Choose Society or Club name *') {
+				var fieldid = $(this).find('input').attr('name');
+				$(this).find('.vp_content').empty();
+				$('.vp_content').append($('<select name="' + fieldid + '" id="' + fieldid + '" onfocus="javascript:vp_highlight(this.parentNode.parentNode);" onblur="javascript:vp_unhighlight(this.parentNode.parentNode);"></select>'));
+				var socOptions = $(this).find('select');
+				$(SU_Data.types.membershipObj.Name).each(function () {
+					var option = $("<option>" + $(this).Name() + "</option>").attr('value', $(this).Name);
+					socOptions.append(option);                
+				});
+			}
+		}
+	
+	}
+	
+	
+	
+	
 	/*
      * ORGANIZATIONS
      */
