@@ -63,7 +63,7 @@ $(document).ready(function() {
 	/*
 	 * EVENTS - SOCIETY BOOKINGS
 	 */
-	if ($.exists('.page_events') && $.exists('.page_societies')) {
+	if ($.exists('.page_events.page_societies')) {
 		$('div#cover').addClass('coverSocieties');
 	}
     
