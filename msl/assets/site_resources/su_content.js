@@ -99,7 +99,7 @@ $(document).ready(function() {
 					socOptions.append(option);                
 				});
 			}
-		}
+		});
 	
 	}
 	
