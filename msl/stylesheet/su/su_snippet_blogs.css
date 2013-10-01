@@ -65,7 +65,7 @@
 
 .su-blog-post-inner img.author {
 	width: 50px;
-	height: 50px;
+	height: auto;
 	float: right;
 	margin: 0px 0px 5px 5px;
 	border: 1px solid rgba(56, 56, 56, 0.09);
