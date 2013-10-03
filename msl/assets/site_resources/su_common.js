@@ -57,7 +57,14 @@ function contentHandler_Event(eventObj) {
 		// ELSE HIDEEEEEEEE
 		$('div.sulb-inner.event div.buy').hide();
 	}
-	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image);
+	// set author under event lightbox speech bubble
+	var poster = eventObj.Organisation;
+	if (poster == "Entertainments" || poster == "Play On Wednesdays") {
+		poster = "Student Swansea Events";
+	}
+	$('#events-lightbox .sulb-author').text(poster);
+	// set image
+	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image).attr('alt', poster);
 	$('.sulb-inner.event div.title').text(eventObj.Title);
 	if (eventObj.FullText.length > 0) {
 		$('.sulb-inner.event div.desc').html('<p class="info"></p>' + eventObj.FullText);

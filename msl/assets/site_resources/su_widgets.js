@@ -185,6 +185,18 @@ var SU_Widget = {
 				return filterEventIds.indexOf(d.EventID) > -1;
 			});
 		}
+		if (events.length == 0) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner').addClass(dayColors[dayIndex]); // use dayindex to decide class
+			var link = $(document.createElement('a'));
+			var img = $(document.createElement('div')).addClass('orgText').text('No Events Available');
+			var title = $(document.createElement('div')).addClass('event-title').text('Check back soon');
+			var date = $(document.createElement('div')).addClass('event-date').text(new Date().format('dddd, d MMMM yyyy'));
+			$(link).append(img).append(title).append(date);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+		}
 		jQuery.each(events, function(i, o) {
 			if (i > 0) {
 				if (prevDate != o.Date.format('dd/MM/yyyy')) {
@@ -244,12 +256,30 @@ var SU_Widget = {
 				break;
 		}
 	},
-	EventSlider_Landscape: function(mslWidgetId, targetselector) {
+	EventSlider_Landscape: function(mslWidgetId, targetselector, filterEventIds) {
 		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];
-		$(targetselector).addClass('sliderSmall');
+		$(targetselector).iosSlider('destroy');
+		$(targetselector).addClass('sliderSmall').html('');
 		var slider = $(document.createElement('div')).addClass('slider');
 		var dayIndex = 0, prevDate = '01/01/2000';
-		var events = SU_Data.getEvents(mslWidgetId, 20);
+		var events = SU_Data.getEvents(mslWidgetId, 75);
+		if (filterEventIds != null) {
+			events = events.filter(function(d) {
+				return filterEventIds.indexOf(d.EventID) > -1;
+			});
+		}
+		if (events.length == 0) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner').addClass(dayColors[dayIndex]); // use dayindex to decide class
+			var link = $(document.createElement('a'));
+			var img = $(document.createElement('div')).addClass('orgText').text('No Events Available');
+			var title = $(document.createElement('div')).addClass('event-title').text('Check back soon');
+			var date = $(document.createElement('div')).addClass('event-date').text(new Date().format('dddd, d MMMM yyyy'));
+			$(link).append(img).append(title).append(date);
+			$(inner).append(link);
+			$(slide).append(inner);
+			$(slider).append(slide);
+		}
 		jQuery.each(events, function(i, o) {
 			if (i > 0) {
 				if (prevDate != o.Date.format('dd/MM/yyyy')) {
@@ -259,7 +289,7 @@ var SU_Widget = {
 			var slide = $(document.createElement('div')).addClass('slide');
 			var inner = $(document.createElement('div')).addClass('slide-inner').addClass(dayColors[dayIndex]); // use dayindex to decide class
 			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
-			var img = $(document.createElement('img'));
+			var img = $(document.createElement('img')).attr('title', o.Organisation);
 			if (o.Image != null && o.Image.length > 0) {
 				img.on('error', function() {
 					$(this).replaceWith($(document.createElement('div')).addClass('orgText').text(o.Organisation));

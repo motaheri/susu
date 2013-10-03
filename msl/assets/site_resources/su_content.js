@@ -52,12 +52,19 @@ $(document).ready(function() {
      */
     var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_frontpage'];
     if ($.exists(pageTriggers_Events_Main)) {
+		// Main ENTS List
         SU_Widget.EventSlider_Portrait('Data_Events_Ents','#su-eventsPortrait');
         SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsPortraitFilter', '#su-eventsPortrait');
 		
-        SU_Widget.EventSlider_Landscape('Data_Events_All','#su-eventsLandscape');
+		// Personal MY EVENTS List
         var myOrgs = SU_Data.membershipsData.map(function(d) { return d.Name; }).sort();
-        SU_Widget.EventSlider_Filter('Data_Events_Ents', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
+		if (myOrgs.length > 0) {
+	        SU_Widget.EventSlider_Landscape('Data_Events_Activities','#su-eventsLandscape');
+	        SU_Widget.EventSlider_Filter('Data_Events_Activities', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
+		}
+		else {
+			$('#my-events').append('<h2>You are not a member of any Sports or Societies.<br />Visit our <a href="/sports">Sport</a> and <a href="/societies">Society</a> pages to see what activities you can join.</h2>');
+		}
     }
 	
 	/*
