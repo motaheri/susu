@@ -96,14 +96,16 @@ $(document).ready(function() {
     if ($.exists(pageTriggers_CustomizePages)) {
 	
 		$('.vpFormPair').each(function () {
-			if ($(this).find('.title').text() == 'Choose Society or Club name *') {
+			var thisTitle = $(this).find('.title').text().toLowerCase();
+			if(thisTitle.indexOf('society')>0 || thisTitle.indexOf('club')>0 || thisTitle.indexOf('sport')>0 && thisTitle.indexOf('donate')>0){
 				var fieldid = $(this).find('input').attr('name');
 				$(this).find('.vp_content').empty();
 				$('.vp_content').append($('<select name="' + fieldid + '" id="' + fieldid + '" onfocus="javascript:vp_highlight(this.parentNode.parentNode);" onblur="javascript:vp_unhighlight(this.parentNode.parentNode);"></select>'));
 				var socOptions = $(this).find('select');
-				$(SU_Data.types.membershipObj.Name).each(function () {
-					var option = $("<option>" + $(this).Name() + "</option>").attr('value', $(this).Name);
-					socOptions.append(option);                
+
+				$.each(SU_Data.membershipsData, function(d) {
+					var option = $("<option>" + SU_Data.membershipsData[d].Name + "</option>").attr('value', SU_Data.membershipsData[d].Name);
+					socOptions.append(option);
 				});
 			}
 		});
@@ -136,7 +138,7 @@ $(document).ready(function() {
 				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
 				fbPageId = fbPageId.substring(urlSlice).replace(/^\/|\/$/g, '');
 			}
-			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', 'http://www.facebook.com/' + fbPageId).text('Society Facebook Page');
+			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageId).text('Society Facebook Page');
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
 		}
 	}
