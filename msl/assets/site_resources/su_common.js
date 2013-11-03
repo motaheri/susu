@@ -56,14 +56,7 @@ function contentHandler_Event(eventObj) {
 		// ELSE HIDEEEEEEEE
 		$('div.sulb-inner.event div.buy').hide();
 	}
-	// set author under event lightbox speech bubble
-	var poster = eventObj.Organisation;
-	if (poster == "Entertainments" || poster == "Play On Wednesdays") {
-		poster = "Student Swansea Events";
-	}
-	$('#events-lightbox .sulb-author').text(poster);
-	// set image
-	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image).attr('alt', poster);
+	$('img.poster').attr('src', 'http://www.swansea-union.co.uk' + eventObj.Image);
 	$('.sulb-inner.event div.title').text(eventObj.Title);
 	if (eventObj.FullText.length > 0) {
 		$('.sulb-inner.event div.desc').html('<p class="info"></p>' + eventObj.FullText);
@@ -164,10 +157,15 @@ $(document).ready(function() {
 			/^\/events\//.test(event.value)) {
 			// Find the event in the SU_Data object, if it exists.
 			if (typeof SU_Data != "undefined") {
+				console.log("1");
 				if (SU_Data.hasEvents) {
+				console.log("2");
 					for (var eventList in SU_Data.eventData) {
+					console.log("3");
 						for (var obj in SU_Data.eventData[eventList]) {
+						console.log("4");
 							if (typeof SU_Data.eventData[eventList][obj] == 'object' && SU_Data.eventData[eventList][obj].Link.indexOf(event.value) !== -1) {
+							console.log("5");
 								contentHandler_Event(SU_Data.eventData[eventList][obj]);
 								return;
 							}

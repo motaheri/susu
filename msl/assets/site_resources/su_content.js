@@ -1,12 +1,12 @@
-	/*
-     * ACTIVITIES	
-     */
+/*
+ * ACTIVITIES	
+ */
 
-	var currentWebUrl = window.location.href;
-	if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
-		currentWebUrl = currentWebUrl.replace('swansea-union.co.uk/activities','swansea-union.co.uk/organisation');
-		window.location.replace(currentWebUrl);
-    }
+var currentWebUrl = window.location.href;
+if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
+	currentWebUrl = currentWebUrl.replace('swansea-union.co.uk/activities','swansea-union.co.uk/organisation');
+	window.location.replace(currentWebUrl);
+}
 
 
 
@@ -24,8 +24,27 @@ jQuery.exists = function (selectors) {
     return false;
 }
 
+
 $(document).ready(function() {
+
+	/* Mobile Login */
+	if ($.exists('.page_mobilelogin')){	
+		var loginTarget = $('#su_page_content .wrapper');
+		$('.login-content.swansea-uni-student').appendTo(loginTarget);
+		var $guestStaffLogin = $('.login-content.staff').appendTo(loginTarget).show();
+		//$guestStaffLogin.find('.login-content.staff .login-font').text('Guests/Staff');
+		$('.login-admin-links').appendTo(loginTarget).show();
+		$('.login-controlpanel-links').appendTo(loginTarget).show();
+	}
     
+	/* Quick Fix -- Remove */
+	/*
+	$("#referendum_ballot_submit input[value=Abstain]").hide();
+	if (location.href.indexOf('elections/nominations/33') != -1) {
+         $('.election_requirement_list').parents('.vpForm').hide().prev().hide().prev().hide();
+    }
+	*/	
+	
     /*
      * COVERFLOW
      */
@@ -35,8 +54,17 @@ $(document).ready(function() {
 	else if($.exists('.page_events')){
 		SU_Widget.Coverflow('Data_Events_FeaturedEnts', '#coverflow');
 	}
+	else if($.exists('.page_travelshop.page_new')){
+		SU_Widget.Coverflow('Data_Events_FeaturedTravel', '#coverflow');
+	}
 	else if($.exists('.page_tv')){
 		SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow', '960', '1358');
+	}
+	else if($.exists('.page_advicecentre')){
+		SU_Widget.Coverflow('Data_Events_FeaturedAdvice', '#coverflow', '960', '1358');
+	}
+	else if($.exists('.page_travelshop.page_new')){
+		SU_Widget.Coverflow('Data_Events_FeaturedTravel', '#coverflow', '960', '1358');
 	}
     
     /*
@@ -63,8 +91,19 @@ $(document).ready(function() {
 	        SU_Widget.EventSlider_Filter('Data_Events_Activities', '#su-eventsLandscapeFilter', '#su-eventsLandscape', [], myOrgs);
 		}
 		else {
-			$('#my-events').append('<h2>You are not a member of any Sports or Societies.<br />Visit our <a href="/sports">Sport</a> and <a href="/societies">Society</a> pages to see what activities you can join.</h2>');
+			$('#my-events').append('<h3>You are not a member of any Sports or Societies.<br />Visit our <a href="/sports">Sport</a> and <a href="/societies">Society</a> pages to see what activities you can join.</h3>');
 		}
+    }
+	
+	/*
+     * EVENTS - Travel Shop
+     */
+    var pageTriggers_TravelShop_Main = ['.page_travelshop.page_new'];
+    if ($.exists(pageTriggers_TravelShop_Main)) {
+		// Main ENTS List
+		console.log('initiated travel shop page events');
+        SU_Widget.EventSlider_Portrait('Data_Events_FeaturedTravel','#su-eventsPortrait');
+        SU_Widget.EventSlider_Filter('Data_Events_FeaturedTravel', '#su-eventsPortraitFilter', '#su-eventsPortrait');
     }
 	
 	/*
@@ -86,7 +125,12 @@ $(document).ready(function() {
 	function url_domain(data) {
 	  var    a      = document.createElement('a');
 			 a.href = data;
-	  return a.hostname;
+	  return a.hostname.replace('www.','');
+	}
+	function url_pathname(data) {
+	  var    a      = document.createElement('a');
+			 a.href = data;
+	  return a.pathname;
 	}
 	
     /*
@@ -97,7 +141,7 @@ $(document).ready(function() {
 	
 		$('.vpFormPair').each(function () {
 			var thisTitle = $(this).find('.title').text().toLowerCase();
-			if(thisTitle.indexOf('society')>0 || thisTitle.indexOf('club')>0 || thisTitle.indexOf('sport')>0 && thisTitle.indexOf('donate')>0){
+			if(thisTitle.indexOf('donate')>0){
 				var fieldid = $(this).find('input').attr('name');
 				$(this).find('.vp_content').empty();
 				$('.vp_content').append($('<select name="' + fieldid + '" id="' + fieldid + '" onfocus="javascript:vp_highlight(this.parentNode.parentNode);" onblur="javascript:vp_unhighlight(this.parentNode.parentNode);"></select>'));
@@ -136,10 +180,16 @@ $(document).ready(function() {
 			var hasFbDomain = (url_domain(fbPageId) == 'facebook.com');
 			if(hasFbDomain){
 				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
-				fbPageId = fbPageId.substring(urlSlice).replace(/^\/|\/$/g, '');
+				fbPageId = fbPageId.substring(urlSlice);
 			}
+			console.log(fbPageId);
+			fbPageId = 'http://facebook.com/' + fbPageId.replace(/^\/|\/$/g, '');
+			console.log(fbPageId);
 			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageId).text('Society Facebook Page');
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
+		}
+		if ($.exists('#suorgeventlist')) {
+			SU_Widget.EventSlider_Landscape('Data_Events_Organisation', '#suorgeventlist');
 		}
 	}
     if ($.exists(pageTriggers_Organizations)) {
@@ -288,4 +338,115 @@ $(document).ready(function() {
 			$(this).remove();
 		});
 	}
+	
+	/*
+	 * Global Document Slider
+	 * TO DO: Add Slider Script
+	 */
+	function createDocumentSlider(source, target){
+		var resourceSource = '';
+		var resourcesTarget = '';
+		var resourceHtml = '';
+		var resourceName = '';
+		var resourceNameIsUrl = false;
+		var resourceIndex = '';
+		var resourceFileTxt = '';
+		var resourceDocType = 'default';
+		var resourceAcceptableType = [
+			'doc','docx','pdf','xls','xlsx','ppt','pptx','jpeg','jpg','gif','png','bmp'
+		];
+		// Set default source
+		if($(source).length){
+			resourceSource = source;
+		}else{
+			resourceSource = '#article .content'
+		}
+		// Set default target 
+		if($(target).length){
+			resourceTarget = target;
+		}else{
+			resourceTarget = '.wrapper.clearfix';
+		}
+		
+		var links = $(resourceSource + ' a');
+		
+		$.each(links, function(i) {
+		  var resourceFilename = false;
+		  var thisUrl = links[i].href.replace(/\/$/,'');
+		  resourceTitle = $(links[i]).text();
+		  resourceDocType = thisUrl.split('.').pop();
+		  if ($.inArray(resourceDocType, resourceAcceptableType)<0){
+			  if(url_domain(document.URL) == url_domain(thisUrl)){
+				  resourceDocType = 'internal';
+				  //resourceFilename = url_pathname(thisUrl);
+			  }else if(thisUrl.indexOf("mailto:")>-1 && thisUrl.indexOf("@")>0){
+				  resourceDocType = 'email';
+			  }else if(thisUrl.indexOf("facebook.com")>-1){
+				  resourceDocType = 'facebook';
+			  }else if(thisUrl.indexOf("twitter.com")>-1){
+				  resourceDocType = 'twitter';
+			  }else if(thisUrl.indexOf("youtube")>-1){
+				  resourceDocType = 'youtube';
+			  }else if(thisUrl.indexOf("flickr.com")>-1){
+				  resourceDocType = 'flickr';
+			  }else if(thisUrl.indexOf("tumblr.com")>-1){
+				  resourceDocType = 'tumblr';
+			  }else{
+				  resourceDocType = 'external';
+			  }
+		  }
+		  
+		  
+		  if(!resourceFilename){
+			resourceIndex = thisUrl.lastIndexOf("/") + 1;
+			
+			if(thisUrl.substr(resourceIndex).indexOf('.')<0 && url_pathname(thisUrl).indexOf('/')<0){
+				resourceFilename = url_domain(thisUrl);
+			}else if(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/')>-1){
+				console.error(url_pathname(thisUrl));
+				console.error(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/'));
+				resourceFilename = url_domain(thisUrl) + "&#133;" + thisUrl.substr(resourceIndex);
+			}else{
+				console.error(thisUrl);
+				console.error('x');
+				console.error(thisUrl.substr(resourceIndex));
+				console.error(thisUrl);
+				if(thisUrl.indexOf('/') > -1){
+					console.error('y');
+					resourceFilename = url_domain(thisUrl) + "/" + thisUrl.substr(resourceIndex);
+					console.error(resourceFilename);
+				}else{
+				console.error('z');
+					resourceFilename = url_domain(thisUrl);
+					console.error(resourceFilename);
+				}
+			}
+			
+		  }
+		  
+		  resourceFilename = decodeURIComponent(resourceFilename.replace(/\/$/,''));
+		  
+		  if(resourceTitle.indexOf('http')>-1 || resourceTitle.indexOf('mailto:')>-1 || resourceTitle.indexOf('www.')>-1 || resourceTitle.indexOf('.com')>-1 || resourceTitle.indexOf('ac.uk')>-1 || resourceTitle.indexOf('.co.uk')>-1 || resourceTitle.indexOf('.org')>-1){
+			resourceNameIsUrl = true;
+			console.error('is url');
+		  }
+		  
+		  
+		  if(resourceFilename && resourceDocType != 'email' && !resourceNameIsUrl){
+			resourceFileTxt = resourceTitle + '<br/>' + resourceFilename;
+		  }else{
+			resourceFileTxt = resourceFilename;
+		  }
+		  
+		  var resourceClassName = 'document-'+resourceDocType;
+		  resourceHtml = resourceHtml + "<a title='" + resourceDocType + "' class='resource-link-item "+
+		  resourceClassName + "' href='" + links[i].href + " '><span class='resource-link-name'>" 
+		  + resourceFileTxt + "</span></a>";        
+		});
+   
+		resourceHtml = '<div class="page-resources wrapper">' + resourceHtml + '</div>';
+		$(resourceTarget).append(resourceHtml);
+	}
+	createDocumentSlider();
+	
 });
