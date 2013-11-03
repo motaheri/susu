@@ -41,6 +41,9 @@ function contentHandler_Event(eventObj) {
 				$('.sulb-inner.event #sulb-ticketqty').append('<option>'+ ticketObj.Quantities[j] + '</option>');
 			}
 		}
+		$('.sulb-inner.event .buy button')
+			.attr('id','sulb-ticketbutton')
+			.addClass('btn btn-large btn-success');
 		$('.sulb-inner.event .buy button').unbind('click');
 		$('.sulb-inner.event .buy button').click(function () {
 			$('.sulb-inner.event .buy-info').slideDown();
@@ -157,15 +160,10 @@ $(document).ready(function() {
 			/^\/events\//.test(event.value)) {
 			// Find the event in the SU_Data object, if it exists.
 			if (typeof SU_Data != "undefined") {
-				console.log("1");
 				if (SU_Data.hasEvents) {
-				console.log("2");
 					for (var eventList in SU_Data.eventData) {
-					console.log("3");
 						for (var obj in SU_Data.eventData[eventList]) {
-						console.log("4");
 							if (typeof SU_Data.eventData[eventList][obj] == 'object' && SU_Data.eventData[eventList][obj].Link.indexOf(event.value) !== -1) {
-							console.log("5");
 								contentHandler_Event(SU_Data.eventData[eventList][obj]);
 								return;
 							}
