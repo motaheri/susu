@@ -33,7 +33,7 @@
 	h2#org-page-title{
 		display:none !important;
 	}
-	.advert-container {
+	.advert-container,.sponsors {
 		display: none;
 	}
 }
@@ -959,12 +959,6 @@ h2#org-page-title {
 article .content {
 	margin-top: 20px;
 }
-
-
-/* Temporary Styles for Launch Day */
-#my-events{
-	display: none;
-	}
 	
 	
 .msl_blog h1{
@@ -1143,3 +1137,14 @@ text-align: left;
 	font-size: small;
 	margin-bottom: 5px;
 }
+
+
+/***********
+
+Quick Bug Fixes
+
+*************/
+#referendum_ballot_submit #ctl00_Main_btn2{
+	display:none;
+}
+

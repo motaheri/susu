@@ -117,7 +117,7 @@ var SU_Widget = {
 		if (typeof(validTypes) == 'undefined')
 			validTypes = ['Club Nights', 'Freshers Events', 'Live Music', 'Special Events'];
 		if (typeof(validVenues) == 'undefined')
-			validVenues = ['Divas', 'JCs', 'Oceana', 'Peppermint', 'Sin City', 'Walkabout', 'The Wonky Sheep'];
+			validVenues = ['Divas', 'JCs', 'Oceana', 'Peppermint', 'Sin City', 'Walkabout', 'Bambu', 'Idols', 'The Wonky Sheep'];
 		var types = [];
 		var venues = [];
 		SU_Data.eventData[mslWidgetId].map(function(d) {
@@ -172,6 +172,7 @@ var SU_Widget = {
 		else {
 			SU_Widget.EventSlider_Portrait(mslWidgetId, targetselector, eventsList);
 		}
+		resetDeepLinks();
 	},
 	EventSlider_Portrait: function(mslWidgetId, targetselector, filterEventIds) {
 		var dayColors = ['bb-green', 'bb-yellow', 'bb-pink', 'bb-blue'];

@@ -32,16 +32,6 @@
     left: -78px;
     width: 524px;
     height: 465px;
-    -moz-transform: scale(0.85, 0.85);
-    -webkit-transform: scale(0.85, 0.85);
-    -o-transform: scale(0.85, 0.85);
-    -ms-transform: scale(0.85, 0.85);
-    transform: scale(0.85, 0.85);
-    -moz-transform-origin: top left;
-    -webkit-transform-origin: top left;
-    -o-transform-origin: top left;
-    -ms-transform-origin: top left;
-    transform-origin: top left;
     background: #d00;
     overflow: hidden;
 	background: #095292 url('/stylesheet/su/preloader-white-on-sublue.gif') no-repeat 290px 280px;
@@ -156,3 +146,138 @@
 .staff .msl_list .new-guest,
 .guest .msl_list .new-staff { display: none !important }
 .login-gueststaff { font-size: 16px }
+
+
+
+.menu-content.login, .menu-content.account {
+width: 680px;
+}
+.login-pop {
+zoom:1;
+}
+.iframe-pop-container {
+width: 415px;
+}
+.swansea-uni-student .login-logo {
+width: 421px;
+}
+.login-pop {
+bottom: 0px;
+left: -72px;
+width: 515px;
+height: 390px;
+}
+
+
+
+/***********
+
+Mobile Login Styles
+
+************/
+
+.page_mobilelogin .login-content {
+margin-left:0px;
+width:700px
+}
+.page_mobilelogin .login-logo {
+width:700px
+}
+.page_mobilelogin .login-pop{
+height: 387px;
+width: 540px;
+bottom: 0px;
+-webkit-transform: scale(1, 1);
+zoom:1;
+}
+.page_mobilelogin .iframe-pop-container{
+width:700px;
+border:0px;
+}
+.page_mobilelogin .swansea-uni-student .login-logo {
+width:700px
+}
+.page_mobilelogin .staff{
+display:block;
+}
+
+.page_mobilelogin #msl_admin li {
+border-top: 0px;
+}
+.page_mobilelogin .msl_admin {
+background: rgba(255, 255, 255, 0.4);
+padding: 0px;
+text-decoration: none;
+padding: 10px 10px;
+font-size: 18px;
+}
+
+.page_mobilelogin .login-controlpanel-links p {
+margin-left: 0px;
+}
+.page_mobilelogin .login-controlpanel-links ul {
+margin-left: -40px;
+}
+.page_mobilelogin .login-controlpanel-links li {
+list-style: none;
+}
+.page_mobilelogin .login-controlpanel-links li  a{
+padding: 10px 10px;
+text-decoration:none;
+background: rgba(255, 255, 255, 0.4);
+margin-bottom:10px;
+}
+.page_mobilelogin .login-controlpanel-links .logout {
+margin:0px;
+}
+.page_mobilelogin .login-controlpanel-links .logout {
+margin-left:0px !important;
+margin-top: 10px;
+}
+.page_mobilelogin #ctl00_controlpanel_ulControlPanel{
+margin-top: 10px;
+}
+
+.page_mobilelogin .msl_person,
+.page_mobilelogin .msl_contact,
+.page_mobilelogin .msl_message,
+.page_mobilelogin .msl_shop,
+.page_mobilelogin .msl_edit,
+.page_mobilelogin .msl_add {
+background:none;
+background: rgba(255, 255, 255, 0.4);
+}
+
+.page_mobilelogin #controlpanel ul li {
+border-bottom: 0px;
+margin-bottom: 25px !important;
+}
+
+.page_mobilelogin #controlpanel ul {
+margin-left: 0px !important;
+}
+
+#controlpanel .page_mobilelogin .msl_edit,#controlpanel .page_mobilelogin .msl_add{
+padding-left: 0px !important;
+}
+
+.page_mobilelogin .wrapper{
+
+}
+
+.page_mobilelogin .msl_admin_menu{
+width:180px;
+}
+
+.page_mobilelogin #controlpanel .msl_edit,
+.page_mobilelogin #controlpanel .msl_add{
+padding-left:0px !important;
+}
+
+.page_mobilelogin #controlpanel .msl_edit{
+margin-top:10px;
+}
+
+.page_mobilelogin #controlpanel{
+display:none;
+}

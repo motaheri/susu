@@ -8,6 +8,9 @@
 .two-column-left,.two-column-middle{
 	padding-right: 30px;
 } 
+.two-column-left .sponsors{
+	margin-top: 30px;
+}
 #footer .column-right{
 	width:220px;
 }
@@ -72,7 +75,7 @@ a#flickr
 }
 #back-up{
 	position: relative;
-	bottom: 40px;
+	bottom: 50px;
  }
 a.center{
 	position: absolute;
@@ -82,10 +85,13 @@ a.center:hover{
 	opacity:0.5;
 }
 .sponsors img{
-	max-height:45px;
+	max-height:50px;
 	opacity:0.5;
 	vertical-align:middle;
 	margin-right:10px;
+}
+.sponsors img:hover{
+	opacity:0.8;
 }
 .sponsors .dominos-icon{
 	max-height:40px;
@@ -95,4 +101,10 @@ a.center:hover{
 }
 .sponsors .podio-icon{
 	max-height:20px;
+}
+.sponsors .podio-icon{
+	max-height:20px;
+}
+.sponsors .shiftplanning-icon{
+	max-height: 28px;
 }

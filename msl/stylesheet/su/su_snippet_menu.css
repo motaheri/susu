@@ -159,11 +159,9 @@ li#menu-logo:hover                      { border: none }
 #menu-content-container .union ul       {
 	 vertical-align: top;
 	 background: #fefefe;
-	 xpadding-bottom: 20px;
-	 xxborder-left: 2px solid #333;
 	 min-height: 100px;
 	 min-width: 70px;
-	 min-width: 70px;
+	 margin-bottom: 15px;
 	}
 .menu-list {
 	 display: inline-block;
@@ -485,3 +483,5 @@ white-space: normal;
 	pointer-events: none;
 	cursor: default;
 }
+
+
