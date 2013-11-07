@@ -94,19 +94,19 @@
 	background-color: #152558;
 	height: 140px;
 	/* border-radius: 10px; */
-	border: 1px solid #152558;
-	border-bottom: 10px solid #152558;
+	border: 6px solid #152558;
+	border-bottom: 7px solid #152558;
 }
 #isonews .news .news-inner-img:hover {
 	border: 1px solid #152558;
-	border: 1px solid #000;
+	border: 6px solid #000;
 	background-color: #3D9DFD;
 	border-bottom: 10px solid #152558;
-	border-bottom: 10px solid #000;
+	border-bottom: 7px solid #000;
 }
 
 #isonews .news .news-inner .news-bgimage {
-    opacity: 0.55;
+    opacity: 0.85;
     top: 0;
     left: 0;
     bottom: 0;

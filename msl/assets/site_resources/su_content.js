@@ -133,6 +133,32 @@ $(document).ready(function() {
 	  return a.pathname;
 	}
 	
+	
+	
+	
+	/*
+     * Activity Admin - Edit Group Pages
+     */
+	// This removes option for Admins to suicide their privileges  
+    var pageTriggers_EditGroups = ['.page_organisation.page_editmembers'];
+    if ($.exists(pageTriggers_EditGroups)) {
+		var activityRole = $('#edit_members h1').first().text().toLowerCase();
+		if(activityRole == 'president' || activityRole == 'captain'){
+			$('#edit_members .msl_table:first-of-type td').each(function(){
+				var thisRole = $(this).text().toLowerCase();
+				// Magic words - Super User needs to have the Words Sport or Society as last name
+				if(thisRole.indexOf("society") > -1 || thisRole.indexOf("sport") > -1){
+					$(this).prev('td').children('input').hide();
+				}
+			});
+		}
+	
+	}
+	
+	
+	
+	
+	
     /*
      * Activity Purchases - Customisation Pages
      */
@@ -371,11 +397,16 @@ $(document).ready(function() {
 		var links = $(resourceSource + ' a');
 		
 		$.each(links, function(i) {
+		  console.error('New Link');
 		  var resourceFilename = false;
 		  var thisUrl = links[i].href.replace(/\/$/,'');
+			console.log('the links url ' + thisUrl);
 		  resourceTitle = $(links[i]).text();
+			console.log('text inside link ' + resourceTitle);
 		  resourceDocType = thisUrl.split('.').pop();
+			console.log('document extension ' + resourceDocType);
 		  if ($.inArray(resourceDocType, resourceAcceptableType)<0){
+				console.log('text inside link ' + resourceTitle);
 			  if(url_domain(document.URL) == url_domain(thisUrl)){
 				  resourceDocType = 'internal';
 				  //resourceFilename = url_pathname(thisUrl);
@@ -394,19 +425,26 @@ $(document).ready(function() {
 			  }else{
 				  resourceDocType = 'external';
 			  }
+			  console.log('resourceDocType ' + resourceDocType);
 		  }
 		  
 		  
 		  if(!resourceFilename){
 			resourceIndex = thisUrl.lastIndexOf("/") + 1;
+			console.log('resourceIndex ' + resourceIndex);
 			
 			if(thisUrl.substr(resourceIndex).indexOf('.')<0 && url_pathname(thisUrl).indexOf('/')<0){
+				// Relative Link?
 				resourceFilename = url_domain(thisUrl);
+				console.log('1resourceFilename ' + resourceFilename);
 			}else if(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/')>-1){
+				// Long URL 
 				console.error(url_pathname(thisUrl));
 				console.error(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/'));
 				resourceFilename = url_domain(thisUrl) + "&#133;" + thisUrl.substr(resourceIndex);
+				console.log('2resourceFilename ' + resourceFilename);
 			}else{
+				// 
 				console.error(thisUrl);
 				console.error('x');
 				console.error(thisUrl.substr(resourceIndex));
@@ -416,8 +454,10 @@ $(document).ready(function() {
 					resourceFilename = url_domain(thisUrl) + "/" + thisUrl.substr(resourceIndex);
 					console.error(resourceFilename);
 				}else{
-				console.error('z');
+					console.error('z');
+					
 					resourceFilename = url_domain(thisUrl);
+					resourceFilename = thisUrl.split(':').pop();
 					console.error(resourceFilename);
 				}
 			}
@@ -425,17 +465,24 @@ $(document).ready(function() {
 		  }
 		  
 		  resourceFilename = decodeURIComponent(resourceFilename.replace(/\/$/,''));
+		  console.log('4resourceFilename' + resourceFilename);
 		  
 		  if(resourceTitle.indexOf('http')>-1 || resourceTitle.indexOf('mailto:')>-1 || resourceTitle.indexOf('www.')>-1 || resourceTitle.indexOf('.com')>-1 || resourceTitle.indexOf('ac.uk')>-1 || resourceTitle.indexOf('.co.uk')>-1 || resourceTitle.indexOf('.org')>-1){
 			resourceNameIsUrl = true;
 			console.error('is url');
 		  }
 		  
+		  console.error('here');
+		  console.log(resourceFilename);
+		  console.log(resourceNameIsUrl);
 		  
-		  if(resourceFilename && resourceDocType != 'email' && !resourceNameIsUrl){
+		  
+		  if(resourceFilename.length>0 && resourceDocType != 'email' && !resourceNameIsUrl){
 			resourceFileTxt = resourceTitle + '<br/>' + resourceFilename;
+			console.log('1resourceFileTxt ' + resourceFileTxt);
 		  }else{
 			resourceFileTxt = resourceFilename;
+			console.log('2resourceFileTxt ' + resourceFileTxt);
 		  }
 		  
 		  var resourceClassName = 'document-'+resourceDocType;

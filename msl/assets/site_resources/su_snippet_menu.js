@@ -72,17 +72,31 @@ $(document).ready(function(){
 Type Ahead
 */
 $(document).ready(function () {
+    var ctrlDown = false;
+    var ctrlKey = 17, vKey = 86, cKey = 67;
 	$(document).keydown(function (e){
 		var anyInputFocus = $('input, textarea').is(':focus');
 		if(!anyInputFocus){
-			if(e.keyCode > 17 || e.keyCode < 16){ // Not interested in Ctrl or Shift
-				if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
-					$('.stts').hide();
-					$('#ss-input').show();
-					$('#ss-input').focus();
+			$(document).keydown(function(e){
+				if (e.keyCode == ctrlKey){ctrlDown = true;}
+			}).keyup(function(e){
+				if (e.keyCode ==wctrlKey){ctrlDown = false;}
+			});
+
+			var copyPaste = new Boolean(ctrlDown && (e.keyCode == vKey || e.keyCode == cKey));
+			console.log('copyPaste ' + copyPaste);
+			if(!copyPaste){ // Not interested in Copy and Paste
+				if(e.keyCode > 17 || e.keyCode < 16){ // Not interested in Ctrl or Shift
+					if(e.keyCode > 40 || e.keyCode < 37){ // Not interested in the navigational arrow keys 
+						$('.stts').hide();
+						$('#ss-input').show();
+						$('#ss-input').focus();
+					}
 				}
 			}
 		}
+	}).keyup(function(e){
+        if (e.keyCode == ctrlKey){ctrlDown = false;}
 	});
 	$('#ss-input').focusout(function() {
 		if ($.trim($(this).val()).length == 0){
