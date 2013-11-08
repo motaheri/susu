@@ -57,13 +57,13 @@ $(document).ready(function() {
 	else if($.exists('.page_travelshop.page_new')){
 		SU_Widget.Coverflow('Data_Events_FeaturedTravel', '#coverflow');
 	}
-	else if($.exists('.page_tv')){
+	else if($.exists('.page_tv')&&!$.exists('.page_advice')&&!$.exists('.page_travel')){
 		SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow', '960', '1358');
 	}
-	else if($.exists('.page_advicecentre')){
+	else if($.exists('.page_tv.page_advice')){
 		SU_Widget.Coverflow('Data_Events_FeaturedAdvice', '#coverflow', '960', '1358');
 	}
-	else if($.exists('.page_travelshop.page_new')){
+	else if($.exists('.page_travelshop.page_new')||$.exists('.page_tv.page_travel')){
 		SU_Widget.Coverflow('Data_Events_FeaturedTravel', '#coverflow', '960', '1358');
 	}
     

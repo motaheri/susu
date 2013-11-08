@@ -310,22 +310,22 @@ div.content h3 {
 	background-size: auto 50%; 
 }
 .carousel-container {
-	width: 100%;
 	overflow: hidden;
-	background: #fefefe url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
 	padding: 5px 0px;
 }
-.advert-container, .notice-container{
+.carousel-container,.advert-container,.notice-container{
 	width: 100%;
-	background: #fefefe url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+	background: #E9E9E9 url('/stylesheet/su/noize.png');
+}
+.page_tv .carousel-container{
+	background: #fefefe url('/stylesheet/su/noize.png');
 }
 
 .events-container {
 	width: 100%;
 	overflow: hidden;
-	xxbackground: #222 url('../img/events-bg.jpg');
 	background-size: auto 80%; 
-	xxcolor: #fff !important;
+	margin-top: 20px;
 }
 .footer-container {
 	width: 100%;
@@ -337,14 +337,12 @@ div.content h3 {
 	overflow: hidden;
 	xxbackground: #fefefe url('../img/socialmedia-bg.jpg');
 	background-size: auto 80%; 
+	margin-top: 20px;
 }
 .blog-container {
 	width: 100%;
 	overflow: hidden;
 	xxbackground: #f5f5f5 url('../img/blog-bg-4.png');
-}
-.events-container  a{
-	xxcolor: #fff !important;
 }
 
 #sulogo {
@@ -1144,6 +1142,4 @@ text-align: left;
 Quick Bug Fixes
 
 *************/
-#referendum_ballot_submit #ctl00_Main_btn2{
-	display:none;
-}
+

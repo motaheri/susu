@@ -1,4 +1,50 @@
 /*
+ * SSO Third Party Login Cookie Fix 
+ */
+$(document).ready(function() {
+	
+	/*
+	We create a unique token, to avoid caching. 
+	This is passed to the CookieCutter.name service in the last part of the snippet.
+
+	CookieCutter(t) gets called by the script that we get and execute. 
+	The parameter t holds the token we use when requesting the script. 
+	So we just implement a check if it matches our random token.
+
+	CookieCutter.name passes the token around by using a cookie. 
+	So if the token persist in the response we get, this means storing a cookie was possible.
+
+	The last part of the snippet just creates a script DOM element with an URL including the token and 
+	appends it to the head element. Thus it gets loaded and executed.
+
+	We perform on whether the user enabled third party cookies or not in the CookieCutter() callback.
+	*/
+	
+	// create random token to circumvent caching
+	var token = Math.random().toString(36).substring(2,10);
+	// callback for cookie cutter script
+	/*
+	function CookieCutter(t) {
+	  if (t == token) {
+		alert("Your browser enabled cookies.");
+	  } else {
+		alert("Your browser disabled cookies or third-party cookies.");
+	  }
+	}
+
+	// get cookie cutter script and pass token
+	var script = document.createElement('script');
+	script.src = "http://cookiecutter.name/Check/" + token;
+	var head = document.getElementsByTagName('head')[0];
+	head.appendChild(script);
+	*/
+
+});
+
+
+
+
+/*
  * MOBILE MENU START
  */
 $(document).ready(function() {
@@ -80,7 +126,7 @@ $(document).ready(function () {
 			$(document).keydown(function(e){
 				if (e.keyCode == ctrlKey){ctrlDown = true;}
 			}).keyup(function(e){
-				if (e.keyCode ==wctrlKey){ctrlDown = false;}
+				if (e.keyCode == ctrlKey){ctrlDown = false;}
 			});
 
 			var copyPaste = new Boolean(ctrlDown && (e.keyCode == vKey || e.keyCode == cKey));

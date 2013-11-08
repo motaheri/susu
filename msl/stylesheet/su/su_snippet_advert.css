@@ -13,13 +13,13 @@
 }
 .fulladvert{
 	width: 468px;
-	background: url('/stylesheet/su/icon-advert-holder-468x60.png') no-repeat;
+	background: url('/stylesheet/su/icon-advert-holder-468x60.gif') no-repeat;
 }
 .halfadvert{
 	width: 234px;
 	margin-left: 15px;
 	display:none;
-	background: url('/stylesheet/su/icon-advert-holder-234x60.png') no-repeat;
+	background: url('/stylesheet/su/icon-advert-holder-234x60.gif') no-repeat;
 }
 .advertteaser{
 	margin-left: -10px;
@@ -28,6 +28,5 @@
 	background: none;
 }
 .advert-container{
-	width: 100%;
-	background: #fefefe url('/stylesheet/su/noize.png');
+	border-bottom: 1px solid #f7f7f7;
 }
