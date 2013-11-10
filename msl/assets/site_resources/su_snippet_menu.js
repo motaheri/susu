@@ -48,26 +48,28 @@ $(document).ready(function() {
  * MOBILE MENU START
  */
 $(document).ready(function() {
-	if (typeof $('#su-mobile-menu').menufication == 'function') { 
-		// Run only on Pages that Need it (don't run on API page)
-		$(document).bind('menufication-done', function(e) {
-			SU_Data.basket.updateBasketQty();
-		});
-		$(document).bind('menufication-reset', function(e) {
-			SU_Data.basket.updateBasketQty();
-		});
-		$(document).bind('menufication-reapply', function(e) {
-			SU_Data.basket.updateBasketQty();
-		});
-		$('#su-mobile-menu').menufication({
-			childMenuSupport: true,
-			childMenuSelector: "su-mobile-menu-sub",
-			hideDefaultMenu: true,
-			triggerWidth: 683,
-			onlyMobile: false,
-			enableSwipe: false, // conflicts with sliders
-			menuText: "Swansea University Students' Union"
-		});
+	if (!$('.page_tv').length){
+		if (typeof $('#su-mobile-menu').menufication == 'function') { 
+			// Run only on Pages that Need it (don't run on API page)
+			$(document).bind('menufication-done', function(e) {
+				SU_Data.basket.updateBasketQty();
+			});
+			$(document).bind('menufication-reset', function(e) {
+				SU_Data.basket.updateBasketQty();
+			});
+			$(document).bind('menufication-reapply', function(e) {
+				SU_Data.basket.updateBasketQty();
+			});
+			$('#su-mobile-menu').menufication({
+				childMenuSupport: true,
+				childMenuSelector: "su-mobile-menu-sub",
+				hideDefaultMenu: true,
+				triggerWidth: 683,
+				onlyMobile: false,
+				enableSwipe: false, // conflicts with sliders
+				menuText: "Swansea University Students' Union"
+			});
+		}
 	}
 });
 /*
