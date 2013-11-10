@@ -88,6 +88,7 @@ div.sulb div.sulb-inner.news img.lead {
 	max-width: 300px;
 	max-height: 320px;
 	margin: 10px 20px 10px 20px;
+	margin: 0px;
 }
 
 div.sulb div.sulb-inner.news div.content {
