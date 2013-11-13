@@ -1,10 +1,12 @@
 .iframe-pop-container {
-    width: 421px;
-    height: 245px;
-    background: rgba(9, 82, 146, .90);
-    position: absolute;
-    overflow: hidden;
-    margin-top: 45px;
+	width: 411px;
+	height: 245px;
+	background: rgba(9, 82, 146, .90);
+	position: absolute;
+	overflow: hidden;
+	margin-top: 45px;
+	border: 5px solid #21629C;
+	border-top: none;
 }
 .blocker {
     background: rgb(255, 255, 255);
@@ -33,7 +35,7 @@
     height: 465px;
     background: #d00;
     overflow: hidden;
-	background: #095292 url('/stylesheet/su/preloader-white-on-sublue.gif') no-repeat 280px 264px;
+	background: #21629C url('/stylesheet/su/preloader-white-on-sublue.gif') no-repeat 280px 264px;
 	display:none;
 }
 .login-logo {
@@ -69,6 +71,8 @@ a#ssolink{
 	text-decoration:none;
 	padding: 5px;
 	padding-left: 20px;
+	margin-left: -8px;
+	margin-right: -11px;
 	background: url('/stylesheet/su/icon-key-white.png') no-repeat 0px 6px;
 }
 .guest .login-logo {
@@ -177,22 +181,42 @@ a#ssolink{
 .guest .msl_list .new-staff { display: none !important }
 .login-gueststaff { font-size: 16px }
 
-
-
 .menu-content.login, .menu-content.account {
-width: 680px;
-}
-.login-pop {
-zoom:1;
+	width: 680px;
 }
 .swansea-uni-student .login-logo {
-width: 421px;
+	width: 421px;
 }
 .login-pop {
-bottom: 0px;
-left: -72px;
-width: 515px;
-height: 390px;
+	zoom:1;
+	bottom: 0px;
+	left: -100px;
+	width: 515px;
+	height: 390px;
+}
+
+.login-help-text{
+	font-family: verdana;
+	font-size: 9px;
+	padding: 0px 10px;
+	line-height: 11px;
+	width: 227px;
+	height: 200px;
+	white-space: normal;
+	float: right;
+	margin-top: -6px;
+}
+.text-blue{
+	color:#095292;
+}
+.text-green{
+	color:#35aa47;
+}
+.text-red{
+	color:#d84a38;
+}
+.text-purple{
+	color:#852b99;
 }
 
 
@@ -205,24 +229,26 @@ Mobile Login Styles
 
 .page_mobilelogin .login-content {
 margin-left:0px;
-width:700px
+width:400px
 }
 .page_mobilelogin .login-logo {
-width:700px
+width:400px
 }
 .page_mobilelogin .login-pop{
-height: 387px;
+height: 405px;
+left: -73px;
 width: 540px;
 bottom: 0px;
 -webkit-transform: scale(1, 1);
 zoom:1;
 }
 .page_mobilelogin .iframe-pop-container{
-width:700px;
+width: 400px;
+height:250px;
 border:0px;
 }
 .page_mobilelogin .swansea-uni-student .login-logo {
-width:700px
+width: 400px;
 }
 .page_mobilelogin .staff{
 display:block;
@@ -307,4 +333,11 @@ margin-top:10px;
 
 .page_mobilelogin #controlpanel{
 display:none;
+}
+
+.page_mobilelogin .ssoexternalcontainer{
+display:none;
+}
+.page_mobilelogin .login-pop{
+display:block;
 }

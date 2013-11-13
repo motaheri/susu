@@ -23,12 +23,16 @@ $(document).ready(function() {
 	// create random token to circumvent caching
 	var token = Math.random().toString(36).substring(2,10);
 	// callback for cookie cutter script
-	/*
-	function CookieCutter(t) {
+	
+	function CookieCutter(t){
 	  if (t == token) {
-		alert("Your browser enabled cookies.");
+		console.log("Third party cookies enabled.");
+		//.login-pop show //.ssoexternalcontainer hide
+		$('.login-content .ssoexternalcontainer').hide();
+		$('.login-content .login-pop').show();
 	  } else {
-		alert("Your browser disabled cookies or third-party cookies.");
+		// Do nothing. 
+		console.log("Third party cookies disabled. Will show external link intsead.");
 	  }
 	}
 
@@ -37,7 +41,6 @@ $(document).ready(function() {
 	script.src = "http://cookiecutter.name/Check/" + token;
 	var head = document.getElementsByTagName('head')[0];
 	head.appendChild(script);
-	*/
 
 });
 
