@@ -128,13 +128,13 @@
 
 
 
-					<div id="login-container">
+		<div id="login-container">
 		<div class="login-button-group">
 			<div class="login-button login-as">Login As:</div>
 			<div class="login-button m-btn blue">Swansea Uni Student</div>
 			<div class="login-button m-btn green">Guest</div>
 			<div class="login-button m-btn red">Staff</div>
-			<div class="login-button login-help"><a href="/website/">First Year? Login Help</a></div>
+			<div class="login-button login-help"><a href="/website/">Login Help?</a></div>
 		</div>
 	
 		<div class="login-content swansea-uni-student">
@@ -144,7 +144,12 @@
 				 
 				<iframe class="login-pop" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/loginsuccess/" <!--onLoad="reloadLogin()"--></iframe>
 				 
-				<br / >
+				<div class="ssoexternalcontainer">
+					<div id="ssoexternal" class="m-btn purple">
+						<a id="ssolink" href="http://www.swansea-union.co.uk/shib.ashx?ReturnUrl=/" target="_blank">Click here to Login with Swansea University Single Sign On</a>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 		<div class="login-content guest green">
