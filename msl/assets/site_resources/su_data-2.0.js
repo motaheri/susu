@@ -184,7 +184,10 @@ var SU_Data = {
 					person.Email = $(this).find('dl > dd > a').text();
 					person.ID = $(this).find('input').attr('value');
 					person.Image = $(this).find('div.badge_tools img').attr('src').replace('/80x100','');
-					person.Link = $(this).find('div.badge_tools a').attr('href');
+					person.Link = $(this).find('dl > dt').next('dd').text();
+					if (person.Link == null || person.Link == "") {
+						person.Link = $(this).find('div.badge_tools a').attr('href');
+					}
 					person.Title = $(this).parent().parent().prev().text();
 					SU_Data.personData[divId].push(person);
 				});
