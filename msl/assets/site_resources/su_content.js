@@ -372,7 +372,7 @@ $(document).ready(function() {
 	function createDocumentSlider(source, target){
 		var resourceSource = '';
 		var resourcesTarget = '';
-		var resourceHtml = '<h2>Resources</h2>';
+		var resourceHtml = '';
 		var resourceName = '';
 		var resourceNameIsUrl = false;
 		var resourceIndex = '';
@@ -486,13 +486,16 @@ $(document).ready(function() {
 		  }
 		  
 		  var resourceClassName = 'document-'+resourceDocType;
+		  
+		  if(i == '0'){resourceHtml = '<h2>Resources</h2>';}
 		  resourceHtml = resourceHtml + "<a title='" + resourceDocType + "' class='resource-link-item "+
 		  resourceClassName + "' href='" + links[i].href + " '><span class='resource-link-name'>" 
 		  + resourceFileTxt + "</span></a>";        
 		});
-   
-		resourceHtml = '<div class="page-resources wrapper">' + resourceHtml + '</div>';
-		$(resourceTarget).append(resourceHtml);
+		if(resourceHtml.length>20){
+			resourceHtml = '<div class="page-resources wrapper">' + resourceHtml + '</div>';
+			$(resourceTarget).append(resourceHtml);
+		}
 	}
 	if($.exists('.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
 		createDocumentSlider();
