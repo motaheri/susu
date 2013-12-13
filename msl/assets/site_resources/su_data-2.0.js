@@ -348,7 +348,11 @@ var SU_Data = {
 					article.Story = $.trim(article.Story.replace(/[\r\n\t]/g, ''));
 					article.Story = article.Story.replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"');
 					article.Date = new Date(Date.parse($(this).find('.msl_pubdate').text()));
-					article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
+					if($(this).find('.news_image a').length>0){
+						article.Link = $(this).find('.news_image a').first().attr('href').replace('../','/');
+					}else{
+							article.Link = '';
+					}
 					article.Link = ('/' + article.Link).replace('//','/');
 					if ($(this).find('img').length > 0) {
 						article.Image = $(this).find('img').first().attr('src');
