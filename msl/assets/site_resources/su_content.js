@@ -372,7 +372,7 @@ $(document).ready(function() {
 	function createDocumentSlider(source, target){
 		var resourceSource = '';
 		var resourcesTarget = '';
-		var resourceHtml = '';
+		var resourceHtml = '<h2>Resources</h2>';
 		var resourceName = '';
 		var resourceNameIsUrl = false;
 		var resourceIndex = '';
@@ -494,6 +494,8 @@ $(document).ready(function() {
 		resourceHtml = '<div class="page-resources wrapper">' + resourceHtml + '</div>';
 		$(resourceTarget).append(resourceHtml);
 	}
-	createDocumentSlider();
+	if($.exists('.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
+		createDocumentSlider();
+	}
 	
 });
