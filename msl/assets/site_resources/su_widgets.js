@@ -3,7 +3,7 @@ var SU_Widget = {
 	BreadCrumbWidget: function(targetSelector) {
 		
 		// Function to Parse Urls using DOM
-		var parseUrl = (function () {
+		var parseUrl = (function () { 
 		  var a = document.createElement('a');
 		  return function (url) {
 			a.href = url;
@@ -51,7 +51,7 @@ var SU_Widget = {
 					  Title: dynamicTitle,
 					  Link: url,
 					  Path: dynamicPath,
-					  Slug: dynamicSlug, // Get last folder
+					  Slug: dynamicSlug, 
 					  Dept: dynamicDept
 					};
 				
@@ -96,7 +96,7 @@ var SU_Widget = {
 			var thisCrumb = dynamicBreadCrumb(subPath);
 			
 			// Exit on Error 
-			if(breadCrumb.length < 1){
+			if(thisCrumb.length < 1){
 				console.error("bc: Dynamic Breadcrumb returned empty");
 				return;
 			}
