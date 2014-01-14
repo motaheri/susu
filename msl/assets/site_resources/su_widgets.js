@@ -1,4 +1,125 @@
 var SU_Widget = {
+	/* Working Here */
+	BreadCrumbWidget: function(targetSelector) {
+		
+		// Function to Parse Urls using DOM
+		var parseUrl = (function () {
+		  var a = document.createElement('a');
+		  return function (url) {
+			a.href = url;
+			return {
+			  host: a.host,
+			  hostname: a.hostname,
+			  pathname: a.pathname,
+			  port: a.port,
+			  protocol: a.protocol,
+			  search: a.search,
+			  hash: a.hash
+			};
+		  }
+		})();
+		
+		var trimSlashes = function (url) {
+			return url.replace(/^\/+|\/+$/g, '');
+		};
+	
+		// Check for Data
+		if (typeof SU_Data == "undefined") {
+			console.error("SU_Widget: SU_Data not defined.");
+			return;
+		}
+		// Check for Target 
+		if (!$(targetSelector).length) {
+			console.error("SU_Widget: Target object invalid '" + targetSelector + "' Default will be used. '.wrapper .breadcrumb'");
+			targetSelector = '.wrapper .breadcrumb';
+		}
+		
+		// Function to Guess Dynamic Urls that aren't in SU_Data !Needs to ignore some system pages in voting system
+		var dynamicBreadCrumb = (function () {
+			return function (url) { // Substitute missing crumbs from url structure 
+				console.log('Dynamic input url: ' + url);
+				
+				var thisBreadCrumb = SU_Data.breadCrumbsData.filter(function (d) { return d.Link == url});
+				if (typeof thisBreadCrumb == "undefined" || thisBreadCrumb.length < 1) {
+					console.log("SU_Widget: SU_Data doesn't has no defined breadcrumbs, or SU_Data.breadCrumbsData array is empty. Is this a dynamic page. We must guess.");
+					var dynamicSlug = trimSlashes(url).split("/").pop().replace('/',''); // Get last folder
+					var dynamicTitle = dynamicSlug.charAt(0).toUpperCase() + dynamicSlug.slice(1).replace('_',' ');	// First letter Capital 	
+					var dynamicPath = url.split('/'); // Array of folders
+					var dynamicDept = dynamicPath.length; // Dept of address
+				
+					return { // Return similar crumb object 
+					  Title: dynamicTitle,
+					  Link: url,
+					  Path: dynamicPath,
+					  Slug: dynamicSlug, // Get last folder
+					  Dept: dynamicDept
+					};
+				
+				}else{
+					return thisBreadCrumb[0]; //Take first and only crumb object (breadcrumbs are unique)
+				}
+			}
+		})();
+	
+	
+		// Define default values
+		var localPath = trimSlashes(window.location.pathname);
+		var localDomain = window.location.hostname;
+		var breadCrumbsElement = '';
+		
+		var breadCrumb = dynamicBreadCrumb(localPath);
+		// Exit on error 
+		if(breadCrumb.length < 1){
+			console.error("bc: Dynamic Breadcrumb returned empty");
+			return;
+		}
+		
+		// Lets builds actual crumbs now
+		for (var i=0;i<breadCrumb.Dept;i++){
+
+			console.log('bc: in element loop');
+			
+			//var currentlocalPath = '';
+			var subPath = breadCrumb.Path[0]; // Holds temp sub path to lookup page Title from 
+			
+			// Build subpath top to bottom 
+			// i = number of path array, j = sub path builder index
+			for (var j=1;j<i+1;j++){ // Create full path to look up here
+				//console.log('bc: subpath = ' + subPath);
+				//console.log('bc: breadCrumb.Path[j]= ' + breadCrumb.Path[j]);
+				subPath = subPath + '/' + breadCrumb.Path[j];
+			}
+			
+			console.log('bc: this Sub Path: '+  subPath);
+			
+			// Get subpath crumb
+			var thisCrumb = dynamicBreadCrumb(subPath);
+			
+			// Exit on Error 
+			if(breadCrumb.length < 1){
+				console.error("bc: Dynamic Breadcrumb returned empty");
+				return;
+			}
+			
+			// Reset/Define variable defaults 
+			var thisLink = '';
+			var thisTitle = '';
+			
+			thisLink = location.protocol + '//' + localDomain + '/' + thisCrumb.Link;
+			thisTitle = thisCrumb.Title;
+
+			if(i == breadCrumb.Dept -1){ // Avoid dynamic page id's popping in here by taking it straight from the page when we can
+				thisTitle = document.getElementsByTagName('title')[0].text;
+			}
+			
+			// Better efficiency to build now and append to DOM later
+			breadCrumbsElement += '<li><a href="'+ thisLink +'" title="'+ thisTitle +'" class="dept'+i+'">'+thisTitle+'</a></li>';
+			
+			console.log("bc: element now is " + breadCrumbsElement);
+
+		} //end for loop
+		$(targetSelector).append(breadCrumbsElement);
+	},
 	BlogWidget: function(mslWidgetId, targetSelector, number) {
 		if (typeof SU_Data == "undefined") {
 			console.error("SU_Widget: SU_Data not defined.");

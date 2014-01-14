@@ -69,6 +69,9 @@ var SU_Data = {
 			this.GetRelatedEvents = function() { return this.Brand.length > 0 ? SU_Data.getBrandEvents('ALL', this.Brand, 4) : []; }
 			this.AddToBasket = function(ticketIndex, quantity) { SU_Data.basket.eventAddToBasket(this, ticketIndex, quantity) };
 		},
+		
+		
+		
 		// Menu Object	
 		eventTicketObj: function() {
 			this.Category = '';
@@ -127,6 +130,15 @@ var SU_Data = {
 			this.Type = '';
 			this.Category = '';
 		},
+		/** WORKING HERE **/
+		// Breadcrumb List 
+		crumbObj: function(){
+			this.Title = 'titleDefault';
+			this.Link = 'linkDefault';
+			this.Slug = 'slugDefault';
+			this.Path = [];
+			this.Dept = '1';
+		},
 		// Data transmission object for use with window.postMessage
 		messageObj: function() {
 			this.Message = null; // Message Type string
@@ -156,6 +168,7 @@ var SU_Data = {
 	eventBrands: [],
 	eventData: {},
 	eventOrganisations: [],
+	breadCrumb: [],
 	newsData: {},
 	blogData: {},
 	menuData: {},
@@ -228,6 +241,23 @@ var SU_Data = {
 					activities.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('6109') >= 0 ? "Sports" : "Societies";
 					activities.Image = '/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.activitiesData.push(activities);
+				});
+				$(this).parent().remove();
+			});
+		},
+		/* Working Here */
+		loadBreadCrumbs: function () {
+			SU_Data.breadCrumbsData = [];
+			$('div.mslwidget ul.level_1').each(function () {
+				$(this).find('li a').each(function () {
+					var breadCrumb = new SU_Data.types.crumbObj();
+					breadCrumb.Title = $( this ).text(); // Get Current Link's Page Name		
+					breadCrumb.Link = $( this ).attr("href").replace(/^\/+|\/+$/g, ''); // Trim slashes
+					breadCrumb.Slug = breadCrumb.Link.split("/").pop().replace('/',''); // Get last folder
+					breadCrumb.Path = breadCrumb.Link.split('/');
+					breadCrumb.Dept = breadCrumb.Path.length;
+		
+					SU_Data.breadCrumbsData.push(breadCrumb);
 				});
 				$(this).parent().remove();
 			});
@@ -584,6 +614,23 @@ var SU_Data = {
 			});
 		}
 	},
+	/* Working Here */
+	getBreadCrumbs: function(path) {
+		//path is url.path with both leading and trailing slashes trimmed  
+		path = path.replace(/^\/+|\/+$/g, '');
+		
+		var pathLink = '';
+		
+		if (typeof(path) != 'string') {
+			console.error("SU_Data getBreadCrumbs(): No path string specified. Current will be used")
+			pathLink = window.location.pathname.replace(/^\/+|\/+$/g, ''); // Trim slashes;
+		}
+		else{
+			pathLink = path;
+		}
+		var breadCrumbs = SU_Data.breadCrumbsData;
+		return breadCrumbs.filter(function (d) { return d.Link == pathLink});
+	},
 	getEvents: function(eventList, limit) {
 		if (typeof(eventList) != 'string') {
 			console.error("SU_Data getEvents(): No event list specified.")
@@ -802,6 +849,7 @@ SU_Data.basket.f_EventPage_AddToBasket = function() {
 $(document).ready(function() {
 	SU_Data.load.loadActivities();
 	SU_Data.load.loadMenu();
+	SU_Data.load.loadBreadCrumbs();
 	SU_Data.load.loadMemberships();
 	SU_Data.load.loadEvents();
 	SU_Data.load.loadNews();

@@ -66,6 +66,17 @@ $(document).ready(function() {
 	else if($.exists('.page_travelshop.page_new')||$.exists('.page_tv.page_travel')){
 		SU_Widget.Coverflow('Data_Events_FeaturedTravel', '#coverflow', '960', '1358');
 	}
+
+
+    /*
+     * Breadcrumbs
+     */
+    var pageTriggers_BreadCrumbs = ['.wrapper #article .breadcrumb'];
+    if ($.exists(pageTriggers_BreadCrumbs)) {
+        SU_Widget.BreadCrumbWidget('.wrapper #article .breadcrumb');
+		$('.wrapper .breadcrumb').show();
+    }
+
     
     /*
      * NEWS
@@ -194,11 +205,16 @@ $(document).ready(function() {
 		var matchingOrgs = SU_Data.activitiesData.filter(function(d) { return d.Link == window.location.pathname && d.Link.length > 0; });
 		if (matchingOrgs.length > 0) {
 			var orgType = matchingOrgs[0].Type;
+			
 			if (orgType == "Sports") {
 				$('div#cover').addClass('coverSports');
+				$('#article .breadcrumb .dept0').attr('href', '/sports/');
+				$('#article .breadcrumb .dept0').text(orgType);
 			}
 			else {
 				$('div#cover').addClass('coverSocieties');
+				$('#article .breadcrumb .dept0').attr('href', '/societies/');
+				$('#article .breadcrumb .dept0').text(orgType);
 			}
 		}
 		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
