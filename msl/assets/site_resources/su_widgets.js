@@ -51,7 +51,7 @@ var SU_Widget = {
 					  Title: dynamicTitle,
 					  Link: url,
 					  Path: dynamicPath,
-					  Slug: dynamicSlug, 
+					  Slug: dynamicSlug, // Get last folder
 					  Dept: dynamicDept
 					};
 				
@@ -96,7 +96,7 @@ var SU_Widget = {
 			var thisCrumb = dynamicBreadCrumb(subPath);
 			
 			// Exit on Error 
-			if(thisCrumb.length < 1){
+			if(breadCrumb.length < 1){
 				console.error("bc: Dynamic Breadcrumb returned empty");
 				return;
 			}
