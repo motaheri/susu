@@ -1189,6 +1189,10 @@ Temps Styles for Single Org Page - Move to single.css when done
 	margin-top: 20px;
 }
 
+.orgproducts{
+	margin-top:20px;
+}
+
 #page-badge-photo img{
 	box-shadow: #D4D4D4 0px 0px 17px;
 	display: inline;
@@ -1244,18 +1248,14 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 
 #page-org-join, .orgproducts, #page-org-info{
-
 	}
-	
-.page-org-join .mslwidget, .page-org-join .mslwidget{
-	margin:10px;
-}
 
 #page-org-join .mslwidget ul.join_list, .orgproducts .mslwidget ul.join_list{
 	margin: 0px;
 	list-style: none;
 	width: 520px;
 	padding: 0px;
+	margin-top:10px;
 }
 
 .mslwidget ul.join_list li, #page-org-info .mslwidget, .orgedit .mslwidget{
@@ -1268,7 +1268,8 @@ Temps Styles for Single Org Page - Move to single.css when done
 	background: #fff;
 	box-shadow: #D4D4D4 0px 0px 17px;
 	width: 330px;
-	margin-bottom: 10px
+	margin-bottom: 10px;
+	margin-top:5px;
 }
 
 #page-org-info .mslwidget a{
