@@ -30,8 +30,8 @@ var SU_Widget = {
 		}
 		// Check for Target 
 		if (!$(targetSelector).length) {
-			console.error("SU_Widget: Target object invalid '" + targetSelector + "' Default will be used. '.wrapper .breadcrumb'");
-			targetSelector = '.wrapper .breadcrumb';
+			console.error("SU_Widget: Target object invalid '" + targetSelector + "' Default will be used. '.wrapper #article .breadcrumb'");
+			targetSelector = '.wrapper #article .breadcrumb';
 		}
 		
 		// Function to Guess Dynamic Urls that aren't in SU_Data !Needs to ignore some system pages in voting system

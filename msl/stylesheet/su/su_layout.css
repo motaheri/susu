@@ -172,6 +172,7 @@ body {
 
 body header {
     height: 90px;
+	box-shadow: 0px 0px 22px rgba(18, 16, 63, 0.3);
 }
 
 body div#cover {
@@ -227,8 +228,7 @@ body section#news {
 }
 
 h1,h2,h3,h4 {
-    font-family: 'MuseoSans700';
-    xxtext-transform: uppercase;
+    /* font-family: 'MuseoSans700';*/ Need a better header font, renders blurry on Chrome+Win
 }
 
 hr.soft {
@@ -491,7 +491,7 @@ h2.container-header{
 	list-style: none; 
 	overflow: hidden; 
 	font: 11px Helvetica, Arial, Sans-Serif;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	margin-left: -40px; /* why is this needed? */
 	min-width: 380px;
 }
@@ -959,7 +959,7 @@ h2#org-page-title {
 	font-size: 50px;
 }
 article .content {
-	margin-top: 20px;
+	margin-top: 0px;
 }
 	
 	
@@ -1044,7 +1044,6 @@ width: 600px;
 display: inline-block;
 }
 ul.join_list li{
-list-style-type: square !important;
 margin-bottom: 20px;
 width: 180px;
 }
@@ -1129,7 +1128,7 @@ text-align: left;
 }
 #page-org-join{
 	padding-top: 30px;
-}
+} 
 #page-org-info{
 	padding-top: 10px;
 }
@@ -1142,9 +1141,192 @@ text-align: left;
 	margin-bottom: 5px;
 }
 
+/***********
+Reinforce Consistent Styles Across Website 
++ Text always black 
++ Align Left on all content 
++ No oversized text
+*************/
+
+
+.content h1,.content h1,.content h1{
+text-align: left !important;
+color: #000 !important;
+}
+.content div,.content p{
+text-align: left !important;
+color: #000 !important;
+}
+
+.news .content img{
+float: left;
+padding:5px;
+}
+
+/***********
+
+Temps Styles for Single Org Page - Move to single.css when done
+
+*************/
+
+.org-description, .orgcommittee{
+	max-height: 500px;
+	overflow-y: scroll;
+	padding-top: 10px;
+	padding-left: 15px;
+	/*direction: rtl;*/
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	box-shadow: #D4D4D4 0px 0px 17px;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.org-description h1, .org-description h2, .org-description h3{
+	margin-top: 15px;
+}
+
+.orgcommittee{
+	max-height: 350px;
+	margin-top: 20px;
+}
+
+#page-badge-photo img{
+	box-shadow: #D4D4D4 0px 0px 17px;
+	display: inline;
+}
+#page-badge-photo .mslwidget img{
+	margin-top: 45px;
+}
+
+
+#coverflow .slide,#news-container .news{
+	transition: 1s ease-in;  
+}
+
+.msl-groupedmemberlist .badge{
+	clear: both;
+	padding: 5px;
+	height: 125px;
+	background: #fff;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	box-shadow: #D4D4D4 0px 0px 3px;
+	width:225px;
+	border:1px solid #bbb;
+}
+
+.msl-groupedmemberlist h3{
+	margin:0px;
+	padding:0px;
+	width: 245px;
+}
+
+.msl-groupedmemberlist ul {
+	min-height: 150px;
+}
+
+.msl-groupedmemberlist li {
+	float: left;
+}
+
+.msl-groupedmemberlist .badge_tools {
+	width: 100px;
+	float: left;
+	height: 123px;
+	padding: 1px 10px 1px 1px;
+}
+.msl-groupedmemberlist .badge dt a{
+	color: #000;
+	font-weight: normal;
+	text-decoration: none;
+}
+.msl-groupedmemberlist .badge_avatar {
+	border: 1px solid rgba(204, 204, 204, 0.3) !important;
+}
+
+#page-org-join, .orgproducts, #page-org-info{
+
+	}
+	
+.page-org-join .mslwidget, .page-org-join .mslwidget{
+	margin:10px;
+}
+
+#page-org-join .mslwidget ul.join_list, .orgproducts .mslwidget ul.join_list{
+	margin: 0px;
+	list-style: none;
+	width: 520px;
+	padding: 0px;
+}
+
+.mslwidget ul.join_list li, #page-org-info .mslwidget, .orgedit .mslwidget{
+	list-style-type: none;
+	ul.join_list l
+	margin: 0px;
+	border: 1px solid #eee;
+	padding: 8px;
+	list-style: none;
+	background: #fff;
+	box-shadow: #D4D4D4 0px 0px 17px;
+	width: 330px;
+	margin-bottom: 10px
+}
+
+#page-org-info .mslwidget a{
+	padding-left: 25px;
+	color: #000;
+	text-decoration: none;
+	background: transparent url('/stylesheet/su/icon-star-16.png') no-repeat 0 50%;
+}
+
+#su_page_content input.button{
+	margin: 0;
+	background: #48C6F2;
+	padding: 7px !important;
+	border: none;
+	color: #FDFDFD;
+	font-size: 85%;
+	font-weight: bold;
+	margin: 5px 5px 5px 0px;
+	border: 1px solid #75ADCB;
+	min-width: 115px;
+}
+
+#su_page_content #page-badge input.button{
+	display: block;
+}
+
+#su_page_content #page-badge .orgedit input.button {
+	display:inline-block;
+}
+
+.msl_notification{
+	background-color: #FFE703;
+	font-weight: normal;
+	min-width: 340px;
+}
+
+/* Other version of purchase confirmation that comes when basket is not empty */
+.mslwidget .confirm{
+	padding: 8px 8px 8px 24px;
+	border: 8px solid #FFE703;;
+	min-width: 300px;
+	background: #fff url('/skins/images/interface/confirm.gif') no-repeat 4px 50%;
+}
+
+.msl_notification .confirm{
+	padding: 8px 8px 8px 24px;
+	min-width: initial;
+	border: 1px solid #FFF;
+}
+
+.msl_notification .confirm a, .mslwidget .confirm a{
+	text-decoration:none;
+	color: #48C6F2;
+}
 
 /***********
 
 Quick Bug Fixes
 
 *************/
+
