@@ -219,15 +219,16 @@ $(document).ready(function() {
 		}
 		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
 		if (fbPageId.length > 3) {
-			var hasFbDomain = (url_domain(fbPageId) == 'facebook.com');
+			var hasFbDomain = (fbPageId.indexOf('facebook.com') != -1);
 			if(hasFbDomain){
 				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
 				fbPageId = fbPageId.substring(urlSlice);
 			}
-			console.log(fbPageId);
 			fbPageId = 'http://facebook.com/' + fbPageId.replace(/^\/|\/$/g, '');
 			console.log(fbPageId);
-			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageId).text('Society Facebook Page');
+			var orgTitle = document.getElementsByTagName('title')[0].text;
+			orgTitle = orgTitle + ' Facebook Page';
+			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageId).text(orgTitle);
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
 		}
 		if ($.exists('#suorgeventlist')) {
@@ -413,16 +414,16 @@ $(document).ready(function() {
 		var links = $(resourceSource + ' a');
 		
 		$.each(links, function(i) {
-		  console.error('New Link');
+		  //console.log('New Link');
 		  var resourceFilename = false;
 		  var thisUrl = links[i].href.replace(/\/$/,'');
-			console.log('the links url ' + thisUrl);
+			//console.log('the links url ' + thisUrl);
 		  resourceTitle = $(links[i]).text();
-			console.log('text inside link ' + resourceTitle);
+			//console.log('text inside link ' + resourceTitle);
 		  resourceDocType = thisUrl.split('.').pop();
-			console.log('document extension ' + resourceDocType);
+			//console.log('document extension ' + resourceDocType);
 		  if ($.inArray(resourceDocType, resourceAcceptableType)<0){
-				console.log('text inside link ' + resourceTitle);
+				//console.log('text inside link ' + resourceTitle);
 			  if(url_domain(document.URL) == url_domain(thisUrl)){
 				  resourceDocType = 'internal';
 				  //resourceFilename = url_pathname(thisUrl);
@@ -441,64 +442,64 @@ $(document).ready(function() {
 			  }else{
 				  resourceDocType = 'external';
 			  }
-			  console.log('resourceDocType ' + resourceDocType);
+			  //console.log('resourceDocType ' + resourceDocType);
 		  }
 		  
 		  
 		  if(!resourceFilename){
 			resourceIndex = thisUrl.lastIndexOf("/") + 1;
-			console.log('resourceIndex ' + resourceIndex);
+			//console.log('resourceIndex ' + resourceIndex);
 			
 			if(thisUrl.substr(resourceIndex).indexOf('.')<0 && url_pathname(thisUrl).indexOf('/')<0){
 				// Relative Link?
 				resourceFilename = url_domain(thisUrl);
-				console.log('1resourceFilename ' + resourceFilename);
+				//console.log('1resourceFilename ' + resourceFilename);
 			}else if(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/')>-1){
 				// Long URL 
-				console.error(url_pathname(thisUrl));
-				console.error(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/'));
+				//console.log(url_pathname(thisUrl));
+				//console.log(url_pathname(thisUrl).replace(/^\/|\/$/g, '').indexOf('/'));
 				resourceFilename = url_domain(thisUrl) + "&#133;" + thisUrl.substr(resourceIndex);
-				console.log('2resourceFilename ' + resourceFilename);
+				//console.log('2resourceFilename ' + resourceFilename);
 			}else{
 				// 
-				console.error(thisUrl);
-				console.error('x');
-				console.error(thisUrl.substr(resourceIndex));
-				console.error(thisUrl);
+				/*console.log(thisUrl);
+				console.log('x');
+				console.log(thisUrl.substr(resourceIndex));
+				console.log(thisUrl);*/
 				if(thisUrl.indexOf('/') > -1){
-					console.error('y');
+					//console.log('y');
 					resourceFilename = url_domain(thisUrl) + "/" + thisUrl.substr(resourceIndex);
-					console.error(resourceFilename);
+					//console.log(resourceFilename);
 				}else{
-					console.error('z');
+					//console.log('z');
 					
 					resourceFilename = url_domain(thisUrl);
 					resourceFilename = thisUrl.split(':').pop();
-					console.error(resourceFilename);
+					//console.error(resourceFilename);
 				}
 			}
 			
 		  }
 		  
 		  resourceFilename = decodeURIComponent(resourceFilename.replace(/\/$/,''));
-		  console.log('4resourceFilename' + resourceFilename);
+		  //console.log('4resourceFilename' + resourceFilename);
 		  
 		  if(resourceTitle.indexOf('http')>-1 || resourceTitle.indexOf('mailto:')>-1 || resourceTitle.indexOf('www.')>-1 || resourceTitle.indexOf('.com')>-1 || resourceTitle.indexOf('ac.uk')>-1 || resourceTitle.indexOf('.co.uk')>-1 || resourceTitle.indexOf('.org')>-1){
 			resourceNameIsUrl = true;
-			console.error('is url');
+			//console.error('is url');
 		  }
 		  
-		  console.error('here');
-		  console.log(resourceFilename);
-		  console.log(resourceNameIsUrl);
+		  //console.error('here');
+		  //console.log(resourceFilename);
+		  //console.log(resourceNameIsUrl);
 		  
 		  
 		  if(resourceFilename.length>0 && resourceDocType != 'email' && !resourceNameIsUrl){
 			resourceFileTxt = resourceTitle + '<br/>' + resourceFilename;
-			console.log('1resourceFileTxt ' + resourceFileTxt);
+			//console.log('1resourceFileTxt ' + resourceFileTxt);
 		  }else{
 			resourceFileTxt = resourceFilename;
-			console.log('2resourceFileTxt ' + resourceFileTxt);
+			//console.log('2resourceFileTxt ' + resourceFileTxt);
 		  }
 		  
 		  var resourceClassName = 'document-'+resourceDocType;
