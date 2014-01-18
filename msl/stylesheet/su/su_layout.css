@@ -1201,7 +1201,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 
 
-#coverflow .slide,#news-container .news{
+#news-container .news{
 	transition: 1s ease-in;  
 }
 
@@ -1319,7 +1319,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	border: 1px solid #FFF;
 }
 .mslwidget .msl_notification {
-	min-width: 320px;
+	min-width: 340px;
 }
 .msl_notification .confirm a, .mslwidget .confirm a{
 	text-decoration:none;
