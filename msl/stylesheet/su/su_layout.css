@@ -1130,7 +1130,6 @@ text-align: left;
 	padding-top: 30px;
 } 
 #page-org-info{
-	padding-top: 10px;
 }
 .orgcommittee{
 	padding-top: 20px;
@@ -1169,15 +1168,15 @@ Temps Styles for Single Org Page - Move to single.css when done
 
 *************/
 
-.org-description, .orgcommittee{
-	max-height: 500px;
+.org-box{
+	max-height: 700px;
 	overflow-y: scroll;
-	padding-top: 10px;
-	padding-left: 15px;
+	padding: 10px 0px 10px 15px;
 	/*direction: rtl;*/
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	box-shadow: #D4D4D4 0px 0px 17px;
 	background: rgba(255, 255, 255, 0.7);
+	margin-bottom: 20px;
 }
 
 .org-description h1, .org-description h2, .org-description h3{
@@ -1319,11 +1318,68 @@ Temps Styles for Single Org Page - Move to single.css when done
 	min-width: initial;
 	border: 1px solid #FFF;
 }
-
+.mslwidget .msl_notification {
+	min-width: 320px;
+}
 .msl_notification .confirm a, .mslwidget .confirm a{
 	text-decoration:none;
 	color: #48C6F2;
 }
+
+.org-box.orgYTplayer{
+	display:none;
+    overflow: hidden;
+}
+
+.orgYTplayer .YTplayer {
+    width: 100%;
+    height: 385px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    border: solid 1px rgba(0, 0, 0, 0.6);
+	position: relative;
+}
+
+.org-box .youtube .carousel {
+    width: 20%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    right: 0px;
+    z-index: 3;
+}
+
+.org-box .youtube .thumbnail {
+    margin: 2px;
+    width: 80%;
+    border: 1px solid black;  
+}
+
+.org-box .youtube iframe.player {
+    width: 80%;
+    height: 385px;  
+    overflow: auto;
+    border: 0;
+}
+
+#twitter-widget-0{
+	min-width:350px !important;
+	box-shadow: #D4D4D4 0px 0px 3px !important;
+}
+
+
+/* Fixes */
+
+#sport-swansea-product .join_list {
+	margin:0px;
+	padding:0px;
+	text-shadow: none;
+	color:#000;
+	box-shadow: 0px;
+}
+
+
 
 /***********
 

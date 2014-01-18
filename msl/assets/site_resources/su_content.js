@@ -43,7 +43,12 @@ $(document).ready(function() {
 	if (location.href.indexOf('elections/nominations/33') != -1) {
          $('.election_requirement_list').parents('.vpForm').hide().prev().hide().prev().hide();
     }
-	*/	
+	*/
+	/* Varsity Temp Code */
+	if (location.href.indexOf('organisation/thewelshvarsity') != -1) {
+			var replaced = $("#page-org-join").html().replace(/membership/g,'ticket').replace(/Membership/g,'Ticket').replace(/organisation/g,'event').replace(/Organisation/g,'Event');
+			$("#page-org-join").html(replaced);
+    }
 	
     /*
      * COVERFLOW
@@ -169,13 +174,11 @@ $(document).ready(function() {
 	
 	
 	
-	
     /*
      * Activity Purchases - Customisation Pages
      */
     var pageTriggers_CustomizePages = ['.page_shop.page_customise'];
     if ($.exists(pageTriggers_CustomizePages)) {
-	
 		$('.vpFormPair').each(function () {
 			var thisTitle = $(this).find('.title').text().toLowerCase();
 			if(thisTitle.indexOf('donate')>0){
@@ -201,6 +204,7 @@ $(document).ready(function() {
      */
     var pageTriggers_Organizations = ['.page_organisation'];
 	if ($.exists(pageTriggers_Organizations)) {
+		var orgTitle = document.getElementsByTagName('title')[0].text;
 		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
 		var matchingOrgs = SU_Data.activitiesData.filter(function(d) { return d.Link == window.location.pathname && d.Link.length > 0; });
 		if (matchingOrgs.length > 0) {
@@ -224,18 +228,23 @@ $(document).ready(function() {
 				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
 				fbPageId = fbPageId.substring(urlSlice);
 			}
-			fbPageId = 'http://facebook.com/' + fbPageId.replace(/^\/|\/$/g, '');
-			console.log(fbPageId);
-			var orgTitle = document.getElementsByTagName('title')[0].text;
-			orgTitle = orgTitle + ' Facebook Page';
-			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageId).text(orgTitle);
+			fbPageId = fbPageId.replace(/^\/+|\/+$/g, '');
+			var fbPageIdLink = 'http://facebook.com/' + fbPageId.replace(/^\/|\/$/g, '');
+			console.log(fbPageIdLink);
+			var fbPageTitle = orgTitle + ' Facebook Page';
+			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageIdLink).text(fbPageTitle);
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
+			
+	
+			var fbLikeButtonCode = '<div class="fb-like-box" data-href="http://www.facebook.com/'+fbPageId+'" data-width="350" data-height="285" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>';
+			
+			$('#su-org-facebook-page').html(fbLikeButtonCode);
+
 		}
 		if ($.exists('#suorgeventlist')) {
 			SU_Widget.EventSlider_Landscape('Data_Events_Organisation', '#suorgeventlist');
 		}
-	}
-    if ($.exists(pageTriggers_Organizations)) {
+
         var pageName = $('#page-badge-title').text();
 		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
 		pageName = pageName.replace('(change)','');
@@ -243,6 +252,137 @@ $(document).ready(function() {
     }
 	
 
+	/*
+	Copyright 2011 : Simone Gianni <simoneg@apache.org>
+
+	Released under The Apache License 2.0 
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	*/
+
+	(function() {
+		function createPlayer(jqe, video, options) {
+			var ifr = $('iframe', jqe);
+			if (ifr.length === 0) {
+				ifr = $('<iframe scrolling="no">');
+				ifr.addClass('player');
+			}
+			var src = 'http://www.youtube.com/embed/' + video.id;
+			if (options.playopts) {
+				src += '?';
+				for (var k in options.playopts) {
+					src+= k + '=' + options.playopts[k] + '&';
+				}  
+				src += '_a=b';
+			}
+			ifr.attr('src', src);
+			jqe.append(ifr);  
+		}
+		
+		function createCarousel(jqe, videos, options) {
+			var car = $('div.carousel', jqe);
+			if (car.length === 0) {
+				car = $('<div>');
+				car.addClass('carousel');
+				jqe.append(car);
+				
+			}
+			$.each(videos, function(i,video) {
+				options.thumbnail(car, video, options); 
+			});
+		}
+		
+		function createThumbnail(jqe, video, options) {
+			var imgurl = video.thumbnails[0].url;
+			var img = $('img[src="' + imgurl + '"]');
+			if (img.length !== 0) return;
+			img = $('<img>');    
+			img.addClass('thumbnail');
+			jqe.append(img);
+			img.attr('src', imgurl);
+			img.attr('title', video.title);
+			img.click(function() {
+				options.player(options.maindiv, video, $.extend(true,{},options,{playopts:{autoplay:1}}));
+			});
+		}
+		
+		var defoptions = {
+			autoplay: false,
+			user: null,
+			carousel: createCarousel,
+			player: createPlayer,
+			thumbnail: createThumbnail,
+			loaded: function() {},
+			playopts: {
+				autoplay: 0,
+				egm: 1,
+				autohide: 1,
+				fs: 1,
+				showinfo: 0
+			}
+		};
+		
+		
+		$.fn.extend({
+			youTubeChannel: function(options) {
+				var md = $(this);
+				md.addClass('youtube');
+				md.addClass('youtube-channel');
+				var allopts = $.extend(true, {}, defoptions, options);
+				allopts.maindiv = md;
+				$.getJSON('http://gdata.youtube.com/feeds/users/' + allopts.user + '/uploads?alt=json-in-script&format=5&callback=?', null, function(data) {
+					var feed = data.feed;
+					var videos = [];
+					$.each(feed.entry, function(i, entry) {
+						var video = {
+							title: entry.title.$t,
+							id: entry.id.$t.match('[^/]*$'),
+							thumbnails: entry.media$group.media$thumbnail
+						};
+						videos.push(video);
+					});
+					allopts.allvideos = videos;
+					allopts.carousel(md, videos, allopts);
+					allopts.player(md, videos[0], allopts);
+					allopts.loaded(videos, allopts);
+				});
+			} 
+		});
+		
+	})();
+
+    if ($.exists(pageTriggers_Organizations)) {
+		var YTChannelId = $('div.mslwidget#su-org-youtube-channel').text();
+		
+		var hasYTDomain = (YTChannelId.indexOf('youtube.com/user') != -1);
+		if(hasYTDomain){
+			var urlSlice = parseInt(fbPageId.indexOf("youtube.com/user") + 16);
+			YTChannelId = YTChannelId.substring(urlSlice);
+		}
+		
+		YTChannelId = YTChannelId.replace(/^\/+|\/+$/g, '');
+		
+		var youtubeChannelLink = '<a target="_blank" href="http://www.youtube.com/user/' + YTChannelId + '">' + orgTitle + ' YouTube Channel</a>';
+		$('div.mslwidget#su-org-youtube-channel').html(youtubeChannelLink);
+		console.log('YT Link ' + youtubeChannelLink);
+		if (YTChannelId.length > 3) {	
+			$(function() {
+				$('.org-box.orgYTplayer .YTplayer').youTubeChannel({user : YTChannelId});
+				$('.org-box.orgYTplayer').show();
+			});
+		}
+	}
+	/* Unescape Twitter embed code */
+	
+	function HTMLDecode(encodedStr){
+		return $("<div/>").html(encodedStr).text();
+	}
+	$('.org-box.org-twitter-embed').hide();
+	var getTwitterEmbedCode = $('.org-box.org-twitter-embed').html();
+	var decodeTwitterEmbedCode = HTMLDecode(getTwitterEmbedCode);
+	$('#page-org-info .org-twitter').html(decodeTwitterEmbedCode).show();
+	
+	
 
 	
 	/*
