@@ -1368,6 +1368,13 @@ Temps Styles for Single Org Page - Move to single.css when done
 	box-shadow: #D4D4D4 0px 0px 3px !important;
 }
 
+.orgedit .mslwidget .cke_editor tbody tr:first-child{
+	display:none;
+}
+.orgedit .mslwidget .cke_editor .cke_contents{
+	height: 50px !important;
+}
+
 
 /* Fixes */
 
