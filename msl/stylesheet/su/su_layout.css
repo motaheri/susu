@@ -1363,6 +1363,14 @@ Temps Styles for Single Org Page - Move to single.css when done
     border: 0;
 }
 
+.org-facebook, .org-twitter{
+	display:none;
+}
+
+#page-org-info .org-twitter{
+	margin-bottom: 10px;
+}
+
 #twitter-widget-0{
 	min-width:350px !important;
 	box-shadow: #D4D4D4 0px 0px 3px !important;
@@ -1373,6 +1381,11 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 .orgedit .mslwidget .cke_editor .cke_contents{
 	height: 50px !important;
+}
+
+.YTplayer .carousel .thumbnail{
+	cursor: pointer;
+	cursor: hand;
 }
 
 

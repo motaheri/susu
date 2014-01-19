@@ -202,6 +202,19 @@ $(document).ready(function() {
 	/*
      * ORGANIZATIONS
      */
+	 
+	 
+	 
+	/* Clean up empty Containers first */
+	
+	$('#page-org-info .mslwidget').filter(function () {
+		return $.trim($(this).text()).length == 0;
+	}).hide();
+	
+	if(($('.org-box.orgcommittee').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
+		$('.org-box.orgcommittee').hide();
+	} 
+	 
     var pageTriggers_Organizations = ['.page_organisation'];
 	if ($.exists(pageTriggers_Organizations)) {
 		var orgTitle = document.getElementsByTagName('title')[0].text;
@@ -222,7 +235,7 @@ $(document).ready(function() {
 			}
 		}
 		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
-		if (fbPageId.length > 3) {
+		if (fbPageId.length > 3 && fbPageId.indexOf('/groups/') == -1) {
 			var hasFbDomain = (fbPageId.indexOf('facebook.com') != -1);
 			if(hasFbDomain){
 				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
@@ -239,7 +252,16 @@ $(document).ready(function() {
 			var fbLikeButtonCode = '<div class="fb-like-box" data-href="http://www.facebook.com/'+fbPageId+'" data-width="350" data-height="285" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>';
 			
 			$('#su-org-facebook-page').html(fbLikeButtonCode);
+			
+			$('#su-org-facebook-page').parent().show();
 
+		}else if(fbPageId.length > 3){
+		
+			var fbPageTitle = orgTitle + ' Facebook Group';
+			var fbLikeButtonCode = '<a href="'+fbPageId+'" target="_blank">'+ fbPageTitle +'</a>';
+			
+			$('#su-org-facebook-page').html(fbLikeButtonCode);
+			$('#su-org-facebook-page').parent().show();
 		}
 		if ($.exists('#suorgeventlist')) {
 			SU_Widget.EventSlider_Landscape('Data_Events_Organisation', '#suorgeventlist');
@@ -253,11 +275,7 @@ $(document).ready(function() {
 	
 
 	/*
-	Copyright 2011 : Simone Gianni <simoneg@apache.org>
-
-	Released under The Apache License 2.0 
-	http://www.apache.org/licenses/LICENSE-2.0
-
+	YT Playlist Simone Gianni <simoneg@apache.org>
 	*/
 
 	(function() {
@@ -382,8 +400,6 @@ $(document).ready(function() {
 	var decodeTwitterEmbedCode = HTMLDecode(getTwitterEmbedCode);
 	$('#page-org-info .org-twitter').html(decodeTwitterEmbedCode).show();
 	
-	
-
 	
 	/*
 	 * FRONT PAGE MEDIA
