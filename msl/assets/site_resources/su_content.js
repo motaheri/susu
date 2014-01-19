@@ -213,7 +213,15 @@ $(document).ready(function() {
 	
 	if(($('.org-box.orgcommittee').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
 		$('.org-box.orgcommittee').hide();
-	} 
+	}
+	
+	if(($('.org-box.orgelection').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
+		$('.org-box.orgelection').hide();
+	}
+
+	if(($('.org-box.orgpoll').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
+		$('.org-box.orgpoll').hide();
+	} 	
 	 
     var pageTriggers_Organizations = ['.page_organisation'];
 	if ($.exists(pageTriggers_Organizations)) {
