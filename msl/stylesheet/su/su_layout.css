@@ -1257,9 +1257,8 @@ Temps Styles for Single Org Page - Move to single.css when done
 	margin-top:10px;
 }
 
-.mslwidget ul.join_list li, #page-org-info .mslwidget, .orgedit .mslwidget{
+.mslwidget ul.join_list li, #page-org-info .mslwidget, #page-badge .orgedit{
 	list-style-type: none;
-	ul.join_list l
 	margin: 0px;
 	border: 1px solid #eee;
 	padding: 8px;

@@ -455,6 +455,10 @@ $(document).ready(function() {
 				YTinfo = YTinfo.substring(0, YTinfo.indexOf('?'));
 			}
 			YTinfo = YTinfo.replace(/^\/+|\/+$/g, ''); //Trim
+			if(YTinfo.indexOf('/') != -1){ //Sometimes YouTube incorporates extra slashes after username. http://www.youtube.com/user/suswansea/videos
+				YTinfo = YTinfo.substring(0, YTinfo.indexOf('/'));
+			}
+			YTinfo = YTinfo.replace(/^\/+|\/+$/g, ''); //Trim again
 		}else if(YTOrgInfo.indexOf('list=') != -1){
 			YTurlType = 'Playlist';
 			//Example: http://www.youtube.com/watch?v=Vw4KVoEVcr0&list=PL62E49BC6C80447FB
