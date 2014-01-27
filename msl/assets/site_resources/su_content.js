@@ -25,6 +25,19 @@ jQuery.exists = function (selectors) {
 }
 
 
+function getParameterByName(name,href){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( href );
+  if( results == null )
+	return "";
+  else
+	return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+		
+		
+
 $(document).ready(function() {
 
 	/* Mobile Login */
@@ -207,83 +220,109 @@ $(document).ready(function() {
 	 
 	/* Clean up empty Containers first */
 	
+	// Remove any MSL widget that is empty because the org has not filled out their data 
 	$('#page-org-info .mslwidget').filter(function () {
 		return $.trim($(this).text()).length == 0;
 	}).hide();
 	
+	// Remove Committee box if they haven't assigned their committee 
+	// To Do: Add a nag/notice for the Amdin user as a reminder for them to fill it out
 	if(($('.org-box.orgcommittee').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
 		$('.org-box.orgcommittee').hide();
 	}
 	
+	// Remove election box if no elections are currently running 
 	if(($('.org-box.orgelection').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
 		$('.org-box.orgelection').hide();
 	}
-
+	
+	// Remove poll box if there is no current polls running on org page
 	if(($('.org-box.orgpoll').text()).replace(/^\s\s*/, '').replace(/\s\s*$/, '') == ''){
 		$('.org-box.orgpoll').hide();
 	} 	
 	 
+	 
     var pageTriggers_Organizations = ['.page_organisation'];
 	if ($.exists(pageTriggers_Organizations)) {
+		// Best way to get the title of a page
+		// To Do: move this to common functions 
 		var orgTitle = document.getElementsByTagName('title')[0].text;
+		// Resize text area input box
 		$('.mslwidget .vp_content textarea').attr('rows', 1).attr('cols', 30);
+		
+		// Find current organization by matching against urls
+		// To Do: move to common functions 
 		var matchingOrgs = SU_Data.activitiesData.filter(function(d) { return d.Link == window.location.pathname && d.Link.length > 0; });
+		
 		if (matchingOrgs.length > 0) {
 			var orgType = matchingOrgs[0].Type;
-			
+			// Add sports cover photo 
 			if (orgType == "Sports") {
 				$('div#cover').addClass('coverSports');
 				$('#article .breadcrumb .dept0').attr('href', '/sports/');
 				$('#article .breadcrumb .dept0').text(orgType);
 			}
+			// Add society cover photo 
 			else {
 				$('div#cover').addClass('coverSocieties');
 				$('#article .breadcrumb .dept0').attr('href', '/societies/');
 				$('#article .breadcrumb .dept0').text(orgType);
 			}
 		}
+		
+		// get Facebook page ID
 		var fbPageId = $('div.mslwidget#su-org-facebook-page').text();
-		if (fbPageId.length > 3 && fbPageId.indexOf('/groups/') == -1) {
+		if (fbPageId.length > 3 && fbPageId.indexOf('/groups/') == -1) { //Make sure it's a page and not a group
 			var hasFbDomain = (fbPageId.indexOf('facebook.com') != -1);
-			if(hasFbDomain){
-				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12);
-				fbPageId = fbPageId.substring(urlSlice);
+			if(hasFbDomain){ // There has to be a better way of doing this, how about using the URL path function?
+				var urlSlice = parseInt(fbPageId.indexOf("facebook.com") + 12); 
+				fbPageId = fbPageId.substring(urlSlice); // get everything after the facebook.com domain
 			}
-			fbPageId = fbPageId.replace(/^\/+|\/+$/g, '');
-			var fbPageIdLink = 'http://facebook.com/' + fbPageId.replace(/^\/|\/$/g, '');
-			console.log(fbPageIdLink);
+			fbPageId = fbPageId.replace(/^\/+|\/+$/g, ''); // Then trim it
+			var fbPageIdLink = 'https://facebook.com/' + fbPageId.replace(/^\/|\/$/g, ''); // Recreate the link for consistency 
+			console.log(fbPageIdLink); 
 			var fbPageTitle = orgTitle + ' Facebook Page';
 			var fbLink = $(document.createElement('a')).attr('target', '_blank').attr('href', fbPageIdLink).text(fbPageTitle);
+			// Add the facebook link to the org sidebar
 			$('div.mslwidget#su-org-facebook-page').html(fbLink);
 			
-	
+			// Standard FB Like button with friends' icons added to the sidebar. Will run automatically because of some code at the top of the template.
 			var fbLikeButtonCode = '<div class="fb-like-box" data-href="http://www.facebook.com/'+fbPageId+'" data-width="350" data-height="285" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>';
 			
 			$('#su-org-facebook-page').html(fbLikeButtonCode);
 			
+			// Hide then show to avoid flashing content 
 			$('#su-org-facebook-page').parent().show();
 
 		}else if(fbPageId.length > 3){
-		
+			
+			// For groups we just add a link
 			var fbPageTitle = orgTitle + ' Facebook Group';
 			var fbLikeButtonCode = '<a href="'+fbPageId+'" target="_blank">'+ fbPageTitle +'</a>';
 			
 			$('#su-org-facebook-page').html(fbLikeButtonCode);
 			$('#su-org-facebook-page').parent().show();
 		}
-		if ($.exists('#suorgeventlist')) {
+		
+		// Call the events Widget 
+		if ($.exists('#suorgeventlist')) { 
 			SU_Widget.EventSlider_Landscape('Data_Events_Organisation', '#suorgeventlist');
 		}
-
+		
+		// Add the org name to the banner 
         var pageName = $('#page-badge-title').text();
+		// ??
 		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
+		// ??
 		pageName = pageName.replace('(change)','');
+		// ??
 		$("#cover .banner-title").html(pageName).show('300');
     }
 	
 
 	/*
-	YT Playlist Simone Gianni <simoneg@apache.org>
+	Original YT Playlist Simone Gianni <simoneg@apache.org>
+	Tweeked to work with Channels, Playlists and Single video. 
 	*/
 
 	(function() {
@@ -356,13 +395,34 @@ $(document).ready(function() {
 				md.addClass('youtube-channel');
 				var allopts = $.extend(true, {}, defoptions, options);
 				allopts.maindiv = md;
-				$.getJSON('http://gdata.youtube.com/feeds/users/' + allopts.user + '/uploads?alt=json-in-script&format=5&callback=?', null, function(data) {
+				
+				var jsonUrl = '';	
+				
+				console.log('YT Type ' + allopts.type);
+				
+				if(allopts.type == 'Channel'){
+					jsonUrl = 'http://gdata.youtube.com/feeds/users/' + allopts.user + '/uploads?alt=json-in-script&format=5&callback=?';
+				}else if(allopts.type == 'Playlist'){
+					jsonUrl = 'https://gdata.youtube.com/feeds/api/playlists/' + allopts.user + '?v=2&alt=json&callback=?';
+				}
+				
+				console.log('JSON Url ' + jsonUrl);
+				
+				$.getJSON(jsonUrl, null, function(data) {
 					var feed = data.feed;
 					var videos = [];
+					console.log('YT videos ' + videos);
+					
 					$.each(feed.entry, function(i, entry) {
+						var thisVideoId = '';
+						if(allopts.type == 'Channel'){
+							thisVideoId = entry.id.$t.match('[^/]*$');
+						}else if(allopts.type == 'Playlist'){
+							thisVideoId = this.media$group.yt$videoid.$t;
+						}
 						var video = {
 							title: entry.title.$t,
-							id: entry.id.$t.match('[^/]*$'),
+							id: thisVideoId,
 							thumbnails: entry.media$group.media$thumbnail
 						};
 						videos.push(video);
@@ -377,29 +437,63 @@ $(document).ready(function() {
 		
 	})();
 
-    if ($.exists(pageTriggers_Organizations)) {
-		var YTChannelId = $('div.mslwidget#su-org-youtube-channel').text();
+	
+	if ($.exists(pageTriggers_Organizations)) {
+		var YTOrgInfo = $('div.mslwidget#su-org-youtube-channel').text().replace(/^\/+|\/+$/g, '');
+	}
+	
+    if ($.exists(pageTriggers_Organizations) && YTOrgInfo != '') {
 		
-		var hasYTDomain = (YTChannelId.indexOf('youtube.com/user') != -1);
+		var YTurlType = 'Channel';
+		var hasYTDomain = (YTOrgInfo.indexOf('youtube.com/user') != -1);
+		var YTinfo = YTOrgInfo;
+		
 		if(hasYTDomain){
-			var urlSlice = parseInt(fbPageId.indexOf("youtube.com/user") + 16);
-			YTChannelId = YTChannelId.substring(urlSlice);
+			var urlSlice = parseInt(YTOrgInfo.indexOf("youtube.com/user") + 16);
+			YTinfo = YTOrgInfo.substring(urlSlice);
+			if(YTinfo.indexOf('?') != -1){ //Sometimes YouTube incorporates internal referrers into their URLS
+				YTinfo = YTinfo.substring(0, YTinfo.indexOf('?'));
+			}
+			YTinfo = YTinfo.replace(/^\/+|\/+$/g, ''); //Trim
+		}else if(YTOrgInfo.indexOf('list=') != -1){
+			YTurlType = 'Playlist';
+			//Example: http://www.youtube.com/watch?v=Vw4KVoEVcr0&list=PL62E49BC6C80447FB
+			YTinfo = getParameterByName('list',YTOrgInfo); 
+		}else if(YTOrgInfo.indexOf('/watch?v=') != -1 || YTOrgInfo.indexOf('.com/v') != -1){
+			// Example 1: http://www.youtube.com/watch?v=TKmm7oGyPHw
+			// Example 2: http://www.youtube.com/v/TKmm7oGyPHw
+			YTurlType = 'Video';
+			YTinfo = getParameterByName('v',YTOrgInfo); 
+			if(YTinfo == ''){
+				var urlSlice = parseInt(YTOrgInfo.indexOf(".com/v") + 6);
+				YTinfo = YTOrgInfo.substring(urlSlice);
+			}
 		}
 		
-		YTChannelId = YTChannelId.replace(/^\/+|\/+$/g, '');
+		var youtubeOrgLink = '';
+		if(YTurlType == 'Playlist' || YTurlType == 'Video'){
+			youtubeOrgLink = '<a target="_blank" href="' + YTOrgInfo  + '">' + orgTitle + ' YouTube ' + YTurlType + '</a>';
+		}else{
+			youtubeOrgLink = '<a target="_blank" href="http://www.youtube.com/user/' + YTinfo + '">' + orgTitle + ' YouTube ' + YTurlType + '</a>';
+		}
 		
-		var youtubeChannelLink = '<a target="_blank" href="http://www.youtube.com/user/' + YTChannelId + '">' + orgTitle + ' YouTube Channel</a>';
-		$('div.mslwidget#su-org-youtube-channel').html(youtubeChannelLink);
-		console.log('YT Link ' + youtubeChannelLink);
-		if (YTChannelId.length > 3) {	
+		$('div.mslwidget#su-org-youtube-channel').html(youtubeOrgLink);
+		console.log('YT Link ' + youtubeOrgLink);
+		if (YTurlType == 'Video') {
+			YTOrgInfo = "//www.youtube.com/embed/" + YTinfo;
+			var YTvideoCode = '<iframe class="YT-org-single-video" src="' + YTOrgInfo + '" frameborder="0" allowfullscreen></iframe>';
+			$('.org-box.orgYTplayer .YTplayer').html(YTvideoCode).parent().show();
+		}else if(YTurlType == 'Channel' || YTurlType == 'Playlist'){
+		//YTChannelId.length > 3
 			$(function() {
-				$('.org-box.orgYTplayer .YTplayer').youTubeChannel({user : YTChannelId});
+				// YTCHannelID needs to be YTINFO 
+				$('.org-box.orgYTplayer .YTplayer').youTubeChannel({user : YTinfo, type : YTurlType});
 				$('.org-box.orgYTplayer').show();
-			});
+			});		
 		}
 	}
-	/* Unescape Twitter embed code */
 	
+	/* Unescape Twitter embed code */
 	function HTMLDecode(encodedStr){
 		return $("<div/>").html(encodedStr).text();
 	}
