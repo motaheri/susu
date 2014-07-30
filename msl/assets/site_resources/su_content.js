@@ -242,7 +242,7 @@ $(document).ready(function() {
 	} 	
 	 
 	 
-    var pageTriggers_Organizations = ['.page_organisation'];
+    var pageTriggers_Organizations = ['.page_organisation,.page_myunion'];
 	if ($.exists(pageTriggers_Organizations)) {
 		// Best way to get the title of a page
 		// To Do: move this to common functions 
@@ -776,7 +776,7 @@ $(document).ready(function() {
 			$(resourceTarget).append(resourceHtml);
 		}
 	}
-	if($.exists('.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
+	if($.exists('.page_societies,.page_sports,.page_organisation,.page_myunion,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
 		createDocumentSlider();
 	}
 	

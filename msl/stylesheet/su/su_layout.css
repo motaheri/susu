@@ -163,11 +163,15 @@
 html {
     text-rendering: optimizeLegibility;
 background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+/* Temp */
+background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/graphic-welshflag-bg.png');
 }
 
 body {
     text-rendering: optimizeLegibility;
 	background: #f6f6f8 url('http://www.swansea-union.co.uk/stylesheet/su/gradient.jpg') repeat-x 0px 0px;
+	/* Temp */
+	background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/graphic-welshflag-bg.png');
 }
 
 body header {
