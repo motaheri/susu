@@ -417,6 +417,7 @@ div.seemore {
 	margin-top: 25px;
 	text-align: right;
 	font-weight: bold;
+	clear:both;
 }
 /*
 .index-page .seemore{
