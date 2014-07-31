@@ -36,6 +36,7 @@
 	.advert-container,.sponsors {
 		display: none;
 	}
+	
 }
 
 @media only screen and (min-width: 684px) {
@@ -75,6 +76,9 @@
 	.menu-content.union {
 		width: 680px !important;
 	}
+	.suicon {
+		width: 100px !important;
+	}
 }
 
 @media only screen and (min-width: 912px) {	
@@ -106,6 +110,9 @@
 		right: auto;
 		left: auto;
 		top: auto;
+	}
+	.suicon {
+		width: 166px !important;
 	}
 }
 
@@ -162,16 +169,17 @@
  * -------------------------------------------------------------------- */
 html {
     text-rendering: optimizeLegibility;
-background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
 /* Temp */
-background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/graphic-welshflag-bg.png');
+/*background: #f5f5f5 url('/stylesheet/su/graphic-welshflag-bg.png');*/
 }
 
 body {
     text-rendering: optimizeLegibility;
-	background: #f6f6f8 url('http://www.swansea-union.co.uk/stylesheet/su/gradient.jpg') repeat-x 0px 0px;
+	background: #f6f6f8 url('/stylesheet/su/gradient.jpg') repeat-x 0px 0px;
 	/* Temp */
-	background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/graphic-welshflag-bg.png');
+	background: #f4f5f0 url('/stylesheet/su/graphic-textured-paper-background.jpg');
+	background-size: 100% auto;
 }
 
 body header {
@@ -224,7 +232,7 @@ body div#main {
 
 body footer {
     min-height: 90px;
-    background: rgba(0, 0, 255, 0.1);
+    /*background: rgba(0, 0, 255, 0.1);*/
 }
 
 body section#news {
@@ -322,10 +330,12 @@ div.content h3 {
 }
 .carousel-container,.advert-container,.notice-container{
 	width: 100%;
-	background: #F0F2F5 url('/stylesheet/su/noize.png');
+	/*background: #F0F2F5 url('/stylesheet/su/noize.png');
+background: #f5f5f5 url('http://i.imgur.com/kEAnBaM.jpg');*/
 }
 .page_tv .carousel-container{
-	background: #fefefe url('/stylesheet/su/noize.png');
+	/*background: #F0F2F5 url('/stylesheet/su/noize.png');
+background: #f5f5f5 url('http://i.imgur.com/kEAnBaM.jpg');*/
 }
 
 .events-container {
@@ -337,7 +347,7 @@ div.content h3 {
 .footer-container {
 	width: 100%;
 	overflow: hidden;
-	background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+	/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
 }
 .media-container {
 	width: 100%;
@@ -406,12 +416,16 @@ div.seemore {
 	padding-bottom: 15px;
 	margin-top: 25px;
 	text-align: right;
+	font-weight: bold;
 }
+/*
 .index-page .seemore{
 	display:none;
 }
+*/
 div.seemore a {
 	text-decoration: none;
+	color:#000;
 }
 
 h1,h2,h3{
@@ -899,7 +913,7 @@ margin-top:5px;
 .footer-left, .footer-middle, .footer-right {
 	height: 60px;
 	display: inline-block;
-	background: rgba(255, 255, 255, 0.9);
+	/*background: rgba(255, 255, 255, 0.9);*/
 	text-transform: uppercase;
 	font-size: 10px;
 }
@@ -926,10 +940,11 @@ margin-top:5px;
 
 
 /* Last Minute Changes Please Merge in Proper CSS Location Later */
-
+/*
 #menu.menu,.seemore{
 	display:none;
 }
+*/
 .wrapper h2{
 	margin-top: 30px;
 	margin-bottom: 10px;
@@ -950,7 +965,7 @@ margin-top:5px;
 	margin-bottom: 10px;
 }
 body footer {
-	background: #f5f5f5 url('http://www.swansea-union.co.uk/stylesheet/su/noize.png');
+	/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
 }
 .footer-container {
 	background: transparent;
@@ -1197,7 +1212,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 
 #page-badge-photo img{
-	box-shadow: #D4D4D4 0px 0px 17px;
+	/*box-shadow: #D4D4D4 0px 0px 17px;*/
 	display: inline;
 }
 #page-badge-photo .mslwidget img{
@@ -1279,6 +1294,27 @@ Temps Styles for Single Org Page - Move to single.css when done
 	color: #000;
 	text-decoration: none;
 	background: transparent url('/stylesheet/su/icon-star-16.png') no-repeat 0 50%;
+}
+
+#page-org-info .varsityYoutubeIcon a{
+	padding-left: 25px;
+	color: #000;
+	text-decoration: none;
+	background: transparent url('/stylesheet/su/varsity-icon-link-youtube.png') no-repeat 0 50%;
+}
+
+#page-org-info .varsityLinkIcon a{
+	padding-left: 25px;
+	color: #000;
+	text-decoration: none;
+	background: transparent url('/stylesheet/su/varsity-icon-link-external.png') no-repeat 0 50%;
+}
+
+#page-org-info .varsityEmailIcon a{
+	padding-left: 25px;
+	color: #000;
+	text-decoration: none;
+	background: transparent url('/stylesheet/su/varsity-icon-link-email.png') no-repeat 0 50%;
 }
 
 #su_page_content input.button{
@@ -1406,11 +1442,16 @@ Temps Styles for Single Org Page - Move to single.css when done
 	box-shadow: 0px;
 }
 
-
+.page_ents.page_event .event_ticket{
+margin-bottom: 10px !important;
+line-height: 30px !important;
+}
+.page_ents.page_event #msl_event .event_ticket input.button {
+float: left !important;
+}
 
 /***********
 
 Quick Bug Fixes
 
 *************/
-
