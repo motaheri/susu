@@ -444,6 +444,7 @@ var SU_Widget = {
 		$(targetselector).on("animationstart", SU_Widget.sliderAnimListener);
 		$(targetselector).on("animationend", SU_Widget.sliderAnimListener);
 	},
+	/* **************************** */
 	EventSlider_ActivitiesCategorySlider: function(typeName, targetselector) {
 		$(targetselector).find('div').remove();
 		$(targetselector).addClass('sliderActivities');
@@ -509,6 +510,80 @@ var SU_Widget = {
 			$(targetselector).append(slider);
 			var listType = activities[0].Type;
 			$('#su-activitiesListHeader').text(((listType == "Sport" || listType == "Sports") ? "Sports Clubs - " : "Societies - ") + catName);
+			$(targetselector).iosSlider({
+				snapToChildren: true,
+				scrollbar: false,
+				desktopClickDrag: true,
+				infiniteSlider: false
+			});
+			$(targetselector).fadeIn();
+		});
+	},
+	EventSlider_UnionCategorySlider: function(typeName, targetselector) {
+		$(targetselector).find('div').remove();
+		$(targetselector).addClass('sliderUnion');
+		var slider = $(document.createElement('div')).addClass('slider');
+		$(targetselector).addClass((typeName == "FTO" || typeName == "fto") ? "FTO" : "other");
+		var categories = SU_Data.getUnion()
+								.filter(function(d) { return d.Type == typeName; })
+								.map(function(d) { return d.Category; }).getUnique();
+		jQuery.each(categories, function(i, o) {
+			var slide = $(document.createElement('div')).addClass('slide');
+			var inner = $(document.createElement('div')).addClass('slide-inner');
+			var link = $(document.createElement('a')).addClass('su-union-category').attr('href', '#');
+			var img = $(document.createElement('img')).attr('src', '/stylesheet/su/union-cat' + o.replace(/\W/g,'') + ".png");
+			var title = $(document.createElement('div')).addClass('unionCatName').text(o);
+			if (i == 0) {
+				slide.addClass("selected");
+				link.addClass("selected");
+			}
+			title.addClass((typeName == "FTO" || typeName == "fto") ? "FTO" : "other");
+			link.append(img).append(title);
+			link.on('click', function (e) {
+				e.preventDefault();
+				$(targetselector).find('div.slide').removeClass('selected');
+				$(this).closest('div.slide').addClass('selected');
+				$(targetselector).find('a.su-union-category').removeClass('selected');
+				$(this).addClass('selected');
+				SU_Widget.EventSlider_UnionListSlider($(this).text(), "#su-unionList");
+			});
+			inner.append(link);
+			slide.append(inner);
+			$(slider).append(slide);
+		});
+		$(targetselector).append(slider);
+		$(targetselector).iosSlider({
+			snapToChildren: true,
+			scrollbar: false,
+			desktopClickDrag: true,
+			infiniteSlider: false
+		});
+	},
+	EventSlider_UnionListSlider: function(catName, targetselector) {
+		$(targetselector).fadeOut("fast", function() {
+			$(targetselector).iosSlider('destroy');
+			$(targetselector).find('div').remove();
+			$(targetselector).addClass('sliderUnion');
+			var slider = $(document.createElement('div')).addClass('slider');
+			var union = SU_Data.getUnion().filter(function(d) { return d.Category == catName; });
+			jQuery.each(union, function(i, o) {
+				if (i == 0) {
+					$(targetselector).addClass((o.Type == "FTO" || o.Type == "fto") ? "FTO" : "other");
+				}
+				var slide = $(document.createElement('div')).addClass('slide');
+				var inner = $(document.createElement('div')).addClass('slide-inner');
+				var link = $(document.createElement('a')).attr('href', o.Link);
+				var img = $(document.createElement('img')).attr('src', o.Image);
+				var title = $(document.createElement('div')).addClass('unionItemName').text(o.Name);
+				title.addClass((o.Type == "FTO" || o.Type == "fto") ? "FTO" : "other");
+				$(link).append(img).append(title);
+				$(inner).append(link);
+				$(slide).append(inner);
+				$(slider).append(slide);
+			});
+			$(targetselector).append(slider);
+			var listType = union[0].Type;
+			$('#su-unionListHeader').text(((listType == "FTO" || listType == "fto") ? "My Union - " : "Other - ") + catName);
 			$(targetselector).iosSlider({
 				snapToChildren: true,
 				scrollbar: false,

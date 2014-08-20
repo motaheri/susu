@@ -130,6 +130,15 @@ var SU_Data = {
 			this.Type = '';
 			this.Category = '';
 		},
+		// Union List
+		unionObj: function() {
+			this.Name = '';
+			this.Link = '';
+			this.OrganisationID = '';
+			this.Image = '';
+			this.Type = '';
+			this.Category = '';
+		},
 		/** WORKING HERE **/
 		// Breadcrumb List 
 		crumbObj: function(){
@@ -178,6 +187,7 @@ var SU_Data = {
 	 * Data Tests
 	 * -------------------------------- */
 	hasActivities: function() { return SU_Data.activitiesData.length > 0; },
+	hasUnion: function() { return SU_Data.unionData.length > 0; },
 	hasMemberships: function() { return SU_Data.membershipsData.length > 0; },
 	hasEvents: function() { return Object.keys(SU_Data.eventData).length > 0; },
 	hasNews: function() { return Object.keys(SU_Data.newsData).length > 0; },
@@ -231,7 +241,7 @@ var SU_Data = {
 		},
 		loadActivities: function () {
 			SU_Data.activitiesData = [];
-			$('div.mslwidget div.msl_organisation_list').each(function () {
+			$('div.mslwidget.sudata-activities div.msl_organisation_list').each(function () {
 				$(this).find('li a.msl-gl-link').each(function () {
 					var activities = new SU_Data.types.activitiesObj();
 					activities.Category = $(this).parent().parent().prev().find('h3').text();		
@@ -242,13 +252,31 @@ var SU_Data = {
 					activities.Image = '/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.activitiesData.push(activities);
 				});
-				$(this).parent().remove();
+				//$(this).parent().remove();
+			});
+		},
+		loadUnion: function () {
+			SU_Data.unionData = [];
+			$('div.mslwidget.sudata-union div.msl_organisation_list').each(function () {
+				$(this).find('li a.msl-gl-link').each(function () {
+					var union = new SU_Data.types.unionObj();
+					union.Category = $(this).parent().parent().prev().find('h3').text();		
+					union.Name = $(this).text();
+					union.Link = $(this).attr('href');
+					union.OrganisationID = $(this).attr('href').replace('union/','').replace('organisation/','').replace('/','').replace('/','');
+					union.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('16228') >= 0 ? "FTO" : "Other";
+					union.Image = '/' + $(this).parent().prev().find('img').attr('src');
+					SU_Data.unionData.push(union);
+					console.log(SU_Data.unionData);
+				});
+				
+				//$(this).parent().remove();
 			});
 		},
 		/* Working Here */
 		loadBreadCrumbs: function () {
 			SU_Data.breadCrumbsData = [];
-			$('div.mslwidget ul.level_1').each(function () {
+			$('div.mslwidget.sudata_union ul.level_1').each(function () {
 				$(this).find('li a').each(function () {
 					var breadCrumb = new SU_Data.types.crumbObj();
 					breadCrumb.Title = $( this ).text(); // Get Current Link's Page Name		
@@ -720,6 +748,9 @@ var SU_Data = {
 	getActivities: function () {
 		return SU_Data.activitiesData;
 	},
+	getUnion: function () {
+		return SU_Data.unionData;
+	},
 	getMyEvents: function(eventList, limit) {
 		// Check the event list is valid
 		if (typeof(eventList) != 'string' || typeof(SU_Data.eventData[eventList]) != 'object') {
@@ -848,6 +879,7 @@ SU_Data.basket.f_EventPage_AddToBasket = function() {
  */
 $(document).ready(function() {
 	SU_Data.load.loadActivities();
+	SU_Data.load.loadUnion();
 	SU_Data.load.loadMenu();
 	SU_Data.load.loadBreadCrumbs();
 	SU_Data.load.loadMemberships();
