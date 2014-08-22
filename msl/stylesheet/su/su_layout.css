@@ -451,13 +451,13 @@ h2.container-header{
 
 .headericon.ticket-icon{
 	vertical-align: top;
-	margin-top: 4px;
+	margin-top: 2px;
 }
 .headericon.news-icon{
-	margin-bottom: -6px; 
+	margin-bottom: -4px; 
 }
 .headericon.media-icon{
-	margin-bottom: -2px;
+	margin-bottom: -1px;
 	zoom: 0.8;
 }
 .headericon.blog-icon{
