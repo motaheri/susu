@@ -525,7 +525,7 @@ var SU_Widget = {
 		var slider = $(document.createElement('div')).addClass('slider');
 		$(targetselector).addClass((typeName == "FTO" || typeName == "fto") ? "FTO" : "other");
 		var categories = SU_Data.getUnion()
-								//.filter(function(d) { return d.Type == typeName; })
+								.filter(function(d) { return d.Type == typeName; })
 								.map(function(d) { return d.Category; }).getUnique();
 		jQuery.each(categories, function(i, o) {
 			var slide = $(document.createElement('div')).addClass('slide');

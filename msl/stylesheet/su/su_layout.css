@@ -240,7 +240,8 @@ body section#news {
 }
 
 h1,h2,h3,h4 {
-    /* font-family: 'MuseoSans700';*/ Need a better header font, renders blurry on Chrome+Win
+	font-family: 'bpreplayregular';
+    /* font-family: 'MuseoSans700'; Need a better header font, renders blurry on Chrome+Win */
 }
 
 hr.soft {

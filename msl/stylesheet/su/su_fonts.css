@@ -1,3 +1,30 @@
+/* 2014 font */
+
+@font-face {
+    font-family: 'bpreplayregular';
+    src: url('http://www.swansea-union.co.uk/stylesheet/su/bpreplay-webfont.eot');
+    src: url('http://www.swansea-union.co.uk/stylesheet/su/bpreplay-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplay-webfont.woff') format('woff'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplay-webfont.ttf') format('truetype'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplay-webfont.svg#bpreplayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bpreplaybold';
+    src: url('http://www.swansea-union.co.uk/stylesheet/su/bpreplaybold-webfont.eot');
+    src: url('http://www.swansea-union.co.uk/stylesheet/su/bpreplaybold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplaybold-webfont.woff') format('woff'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplaybold-webfont.ttf') format('truetype'),
+         url('http://www.swansea-union.co.uk/stylesheet/su/bpreplaybold-webfont.svg#bpreplaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* 2013 font */
 @font-face {
     font-family: 'MuseoSans100';
     src: url('http://www.swansea-union.co.uk/stylesheet/su/museosans-100-webfont.eot');
