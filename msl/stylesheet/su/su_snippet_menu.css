@@ -241,7 +241,8 @@ li#menu-logo:hover {
 }
 
 #menu-container #menu-items .menu-list h1 {
-    text-transform:uppercase
+    text-transform:uppercase;
+	font-family: sans-serif;
 }
 
 #menu-content-container .union ul {

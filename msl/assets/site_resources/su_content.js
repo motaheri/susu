@@ -4,8 +4,7 @@
 
 var currentWebUrl = window.location.href;
 if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
-	currentWebUrl = currentWebUrl.replace('swansea-union.co.uk/activities','swansea-union.co.uk/organisation');
-	window.location.replace(currentWebUrl);
+	window.location.replace('http://www.swansea-union.co.uk/yourunion/');
 }
 
 
@@ -58,7 +57,7 @@ $(document).ready(function() {
     }
 	*/
 	/* Varsity Temp Code */
-	if (location.href.indexOf('organisation/thewelshvarsity') != -1) {
+	if (location.href.indexOf('mysport/thewelshvarsity') != -1) {
 			var replaced = $("#page-org-join").html().replace(/membership/g,'ticket').replace(/Membership/g,'Ticket').replace(/organisation/g,'event').replace(/Organisation/g,'Event');
 			$("#page-org-join").html(replaced);
     }
@@ -242,7 +241,7 @@ $(document).ready(function() {
 	} 	
 	 
 	 
-    var pageTriggers_Organizations = ['.page_organisation,.page_myunion'];
+    var pageTriggers_Organizations = ['.page_mysociety,.page_mysport,.page_myunion,.page_myactivity,.page_organisation'];
 	if ($.exists(pageTriggers_Organizations)) {
 		// Best way to get the title of a page
 		// To Do: move this to common functions 
@@ -776,7 +775,7 @@ $(document).ready(function() {
 			$(resourceTarget).append(resourceHtml);
 		}
 	}
-	if($.exists('.page_societies,.page_sports,.page_organisation,.page_myunion,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
+	if($.exists('.page_mysociety,.page_mysport,.page_activity,.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
 		createDocumentSlider();
 	}
 	

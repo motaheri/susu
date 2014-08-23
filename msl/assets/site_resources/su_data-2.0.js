@@ -246,8 +246,8 @@ var SU_Data = {
 					var activities = new SU_Data.types.activitiesObj();
 					activities.Category = $(this).parent().parent().prev().find('h3').text();		
 					activities.Name = $(this).text();
-					activities.Link = $(this).attr('href').replace('activities/','organisation/');
-					activities.OrganisationID = $(this).attr('href').replace('activities/','').replace('organisation/','').replace('/','').replace('/','');
+					activities.Link = $(this).attr('href');
+					activities.OrganisationID = $(this).attr('href').replace('mysociety/','').replace('mysport/','').replace('myunion/','').replace('activities/','').replace('organisation/','').replace('/','').replace('/','');
 					activities.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('6109') >= 0 ? "Sports" : "Societies";
 					activities.Image = '/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.activitiesData.push(activities);
