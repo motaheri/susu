@@ -1,0 +1,292 @@
+/*
+ * CSS STRUCTURE - DO NOT CHANGE
+ */
+#isonews {
+	padding-bottom: 0px;
+}
+#isonews .news {
+	display: inline-block;
+	zoom: 1;
+	position: relative;
+	vertical-align: top;
+	margin-bottom: 5px;
+}
+#isonews .news.big {
+    width: 684px;
+	height: 370px;
+	height: 364px;
+}
+#isonews .news.medium {
+    width: 456px;
+    height: 180px;
+	margin-bottom: 
+}
+#isonews .news.small {
+	width: 228px;
+	height: 180px;
+}
+#isonews .news.big .news-inner {
+    height: 330px;
+}
+#isonews .medium .news-inner {
+    height: 140px;
+}
+#isonews .small .news-inner {
+	height: 140px;
+}
+#isonews .news-inner {
+
+}
+/* END OF
+ * CSS STRUCTURE - DO NOT CHANGE
+ */
+
+/*
+ * NEWS ARTICLE CUSTOMISATION BELOW HERE
+ *
+ * Blue: #87CEEB
+ * Union Blue: #152558
+ * Red: #bf1616
+ * Green: #67ae01
+ */
+ 
+
+/* Speech Bubble Effect */
+#isonews .news:before {
+	content: "";
+	position: absolute !important;
+	bottom: 10px;
+	right: 20px !important;
+	border-width: 0px 0 20px 25px !important;
+	border-style: solid;
+	border-color: transparent #152558;
+	background: none;
+	color: #152558;
+	z-index: -100;
+}
+#isonews .news:hover:before {
+	border-color: transparent #A1A7BC;
+	border-color: transparent #152558;
+	border-color: transparent #000;
+}
+
+/* News Article Link */
+#isonews .news > a {
+	text-decoration: none;
+}
+
+/* Inner - Coloured border*/
+#isonews .news .news-inner {
+	background-color: #152558;
+	background-color: transparent;
+	color: #000000;
+	padding-right: 15px;
+	padding-bottom: 25px;
+	overflow: hidden;
+	position: relative;
+	/* border-radius: 15px; */
+}
+
+/* Inner - News Image & Content */
+#isonews .news .news-inner-img {
+	position: relative;
+	overflow: hidden;
+	background-color: #152558;
+	height: 140px;
+	/* border-radius: 10px; */
+	border: 6px solid #152558;
+	border-bottom: 7px solid #152558;
+}
+#isonews .news .news-inner-img:hover {
+	border: 1px solid #152558;
+	border: 6px solid #000;
+	background-color: #3D9DFD;
+	border-bottom: 10px solid #152558;
+	border-bottom: 7px solid #000;
+}
+
+#isonews .news .news-inner .news-bgimage {
+    opacity: 0.85;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#isonews .news:hover .news-inner .news-bgimage {
+    opacity: 0.7;
+}
+
+/*
+#isonews .news:hover .news-inner .news-bgimage {
+    opacity: 0;
+}
+*/
+
+@media only screen and (min-width: 684px) {
+	#isonews .news.big .news-inner-img {
+		height: 330px;
+		height: 326px;
+	}
+	#isonews .news.medium .news-inner-img {
+		height: 140px;
+	}
+}
+
+/* Author Text outside speech bubble*/
+#isonews .news-author {
+	position: absolute;
+	right: 51px;
+	bottom: 4px;
+	font-size: 11px;
+	color: #000;
+	text-align: right;
+	vertical-align: bottom;
+	display: block;
+	height: 15px;
+	display: block;
+	white-space: nowrap;
+	xxbackground: rgba(255, 255, 255, 0.6);
+	padding: 2px;
+	/* Future: When multiple News Sources defined bring back authors */
+	display:none;
+}
+
+#isonews .news .news-inner div.title {
+	color: #fff;
+	background-color: #152558;
+	margin: 3px 5px 0px 5px;
+	padding: 3px 5px;
+	display: inline-block;
+	font-size: 15px;
+	line-height: 15px;
+	font-family: 'MuseoSans500';
+	font-weight: normal;
+	transform: skew(-10deg);
+	-o-transform: skew(-8deg);
+	-moz-transform: skew(-8deg);
+	-webkit-transform: skew(-8deg);
+	transform: skew(0deg);
+	-o-transform: skew(0deg);
+	-moz-transform: skew(0deg);
+	-webkit-transform: skew(0deg);
+	z-index: 1;
+}
+
+#isonews .news:hover .news-inner div.title {
+	background-color: #000;
+	color: #fff;
+}
+
+#isonews .news:hover .news-inner div.description {
+	background-color: #000;
+}
+
+#isonews .news-inner div.title:nth-of-type(2) {
+	margin-top: 5px;
+}
+@media only screen and (max-width: 683px) {
+	#isonews .news {
+		width: 100% !important;
+		height: 190px !important;
+	}
+	#isonews .news.big .news-inner {
+		height: 140px;
+	}
+	#isonews .news:before {
+		bottom: 20px;
+	}
+	#isonews .news-author {
+		bottom: 12px;
+	}
+	#isonews .news.big .news-inner div.description {
+		margin-left: 5px !important;
+	}
+}
+@media only screen and (min-width: 684px) {
+	#isonews .news.big .news-inner div.title {
+		margin: 3px 5px 0px 15px;
+		font-size: 42px;
+		line-height: 42px;
+		font-family: 'MuseoSans300';
+		max-width: 620px;
+		margin-bottom: 5px;
+	}
+	
+	#isonews .news.big .news-inner div.title:nth-of-type(2) {
+		margin-top: 15px;
+	}
+	
+	#isonews .news.medium .news-inner div.title {
+		font-size: 24px;
+		line-height: 24px;
+	}
+	
+	#isonews .news.big .image-bgimage {
+		width: 654px;
+		height: 340px;
+	}
+	
+	#isonews .news.medium .image-bgimage {
+		width: 426px;
+		height: 140px;
+	}
+	
+	#isonews .news.small .image-bgimage {
+		width: 198px;
+		height: 140px;
+	}
+}
+
+#isonews .news-inner div.description {
+	font-family: 'Helvetica';
+	font-size: 14px;
+	color: white;
+	z-index: 1;
+	margin: 5px;
+	padding: 5px;
+	background-color: #152558;
+	display: inline-block;
+	position: relative;
+	font-family: 'MuseoSans500';
+	max-width: 620px;
+}
+#isonews .news.big .news-inner div.description {
+	margin-left: 15px; /* Why is there a need for different margins on .big? */
+}
+
+#isonews .news .news-inner-img,#isonews .news .news-inner div.title,#isonews .news.big .news-inner div.description {
+box-shadow: 3px 1px 10px -2px rgba(21, 37, 88, 1);
+}
+
+/*
+ * SINGLE PAGE NEWS STYLING
+ */
+
+.news-single {
+}
+
+.news-single article {
+	width: 100%;
+}
+
+.news-single article h2.title {
+	padding-top: 15px;
+}
+
+.news-single article .content {
+	width: 100%;
+}
+
+.news-single article .content > p {
+	text-align: justify;
+}
+
+.news-single #aside {
+	width: 30%;
+	float: right;
+	padding-left: 25px;
+}

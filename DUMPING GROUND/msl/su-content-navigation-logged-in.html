@@ -1,0 +1,112 @@
+<header class="clearfix header">
+	<div id="menu" class="wrapper loggedin">
+		<div id="menu-container">
+			<div id="menu-left" class="no-mobile">
+				<ul>
+					<li id="menu-logo">
+						<div id="logo-box" class="inline-box">
+							<a href="/">
+								<div class="suicon">
+								</div>
+								<div class="suicontext">
+									<span>Swansea University</span> <span>Students' Union</span>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li id="search-box" class="inline-box">
+						<span class="stts"><img class="search-icon" src="/stylesheet/su/icon-search-blue.png" /></span>
+						<input id="ss-input" name="ss-input" type="text" autocomplete="off" />
+					</li>
+				</ul>
+			</div>
+			<div id="menu-right" class="menu-block no-mobile">
+				<ul class="menu-offleft menu-group">
+					<li>
+						<a href="" rel="account">Account</a>
+					</li>
+					<li class="menu-item-basket">
+						<a href="" rel="basket">
+							<span class="basket-count"></span>
+							<img src="/stylesheet/su/icon-basket.png" class="menu-icon"/>
+							Basket
+						</a>
+					</li>
+				</ul>
+				<ul class="menu-far-right menu-group">
+					<li><a href="" rel="union">Union</a></li>
+					<li><a href="/societies/" rel="page">Societies</a></li>
+					<li><a href="/sports/" rel="page">Sports</a></li>
+					<li><a href="/events/" rel="page">Events</a></li>
+				</ul>
+			</div>
+			<div id="menu-content-container">
+			
+				<!-- /* MENU UNION CONTENT START */ -->
+				<div class="menu-content union">
+					<div id="menu-items">
+						<div class="democracy menu-list">
+							<h1>Your Union</h1>
+							<MSL:Imagenavigation SelectedPage="/union/" Thumbnail_width="325" Thumbnail_height="229" Resize_type="CropToFit" ShowDescription="True" ContainerTag="" ContainerID="democracy-menu-id" ContainerCssClass="democracy-menu-css" SuppressContainer="False" />
+						</div>
+						<div class="support menu-list">
+							<h1>Support</h1>
+							<MSL:Imagenavigation SelectedPage="/support/" Thumbnail_width="325" Thumbnail_height="229" Resize_type="CropToFit" ShowDescription="True" ContainerTag="" ContainerID="democracy-menu-id" ContainerCssClass="democracy-menu-css" SuppressContainer="False" />
+						</div>
+						<div class="shops menu-list">
+							<h1>Shops</h1>
+							<MSL:Imagenavigation SelectedPage="/shops/" Thumbnail_width="325" Thumbnail_height="229" Resize_type="CropToFit" ShowDescription="True" ContainerTag="" ContainerID="democracy-menu-id" ContainerCssClass="democracy-menu-css" SuppressContainer="False" />
+						</div>
+						<div class="venue menu-list">
+							<h1>Venues</h1>
+							<MSL:Imagenavigation SelectedPage="/venues/" Thumbnail_width="325" Thumbnail_height="229" Resize_type="CropToFit" ShowDescription="True" ContainerTag="" ContainerID="democracy-menu-id" ContainerCssClass="democracy-menu-css" SuppressContainer="False" />
+						</div>
+						<div id="menu-page-teaser">
+							<div class="speech-bubble">
+								<div class="teaser-image">
+									<img src="/stylesheet/su/logo_su_a4.jpg" />
+								</div>
+								<div class="teaser-text">
+									<p>
+										Swansea University
+										<br/>
+										Students' Union
+										<br/>
+										phone: 01792295466
+										<br/>
+										email: info@swansea-union.co.uk
+									</p>
+								</div>
+							</div>
+						</div><!-- /* id="menu-page-teaser" */ -->
+					</div><!-- /* id="menu-items" */ -->
+				</div><!-- /* class="menu-content union" */ -->
+				<!-- /* MENU UNION CONTENT END */ -->
+				
+				<div class="menu-content societies"></div>
+				<div class="menu-content sports"></div>
+				<div class="menu-content events"></div>
+				
+				<!-- /* MENU LOGIN CONTENT START */ -->
+				<div class="menu-content account">
+					<div id="login-container">
+						<div class="login-admin-links">
+							<MSL:Admin />
+						</div>
+						<div class="login-controlpanel-links">
+							<MSL:UserControlPanel ShowFriendsLink="false" ShowMembershipsLink="false" ShowPhotosLink="false" ShowCalendarLink="false" /><MSL:ControlPanel />
+						</div>
+					</div>
+				</div>
+				<!-- /* MENU LOGIN CONTENT END */ -->
+				
+				<div id="msl-basket" class="menu-content basket">
+					<MSL:Basket />
+				</div>
+			</div><!-- /* id="menu-content-container" */ -->
+		</div><!-- /* id="menu-container" */ -->
+	</div><!--id="menu" class="wrapper loggedin"-->
+	<hr class="menu-line soft"/>
+</header>
+<div id="menu-spacer"></div>
+<MSL:TemplateSnippet SnippetName="su-content-navigation-mobile" />
