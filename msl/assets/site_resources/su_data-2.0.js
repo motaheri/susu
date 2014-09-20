@@ -241,7 +241,7 @@ var SU_Data = {
 		},
 		loadActivities: function () {
 			SU_Data.activitiesData = [];
-			$('div.mslwidget div.msl_organisation_list').each(function () {
+			$('div.mslwidget.sudata-activities div.msl_organisation_list').each(function () {
 				$(this).find('li a.msl-gl-link').each(function () {
 					var activities = new SU_Data.types.activitiesObj();
 					activities.Category = $(this).parent().parent().prev().find('h3').text();		
