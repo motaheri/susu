@@ -162,12 +162,21 @@ $(document).ready(function () {
 	
 	// Grab activities and url map from SU_Data
 	var activitiesList = SU_Data.getActivities();
-	var societiesList = activitiesList.map(function(d) { return d.Name; });
-	var societiesUrl = activitiesList.map(function(d) { return d.Link; });
+	var unionList = SU_Data.getUnion();
+	
+	var orgListNames = activitiesList.map(function(d) { return d.Name; });
+	var unionListNames = unionList.map(function(d) { return d.Name; });
+	jQuery.extend(orgListNames, unionListNames);
+	
+	
+	var orgListUrl = activitiesList.map(function(d) { return d.Link; });
+	var unionListUrl = unionList.map(function(d) { return d.Link; });
+	jQuery.extend(orgListUrl, unionListUrl);
+	
 	
 	// Activate TypeAhead with the societies list
 	$('#ss-input').typeahead({
-		source: societiesList,
+		source: orgListNames,
 		items: 8,
 		maxlength: 2
 	}).focus();
@@ -176,9 +185,9 @@ $(document).ready(function () {
 	var onChangeSoc = function(event) {
 		var autoComText = event.target.value; 
 		// Find the matching URL
-		var listPos = $.inArray(autoComText, societiesList);
+		var listPos = $.inArray(autoComText, orgListNames);
 		// If position is undefined or if there is no matching URL, stop location change
-		if(societiesUrl[listPos] != undefined){window.location.href = societiesUrl[listPos];}
+		if(orgListUrl[listPos] != undefined){window.location.href = orgListUrl[listPos];}
 	};
 	$('#ss-input').on('change', onChangeSoc);
 });

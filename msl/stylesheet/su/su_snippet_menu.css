@@ -5,7 +5,7 @@ body header {
     width:100%;
     background:rgba(256,256,256,0.95);
     z-index:1000;
-    height:70px
+    height:65px
 }
 
 body header:hover {
@@ -117,7 +117,7 @@ li#menu-logo:hover {
 }
 
 #menu-spacer {
-    height:70px;
+    height:65px;
     display:block;
     width:100%
 }
@@ -339,7 +339,7 @@ li#menu-logo:hover {
 	margin-left: 3px;
 	position: relative;
 	padding: 10px;
-	top: 49px;
+	top: 44px;
 	left: -110px;
 	border: 10px #00B2C3 solid;
 }
@@ -380,7 +380,7 @@ li#menu-logo:hover {
     top:0;
 	top: 0;
 	width: 166px;
-	height: 55px;
+	height: 56px;
 	background: url('/stylesheet/su/logo-su-55px.png') no-repeat;
 }
 
@@ -453,7 +453,7 @@ li#menu-logo {
 
 .menu-content.basket {
     float:left;
-    min-width:461px;
+    min-width:460px;
     min-height:100px;
     width:auto;
     background:#fff
@@ -621,6 +621,6 @@ div.sidepanel.controlpanel {
 li#menu-logo {
 padding-right: 35px !important;
 Padding-left: 0px !important;
-margin-top:-5px !important;
+margin-top:-8px !important;
 margin-left:0px !important;
 }

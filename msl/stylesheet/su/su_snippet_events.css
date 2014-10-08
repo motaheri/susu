@@ -5,6 +5,7 @@
 
 .slider, .slider a, .slide img {
 	cursor: url('/stylesheet/su/openhand.cur') !important;
+	-webkit-transform: translateZ(0);
 }
 
 .slider img {
