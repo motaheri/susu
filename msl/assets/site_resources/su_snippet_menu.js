@@ -105,18 +105,15 @@ $(document).ready(function(){
 	});
 	
 	$('body').click(function(event) {
-		//console.log(event.target.nodeName);
-		//if (event.target.nodeName != 'A' || event.target.nodeName != 'LI'){
-			$('#menu li').removeClass('menu-link-hover');
-			if($('.menu-content').is(":visible")){
-				$('.menu-content').hide();
-				$.mask.close();
-			}
-		//}
+		$('#menu li').removeClass('menu-link-hover');
+		if($('.menu-content').is(":visible")){
+			$('.menu-content').hide();
+			$.mask.close();
+		}
 	});
 
 	$('#menu, #menu-container').click(function(event) {
-		console.log(event.target.nodeName);
+		//console.log(event.target.nodeName);
 		if (event.target.nodeName == 'DIV'){
 			$('#menu li').removeClass('menu-link-hover');
 			if($('.menu-content').is(":visible")){
