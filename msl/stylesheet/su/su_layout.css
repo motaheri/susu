@@ -1084,7 +1084,7 @@ text-align: left;
 #aside .breadcrumb li {
 	overflow: hidden;
 	float:none !important;
-	height: 34px;
+	height: 32px;
 	background: transparent !important;
 	margin: 1px !important;
 }

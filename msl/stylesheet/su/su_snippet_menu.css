@@ -162,7 +162,7 @@ li#menu-logo:hover {
 
 .typeahead.dropdown-menu {
 	min-width: 250px;
-	margin-top: 49px!important;
+	margin-top: 47px!important;
 	padding-top: 63px !important;
 }
 
@@ -212,7 +212,7 @@ li#menu-logo:hover {
     margin-left:-50px;
     margin-top:-2px;
     padding-right:0!important;
-    margin-top:10px;
+    margin-top:7px;
     margin-left:10px
 }
 
@@ -222,10 +222,10 @@ li#menu-logo:hover {
 
 #search-box.menu-link-hover {
     border:0;
-    border-bottom:0!important;
-    background:transparent;
-    padding:0!important;
-    z-index:19999!important
+    border-bottom:0 !important;
+    background: transparent;
+    padding:0 !important;
+    z-index:19999 !important;
 }
 
 #logo-box {
@@ -339,7 +339,7 @@ li#menu-logo:hover {
 	margin-left: 3px;
 	position: relative;
 	padding: 10px;
-	top: 44px;
+	top: 47px;
 	left: -110px;
 	border: 10px #00B2C3 solid;
 }
