@@ -1,3 +1,12 @@
+/* 
+Hide tickets on Venue Pages
+In the future make a sub folder for venues called /myVenue
+for now hide all merchandise on all myUnion pages
+*/
+.page_myunion .orgproducts{
+	display:none;
+}
+
 .activitiesListSlider {
 	height: 258px;
 }
