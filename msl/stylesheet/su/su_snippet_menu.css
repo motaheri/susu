@@ -147,7 +147,7 @@ li#menu-logo:hover {
     padding:3px 0 0 10px!important;
     /*border-left:15px #000 solid;*/
     margin-left:5px;
-    /*background:#152558!important;*/
+    /*background:#294c83!important;*/
     color:#fff!important
 }
 
@@ -196,7 +196,7 @@ li#menu-logo:hover {
 }
 
 #menu-left {
-    /* background:#152558!important; */
+    /* background:#294c83!important; */
     color:#fff;
     vertical-align:top
 }
@@ -482,11 +482,12 @@ li#menu-logo {
 }
 
 .login-controlpanel-links p {
-    padding:5px;
-    margin-left:19px;
-    background:rgba(21,37,88,0.1);
-    white-space:normal;
-    word-wrap:break-word
+	padding: 5px;
+	margin-left: 19px;
+	background: #00B2C3;
+	white-space: normal;
+	color: #fff;
+	word-wrap: break-word;
 }
 
 .login-controlpanel-links .logout {
@@ -536,7 +537,7 @@ li#menu-logo {
 #menu-content-container .menu-content li.logout {
     padding:5px!important;
     margin-left:18px!important;
-    background:#152558!important;
+    background:#294c83!important;
     color:#fff;
     width:50px;
     float:left
@@ -580,7 +581,7 @@ div.sidepanel.controlpanel {
 }
 
 .menu-content.basket #basket dd.price {
-    color:#152558;
+    color:#294c83;
     font-weight:700;
     float:left;
     height:15px;

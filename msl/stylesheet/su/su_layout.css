@@ -517,7 +517,7 @@ h2.container-header{
 }
 .breadcrumb li { 
 	float: left; 
-	background: #152558;
+	background: #294c83;
 }
 .breadcrumb li a {
 	color: white;
@@ -537,7 +537,7 @@ h2.container-header{
 	border-top: 50px solid transparent;          
 	/* Go big on the size, and let overflow hide */
 	border-bottom: 50px solid transparent;
-	border-left: 30px solid   #152558;
+	border-left: 30px solid   #294c83;
 	position: absolute;
 	top: 50%;
 	margin-top: -50px; 
@@ -564,17 +564,17 @@ h2.container-header{
 	padding-left: 30px;
 }
 .breadcrumb li:last-child a {
-	background: #0088CC !important;
+	background: #00B2C3 !important;
 	color: white;
 	/*
 	pointer-events: none;
 	cursor: default;
 	*/
-	border-color:#0088CC;
+	border-color:#00B2C3;
 }
-#article  .breadcrumb li:last-child a:after { border-left: 30px solid   #0088CC; }
-.breadcrumb li a:hover { background: #0088CC; }
-.breadcrumb li a:hover:after { border-left-color: #0088CC; !important; }
+#article  .breadcrumb li:last-child a:after { border-left: 30px solid   #00B2C3; }
+.breadcrumb li a:hover { background: #00B2C3; }
+.breadcrumb li a:hover:after { border-left-color: #00B2C3; !important; }
 .breadcrumb li a:hover:before { border-left-color: #fff; !important; }
 
 		
@@ -1090,13 +1090,13 @@ text-align: left;
 }
 
 #aside .breadcrumb li a,#aside .breadcrumb li:first-child a {
-	background: #152558 !important;
+	background: #294c83 !important;
 	width: 263px !important;
 	padding: 10px 0 10px 45px !important;
 }
 
 #aside .breadcrumb li:last-child a:after {
-	border-color: 30px solid #152558 !important;
+	border-color: 30px solid #294c83 !important;
 	pointer-events: auto;
 	/*
 	cursor: pointer;
@@ -1115,7 +1115,7 @@ text-align: left;
 	margin-left:0px !important;
 */
 }
-#aside .breadcrumb li a:hover { background: #0088CC !important; }
+#aside .breadcrumb li a:hover { background: #00B2C3 !important; }
 
 #aside .nav-list {
 	/*padding-left: 20px;*/

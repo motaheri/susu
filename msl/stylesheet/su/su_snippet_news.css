@@ -45,7 +45,7 @@
  * NEWS ARTICLE CUSTOMISATION BELOW HERE
  *
  * Blue: #87CEEB
- * Union Blue: #152558
+ * Union Blue: #294c83
  * Red: #bf1616
  * Green: #67ae01
  */
@@ -59,14 +59,14 @@
 	right: 20px !important;
 	border-width: 0px 0 20px 25px !important;
 	border-style: solid;
-	border-color: transparent #152558;
+	border-color: transparent #294c83;
 	background: none;
-	color: #152558;
+	color: #294c83;
 	z-index: -100;
 }
 #isonews .news:hover:before {
 	border-color: transparent #A1A7BC;
-	border-color: transparent #152558;
+	border-color: transparent #294c83;
 	border-color: transparent #000;
 }
 
@@ -77,7 +77,7 @@
 
 /* Inner - Coloured border*/
 #isonews .news .news-inner {
-	background-color: #152558;
+	background-color: #294c83;
 	background-color: transparent;
 	color: #000000;
 	padding-right: 15px;
@@ -91,17 +91,17 @@
 #isonews .news .news-inner-img {
 	position: relative;
 	overflow: hidden;
-	background-color: #152558;
+	background-color: #294c83;
 	height: 140px;
 	/* border-radius: 10px; */
-	border: 6px solid #152558;
-	border-bottom: 7px solid #152558;
+	border: 6px solid #294c83;
+	border-bottom: 7px solid #294c83;
 }
 #isonews .news .news-inner-img:hover {
-	border: 1px solid #152558;
+	border: 1px solid #294c83;
 	border: 6px solid #000;
 	background-color: #3D9DFD;
-	border-bottom: 10px solid #152558;
+	border-bottom: 10px solid #294c83;
 	border-bottom: 7px solid #000;
 }
 
@@ -157,7 +157,7 @@
 
 #isonews .news .news-inner div.title {
 	color: #fff;
-	background-color: #152558;
+	background-color: #294c83;
 	margin: 3px 5px 0px 5px;
 	padding: 3px 5px;
 	display: inline-block;
@@ -248,7 +248,7 @@
 	z-index: 1;
 	margin: 5px;
 	padding: 5px;
-	background-color: #152558;
+	background-color: #294c83;
 	display: inline-block;
 	position: relative;
 	font-family: 'MuseoSans500';

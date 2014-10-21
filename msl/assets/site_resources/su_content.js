@@ -2,12 +2,11 @@
  * ACTIVITIES	
  */
 
+/* Redirect unused sub-page to a more useful page */
 var currentWebUrl = window.location.href;
 if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
 	window.location.replace('http://www.swansea-union.co.uk/yourunion/');
 }
-
-
 
 jQuery.exists = function (selectors) {
     if (typeof selectors == "string") {
@@ -36,6 +35,17 @@ function getParameterByName(name,href){
 }
 		
 		
+function url_domain(data) {
+  var    a      = document.createElement('a');
+		 a.href = data;
+  return a.hostname.replace('www.','');
+}
+function url_pathname(data) {
+  var    a      = document.createElement('a');
+		 a.href = data;
+  return a.pathname;
+}		
+
 
 $(document).ready(function() {
 
@@ -150,20 +160,6 @@ $(document).ready(function() {
     }
 	
 	
-	function url_domain(data) {
-	  var    a      = document.createElement('a');
-			 a.href = data;
-	  return a.hostname.replace('www.','');
-	}
-	function url_pathname(data) {
-	  var    a      = document.createElement('a');
-			 a.href = data;
-	  return a.pathname;
-	}
-	
-	
-	
-	
 	/*
      * Activity Admin - Edit Group Pages
      */
@@ -183,13 +179,12 @@ $(document).ready(function() {
 	
 	}
 	
-	
-	
-	
+		
     /*
      * Activity Purchases - Customisation Pages
      */
-    var pageTriggers_CustomizePages = ['.page_shop.page_customise'];
+    /* Add option for ticket purchasers to donate money to their society/sport groups */
+	var pageTriggers_CustomizePages = ['.page_shop.page_customise'];
     if ($.exists(pageTriggers_CustomizePages)) {
 		$('.vpFormPair').each(function () {
 			var thisTitle = $(this).find('.title').text().toLowerCase();
@@ -207,8 +202,6 @@ $(document).ready(function() {
 		});
 	
 	}
-	
-	
 	
 	
 	/*
