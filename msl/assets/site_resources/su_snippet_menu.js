@@ -212,9 +212,9 @@ Change the Teaser Image and description in the Menu
 **/
 
 $(document).ready(function() {
-   var defaultImg = $('.teaser-image img').attr('src');
-   var defaultTxt = $('#menu-page-teaser .teaser-text p').html();
-   $('#menu-items li').each(function() {
+   var defaultImg = $('#menu .teaser-image img').attr('src');
+   var defaultTxt = $('#menu #menu-page-teaser .teaser-text').html();
+   $('#menu #menu-items li').each(function() {
 	  var $img = $(this).find('img');
 	  if($img.attr('src')){
 			var link = $img.attr('src').replace("../","/");
@@ -225,20 +225,20 @@ $(document).ready(function() {
 	  //alert(description);
 	  $(this).hover(
 		function(){
-			$('.teaser-image img').attr("src",link);
-			$('.teaser-image img').show();
+			$('#menu .teaser-image img').attr("src",link);
+			$('#menu .teaser-image img').show();
 			if ($.trim(description).length){
-				$('#menu-page-teaser .teaser-text p').html(description);
+				$('#menu #menu-page-teaser .teaser-text').html(description);
 				}else{
-				$('#menu-page-teaser .teaser-text p').html(defaultTxt);
+				$('#menu #menu-page-teaser .teaser-text').html(defaultTxt);
 				}
-			$('#menu-page-teaser .teaser-text p').show();
+			$('#menu #menu-page-teaser .teaser-text').show();
 			return false;
 		},function(){
-			$('.teaser-image img').attr("src",defaultImg);
-			$('.teaser-image img').show();
-			$('#menu-page-teaser .teaser-text p').html(defaultTxt);
-			$('#menu-page-teaser .teaser-text p').show();
+			$('#menu .teaser-image img').attr("src",defaultImg);
+			$('#menu .teaser-image img').show();
+			$('#menu #menu-page-teaser .teaser-text').html(defaultTxt);
+			$('#menu #menu-page-teaser .teaser-text').show();
 		}
 		
 	  );
