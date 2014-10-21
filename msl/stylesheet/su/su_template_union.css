@@ -102,7 +102,7 @@
 }
 .sliderUnion .unionCatName {
 	xxheight: 45px;
-	background-color: #51a351;
+	background-color: #00B2C3;
 	background-color: #000;
 	font-family: 'MuseoSans500';
 	font-size: 13pt;
@@ -111,11 +111,11 @@
 	padding: 2px;
 	xxtext-transform: uppercase;
 	position: absolute;
-	top:0px;
+	top:120px;
 	padding-right: 4px;
 }
 .sliderUnion .unionItemName {
-	background-color: #51a351;
+	background-color: #00B2C3;
 	background-color: #000;
 	font-family: 'MuseoSans500';
 	font-size: 13pt;
@@ -124,23 +124,17 @@
 	padding: 2px;
 	xxtext-transform: uppercase;
 	position: absolute;
-	top: 0px;
+	top: 120px;
 	padding-right:4px;
 	max-width: 212px;
 } 
-.sliderUnion.sport .slide.selected .slide-inner {
-	border-color: #51a351;
+
+.sliderUnion .slide.selected .slide-inner {
+	border-color: #00B2C3;
 }
-.sliderUnion.sport .slide.selected .unionCatName,
-.sliderUnion.sport .slide.selected .unionItemName {
+
+.sliderUnion .slide.selected .unionCatName,
+.sliderUnion .slide.selected .unionItemName {
 	background-color: #000;
-	background-color: #51a351;
-}
-.sliderUnion.society .slide.selected .slide-inner {
-	border-color: #BC5CA2;
-}
-.sliderUnion.society .slide.selected .unionCatName,
-.sliderUnion.society .slide.selected .unionItemName {
-	background-color: #000;
-	background-color: #BC5CA2;
+	background-color: #00B2C3;
 }

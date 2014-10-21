@@ -120,7 +120,7 @@ for now hide all merchandise on all myUnion pages
 	padding: 2px;
 	xxtext-transform: uppercase;
 	position: absolute;
-	top:0px;
+	top:120px;
 	padding-right: 4px;
 }
 .sliderActivities .activitiesItemName {
@@ -133,7 +133,7 @@ for now hide all merchandise on all myUnion pages
 	padding: 2px;
 	xxtext-transform: uppercase;
 	position: absolute;
-	top: 0px;
+	top: 120px;
 	padding-right:4px;
 	max-width: 212px;
 } 
