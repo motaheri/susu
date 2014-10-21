@@ -1462,6 +1462,30 @@ float: left !important;
 }
 
 
+/* Officer widget on front page */
+
+.page_root .seemore.myunion{
+	margin-top:-25px;
+}
+
+.page_root .headericon.officer-icon{
+	margin-bottom: -4px;
+	margin-right: 8px;
+	padding-bottom: 15px;
+}
+
+.page_root #su-unionListHeader{
+	display: inline;
+	vertical-align: top;
+}
+
+.page_root .sliderUnion .slider .slide .slide-inner {
+	border: 1px solid #00B2C3;
+}
+
+.page_root .sliderUnion .unionItemName {
+	background-color: #00B2C3;
+}
 /***********
 
 Quick Bug Fixes

@@ -65,14 +65,11 @@ for now hide all merchandise on all myUnion pages
 
 .sliderActivities .slider .slide .slide-inner {
 	width: 218px;
-	xxheight: 211px;
-	xxmargin: 5px;
-	xxtext-align: center;
-	border: 2px solid #000;
+	border: 1px solid #000;
 }
 
 .selected .slider .slide .slide-inner{
-	border: 2px solid #BC5CA2;
+	border: 1px solid #BC5CA2;
 }
 
 @media only screen and (min-width: 912px) {

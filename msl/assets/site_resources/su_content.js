@@ -113,6 +113,19 @@ $(document).ready(function() {
         SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
     }
     
+	
+    var pageTriggers_Officers_Main = ['.page_root', '.page_frontpage'];
+    if ($.exists(pageTriggers_Officers_Main)) {
+		var unionType = "FTO";
+		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" })[0].Category;
+		SU_Widget.EventSlider_UnionCategorySlider(unionType, "#su-unionCat");
+		SU_Widget.EventSlider_UnionListSlider(firstCat, "#su-unionList");
+		$('#su-unionList').show();
+
+		resetDeepLinks();	
+	}
+	
+	
     /*
      * EVENTS - MAIN LIST
      */
