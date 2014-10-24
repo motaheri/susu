@@ -8,6 +8,14 @@
 	border: 5px solid #21629C;
 	border-top: none;
 }
+
+
+.iframe-pop-container, .login-content {
+	-webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	border-bottom-left-radius: 20px;
+}
+
 .blocker {
     background: rgb(255, 255, 255);
     position: absolute;
@@ -167,11 +175,11 @@ a#ssolink{
 }
 .login-content.red {
     background: rgba(217, 74, 56, 0.83);
-    border: 1px solid #d84a38;
+    /* border: 1px solid #d84a38; */
 }
 .login-content.green {
     background: rgba(53, 170, 71, 0.73);
-    border: 1px solid #35aa47;
+    /* border: 1px solid #35aa47; */
 }
 .login-content h3{
 	display:none;
