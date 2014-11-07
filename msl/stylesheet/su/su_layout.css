@@ -205,7 +205,9 @@ body div#cover.coverSports {
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
+    background-image: url(/stylesheet/su/socwider2.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
 	box-shadow: 0px 0px 22px #5E366E;
 }
 
@@ -1465,13 +1467,11 @@ float: left !important;
 /* Officer widget on front page */
 
 .page_root .seemore.myunion{
-	margin-top:-25px;
+	margin-top:0px;
 }
 
 .page_root .headericon.officer-icon{
 	margin-bottom: -4px;
-	margin-right: 8px;
-	padding-bottom: 15px;
 }
 
 .page_root #su-unionListHeader{
