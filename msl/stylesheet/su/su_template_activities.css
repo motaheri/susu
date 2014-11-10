@@ -83,9 +83,6 @@ for now hide all merchandise on all myUnion pages
 		width: 1140px;
 	}	
 }
-.activity-slider-group{
-	height:195px;
-}
 
 #activitiesCategorySlider .slider:hover {
 	animation: none !important;

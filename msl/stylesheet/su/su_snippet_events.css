@@ -5,6 +5,10 @@
 
 .slider, .slider a, .slide img {
 	cursor: url('/stylesheet/su/openhand.cur') !important;
+}
+
+/* Fix chrome transition bug */
+.icarousel .slider, .icarousel .slider a, .icarousel .slide img {
 	-webkit-transform: translateZ(0);
 }
 
@@ -134,7 +138,7 @@
 	.su-eventsSubTitle {
 		display: inline-block;
 		margin-left: 30px;
-		font-style: italic;
+		font-size: 14px;
 	}
 }
 @media only screen and (min-width: 1140px) {
@@ -253,8 +257,6 @@ div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, 
 }
 	
 
-	
-	
 /*
 * Single Event Page PLEASE LOOK INTO THIS, SEEMS LIKE OLD TOBY CSS CLASSES 
 */
@@ -287,3 +289,8 @@ div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, 
 .page_event .wrapper #msl_event .msl_notification{
 	width: 320px;
 }
+
+#my-events h3{
+	font-size: 12px;
+}
+

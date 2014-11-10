@@ -343,7 +343,8 @@ background: #f5f5f5 url('http://i.imgur.com/kEAnBaM.jpg');*/
 
 .events-container {
 	width: 100%;
-	overflow: hidden;
+	/* Changed for arrow buttons */
+	overflow: visible;
 	background-size: auto 80%; 
 	margin-top: 20px;
 }
@@ -418,7 +419,7 @@ div.seemore {
 	font-size: 0.85em;
 	padding-bottom: 15px;
 	margin-top: 25px;
-	text-align: right;
+	display: inline-block;
 	font-weight: bold;
 	clear:both;
 }
@@ -1486,8 +1487,57 @@ float: left !important;
 .page_root .sliderUnion .unionItemName {
 	background-color: #00B2C3;
 }
+
+/* Slider Arrows */
+
+
+/* Arrows */
+
+#activitiesCategorySlider,#activitiesListSlider,#unionCategorySlider,#unionListSlider,#su-eventsPortrait,#events,#my-events{
+	position: relative;
+}
+
+
+.wrapper  .scroll-left-arrow , .wrapper .scroll-right-arrow{
+	background: #fff;
+	height: 50px;
+	display: inline-block;
+	width: 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 1px solid #e3e3e3;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.1);
+	position: absolute;
+	z-index: 100;
+	cursor: pointer;
+	cursor: hand;
+	bottom: 115px;
+}
+
+
+.wrapper  .scroll-left-arrow {
+	background-image: url('http://i.imgur.com/b3JLKSw.png');
+	left: -45px;
+}
+.wrapper  .scroll-right-arrow {
+	background-image: url('http://i.imgur.com/47AbKGk.png');
+	right: -45px;
+}
+
+
+.events-container #events .scroll-left-arrow,.events-container #events .scroll-right-arrow{
+	bottom: 190px;
+}
+
+
+
+
+
 /***********
 
 Quick Bug Fixes
 
 *************/
+
+
+
