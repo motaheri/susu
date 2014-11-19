@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 	$('#social-stream').dcSocialStream({
 		feeds: {
 			twitter: {
-				id: 'Sinkswansea,SinCitySwansea,SUSUflux,thewaterfrontSU,SwanseaUnion,SUSUVoice,studentswansea',
+				id: 'Sinkswansea,SinCitySwansea,SUSUflux,WaterFront,SwanseaUnion,SUSUVoice,studentswansea',
 				intro: 'Tweeted',
 				search: 'Tweeted',
 				out: 'intro,thumb,text,share',
