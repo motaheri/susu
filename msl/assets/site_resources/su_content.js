@@ -112,13 +112,10 @@ $(document).ready(function() {
     if ($.exists(pageTriggers_News)) {
         SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
     }
-
     
-    /*
-     * Union FrontPage Slider
-     */	
-    var pageTriggers_MyUnion_root = ['.page_root', '.page_frontpage'];
-    if ($.exists(pageTriggers_MyUnion_root)) {
+	
+    var pageTriggers_Officers_Main = ['.page_root', '.page_frontpage'];
+    if ($.exists(pageTriggers_Officers_Main)) {
 		var unionType = "FTO";
 		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" })[0].Category;
 		SU_Widget.EventSlider_UnionCategorySlider(unionType, "#su-unionCat");
@@ -127,55 +124,6 @@ $(document).ready(function() {
 
 		resetDeepLinks();	
 	}
-	
-	
-    /*
-     * My Union Slider
-     */		
-    var pageTriggers_MyUnion = ['.page_yourunion'];
-    if ($.exists(pageTriggers_MyUnion)) {		
-		var unionType = "FTO";
-		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" || d.Type == "Other"; })[0].Category;
-		SU_Widget.EventSlider_UnionCategorySlider(unionType, "#su-unionCat");
-		SU_Widget.EventSlider_UnionListSlider(firstCat, "#su-unionList");
-		$('#su-unionList').show();
-
-		resetDeepLinks();
-	}
-	
-	
-	
-    /*
-     * Societies Slider
-     */		
-    var pageTriggers_societies = ['.page_societies'];
-    if ($.exists(pageTriggers_societies)) {	
-	
-		var activityType = "Societies";
-		var firstCat = SU_Data.activitiesData.filter(function(d) { return d.Type == activityType; })[0].Category;
-		SU_Widget.EventSlider_ActivitiesCategorySlider(activityType, "#su-activitiesCat");
-		SU_Widget.EventSlider_ActivitiesListSlider(firstCat, "#su-activitiesList");
-		$('#su-activitiesList').show();
-	
-		resetDeepLinks();
-	}
-		
-	
-    /*
-     * Sports Slider
-     */		
-    var pageTriggers_sports = ['.page_sports'];
-    if ($.exists(pageTriggers_sports)) {	
-	
-		var activityType = "Sports";
-		var firstCat = SU_Data.activitiesData.filter(function(d) { return d.Type == activityType; })[0].Category;
-		SU_Widget.EventSlider_ActivitiesCategorySlider(activityType, "#su-activitiesCat");
-		SU_Widget.EventSlider_ActivitiesListSlider(firstCat, "#su-activitiesList");
-		$('#su-activitiesList').show();
-
-		SU_Widget.EventSlider_Portrait('Data_Events_Sport','#su-eventsPortrait');
-		resetDeepLinks();
-	}	
 	
 	
     /*
@@ -195,7 +143,6 @@ $(document).ready(function() {
 		}
 		else {
 			$('#my-events').append('<h3>You are not a member of any Sports or Societies.<br />Visit our <a href="/sports">Sport</a> and <a href="/societies">Society</a> pages to see what activities you can join.</h3>');
-			$('.events-container #my-events .scroll-left-arrow,.events-container #my-events .scroll-right-arrow').hide();
 		}
     }
 	
@@ -834,7 +781,7 @@ $(document).ready(function() {
 			$(resourceTarget).append(resourceHtml);
 		}
 	}
-	if($.exists('.page_activity,.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
+	if($.exists('.page_mysociety,.page_mysport,.page_activity,.page_societies,.page_sports,.page_organisation,.page_advice,.page_nursery,.page_shops,.page_venues,.page_union')&&!$.exists('#edit_header,.page_unionplan')){
 		createDocumentSlider();
 	}
 	
