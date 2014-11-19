@@ -1,0 +1,289 @@
+/*
+ * Global Slider Styles
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+
+.slider, .slider a, .slide img {
+	cursor: url('/stylesheet/su/openhand.cur') !important;
+	-webkit-transform: translateZ(0);
+}
+
+.slider img {
+    width: auto 9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+@keyframes slider-peek {
+  0% { margin-left: 0px; }
+  50% { margin-left: -30px; }
+  100% { margin-left: 0px; }
+}
+
+@-webkit-keyframes slider-peek {
+  0% { margin-left: 0px; }
+  50% { margin-left: -30px; }
+  100% { margin-left: 0px; }
+}
+
+.slider:hover {
+	animation: slider-peek 0.25s ease;
+	-webkit-animation: slider-peek 0.25s ease;
+}
+
+.slider.noAnim:hover {
+	animation: none !important;
+	-webkit-animation: none !important;
+}
+
+/*
+ * A4 Portrait Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderPortrait,.sliderSmall{
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 684px;
+	height: 372px; /* 322 + 50 */
+}
+.sliderPortrait .slider, .sliderSmall .slider {
+	width: 100%;
+	height: 100%;
+}
+.sliderPortrait .slider .slide,.sliderSmall .slider .slide {
+	float: left;
+	width: 228px;
+	height: 372px; /* 322 + 50 */
+	padding-right:25px;
+}
+.sliderPortrait .slider .slide .slide-inner,.sliderSmall .slider .slide .slide-inner  {
+	width: 218px;
+	height: 360px; /* 312 + 48 */
+}
+
+
+
+/*
+ * Small Landscape Slider
+ * DO NOT CHANGE - CUSTOMISE AT BOTTOM
+ */
+.sliderSmall {
+	height: 221px;
+}
+.sliderSmall .slider .slide {
+	height: 221px;
+}
+.sliderSmall .slider .slide .slide-inner {
+	height: 211px;
+}
+/*
+.sliderPortrait:before, .sliderSmall:before {
+	content: '';
+	position: absolute;
+	width: 10%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	/* White Gradient
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0.8)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ccffffff',GradientType=1 );
+	/* #222 Gradient
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIyMjIyMiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMjIyMjIiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(left,  rgba(34,34,34,0) 0%, rgba(34,34,34,0.8) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(34,34,34,0)), color-stop(100%,rgba(34,34,34,0.8)));
+	background: -webkit-linear-gradient(left,  rgba(34,34,34,0) 0%,rgba(34,34,34,0.8) 100%);
+	background: -o-linear-gradient(left,  rgba(34,34,34,0) 0%,rgba(34,34,34,0.8) 100%); 
+	background: -ms-linear-gradient(left,  rgba(34,34,34,0) 0%,rgba(34,34,34,0.8) 100%);
+	background: linear-gradient(to right,  rgba(34,34,34,0) 0%,rgba(34,34,34,0.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00222222', endColorstr='#cc222222',GradientType=1 );
+}
+*/
+
+/*
+ * Dynamic Size Media Queries
+ */
+@media only screen and (max-width: 683px) {
+	.sliderFilter {
+		display: none !important;
+	}
+	.su-eventsSubTitle {
+		display: none;
+	}
+}
+@media only screen and (min-width: 684px) {
+	.su-eventsSubTitle {
+		display: none;
+	}
+}
+@media only screen and (min-width: 912px) {
+	.sliderPortrait, .sliderSmall {
+		width: 912px;
+	}
+	.su-eventsSubTitle {
+		display: inline-block;
+		margin-left: 30px;
+		font-style: italic;
+	}
+}
+@media only screen and (min-width: 1140px) {
+	.sliderPortrait, .sliderSmall {
+		width: 1140px;
+	}	
+}
+
+/*
+ * EVENTS CUSTOMISATION BELOW HERE
+ */
+
+.slider .slide .slide-inner {
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'MuseoSans500';
+	font-size: 13px;
+}
+.slider .slide .slide-inner a {
+	color: black;
+	text-decoration: none;
+}
+
+.sliderPortrait .slider .slide .slide-inner {
+}
+
+.sliderSmall .slider .slide .slide-inner {
+}
+
+.sliderPortrait .slider .slide .slide-inner img {
+	width: 228px;
+	height: 308px;
+	opacity: 1;
+}
+
+.sliderSmall .slider .slide .slide-inner img {
+	width: 228px;
+	height: 157px;
+	opacity: 1;
+}
+
+.slider .slide .slide-inner img:hover {
+	opacity: 0.8;
+}
+
+/* Div for when event has no image*/
+.slider .slide .slide-inner div.orgText {
+	background-color: black;
+	color: white;
+	overflow: hidden;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 20px;
+}
+
+.sliderPortrait .slider .slide .slide-inner div.orgText {
+	width: 228px;
+	height: 288px;
+}
+.sliderSmall .slider .slide .slide-inner div.orgText {
+	width: 228px;
+	height: 137px;
+}
+
+.slider .slide .slide-inner .event-title {
+	margin: 2px -5px 0px -5px;
+	padding: 5px 10px 0px 10px;
+	height: 20px;
+	width: 208px;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.slider .slide .slide-inner .event-date {
+	margin: 0px 5px 0px 5px;
+	font-style: italic;
+	overflow: visible !important;
+	height: 20px;
+}
+
+.slider .slide:first-child .slide-inner .event-title {
+	margin: 2px -5px 0px 0px !important;
+	padding: 5px 10px 0px 5px;
+}
+
+.slider .slide:last-child .slide-inner .event-title {
+	margin: 2px 0px 0px -5px !important;
+	padding: 5px 5px 0px 10px;
+}
+
+.slider .slide .slide-inner .event-location {
+	margin: 0px 5px 0px 5px;
+	height: 20px;
+}
+
+/*
+ * Slider Filter
+ */
+div.sliderFilter {
+	float: right;
+	vertical-align: middle;
+	font-family: 'MuseoSans300';
+	margin-bottom: 10px;
+}
+
+div.sliderFilter div.m-btn {
+	padding: 5px 14px;
+}
+div.sliderFilter .m-btn-group .m-btn:first-child {
+	margin-left: 15px !important;
+}
+div.sliderFilter .m-btn + .m-btn, .m-btn + .m-btn-group, .m-btn-group + .m-btn, .m-btn-group + .m-btn-group {
+	margin-left: 0px !important;
+}
+	
+
+	
+	
+/*
+* Single Event Page PLEASE LOOK INTO THIS, SEEMS LIKE OLD TOBY CSS CLASSES 
+*/
+	
+	
+#msl_event .grid_4{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#msl_event .msl-event-description{
+	width: 600px;
+	display: inline-block;
+}
+
+#msl_event .container_12{
+	position: relative;
+}
+
+.msl-box .msl-dy-sidebar-padding img{
+	width: 342px;
+	height: auto;
+}
+
+.page_event .wrapper #msl_event{
+	min-height:700px;
+}
+
+.page_event .wrapper #msl_event .msl_notification{
+	width: 320px;
+}
