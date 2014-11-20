@@ -1,6 +1,16 @@
 /* --------------------------------------------------------------------
  * Master Page Width Definitions
  * -------------------------------------------------------------------- */
+ 
+/*
+	If anyone messes with or reverts my code again, there will be 
+	swearing, violence, and the forceful changing of passwords.
+
+	If something I have done has had an unexpected side effect, 
+	by all means contact me to let me know. DO NOT JUST UNDO IT 
+	WITHOUT HAVING THE COMMON COURTESY TO TELL ME ABOUT IT.
+	-PH
+*/
 
 @media only screen and (max-width: 683px) {
     .menu-block, .menu-block ul,#menu li{
@@ -98,9 +108,6 @@
         width: 912px;
         margin: 0 auto;
     }
-    #menu-right ul li{
-        xmargin-right:20px;
-    }
 	.advertteaser {
 		width: 195px !important;
 	}
@@ -130,9 +137,7 @@
         width: 1140px;
         margin: 0 auto;
     }
-    #menu-right ul li{
-        xmargin-right:50px;
-    }
+	
 	.halfadvert{
 		display: inline-block !important;
 	}
@@ -205,10 +210,11 @@ body div#cover.coverSports {
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/socwider2.jpg);
-    background-repeat: repeat-x;
+    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
+    /*background-repeat: repeat-x;
     background-size: contain;
 	box-shadow: 0px 0px 22px #5E366E;
+	*/
 }
 
 body div#cover.coverEvents {
@@ -295,9 +301,6 @@ article .content > p {
 		width: 100%;
 		float: none;
 	}
-}
-div.content h3 {
-	padding-top: 10px;
 }
 
 .nav-exec {
@@ -433,18 +436,9 @@ div.seemore a {
 	color:#000;
 }
 
-h1,h2,h3{
-    margin: 0px;
-    margin-top: 50px;
-}
-h2,h3{
-    margin-top: 10px;
-}
-
 
 #main h2{
 	margin-left: 0px; /* why do we need this? */
-	margin-bottom: 5px;
 	color:#444;
 }
 
@@ -941,9 +935,6 @@ margin-top:5px;
 	cursor: hand;
 }
 
-
-
-
 /* Last Minute Changes Please Merge in Proper CSS Location Later */
 /*
 #menu.menu,.seemore{
@@ -1193,23 +1184,19 @@ Temps Styles for Single Org Page - Move to single.css when done
 *************/
 
 .org-box{
+	padding: 10px 10px 10px 10px;
+	/*
+	box-shadow: #D4D4D4 0px 0px 17px;
+	direction: rtl;
 	max-height: 700px;
 	overflow-y: scroll;
-	padding: 10px 0px 10px 15px;
-	/*direction: rtl;*/
+	*/
 	border: 1px solid rgba(255, 255, 255, 0.5);
-	box-shadow: #D4D4D4 0px 0px 17px;
 	background: rgba(255, 255, 255, 0.7);
-	margin-bottom: 20px;
-}
-
-.org-description h1, .org-description h2, .org-description h3{
-	margin-top: 15px;
 }
 
 .orgcommittee{
-	max-height: 350px;
-	margin-top: 20px;
+	/*max-height: 350px;*/
 }
 
 .orgproducts{
@@ -1232,19 +1219,12 @@ Temps Styles for Single Org Page - Move to single.css when done
 .msl-groupedmemberlist .badge{
 	clear: both;
 	padding: 5px;
-	height: 125px;
+	max-height: 100px;
 	background: #fff;
 	margin-right: 10px;
-	margin-bottom: 10px;
-	box-shadow: #D4D4D4 0px 0px 3px;
-	width:225px;
+	/*margin-bottom: 10px;*/
+	width:200px;
 	border:1px solid #bbb;
-}
-
-.msl-groupedmemberlist h3{
-	margin:0px;
-	padding:0px;
-	width: 245px;
 }
 
 .msl-groupedmemberlist ul {
@@ -1436,7 +1416,6 @@ Temps Styles for Single Org Page - Move to single.css when done
 	height: 100%;
 }
 
-
 /* Fixes */
 
 #sport-swansea-product .join_list {
@@ -1455,7 +1434,6 @@ line-height: 30px !important;
 float: left !important;
 }
 
-
 /* SU Social */
 
 .su-twitter-follow{
@@ -1463,7 +1441,6 @@ float: left !important;
 	padding-top: 22px;
 	width:190px;
 }
-
 
 /* Officer widget on front page */
 
@@ -1489,14 +1466,11 @@ float: left !important;
 }
 
 /* Slider Arrows */
-
-
 /* Arrows */
 
 #activitiesCategorySlider,#activitiesListSlider,#unionCategorySlider,#unionListSlider,#su-eventsPortrait,#events,#my-events{
 	position: relative;
 }
-
 
 .wrapper .scroll-left-arrow , .wrapper .scroll-right-arrow{
 	background: #fff;
@@ -1541,16 +1515,3 @@ float: left !important;
 .events-container #events .scroll-left-arrow,.events-container #events .scroll-right-arrow{
 	bottom: 190px;
 }
-
-
-
-
-
-/***********
-
-Quick Bug Fixes
-
-*************/
-
-
-
