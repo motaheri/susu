@@ -1,0 +1,345 @@
+#eventlist_container
+{
+  font-size:.8em;
+}
+
+#eventlist_container .msl_eventlist
+{
+}
+
+#eventlist_container img,#eventlist_container .msl_event_location,#eventlist_container .msl_event_description,#eventlist_container .msl_event_tickets,#eventlist_container .msl_event_types
+{
+  display:none;
+}
+
+#eventlist_container h4
+{
+  float:left;
+  margin:0 0 0 5px;
+  font-weight:400;
+  color:#666;
+  position:relative;
+  z-index:5;
+}
+
+#eventlist_container a.eventlink
+{
+  position:relative;
+  z-index:10;
+  display:block;
+  padding:0;
+  border-bottom:1px dotted #ccc;
+  overflow:hidden;
+/* height:1.2em;*/
+}
+
+#eventlist_container .event
+{
+}
+
+#eventlist_container dt
+{
+  display:inline-block;
+  margin-bottom:0;
+/*line-height: 1.4em;*/
+  max-width:350px;
+  /*background: #ff00ff;*/
+  width: 350px;
+}
+
+#eventlist_container .msl_event_name
+{
+  display:block;
+  padding:5px;
+}
+
+#eventlist_container .Freshers.Club .msl_event_name
+{
+  border-left:5px solid #775BA7;
+  font-weight:700;
+}
+
+#eventlist_container .Freshers.Gig .msl_event_name
+{
+  border-left:5px solid #775BA7;
+  font-weight:700;
+}
+
+#eventlist_container .Freshers.Society.fair .event_tag.soc
+{
+  display:none;
+}
+
+#eventlist_container .msl_event_time
+{
+  display:inline-block;
+  margin-left:5px;
+  float:right;
+  width:55px;
+  color:#000;
+  margin-bottom:0;
+  margin-top:5px;
+}
+
+#eventlist_container dl
+{
+  padding-left:70px;
+  margin:0;
+}
+
+#eventlist_container a:hover
+{
+  text-decoration:none;
+}
+
+#eventlist_container a.eventlink:hover
+{
+  background-color:#eee;
+}
+
+/*#eventlist_container a.eventlink.club:hover { background-color:#FF9DFF; }
+#eventlist_container a.eventlink.societies:hover { background-color:#CFFF2D; }
+#eventlist_container a.eventlink.sports:hover { background-color:#06F; color:#fff; }*/
+#eventlist_container h3
+{
+  background-color:#000;
+  color:#fff;
+  font-size:1.5em;
+  padding:5px;
+  margin-top:10px;
+}
+
+#eventlist_container h3:first-child
+{
+  margin-top:0;
+}
+
+#eventlist_container .event_tag
+{
+/*font-weight:bold; float:left; margin-left:0px; text-transform:uppercase; font-size:0.8em; margin-top:1px; opacity:0.5; filter:alpha(opacity=50); margin-bottom: 0px; margin-right:10px; */
+}
+
+#eventlist_container .event_tag:after
+{
+  content:' ';
+}
+
+#eventlist_container .event_tag.soc
+{
+  color:#759700;
+}
+
+#eventlist_container .event_tag.sport
+{
+  color:#06F;
+}
+
+#eventlist_container .event_tag.gig
+{
+  color:#F0F;
+}
+
+#eventlist_container .event_tag.club
+{
+  color:#000;
+}
+
+#eventlist_container .event_tag.ball
+{
+  color:#F00;
+}
+
+#eventlist_container .event_tag.film
+{
+  color:#F60;
+}
+
+#eventlist_container .event_tag.freshers.fair
+{
+  color:#3FAE49;
+}
+
+#eventlist_container .event_showhide_links
+{
+  background-color:#000;
+  color:#fff;
+  font-weight:700;
+  padding:5px;
+}
+
+#eventlist_container .event_showhide_links a
+{
+  color:#fff;
+  font-weight:400;
+}
+
+#eventlist_container .event_item[data-msl-organisation-id="11036"]
+{
+  background-color:#7DB1DF;
+}
+
+#eventlist_container .event_item[data-msl-organisation-id="11036"] .msl_event_name,#eventlist_container .event_item[data-msl-organisation-id="11036"] .msl_event_time,#eventlist_container .event_item[data-msl-organisation-id="11036"] .msl_event_date
+{
+  color:#fff;
+}
+
+#eventlist_container .msl_event_date
+{
+  position:absolute;
+  left:5px;
+  top:5px;
+  margin-left:0;
+  color:#666;
+}
+
+#content .wrap h1,div.entsmenu.wrap.float.left,#eventlist_container h3,.entsmenu ul li a
+{
+  background-color:#322447;
+  color:#fff;
+}
+
+#content #featuredevents dl dt a
+{
+  color:#322447;
+}
+
+#content #featuredeventswrap.wrap
+{
+  background-color:#fff;
+  color:#000;
+}
+
+.entsmenu ul li a:hover
+{
+  background:#573F7C;
+}
+
+#content #featuredevents dl dd
+{
+  color:#000;
+}
+
+#eventlist_container .event_showhide_links
+{
+  color:#000;
+  background-color:#E2DCED;
+}
+
+#eventlist_container .event_showhide_links a
+{
+  color:#000;
+}
+
+#eventlist_container .event_showhide_links a:hover
+{
+  text-decoration:underline;
+}
+
+#eventlist_container a.eventlink:hover
+{
+  background-color:#E2DCED;
+}
+
+#eventlist_container a.Society dt
+{
+  max-width:170px;
+}
+
+#eventlist_container a.Big.Screen dt
+{
+  max-width:180px;
+}
+
+.brand_foot
+{
+  margin:0 -10px -10px;
+  clear:both;
+}
+
+#sightsnsounds
+{
+  -moz-border-radius:5px;
+  border-radius:5px;
+  background:#E2DCED;
+  float:right;
+  font-size:.8em;
+  width:200px;
+  margin:10px 0 10px 20px;
+}
+
+#sightsnsounds h2
+{
+  text-align:center;
+  border-bottom:0;
+  margin:10px;
+}
+
+#sightsnsounds ol
+{
+  padding:0 10px 0 30px;
+}
+
+#sightsnsounds li
+{
+  margin-bottom:5px;
+}
+
+.page_events.page_regular #event_gallery
+{
+  margin-bottom:20px;
+}
+
+.page_events #event_gallery ul li a
+{
+  padding:4px;
+  border:1px solid #ccc;
+  background:white;
+  margin:5px;
+  display:inline-block;
+  height:120px;
+  width:155px;
+}
+
+#event_gallery a:hover
+{
+  border-color:#3B5998;
+}
+
+#event_gallery ul
+{
+  list-style:none;
+  padding:0;
+  clear:left;
+  margin:-5px;
+}
+
+#event_gallery ul li
+{
+  display:inline-block;
+}
+
+.page_events #event_gallery ul li a .fbphoto
+{
+  height:120px;
+  width:155px;
+  background-position:center 25%;
+  background-repeat:no-repeat;
+  background-color:#EEE;
+  display:inline-block;
+  position:relative;
+}
+
+#event_gallery ul h2
+{
+  font-size:.7em;
+  color:#fff;
+  font-weight:400;
+  position:absolute;
+  bottom:0;
+  background:#000;
+  background:rgba(0,0,0,0.7);
+  margin:0;
+  padding:5px;
+  border-bottom:none;
+  width:145px;
+}
