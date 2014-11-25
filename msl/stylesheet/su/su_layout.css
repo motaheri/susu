@@ -1,16 +1,6 @@
 /* --------------------------------------------------------------------
  * Master Page Width Definitions
  * -------------------------------------------------------------------- */
- 
-/*
-	If anyone messes with or reverts my code again, there will be 
-	swearing, violence, and the forceful changing of passwords.
-
-	If something I have done has had an unexpected side effect, 
-	by all means contact me to let me know. DO NOT JUST UNDO IT 
-	WITHOUT HAVING THE COMMON COURTESY TO TELL ME ABOUT IT.
-	-PH
-*/
 
 @media only screen and (max-width: 683px) {
     .menu-block, .menu-block ul,#menu li{
@@ -108,6 +98,9 @@
         width: 912px;
         margin: 0 auto;
     }
+    #menu-right ul li{
+        xmargin-right:20px;
+    }
 	.advertteaser {
 		width: 195px !important;
 	}
@@ -137,7 +130,9 @@
         width: 1140px;
         margin: 0 auto;
     }
-	
+    #menu-right ul li{
+        xmargin-right:50px;
+    }
 	.halfadvert{
 		display: inline-block !important;
 	}
@@ -174,9 +169,11 @@
  * -------------------------------------------------------------------- */
 html {
     text-rendering: optimizeLegibility;
-/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
-/* Temp */
-/*background: #f5f5f5 url('/stylesheet/su/graphic-welshflag-bg.png');*/
+	background: url('/stylesheet/su/graphic-gradient.gif');
+	background-repeat: repeat-x;
+	/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
+	/* Temp */
+	/*background: #f5f5f5 url('/stylesheet/su/graphic-welshflag-bg.png');*/
 }
 
 body {
@@ -210,11 +207,10 @@ body div#cover.coverSports {
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
-    /*background-repeat: repeat-x;
+    background-image: url(/stylesheet/su/socwider2.jpg);
+    background-repeat: repeat-x;
     background-size: contain;
 	box-shadow: 0px 0px 22px #5E366E;
-	*/
 }
 
 body div#cover.coverEvents {
@@ -301,6 +297,9 @@ article .content > p {
 		width: 100%;
 		float: none;
 	}
+}
+div.content h3 {
+	padding-top: 10px;
 }
 
 .nav-exec {
@@ -436,9 +435,18 @@ div.seemore a {
 	color:#000;
 }
 
+h1,h2,h3{
+    margin: 0px;
+    margin-top: 50px;
+}
+h2,h3{
+    margin-top: 10px;
+}
+
 
 #main h2{
 	margin-left: 0px; /* why do we need this? */
+	margin-bottom: 5px;
 	color:#444;
 }
 
@@ -525,6 +533,7 @@ h2.container-header{
 	position: relative; 
 	display: block;
 	float: left;
+	white-space: nowrap;
 }
 .breadcrumb li a:after { 
 	content: " "; 
@@ -935,6 +944,9 @@ margin-top:5px;
 	cursor: hand;
 }
 
+
+
+
 /* Last Minute Changes Please Merge in Proper CSS Location Later */
 /*
 #menu.menu,.seemore{
@@ -1184,19 +1196,23 @@ Temps Styles for Single Org Page - Move to single.css when done
 *************/
 
 .org-box{
-	padding: 10px 10px 10px 10px;
-	/*
-	box-shadow: #D4D4D4 0px 0px 17px;
-	direction: rtl;
 	max-height: 700px;
 	overflow-y: scroll;
-	*/
+	padding: 10px 0px 10px 15px;
+	/*direction: rtl;*/
 	border: 1px solid rgba(255, 255, 255, 0.5);
+	box-shadow: #D4D4D4 0px 0px 17px;
 	background: rgba(255, 255, 255, 0.7);
+	margin-bottom: 20px;
+}
+
+.org-description h1, .org-description h2, .org-description h3{
+	margin-top: 15px;
 }
 
 .orgcommittee{
-	/*max-height: 350px;*/
+	max-height: 350px;
+	margin-top: 20px;
 }
 
 .orgproducts{
@@ -1219,12 +1235,19 @@ Temps Styles for Single Org Page - Move to single.css when done
 .msl-groupedmemberlist .badge{
 	clear: both;
 	padding: 5px;
-	max-height: 100px;
+	height: 125px;
 	background: #fff;
 	margin-right: 10px;
-	/*margin-bottom: 10px;*/
-	width:200px;
+	margin-bottom: 10px;
+	box-shadow: #D4D4D4 0px 0px 3px;
+	width:225px;
 	border:1px solid #bbb;
+}
+
+.msl-groupedmemberlist h3{
+	margin:0px;
+	padding:0px;
+	width: 245px;
 }
 
 .msl-groupedmemberlist ul {
@@ -1416,6 +1439,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	height: 100%;
 }
 
+
 /* Fixes */
 
 #sport-swansea-product .join_list {
@@ -1434,6 +1458,7 @@ line-height: 30px !important;
 float: left !important;
 }
 
+
 /* SU Social */
 
 .su-twitter-follow{
@@ -1441,6 +1466,7 @@ float: left !important;
 	padding-top: 22px;
 	width:190px;
 }
+
 
 /* Officer widget on front page */
 
@@ -1466,14 +1492,16 @@ float: left !important;
 }
 
 /* Slider Arrows */
+
+
 /* Arrows */
 
 #activitiesCategorySlider,#activitiesListSlider,#unionCategorySlider,#unionListSlider,#su-eventsPortrait,#events,#my-events{
 	position: relative;
 }
 
+
 .wrapper .scroll-left-arrow , .wrapper .scroll-right-arrow{
-	background: #fff;
 	height: 60px;
 	display: inline-block;
 	width: 40px;
@@ -1487,10 +1515,10 @@ float: left !important;
 	zoom: 1;
 	filter: alpha(opacity=70);
 	opacity: 0.7;
-	-webkit-transition: all 400ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	-moz-transition: all 400ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-    -o-transition: all 400ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-    transition: all 400ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+	-webkit-transition: all 400ms ease-out; 
+	-moz-transition: all 400ms ease-out; 
+    -o-transition: all 400ms ease-out; 
+    transition: all 400ms ease-out;
 }
 
 .wrapper .scroll-left-arrow {
@@ -1506,6 +1534,7 @@ float: left !important;
 
 .wrapper:hover .scroll-left-arrow,.wrapper:hover .scroll-right-arrow{
 	background-position: center;
+	background-color: rgba(255, 255, 255, 0.6);
 	filter: alpha(opacity=100);
 	opacity: 1;
 	border: 1px solid #e3e3e3;
@@ -1515,3 +1544,14 @@ float: left !important;
 .events-container #events .scroll-left-arrow,.events-container #events .scroll-right-arrow{
 	bottom: 190px;
 }
+
+
+
+
+
+/***********
+
+Quick Bug Fixes
+
+*************/
+

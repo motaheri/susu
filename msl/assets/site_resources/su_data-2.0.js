@@ -70,9 +70,15 @@ var SU_Data = {
 			this.AddToBasket = function(ticketIndex, quantity) { SU_Data.basket.eventAddToBasket(this, ticketIndex, quantity) };
 		},
 		
+		// Coverflow Link Object
+		coverflowLinkObj: function() {
+			this.Image = '';		  // Link Banner
+			this.Link = '';			  // Link Address
+			this.Type = [];			  // Link Type | Data_Events_FeaturedUnion | Data_Events_FeaturedEnts
+			this.Brand = '';          // Link Origin | external | youtube
+		},
 		
-		
-		// Menu Object	
+		// Ticket Menu Object	
 		eventTicketObj: function() {
 			this.Category = '';
 			this.Title = '';
@@ -139,7 +145,6 @@ var SU_Data = {
 			this.Type = '';
 			this.Category = '';
 		},
-		/** WORKING HERE **/
 		// Breadcrumb List 
 		crumbObj: function(){
 			this.Title = 'titleDefault';
@@ -176,6 +181,7 @@ var SU_Data = {
 	 * -------------------------------- */
 	eventBrands: [],
 	eventData: {},
+	coverflowLinks: {},
 	eventOrganisations: [],
 	breadCrumb: [],
 	newsData: {},
@@ -188,6 +194,7 @@ var SU_Data = {
 	 * -------------------------------- */
 	hasActivities: function() { return SU_Data.activitiesData.length > 0; },
 	hasUnion: function() { return SU_Data.unionData.length > 0; },
+	hasCoverflowLinks: function() { return SU_Data.coverflowLinks.length > 0; },
 	hasMemberships: function() { return SU_Data.membershipsData.length > 0; },
 	hasEvents: function() { return Object.keys(SU_Data.eventData).length > 0; },
 	hasNews: function() { return Object.keys(SU_Data.newsData).length > 0; },
@@ -255,6 +262,7 @@ var SU_Data = {
 				//$(this).parent().remove();
 			});
 		},
+		/* Union Data by Mohammad Taheri mo@motaheri.com */
 		loadUnion: function () {
 			SU_Data.unionData = [];
 			$('div.mslwidget.sudata-union div.msl_organisation_list').each(function () {
@@ -267,12 +275,88 @@ var SU_Data = {
 					union.Type = $(this).parent().attr('data-msl-organisation-id').indexOf('16228') >= 0 ? "FTO" : "Other";
 					union.Image = '/' + $(this).parent().prev().find('img').attr('src');
 					SU_Data.unionData.push(union);
-					console.log(SU_Data.unionData);
+					//console.log(SU_Data.unionData);
 				});
 				$(this).parent().remove();
 			});
 		},
-		/* Working Here */
+		
+		/****** WORKING HERE *******/
+		
+		/* Coverflow Links Data by Mohammad Taheri mo@motaheri.com */
+		loadCoverflowLinks: function () {
+			
+			$('div#sudata-coverflow-links div.coverflow-link').each(function () {
+								
+				var coverflowLinkSource = $(this).parent().attr("id");
+				var coverflowLinkType = $(this).attr("id");
+				
+				// create property if it doesn't exist
+				if(coverflowLinkType in SU_Data.coverflowLinks){
+					console.log('Coverflow link type already exists.');
+				}else{
+					SU_Data.coverflowLinks[coverflowLinkType] = [];
+				}
+				
+				
+				
+				if(coverflowLinkSource == 'coverflow-adverts'){
+					$(this).find('a').each(function () {
+					
+						var coverflowLink = new SU_Data.types.coverflowLinkObj();
+						
+						coverflowLink.Image =  document.domain + $(this).children().attr('src');
+						coverflowLink.Link = 'http://' + document.domain + $(this).attr('href');
+						coverflowLink.Type = $(this).parent().attr("id");
+						coverflowLink.Brand = 'external';
+
+						SU_Data.coverflowLinks[coverflowLinkType].push(coverflowLink);
+						console.log(SU_Data.coverflowLinks[coverflowLinkType]);
+						
+					});
+				}else if(coverflowLinkSource == 'coverflow-feeds'){
+					var thisCoverflowLinkType = $(this).attr("id");
+					$(this).find('li.lftype-coverflow').each(function () {
+						
+						var coverflowLink = new SU_Data.types.coverflowLinkObj();
+						
+						
+						var ytLink = $(this).find('.item-content').text().trim();
+						coverflowLink.Link = ytLink;
+						
+						var video_id = '';
+						
+						if (ytLink.indexOf('youtu.be') > -1 || ytLink.indexOf('youtube.com') > -1){
+						
+							var video_id = coverflowLink.Link.split('v=')[1];
+							var ampersandPosition = video_id.indexOf('&');
+							
+							if(ampersandPosition != -1) {
+							  video_id = video_id.substring(0, ampersandPosition);
+							}
+						
+						}
+						
+						if(video_id != ''){
+							coverflowLink.Image =  'http://img.youtube.com/vi/' + video_id + '/hqdefault.jpg';
+							coverflowLink.Brand = 'youtube';
+						}else{
+							coverflowLink.Image =  'http://www.swansea-union.co.uk/stylesheet/su/graphic-broken-youtube.png';
+							coverflowLink.Brand = 'external';
+						}
+						coverflowLink.Type = thisCoverflowLinkType;
+										
+						SU_Data.coverflowLinks[thisCoverflowLinkType].push(coverflowLink);
+						console.log(SU_Data.coverflowLinks[thisCoverflowLinkType]);
+						
+					});
+					
+				}
+				$(this).parent().remove();
+			});
+		},
+		
+		/* Breadcrumbs by Mohammad Taheri mo@motaheri.com */
 		loadBreadCrumbs: function () {
 			SU_Data.breadCrumbsData = [];
 			$('div.mslwidget.sudata_union ul.level_1').each(function () {
@@ -641,7 +725,7 @@ var SU_Data = {
 			});
 		}
 	},
-	/* Working Here */
+	/* Added by Mohammad Taheri */
 	getBreadCrumbs: function(path) {
 		//path is url.path with both leading and trailing slashes trimmed  
 		path = path.replace(/^\/+|\/+$/g, '');
@@ -720,6 +804,21 @@ var SU_Data = {
 		}
 		return events.filter(function (d) { return d.Type.indexOf(typeName) > -1 || typeName == 'All' || typeName == 'ALL'; }).slice(0, limit);
 	},
+	/* Added by Mohammad Taheri */
+	getCoverflowLinks: function(linkList, limit) {
+		if (typeof(linkList) != 'string') {
+			console.error("SU_Data getCoverflowLinks(): No link list specified.")
+			return [];
+		}
+		if (typeof(SU_Data.coverflowLinks[linkList]) != 'object') {
+			console.error("SU_Data getCoverflowLinks(): Specified link list is not present in SU_Data.")
+			return [];
+		}
+		if (typeof(limit) != 'number') {
+			limit = 10;
+		}
+		return SU_Data.coverflowLinks[linkList].slice(0, limit);
+	},	
 	getOrganisationEvents: function(eventList, orgIdOrName, limit) {
 		if (typeof(eventList) != 'string' || typeof(orgIdOrName) != 'string') {
 			return [];
@@ -883,6 +982,7 @@ $(document).ready(function() {
 	SU_Data.load.loadBreadCrumbs();
 	SU_Data.load.loadMemberships();
 	SU_Data.load.loadEvents();
+	SU_Data.load.loadCoverflowLinks();
 	SU_Data.load.loadNews();
 	SU_Data.load.loadBlogs();
 	SU_Data.load.loadMemberList();

@@ -1,0 +1,28 @@
+<MSL:TemplateSnippet SnippetName="su-head-meta" />
+<MSL:TemplateSnippet SnippetName="su-head-css-global" />
+<MSL:TemplateSnippet SnippetName="su-head-js-global" />
+
+{head_content}
+
+
+<!-- Logged-in template -->
+
+<MSL:TemplateSnippet SnippetName="su-content-navigation-logged-in" />
+
+<div id="su_page_content">
+<div class="wrapper">
+<MSL:Content />
+</div>
+	<!-- Content just for this page -->
+	<MSL:TemplateSnippet SnippetName="su-content-coverflow">
+	<MSL:TemplateSnippet SnippetName="su-content-events" />
+</div>
+
+<MSL:TemplateSnippet SnippetName="su-content-footer" />
+<div style="display:none">
+	<MSL:TemplateSnippet SnippetName="su-data-global" />
+	<MSL:TemplateSnippet SnippetName="su-data-events" />
+	<MSL:TemplateSnippet SnippetName="su-data-activities" />
+	<MSL:TemplateSnippet SnippetName="su-data-union" />
+	<MSL:TemplateSnippet SnippetName="su-data-coverflow-links" />
+</div>

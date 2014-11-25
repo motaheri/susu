@@ -144,3 +144,6 @@ margin: 0px;
 background: #4C4996;
 }
  
+.msl_admin_page .msl_table .msl_row:hover ,.msl_admin_page .msl_table .msl_altrow:hover{
+background-color: #CFF6FF;
+}

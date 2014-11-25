@@ -644,7 +644,15 @@ var SU_Widget = {
 		});
 	},
 	Coverflow: function(eventList, targetSelector, featureWidth, featureHeight) {
+		
+		linkList = SU_Data.getCoverflowLinks(eventList);		
 		eventList = SU_Data.getEvents(eventList, 7);
+
+		//if($('.page_tv').length){
+		var coverflowList = $.merge( $.merge( [], linkList ), eventList );
+		//}else{
+		//	var coverflowList = eventList;	
+		//}
 		var randomId = 'icarousel' + Math.floor((Math.random() * 10000) + 1);
 		
 		featureWidth = (typeof(featureWidth) == "undefined") ? "480" : featureWidth;
@@ -656,16 +664,35 @@ var SU_Widget = {
 		$(targetSelector).append(container);
 		
 		var carouselObj = $('#' + randomId);
-		jQuery.each(eventList, function(i, o) {
+		jQuery.each(coverflowList, function(i, o) {
 			var slide = $(document.createElement('div')).addClass('slide');
-			var link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');
-			o.Image = o.Image.substring(0, o.Image.indexOf('?'));
-			o.Image = o.Image + '?' + $.param({thumbnail_width: featureWidth, thumbnail_height: featureHeight, resize_type: 'ResizeFitAll'});
+			
+			var notEvent = Boolean(o.Brand == 'external' || o.Brand == 'youtube');
+			
+			var link;
+			var imageSource;
+			
+			if (!notEvent){ // if its an event 
+				link = $(document.createElement('a')).attr('href', o.Link.replace('../', '')).attr('rel', 'deep');		
+				o.Image = o.Image.substring(0, o.Image.indexOf('?'));
+				o.Image = o.Image + '?' + $.param({thumbnail_width: featureWidth, thumbnail_height: featureHeight, resize_type: 'ResizeFitAll'});
+				imageSource = 'http://www.swansea-union.co.uk' + o.Image;
+			}else if(o.Brand == 'youtube'){ // its a youtube link
+				slide.css( "background-image", 'url(' + o.Image + ')');
+				slide.css( "background-position", "50% 50%");
+				slide.css( "background-size", "290px");
+				link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'external').attr('target', '_blank');
+				imageSource = "http://www.swansea-union.co.uk/stylesheet/su/graphic-video-container.png";
+			}else if(o.Brand == 'external'){ // it's an msl advert
+				link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'external').attr('target', '_blank');
+				imageSource = 'http://' + o.Image;
+			}
+			
 			var img = $(document.createElement('img'));
 			img.on('error', function() {
 				$(this).attr('src', 'http://placehold.it/480x679');
 			});
-			img.attr('src', 'http://www.swansea-union.co.uk' + o.Image);
+			img.attr('src', imageSource);
 			link.append(img);
 			slide.append(link);
 			carouselObj.append(slide);
@@ -673,7 +700,7 @@ var SU_Widget = {
 		
 		carouselObj.iCarousel({
                     easing: 'ease-in-out',
-                    slides: eventList.length,
+                    slides: coverflowList.length,
                     make3D: true,
                     perspective: 25,
                     animationSpeed: 700,
