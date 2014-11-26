@@ -3,12 +3,13 @@
 	display:inline-block;
 	white-space: nowrap;
 	margin-bottom: 7px;
+	float: left;
 }
 .fulladvert,.halfadvert,.advertteaser{
 	display:inline-block;
-	text-transform: uppercase;
 	font-size: 10px;
 	vertical-align: top;
+	float: left;
 }
 .fulladvert,.halfadvert,.fulladvert img,.halfadvert img{
 	height: 60px;
@@ -30,5 +31,38 @@
 	background: none;
 }
 .advert-container{
-	border-bottom: 1px solid #f7f7f7;
+	/*border-bottom: 1px solid #f7f7f7;*/
+	float: left;
+}
+
+#filler_wrapper{
+	background: #ffffff; 
+	border: 3px solid #00b2c3; 
+	color: #000000;
+	display: inline-block;
+	float: left;
+	font-size: 10px;
+	font-weight: 700;
+	font-family: 'MuseoSans500'; 
+	height: 34px; /*remember that padding and margin both add to height (in some browsers)*/
+	margin-left: 10px;
+	padding:10px;
+}
+
+#filler_wrapper:hover{
+	border: 3px solid #294c83; 
+	background: #00b2c3;
+}
+
+#filler_wrapper a:link{
+	color: #000000;
+}
+
+#filler_wrapper a:visited{
+	color: #000000;
+}
+
+#filler_wrapper a:hover{
+	color: #000000;
+	text-decoration: underline;
 }

@@ -160,7 +160,7 @@ $(document).ready(function() {
      */
     var pageTriggers_News = ['.page_root', '.page_frontpage'];
     if ($.exists(pageTriggers_News)) {
-        SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
+        SU_Widget.NewsWidget('Data_News_Main', '#isonews', 4);
     }
 
     
