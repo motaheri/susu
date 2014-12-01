@@ -139,19 +139,6 @@
 	.advertteaser {
 		width: 155px !important;
 	}
-<<<<<<< HEAD
-=======
-	#news_meta_wrapper {
-		/*display: inline-block;*/
-		display: block;
-		width: 660px;
-		margin: 0 auto;
-	}	
-	#eventlist_meta_wrapper {
-		display: inline-block;
-		width: 480px;
-	}	
->>>>>>> parent of f5545e6... Revert "News Block, now mostly functional"
 }
 
 /* --------------------------------------------------------------------
@@ -220,8 +207,10 @@ body div#cover.coverSports {
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
-	box-shadow: 0px 0px 22px #44883E;
+    background-image: url(/stylesheet/su/socwider2.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
+	box-shadow: 0px 0px 22px #5E366E;
 }
 
 body div#cover.coverEvents {
@@ -1236,6 +1225,11 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 #page-badge-photo .mslwidget img{
 	margin-top: 45px;
+}
+
+
+#news-container .news{
+	transition: 1s ease-in;  
 }
 
 .msl-groupedmemberlist .badge{

@@ -44,15 +44,25 @@ $(document).ready(function()
 	$('.varsityEmailIcon a.msl_email').each(function(index) 
 	{
 		console.log('email');
-		if (/mailto.*@swansea-union\.co\.uk/.test($(this).attr('href')))
+		var pattern = new RegExp(/mailto.*@swansea-union\.co\.uk/);
+		console.log('pattern: ' + pattern);
+		var hrefAttribute = $(this).attr('href');
+		console.log('hrefAttribute: ' + hrefAttribute);
+		if (pattern.test(hrefAttribute))
 		{
-			console.log('valid email address');
+		console.log('emailemail');
+			$(this).html('Email the committee');
 		}
 		else
 		{
-		console.log('invalid email address');
+			/*
+				use our email system or get lost!
+				...this probably needs to go, but it's 
+				late so I'm not taking out the conditional
+			*/
+		console.log('emailemailemail');
+			$(this).parent.css('display', 'none');
 		}
-		$(this).html('Email the committee');
 	});
 
 	$('.orgedit').each(function(index) 

@@ -168,78 +168,23 @@ var SU_Widget = {
 			console.error("SU_Widget: News target object invalid '" + targetSelector + "'");
 			return;
 		}
-<<<<<<< HEAD
-=======
-		
-		/*
-		Change call in su_contentj.js (163) to 4
-		 _____________________________________________
-		|<---div.news default big / medium / small
-		|	 _________________________________________
-		|	|<--- a
-		|	|	 _____________________________________
-		|	|	| <--- div.news-inner
-		|	|	|	 _________________________________
-		|	|	|	| <---div.title
-		|	|	|	|_________________________________
-		|	|	|	 _________________________________
-		|	|	|	| <---div.news-inner-img
-		|	|	|	| 	______________________________
-		|	|	|	|	| <--- div.news-bgimage
-		|	|	|	|	|_____________________________
-		|	|	|	|_________________________________
-		|	|	|	 _________________________________
-		|	|	|	| <---div.description
-		|	|	|	|_________________________________
-		|	|	|	 _________________________________
-		|	|	|	| <---div.author
-		|	|	|	|_________________________________
-		|	|	|_____________________________________
-		|	|_________________________________________
-		|_____________________________________________
-		*/
->>>>>>> parent of f5545e6... Revert "News Block, now mostly functional"
 		jQuery.each(SU_Data.newsData[mslWidgetId], function(i, o) {
 			if (i >= number) return;
 			var news = $(document.createElement('div')).addClass('news default');
 			var link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'deep');
-<<<<<<< HEAD
 			var inner = $(document.createElement('div')).addClass('news-inner');
 			var innerimg = $(document.createElement('div')).addClass('news-inner-img');
 			var img = $(document.createElement('div')).addClass('news-bgimage').css('background-image', 'url(\'http://www.swansea-union.co.uk' + o.Image + '\')');
-=======
-			var inner = $(document.createElement('div')).addClass('news-inner');//this is where the article *properly* starts; the previous 2 levels are more wrappers
-			
-			//4 siblings, title, innerimg, description, author
->>>>>>> parent of f5545e6... Revert "News Block, now mostly functional"
 			var title = $(document.createElement('div')).addClass('title');
 			var author = $(document.createElement('div')).addClass('news-author');
 			author.text(o.Organisation);
 			title.text(o.Title);
-<<<<<<< HEAD
 			$(innerimg).append(img);
 			$(innerimg).append(title);
-=======
-			var desc = $(document.createElement('div')).addClass('description');
-			var innerimg = $(document.createElement('div')).addClass('news-inner-img');
-
-			var author = $(document.createElement('div')).addClass('news-author');
-			author.text(o.Organisation);
-			
-			//img is the sole child of innerimg
-			var img = $(document.createElement('div')).addClass('news-bgimage').css('background-image', 'url(\'http://www.swansea-union.co.uk' + o.Image + '\')');
-			
-			//appending, from outside to inside
-			$(targetSelector).append(news);
-			$(news).append(link);
-			$(link).append(inner);
-			$(inner).append(title);
-			$(inner).append(innerimg);
-			$(innerimg).append(img);
->>>>>>> parent of f5545e6... Revert "News Block, now mostly functional"
 			switch (i) {
 				case 0:
 					$(news).addClass('big');
+					var desc = $(document.createElement('div')).addClass('description');
 					desc.text(o.Description);
 					$(innerimg).append(desc);
 					break;
@@ -256,14 +201,10 @@ var SU_Widget = {
 					$(news).addClass('small');
 					break;
 			}
-<<<<<<< HEAD
 			$(inner).append(innerimg);
 			$(link).append(inner).append(author);
 			$(news).append(link);
 			$(targetSelector).append(news);
-=======
-			$(inner).append(author);
->>>>>>> parent of f5545e6... Revert "News Block, now mostly functional"
 		});
 		$(targetSelector + ' div.title').each(function() {
 			$(this).wrapLines('<div class="title">', '</div>');
@@ -272,7 +213,7 @@ var SU_Widget = {
 			itemSelector : '.news',
 			layoutMode: 'masonry',
 			masonry: {
-				columnWidth: 220
+				columnWidth: 228
 			},
 			filter: '.news:not(.extra)'
 		});
