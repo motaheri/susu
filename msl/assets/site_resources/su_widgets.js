@@ -207,7 +207,7 @@ var SU_Widget = {
 			$(targetSelector).append(news);
 		});
 		$(targetSelector + ' div.title').each(function() {
-			$(this).wrapLines('<div class="title">', '</div>');
+			//$(this).wrapLines('<div class="title">', '</div>');
 		})
 		$(targetSelector).isotope({
 			itemSelector : '.news',
