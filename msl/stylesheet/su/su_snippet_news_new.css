@@ -3,6 +3,7 @@
  */
 #isonews {
 	padding-bottom: 0px;
+	max-width: 684px;
 }
 #isonews .news {
 	display: inline-block;
@@ -17,7 +18,7 @@
 	height: 364px;
 }
 #isonews .news.medium {
-    width: 456px;
+    width: 684px;
     height: 180px;
 }
 #isonews .news.small {

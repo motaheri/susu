@@ -1,4 +1,4 @@
-/* --------------------------------------------------------------------
+/*--------------------------------------------------------------------
  * Master Page Width Definitions
  * -------------------------------------------------------------------- */
 
@@ -130,9 +130,7 @@
         width: 1140px;
         margin: 0 auto;
     }
-    #menu-right ul li{
-        xmargin-right:50px;
-    }
+	
 	.halfadvert{
 		display: inline-block !important;
 	}
@@ -170,23 +168,22 @@
 html {
     text-rendering: optimizeLegibility;
 	background: url('/stylesheet/su/graphic-gradient.gif');
-	background-repeat: repeat-x;
-	/*background: #f5f5f5 url('/stylesheet/su/noize.png');*/
-	/* Temp */
-	/*background: #f5f5f5 url('/stylesheet/su/graphic-welshflag-bg.png');*/
 }
 
 body {
     text-rendering: optimizeLegibility;
+	/* Temp
 	background: #f6f6f8 url('/stylesheet/su/gradient.jpg') repeat-x 0px 0px;
-	/* Temp */
 	background: #f4f5f0 url('/stylesheet/su/graphic-textured-paper-background.jpg');
+	background-size: 100% auto;
+	*/
+	background: #f4f5f0 url('/stylesheet/su/graphic-textured-paper-background-2.jpg');
 	background-size: 100% auto;
 }
 
 body header {
     height: 90px;
-	box-shadow: 0px 0px 22px rgba(18, 16, 63, 0.3);
+	/*box-shadow: 0px 0px 22px rgba(18, 16, 63, 0.3);*/
 }
 
 body div#cover {
@@ -198,19 +195,17 @@ body div#cover {
     background-size: cover;
 	margin-bottom: 0px;
 	opacity: 0.75;
-	box-shadow: 0px 0px 22px #12103F;
+	/*box-shadow: 0px 0px 22px #12103F;*/
 }
 
 body div#cover.coverSports {
     background-image: url(/stylesheet/su/coverTypeSport.jpg);
-	box-shadow: 0px 0px 22px #44883E;
+	/*box-shadow: 0px 0px 22px #44883E;*/
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/socwider2.jpg);
-    background-repeat: repeat-x;
-    background-size: contain;
-	box-shadow: 0px 0px 22px #5E366E;
+    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
+	/*box-shadow: 0px 0px 22px #5E366E;*/
 }
 
 body div#cover.coverEvents {
@@ -1196,14 +1191,44 @@ Temps Styles for Single Org Page - Move to single.css when done
 *************/
 
 .org-box{
-	max-height: 700px;
+	max-height: 500px;
 	overflow-y: scroll;
 	padding: 10px 0px 10px 15px;
-	/*direction: rtl;*/
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	box-shadow: #D4D4D4 0px 0px 17px;
-	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	/*
+	background: rgba(255, 255, 255, 0.8);
+	*/
+	background: #FAFAFA;
 	margin-bottom: 20px;
+}
+
+.org-box::-webkit-scrollbar, .carousel::-webkit-scrollbar {
+	height: 8px;
+	width: 8px;
+	background: #FAFAFA;
+}
+
+/*supersedes the section directly above*/
+.carousel::-webkit-scrollbar {
+	background: #000000;
+}
+
+.org-box::-webkit-scrollbar-thumb, .carousel::-webkit-scrollbar-thumb 
+{
+	background: #595955;
+	-webkit-border-radius: 8px;
+}
+
+.org-box::-webkit-scrollbar-track, .carousel::-webkit-scrollbar-track 
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	-webkit-border-radius: 8px;
+	border-radius: 10px;
+}
+
+.org-box::-webkit-scrollbar-corner, .carousel::-webkit-scrollbar-corner 
+{
+	background: #595955;
 }
 
 .org-description h1, .org-description h2, .org-description h3{
@@ -1239,7 +1264,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	background: #fff;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	box-shadow: #D4D4D4 0px 0px 3px;
+	/*box-shadow: #D4D4D4 0px 0px 3px;*/
 	width:225px;
 	border:1px solid #bbb;
 }
@@ -1251,7 +1276,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 }
 
 .msl-groupedmemberlist ul {
-	min-height: 150px;
+	min-height: 100px;
 }
 
 .msl-groupedmemberlist li {
@@ -1261,7 +1286,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 .msl-groupedmemberlist .badge_tools {
 	width: 100px;
 	float: left;
-	height: 123px;
+	height: 87px;
 	padding: 1px 10px 1px 1px;
 }
 .msl-groupedmemberlist .badge dt a{
@@ -1291,7 +1316,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	padding: 8px;
 	list-style: none;
 	background: #fff;
-	box-shadow: #D4D4D4 0px 0px 17px;
+	/*box-shadow: #D4D4D4 0px 0px 17px;*/
 	width: 330px;
 	margin-bottom: 10px;
 	margin-top:5px;
@@ -1382,9 +1407,8 @@ Temps Styles for Single Org Page - Move to single.css when done
     width: 100%;
     height: 385px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.6);
+    background: #000000;
     position: absolute;
-    border: solid 1px rgba(0, 0, 0, 0.6);
 	position: relative;
 }
 
@@ -1395,11 +1419,12 @@ Temps Styles for Single Org Page - Move to single.css when done
     position: absolute;
     right: 0px;
     z-index: 3;
+	border-right: 3px solid #FAFAFA;
 }
 
 .org-box .youtube .thumbnail {
-    margin: 2px;
-    width: 80%;
+    margin: 2px 2px 2px 7px;
+    width: 90%;
     border: 1px solid black;  
 }
 
@@ -1420,7 +1445,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 
 #twitter-widget-0{
 	min-width:350px !important;
-	box-shadow: #D4D4D4 0px 0px 3px !important;
+	/*box-shadow: #D4D4D4 0px 0px 3px !important;*/
 }
 
 .orgedit .mslwidget .cke_editor tbody tr:first-child{
@@ -1439,9 +1464,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	height: 100%;
 }
 
-
 /* Fixes */
-
 #sport-swansea-product .join_list {
 	margin:0px;
 	padding:0px;
@@ -1458,7 +1481,6 @@ line-height: 30px !important;
 float: left !important;
 }
 
-
 /* SU Social */
 
 .su-twitter-follow{
@@ -1466,7 +1488,6 @@ float: left !important;
 	padding-top: 22px;
 	width:190px;
 }
-
 
 /* Officer widget on front page */
 
@@ -1493,13 +1514,11 @@ float: left !important;
 
 /* Slider Arrows */
 
-
 /* Arrows */
 
 #activitiesCategorySlider,#activitiesListSlider,#unionCategorySlider,#unionListSlider,#su-eventsPortrait,#events,#my-events{
 	position: relative;
 }
-
 
 .wrapper .scroll-left-arrow , .wrapper .scroll-right-arrow{
 	height: 60px;
@@ -1544,14 +1563,3 @@ float: left !important;
 .events-container #events .scroll-left-arrow,.events-container #events .scroll-right-arrow{
 	bottom: 190px;
 }
-
-
-
-
-
-/***********
-
-Quick Bug Fixes
-
-*************/
-
