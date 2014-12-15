@@ -1,4 +1,9 @@
 /*
+ * THIS IS A TEST
+ */
+
+
+/*
  * ACTIVITIES	
  */
 
@@ -158,7 +163,7 @@ $(document).ready(function() {
     /*
      * NEWS
      */
-    var pageTriggers_News = ['.page_root', '.page_frontpage'];
+    var pageTriggers_News = ['.page_root', '.page_frontpage', '.page_fpclone'];
     if ($.exists(pageTriggers_News)) {
         SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
     }
@@ -231,7 +236,7 @@ $(document).ready(function() {
     /*
      * EVENTS - MAIN LIST
      */
-    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_frontpage'];
+    var pageTriggers_Events_Main = ['.page_root', '.page_events', '.page_frontpage', 'page_fpclone'];
     if ($.exists(pageTriggers_Events_Main)) {
 		// Main ENTS List
         SU_Widget.EventSlider_Portrait('Data_Events_Ents','#su-eventsPortrait');
@@ -270,7 +275,7 @@ $(document).ready(function() {
     /*
      * OFFICER BLOGS
      */
-    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage'];
+    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', 'page_fpclone'];
     if ($.exists(pageTriggers_OfficerBlogs)) {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
@@ -618,7 +623,7 @@ $(document).ready(function() {
 	/*
 	 * FRONT PAGE MEDIA
 	 */
-	var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage'];
+	var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', '.page_fpclone'];
     if ($.exists(pageTriggers_OfficerBlogs)) {
 		$('#su-media-frontpage').dcSocialStream({
 			feeds: {

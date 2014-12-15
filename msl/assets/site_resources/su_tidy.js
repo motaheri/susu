@@ -55,23 +55,33 @@ $(document).ready(function()
 		}
 		else
 		{
-			/*
-				use our email system or get lost!
-				...this probably needs to go, but it's 
-				late so I'm not taking out the conditional
-			*/
-		console.log('emailemailemail');
-			$(this).parent.css('display', 'none');
+			console.log('invalid email detected, displaying anyway');
+			$(this).html('Email the committee');
 		}
 	});
 
 	$('.orgedit').each(function(index) 
 	{
-		var internalHTML = $(this).html();
-		if ((internalHTML).length < 1)
+		if ($(this).html().trim().length < 1)
 		{
 			$(this).css('display', 'none');
 		}
 		
+	});
+
+	$('.org-box').each(function(index) 
+	{
+		if ($(this).html().trim().length < 1)
+		{
+			$(this).css('display', 'none');
+		}
+	});
+
+	$('.org-box .org-description').each(function(index) 
+	{
+		if ($(this).html().trim().length < 1)
+		{
+			$(this).children('.mslwidget').html('A full description will be posted soon!');
+		}
 	});
 });

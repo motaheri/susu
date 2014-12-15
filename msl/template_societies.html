@@ -8,14 +8,16 @@
 							<img src="http://www.swansea-union.co.uk/asset/Organisation/16242/Jerry_FINAL.jpg" />
 							<div class="admin-people">
 								<div><a href="http://www.swansea-union.co.uk/myunion/societiesandservices/">Jeremiah Isokariari</a></div>
-								<div>Societies and Services Officer</div>
+								<div>Societies & Services Officer</div>
+								<div><a href="mailto:societiesandservices@swansea-union.co.uk">societiesandservices@swansea-union.co.uk</a></div>
 							</div>
 						</li>
 						<li class="nav-exec">
 							<img src="/stylesheet/su/peoplewest.jpg" />
 							<div class="admin-people">
 								<div>Charlotte West</div>
-								<div>Societies and Services Coordinator</div>
+								<div>Societies & Services Coordinator</div>
+								<div><a href="mailto:societies@swansea-union.co.uk">societies@swansea-union.co.uk</a></div>
 							</div>
 						</li>
 					</ul>
@@ -56,3 +58,23 @@
         	<MSL:TemplateSnippet SnippetName="su-data-activities" />
         	<MSL:TemplateSnippet SnippetName="su-data-union" />
 	</div>
+<script>
+$(document).ready(function()
+{
+	$('.msl-recentblogposts .msl-recentblogpost').each(function(index) 
+	{
+		var title = $(this).find('a.msl-recentblogposttitle');
+		var blogger_name = $(this).find('.msl-recentblogpostblogname');
+		var date = $(this).find('span.msl-recentblogpostdate');
+		$(this).remove('a.msl-recentblogposttitle');
+		$(this).remove('a.msl-recentblogpostblogname');
+		$(this).remove('span.msl-recentblogpostdate');
+		$(this).append(blogger_name);
+		blogger_name.after('- ');
+		$(this).append(title);
+		title.after(', ');
+		date.html(date.html().substring(0, 10));
+		$(this).append(date);
+	});
+});
+</script>

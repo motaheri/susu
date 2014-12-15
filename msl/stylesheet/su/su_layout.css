@@ -186,7 +186,7 @@ body {
 
 body header {
     height: 90px;
-	box-shadow: 0px 0px 22px rgba(18, 16, 63, 0.3);
+	/*box-shadow: 0px 0px 22px rgba(18, 16, 63, 0.3);*/
 }
 
 body div#cover {
@@ -198,7 +198,7 @@ body div#cover {
     background-size: cover;
 	margin-bottom: 0px;
 	opacity: 0.75;
-	box-shadow: 0px 0px 22px #12103F;
+	/*box-shadow: 0px 0px 22px #12103F;*/
 }
 
 body div#cover.coverSports {
@@ -207,10 +207,8 @@ body div#cover.coverSports {
 }
 
 body div#cover.coverSocieties {
-    background-image: url(/stylesheet/su/socwider2.jpg);
-    background-repeat: repeat-x;
-    background-size: contain;
-	box-shadow: 0px 0px 22px #5E366E;
+    background-image: url(/stylesheet/su/coverTypeSociety.jpg);
+	/*box-shadow: 0px 0px 22px #5E366E;*/
 }
 
 body div#cover.coverEvents {
@@ -1201,7 +1199,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	padding: 10px 0px 10px 15px;
 	/*direction: rtl;*/
 	border: 1px solid rgba(255, 255, 255, 0.5);
-	box-shadow: #D4D4D4 0px 0px 17px;
+	/*box-shadow: #D4D4D4 0px 0px 17px;*/
 	background: rgba(255, 255, 255, 0.7);
 	margin-bottom: 20px;
 }
@@ -1239,7 +1237,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	background: #fff;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	box-shadow: #D4D4D4 0px 0px 3px;
+	/*box-shadow: #D4D4D4 0px 0px 3px;*/
 	width:225px;
 	border:1px solid #bbb;
 }
@@ -1291,7 +1289,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 	padding: 8px;
 	list-style: none;
 	background: #fff;
-	box-shadow: #D4D4D4 0px 0px 17px;
+	/*box-shadow: #D4D4D4 0px 0px 17px;*/
 	width: 330px;
 	margin-bottom: 10px;
 	margin-top:5px;
@@ -1420,7 +1418,7 @@ Temps Styles for Single Org Page - Move to single.css when done
 
 #twitter-widget-0{
 	min-width:350px !important;
-	box-shadow: #D4D4D4 0px 0px 3px !important;
+	/*box-shadow: #D4D4D4 0px 0px 3px !important;*/
 }
 
 .orgedit .mslwidget .cke_editor tbody tr:first-child{
