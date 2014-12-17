@@ -585,6 +585,10 @@ var SU_Widget = {
 				var inner = $(document.createElement('div')).addClass('slide-inner');
 				var link = $(document.createElement('a')).attr('href', o.Link);
 				var img = $(document.createElement('img')).attr('src', o.Image);
+				o.Image.onerror = function ()
+				{
+					img.attr('src', 'http://www.swansea-union.co.uk/stylesheet/su/sil.jpg');
+				};
 				var title = $(document.createElement('div')).addClass('unionItemName').text(o.Name);
 				title.addClass((o.Type == "FTO" || o.Type == "fto") ? "FTO" : "other");
 				$(link).append(img).append(title);

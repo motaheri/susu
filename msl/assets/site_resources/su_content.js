@@ -1,9 +1,4 @@
 /*
- * THIS IS A TEST
- */
-
-
-/*
  * ACTIVITIES	
  */
 
@@ -165,7 +160,14 @@ $(document).ready(function() {
      */
     var pageTriggers_News = ['.page_root', '.page_frontpage', '.page_fpclone'];
     if ($.exists(pageTriggers_News)) {
-        SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
+		if ($.exists('.page_fpclone'))
+		{
+			SU_Widget.NewsWidget('Data_News_Main', '#isonews', 5);
+		}
+		else
+		{
+			SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
+		}
     }
 
     
@@ -187,7 +189,7 @@ $(document).ready(function() {
     /*
      * My Union Slider
      */		
-    var pageTriggers_MyUnion = ['.page_yourunion'];
+    var pageTriggers_MyUnion = ['.page_yourunion', '.page_elections'];
     if ($.exists(pageTriggers_MyUnion)) {		
 		var unionType = "FTO";
 		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" || d.Type == "Other"; })[0].Category;
@@ -203,7 +205,7 @@ $(document).ready(function() {
     /*
      * Societies Slider
      */		
-    var pageTriggers_societies = ['.page_societies'];
+    var pageTriggers_societies = ['.page_societies', '.page_fpclone'];
     if ($.exists(pageTriggers_societies)) {	
 	
 		var activityType = "Societies";
@@ -275,7 +277,7 @@ $(document).ready(function() {
     /*
      * OFFICER BLOGS
      */
-    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', 'page_fpclone'];
+    var pageTriggers_OfficerBlogs = ['.page_root', '.page_frontpage', 'page_fpclone', '.page_elections'];
     if ($.exists(pageTriggers_OfficerBlogs)) {
         SU_Widget.BlogWidget('Data_Blogs_Officer', '#officer-blogs', 5);
     }
@@ -708,7 +710,6 @@ $(document).ready(function() {
 			});
 		});
 	});
-	
 	/*
 	 * FACEBOOK PAGE LIKE BUTTON
 	 */
