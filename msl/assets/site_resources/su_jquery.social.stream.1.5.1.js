@@ -51,7 +51,7 @@
 						icon: 'icon-social-google.png'
 					},
 					youtube: {
-						id: 'StudentSwanseaEvents',
+						id: 'suswansea',
 						intro: 'Uploaded,Favorite,New Video',
 						search: 'Search',
 						out: 'intro,thumb,title,text,user,share',

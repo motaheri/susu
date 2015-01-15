@@ -233,6 +233,84 @@ var SU_Widget = {
 		window.resizeBy(0, 0);
 		resetDeepLinks();
 	},
+	NewNewsWidget: function(mslWidgetId, targetSelector, number) {
+		if (typeof SU_Data == "undefined") {
+			console.error("SU_Widget: SU_Data not defined.");
+			return;
+		}
+		if (typeof SU_Data.newsData[mslWidgetId] == "undefined") {
+			console.error("SU_Widget: SU_Data doesn't contain a news widget called '" + mslWidgetId + "'");
+			return;
+		}
+		if ($(targetSelector).length != 1) {
+			console.error("SU_Widget: News target object invalid '" + targetSelector + "'");
+			return;
+		}
+		jQuery.each(SU_Data.newsData[mslWidgetId], function(i, o) {
+			if (i >= number) return;
+			var news = $(document.createElement('div')).addClass('news default');
+			var link = $(document.createElement('a')).attr('href', o.Link).attr('rel', 'deep');
+			var inner = $(document.createElement('div')).addClass('news-inner');
+			var innerimg = $(document.createElement('div')).addClass('news-inner-img');
+			var img = $(document.createElement('div')).addClass('news-bgimage').css('background-image', 'url(\'http://www.swansea-union.co.uk' + o.Image + '\')');
+			var title = $(document.createElement('div')).addClass('title');
+			var author = $(document.createElement('div')).addClass('news-author');
+			author.text(o.Organisation);
+			title.text(o.Title);
+			$(innerimg).append(img);
+			$(innerimg).append(title);
+			switch (i) {
+				case 0:
+					$(news).addClass('big');
+					var desc = $(document.createElement('div')).addClass('description');
+					desc.text(o.Description);
+					$(innerimg).append(desc);
+					break;
+				case 1:
+					$(news).addClass('medium');
+					var desc = $(document.createElement('div')).addClass('description');
+					desc.text(o.Description);
+					$(innerimg).append(desc);
+					break;
+				case 9:
+					$(news).addClass('small extra');
+					break;
+				default:
+					$(news).addClass('small');
+					break;
+			}
+			$(inner).append(innerimg);
+			$(link).append(inner).append(author);
+			$(news).append(link);
+			$(targetSelector).append(news);
+		});
+		$(targetSelector + ' div.title').each(function() {
+			//$(this).wrapLines('<div class="title">', '</div>');
+		})
+		$(targetSelector).isotope({
+			itemSelector : '.news',
+			layoutMode: 'masonry',
+			masonry: {
+				columnWidth: 228
+			},
+			filter: '.news:not(.extra)'
+		});
+		$(window).resize(function() {
+			var w = $(window).width();
+			if (w >= 912 && w < 1140) {
+				if (SU_Widget.IsotopeNewsFilterCheck) return;
+				$(targetSelector).isotope({ filter: '.news' });
+				SU_Widget.IsotopeNewsFilterCheck = true;
+			}
+			else {
+				if (!SU_Widget.IsotopeNewsFilterCheck) return;
+				$(targetSelector).isotope({ filter: '.news:not(.extra)' });
+				SU_Widget.IsotopeNewsFilterCheck = false;
+			}
+		});
+		window.resizeBy(0, 0);
+		resetDeepLinks();
+	},
 	IsotopeNewsFilterCheck: false,
 	EventSlider_Filter: function(mslWidgetId, targetselector, sliderselector, validTypes, validVenues) {
 		if (typeof(validTypes) == 'undefined')
@@ -585,10 +663,20 @@ var SU_Widget = {
 				var inner = $(document.createElement('div')).addClass('slide-inner');
 				var link = $(document.createElement('a')).attr('href', o.Link);
 				var img = $(document.createElement('img')).attr('src', o.Image);
-				o.Image.onerror = function ()
+				/*
+				This one is closer to correct, but still probably not perfect
+				img.bind('error', 	function() 
+									{
+										img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk/stylesheet/su/sil.jpg')
+									});
+				//error(function() {img.hide();}).attr( "src", "http://www.swansea-union.co.uk/stylesheet/su/sil.jpg");
+				*/
+				/*
+				o.Image.error(function ()
 				{
-					img.attr('src', 'http://www.swansea-union.co.uk/stylesheet/su/sil.jpg');
+					img = $(document.createElement('img')).attr('src', 'http://www.swansea-union.co.uk/stylesheet/su/sil.jpg');
 				};
+				*/
 				var title = $(document.createElement('div')).addClass('unionItemName').text(o.Name);
 				title.addClass((o.Type == "FTO" || o.Type == "fto") ? "FTO" : "other");
 				$(link).append(img).append(title);

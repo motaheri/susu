@@ -53,7 +53,6 @@
 
 /* Speech Bubble Effect */
 #isonews .news:before {
-/*
 	content: "";
 	position: absolute !important;
 	bottom: 10px;
@@ -64,12 +63,9 @@
 	background: none;
 	color: #294c83;
 	z-index: -100;
-	*/
 }
 #isonews .news:hover:before {
-/*
 	border-color: transparent #000;
-	*/
 }
 
 /* News Article Link */
@@ -79,10 +75,13 @@
 
 /* Inner - Coloured border*/
 #isonews .news .news-inner {
+	background-color: #294c83;
 	background-color: transparent;
 	color: #000000;
+	padding-right: 15px;
+	padding-bottom: 25px;
 	overflow: hidden;
-	width: 100%;
+	position: relative;
 	/* border-radius: 15px; */
 }
 
@@ -93,10 +92,14 @@
 	background-color: #294c83;
 	height: 140px;
 	/* border-radius: 10px; */
-	border: 7px solid #294c83;
+	border: 6px solid #294c83;
+	border-bottom: 7px solid #294c83;
 }
 #isonews .news .news-inner-img:hover {
+	border: 1px solid #294c83;
+	border: 6px solid #000;
 	background-color: #3D9DFD;
+	border-bottom: 10px solid #294c83;
 	border-bottom: 7px solid #000;
 }
 
@@ -106,6 +109,7 @@
     left: 0;
     bottom: 0;
     right: 0;
+    position: absolute;
     z-index: 0;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -132,7 +136,6 @@
 
 /* Author Text outside speech bubble*/
 #isonews .news-author {
-/*
 	position: absolute;
 	right: 40px;
 	bottom: 6px;
@@ -147,7 +150,6 @@
 	xxbackground: rgba(255, 255, 255, 0.6);
 	padding: 2px;
 	/* Future: When multiple News Sources defined bring back authors */
-	display: none;
 }
 
 #isonews .news .news-inner div.title {
@@ -160,7 +162,7 @@
 	line-height: 12px;
 	font-family: 'MuseoSans500';
 	font-weight: normal;
-/*
+
 	transform: skew(-10deg);
 	-o-transform: skew(-8deg);
 	-moz-transform: skew(-8deg);
@@ -169,7 +171,7 @@
 	-o-transform: skew(0deg);
 	-moz-transform: skew(0deg);
 	-webkit-transform: skew(0deg);
-*/
+
 	z-index: 1;
 	width: 100%;
 }
@@ -206,6 +208,8 @@
 }
 @media only screen and (min-width: 684px) {
 	#isonews .news.big .news-inner div.title {
+		margin: 0px 0px 4px 0px;
+		padding: 4px 10px 4px 4px;
 		font-size: 42px;
 		line-height: 38px;
 		font-family: 'MuseoSans300';
@@ -228,7 +232,7 @@
 	}
 	
 	#isonews .news.medium .image-bgimage {
-		width: 654px;
+		width: 426px;
 		height: 140px;
 	}
 	
@@ -242,10 +246,15 @@
 	font-family: 'Helvetica';
 	font-size: 14px;
 	color: white;
+	z-index: 1;
+	/*
+	margin: 5px 0 0 0;
+	padding: 5px;*/
 	background-color: #294c83;
 	display: inline-block;
 	position: relative;
 	font-family: 'MuseoSans500';
+	/*max-width: 620px;*/
 	width: 100% !important;
 }
 #isonews .news.big .news-inner div.description {

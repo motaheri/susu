@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 	$('#social-stream').dcSocialStream({
 		feeds: {
 			twitter: {
-				id: 'Sinkswansea,SinCitySwansea,SUSUflux,WaterFront,SwanseaUnion,SUSUVoice,studentswansea',
+				id: 'Sinkswansea,SinCitySwansea,WaterFront,SwanseaUnion,SUSUVoice,studentswansea',
 				intro: 'Tweeted',
 				search: 'Tweeted',
 				out: 'intro,thumb,text,share',
@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 				id: ''
 			},
 			youtube: {
-				id: 'StudentSwanseaEvents',
+				id: 'suswansea',
 				intro: 'Uploaded,Favorite,New Video',
 				search: 'Search',
 				out: 'intro,thumb,title,text,user,share',

@@ -43,33 +43,22 @@ $(document).ready(function()
 
 	$('.varsityEmailIcon a.msl_email').each(function(index) 
 	{
-		console.log('email');
+		console.log('email section started');
 		var pattern = new RegExp(/mailto.*@swansea-union\.co\.uk/);
-		console.log('pattern: ' + pattern);
 		var hrefAttribute = $(this).attr('href');
-		console.log('hrefAttribute: ' + hrefAttribute);
 		if (pattern.test(hrefAttribute))
 		{
-		console.log('emailemail');
+			console.log('email: got a hit');
 			$(this).html('Email the committee');
 		}
 		else
 		{
-			console.log('invalid email detected, displaying anyway');
+			console.log('email: invalid email detected, displaying anyway');
 			$(this).html('Email the committee');
 		}
 	});
 
-	$('.orgedit').each(function(index) 
-	{
-		if ($(this).html().trim().length < 1)
-		{
-			$(this).css('display', 'none');
-		}
-		
-	});
-
-	$('.org-box').each(function(index) 
+	$('.orgedit, .org-box').each(function(index) 
 	{
 		if ($(this).html().trim().length < 1)
 		{
@@ -84,4 +73,24 @@ $(document).ready(function()
 			$(this).children('.mslwidget').html('A full description will be posted soon!');
 		}
 	});
+	
+	/*
+	this should NOT have to exist, but I cannot for the life of me find where the space between the 
+	product-name and product-price spans is being eaten. Possible lead at su_content.js @ 339-357, su_common.js @280-316
+	*/
+	$('span.product-price').each(function(index)
+	{
+		console.log('product price: started');
+		console.log('this.html(): ' + $(this).html());
+		if ($(this).html().substring(0, 1) == '£')
+		{
+			console.log('product found without a space in front of it');
+			$(this).html('&nbsp;' + $(this).html());
+		}
+	});
+	
+	/*
+	Hide the fact that the Society "person" is a member of the committee. Not a problem, but it looks bad.
+	*/
+	$('.orgcommittee .mslwidget .msl-groupedmemberlist ul li:contains("Society")').hide();
 });

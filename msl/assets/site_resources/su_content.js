@@ -162,7 +162,7 @@ $(document).ready(function() {
     if ($.exists(pageTriggers_News)) {
 		if ($.exists('.page_fpclone'))
 		{
-			SU_Widget.NewsWidget('Data_News_Main', '#isonews', 5);
+			SU_Widget.NewNewsWidget('Data_News_Main', '#isonews', 5);
 		}
 		else
 		{
@@ -588,7 +588,7 @@ $(document).ready(function() {
 				YTinfo = YTOrgInfo.substring(urlSlice);
 			}
 		}
-		
+
 		var youtubeOrgLink = '';
 		if(YTurlType == 'Playlist' || YTurlType == 'Video'){
 			youtubeOrgLink = '<a target="_blank" href="' + YTOrgInfo  + '">' + orgTitle + ' YouTube ' + YTurlType + '</a>';
@@ -605,7 +605,7 @@ $(document).ready(function() {
 		}else if(YTurlType == 'Channel' || YTurlType == 'Playlist'){
 		//YTChannelId.length > 3
 			$(function() {
-				// YTCHannelID needs to be YTINFO 
+				// YTChannelID needs to be YTINFO 
 				$('.org-box.orgYTplayer .YTplayer').youTubeChannel({user : YTinfo, type : YTurlType});
 				$('.org-box.orgYTplayer').show();
 			});		
@@ -630,7 +630,7 @@ $(document).ready(function() {
 		$('#su-media-frontpage').dcSocialStream({
 			feeds: {
 				twitter: {
-					id: 'Sinkswansea,SinCitySwansea,SUSUflux,WaterFront,SwanseaUnion,SUSUVoice,studentswansea',
+					id: 'Sinkswansea,SinCitySwansea,WaterFront,SwanseaUnion,SUSUVoice,studentswansea',
 					intro: 'Tweeted',
 					search: 'Tweeted',
 					out: 'intro,thumb,text,share',
@@ -649,7 +649,7 @@ $(document).ready(function() {
 					icon: 'icon-social-facebook.png'
 				},
 				youtube: {
-					id: 'StudentSwanseaEvents',
+					id: 'suswansea',
 					intro: 'Uploaded,Favorite,New Video',
 					search: 'Search',
 					out: 'thumb,text,user,share',
