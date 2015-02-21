@@ -50,18 +50,7 @@ function url_pathname(data) {
 
 $(document).ready(function() {
 
-	/* change the header banner image for the FTO election page this can be altered to suit other pages as well */
-	currentWebUrl = window.location.href;
-	
-	if (currentWebUrl.indexOf('myunion/ftoelections') > 0) {
-		$('#cover .banner-title').text('');
-		$('body #cover').css("background-image", "none");
-		var pagePhotoBadge = $('#organisation #aside #page-badge-photo .mslwidget').html();
-		$('#cover .banner-title').css("text-align", "center");
-		$('body #cover').css("background-color", "#405E92");
-		$('#cover .banner-title').html(pagePhotoBadge);
-		$('#cover .banner-title img').css("height", "215px");
-	}
+
 
 
 	/* Mobile Login */
@@ -84,10 +73,7 @@ $(document).ready(function() {
 	/* Varsity Temp Code */
 	if (location.href.indexOf('mysport/thewelshvarsity') != -1) {
 			var replaced = $("#page-org-join").html().replace(/membership/g,'ticket').replace(/Membership/g,'Ticket').replace(/organisation/g,'event').replace(/Organisation/g,'Event');
-			$("#page-org-join").html(replac
-			
-			
-			ed);
+			$("#page-org-join").html(replaced);
     }
 	
     /*
@@ -444,13 +430,29 @@ $(document).ready(function() {
 		
 		// Add the org name to the banner 
         var pageName = $('#page-badge-title').text();
-		// ??
+		// get current page's title from msl widget 
 		if(!pageName){pageName = $('.msl-grouping-context-control').text();}
-		// ??
+		// Remove this text from page title as it confuses people
 		pageName = pageName.replace('(change)','');
-		// ??
+		// Add the title of the current page to the stretched banner
 		$("#cover .banner-title").html(pageName).show('300');
     }
+	
+	/* any banner changes need to come after this point in time */
+	/* change the header banner image for the FTO election page this can be altered to suit other pages as well */
+	currentWebUrl = window.location.href;
+	
+	if (currentWebUrl.indexOf('myunion/ftoelections') > 0) {
+		$('#cover .banner-title').text('');
+		$('body #cover').css("background-image", "none");
+		var pagePhotoBadge = $('#organisation #aside #page-badge-photo .mslwidget').html();
+		console.log(pagePhotoBadge);
+		$('#cover .banner-title').css("text-align", "center");
+		$('body #cover').css("background-color", "#405E92");
+		$('#cover .banner-title').html('');
+		$('#cover .banner-title').html(pagePhotoBadge);
+		$('#cover .banner-title img').css("height", "215px");
+	}
 	
 
 	/*
