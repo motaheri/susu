@@ -47,7 +47,22 @@ function url_pathname(data) {
 }		
 
 
+
 $(document).ready(function() {
+
+	/* change the header banner image for the FTO election page this can be altered to suit other pages as well */
+	currentWebUrl = window.location.href;
+	
+	if (currentWebUrl.indexOf('myunion/ftoelections') > 0) {
+		$('#cover .banner-title').text('');
+		$('body #cover').css("background-image", "none");
+		var pagePhotoBadge = $('#organisation #aside #page-badge-photo .mslwidget').html();
+		$('#cover .banner-title').css("text-align", "center");
+		$('body #cover').css("background-color", "#405E92");
+		$('#cover .banner-title').html(pagePhotoBadge);
+		$('#cover .banner-title img').css("height", "215px");
+	}
+
 
 	/* Mobile Login */
 	if ($.exists('.page_mobilelogin')){	
@@ -69,13 +84,17 @@ $(document).ready(function() {
 	/* Varsity Temp Code */
 	if (location.href.indexOf('mysport/thewelshvarsity') != -1) {
 			var replaced = $("#page-org-join").html().replace(/membership/g,'ticket').replace(/Membership/g,'Ticket').replace(/organisation/g,'event').replace(/Organisation/g,'Event');
-			$("#page-org-join").html(replaced);
+			$("#page-org-join").html(replac
+			
+			
+			ed);
     }
 	
     /*
      * COVERFLOW
      */
-	if ($.exists('.page_root')){
+    var pageTriggers_Coverflow = ['.page_root', '.page_frontpage', '.page_fpclone'];
+    if ($.exists(pageTriggers_Coverflow)) {
 		SU_Widget.Coverflow('Data_Events_FeaturedUnion', '#coverflow');
 	}
 	else if($.exists('.page_events')){
@@ -158,23 +177,21 @@ $(document).ready(function() {
     /*
      * NEWS
      */
-    var pageTriggers_News = ['.page_root', '.page_frontpage', '.page_fpclone'];
+    //var pageTriggers_News = ['.page_root', '.page_frontpage', '.page_fpclone'];
+	var pageTriggers_News = ['.page_root', '.page_frontpage'];
     if ($.exists(pageTriggers_News)) {
-		if ($.exists('.page_fpclone'))
-		{
-			SU_Widget.NewNewsWidget('Data_News_Main', '#isonews', 5);
-		}
-		else
-		{
-			SU_Widget.NewsWidget('Data_News_Main', '#isonews', 10);
-		}
+		SU_Widget.NewsWidget('Data_News_Main', '#isonews', 4);
     }
 
+	var pageTriggers_NewNews = ['.page_fpclone'];
+    if ($.exists(pageTriggers_NewNews)) {
+		SU_Widget.NewNewsWidget('Data_News_Main', '#isonews', 4);
+    }
     
     /*
      * Union FrontPage Slider
      */	
-    var pageTriggers_MyUnion_root = ['.page_root', '.page_frontpage'];
+    var pageTriggers_MyUnion_root = ['.page_root', '.page_frontpage', '.page_fpclone'];
     if ($.exists(pageTriggers_MyUnion_root)) {
 		var unionType = "FTO";
 		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" })[0].Category;
@@ -189,7 +206,8 @@ $(document).ready(function() {
     /*
      * My Union Slider
      */		
-    var pageTriggers_MyUnion = ['.page_yourunion', '.page_elections'];
+    //var pageTriggers_MyUnion = ['.page_yourunion', '.page_elections'];
+	var pageTriggers_MyUnion = ['.page_yourunion']; //not sure why .page_elections was included in this, possible aborted feature?
     if ($.exists(pageTriggers_MyUnion)) {		
 		var unionType = "FTO";
 		var firstCat = SU_Data.unionData.filter(function(d) { return d.Type == "FTO" || d.Type == "Other"; })[0].Category;
