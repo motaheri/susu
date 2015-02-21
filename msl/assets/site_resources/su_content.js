@@ -8,6 +8,19 @@ if (currentWebUrl.indexOf('swansea-union.co.uk/activities') > 0) {
 	window.location.replace('http://www.swansea-union.co.uk/yourunion/');
 }
 
+/* Redirect root directories to actual representing pages */
+var forwardSlashCount = window.location.href.split("/").length;
+if (forwardSlashCount <= 5){
+	if (currentWebUrl.indexOf('swansea-union.co.uk/mysociety') > 0) {
+		window.location.replace('http://www.swansea-union.co.uk/societies/');
+	}else if(currentWebUrl.indexOf('swansea-union.co.uk/mysport') > 0){
+		window.location.replace('http://www.swansea-union.co.uk/sports/');	
+	}else if(currentWebUrl.indexOf('swansea-union.co.uk/myunion') > 0){
+		window.location.replace('http://www.swansea-union.co.uk/yourunion/');	
+	}
+}
+
+
 jQuery.exists = function (selectors) {
     if (typeof selectors == "string") {
         return $(selectors).length > 0;
@@ -448,7 +461,7 @@ $(document).ready(function() {
 		var pagePhotoBadge = $('#organisation #aside #page-badge-photo .mslwidget').html();
 		console.log(pagePhotoBadge);
 		$('#cover .banner-title').css("text-align", "center");
-		$('body #cover').css("background-color", "#405E92");
+		$('body #cover').css("background-color", "#405E92").css("background-image", "url('http://i.imgur.com/FpEGbC5.png')").css("background-size", "470px");
 		$('#cover .banner-title').html('');
 		$('#cover .banner-title').html(pagePhotoBadge);
 		$('#cover .banner-title img').css("height", "215px");
